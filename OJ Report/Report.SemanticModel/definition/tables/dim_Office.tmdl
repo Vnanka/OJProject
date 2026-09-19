@@ -1,0 +1,83 @@
+table dim_Office
+	lineageTag: df417810-0b91-4d2e-b841-5d2520a4d217
+
+	column OfficeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e6c6891f-b366-48c2-a7b2-ff5f09ced923
+		summarizeBy: none
+		sourceColumn: OfficeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfficeName
+		dataType: string
+		lineageTag: 86ff21a1-5417-4f2b-ae45-aeaab2192af4
+		summarizeBy: none
+		sourceColumn: OfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 8ae2d741-743b-44d5-bad9-7702e1512841
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 57192eab-169c-4119-9c4a-efca5c5b00c9
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryName
+		dataType: string
+		lineageTag: dcc88ded-38b6-43a9-9812-e59251b70669
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: eae208e9-306c-46ed-9d0a-29763eb3a819
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionSortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: c85d89bb-b517-4dc3-a601-a0841ec7d044
+		summarizeBy: none
+		sourceColumn: RegionSortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 85da46a9-eb7b-4c85-91ae-c0237c6eccfb
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Office = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Office.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

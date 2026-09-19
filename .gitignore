@@ -12,6 +12,9 @@ dw/warehouse/
 *.duckdb
 *.duckdb.wal
 
+# ---- Gold Parquet for Power BI (rebuilt by export_parquet.py) ---------------
+dw/export/
+
 # ---- dbt artefacts (regenerated on every run) -------------------------------
 dw/dbt/target/
 dw/dbt/dbt_packages/

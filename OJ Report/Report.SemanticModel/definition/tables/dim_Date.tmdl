@@ -1,0 +1,330 @@
+table dim_Date
+	lineageTag: b39053a7-923f-49d3-a971-bb16f1b0bf9c
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fb238ed3-29d0-4e4c-a72c-1a3e76feebf1
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1bfc0670-921c-4fde-8912-b94ce3c80283
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DayOfWeekNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 87d0827c-dab3-49d8-9130-b71f6360934a
+		summarizeBy: none
+		sourceColumn: DayOfWeekNumber
+
+		annotation SummarizationSetBy = User
+
+	column DayName
+		dataType: string
+		lineageTag: dec1baa5-7665-4f39-b335-46237c8d7e46
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNameShort
+		dataType: string
+		lineageTag: b4a13fe6-d920-40f7-a9fe-b8ac3c8fbd11
+		summarizeBy: none
+		sourceColumn: DayNameShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6c0877c4-977a-424e-87da-1189909ffa1b
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBankHoliday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fe9093e4-005b-4d88-a43a-48a8b74ba40d
+		summarizeBy: none
+		sourceColumn: IsBankHoliday
+
+		annotation SummarizationSetBy = Automatic
+
+	column BankHolidayName
+		dataType: string
+		lineageTag: dc8e783a-77e1-4ae9-a0fb-1e1f78b5ca0a
+		summarizeBy: none
+		sourceColumn: BankHolidayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 49e644a7-7a7d-4a66-ae79-133e2e4d73fb
+		summarizeBy: none
+		sourceColumn: IsWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d7e3229-356f-47b5-be07-23db23589abf
+		summarizeBy: none
+		sourceColumn: CalendarYear
+
+		annotation SummarizationSetBy = User
+
+	column CalendarQuarterNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 00eb15bd-1461-4e85-ba79-98571143d880
+		summarizeBy: none
+		sourceColumn: CalendarQuarterNumber
+
+		annotation SummarizationSetBy = User
+
+	column CalendarQuarter
+		dataType: string
+		lineageTag: a27b545a-1b86-4ee0-a599-9c692426e10b
+		summarizeBy: none
+		sourceColumn: CalendarQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: a40ab157-7b16-48c9-bdb7-6a9e496baca6
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = User
+
+	column MonthName
+		dataType: string
+		lineageTag: 8ebfb959-fe3f-4106-a11d-886a19e6a372
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameShort
+		dataType: string
+		lineageTag: 6e64f3b4-f822-41d8-bd5e-7857e387e148
+		summarizeBy: none
+		sourceColumn: MonthNameShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: 14419a8a-957f-494f-b216-7ae6d8dd7d91
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: abd05818-f80b-4c5d-8f7a-55d4c1b5f478
+		summarizeBy: none
+		sourceColumn: YearMonthKey
+
+		annotation SummarizationSetBy = User
+
+	column MonthStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e6870480-7105-4292-b3e1-d21b0e2642dd
+		summarizeBy: none
+		sourceColumn: MonthStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsoYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c2655e2-b37a-4510-977e-24595588fc7f
+		summarizeBy: none
+		sourceColumn: IsoYear
+
+		annotation SummarizationSetBy = User
+
+	column IsoWeekNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 857dcb24-012d-4d02-a107-9b42afb2eca6
+		summarizeBy: none
+		sourceColumn: IsoWeekNumber
+
+		annotation SummarizationSetBy = User
+
+	column IsoYearWeek
+		dataType: string
+		lineageTag: 5abef1db-3a2c-4602-8685-57be2c6d050a
+		summarizeBy: none
+		sourceColumn: IsoYearWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsoWeekName
+		dataType: string
+		lineageTag: eca2432e-38bd-4a11-ab72-dce0a37e48c6
+		summarizeBy: none
+		sourceColumn: IsoWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d339e95a-1f94-4ba8-891f-ff5f5e63f521
+		summarizeBy: none
+		sourceColumn: WeekStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FiscalYearNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d23dad5-80cf-4321-99a8-5198f872fab4
+		summarizeBy: none
+		sourceColumn: FiscalYearNumber
+
+		annotation SummarizationSetBy = User
+
+	column FiscalYear
+		dataType: string
+		lineageTag: 28728b80-6523-4a2a-bb31-6b6edb4fb39e
+		summarizeBy: none
+		sourceColumn: FiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalQuarterNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bf92034-e039-496b-a871-62169a7c0054
+		summarizeBy: none
+		sourceColumn: FiscalQuarterNumber
+
+		annotation SummarizationSetBy = User
+
+	column FiscalQuarter
+		dataType: string
+		lineageTag: 5116e127-073b-4e39-a82b-39e9d9b73cb2
+		summarizeBy: none
+		sourceColumn: FiscalQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalPeriodNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 50a505d9-d4d7-4479-a609-33c8b62cb474
+		summarizeBy: none
+		sourceColumn: FiscalPeriodNumber
+
+		annotation SummarizationSetBy = User
+
+	column FiscalPeriod
+		dataType: string
+		lineageTag: a11f4905-65d0-4995-ab4f-f735a9a300e6
+		summarizeBy: none
+		sourceColumn: FiscalPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYearPeriodKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0deaa0df-124c-4161-a675-aaced947d890
+		summarizeBy: none
+		sourceColumn: FiscalYearPeriodKey
+
+		annotation SummarizationSetBy = User
+
+	column FiscalWeekNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 6542fca1-1d12-456e-90db-bdcc4f3edd08
+		summarizeBy: none
+		sourceColumn: FiscalWeekNumber
+
+		annotation SummarizationSetBy = User
+
+	column FiscalWeekName
+		dataType: string
+		lineageTag: 35622a60-3f81-4e92-b270-cc854f07bd01
+		summarizeBy: none
+		sourceColumn: FiscalWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalWeekOfQuarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 67154101-f704-452e-9820-ad7def53cc54
+		summarizeBy: none
+		sourceColumn: FiscalWeekOfQuarter
+
+		annotation SummarizationSetBy = User
+
+	column FiscalWeekOfPeriod
+		dataType: int64
+		formatString: 0
+		lineageTag: 34f42620-1ee8-4c46-956e-1336f0ffb97a
+		summarizeBy: none
+		sourceColumn: FiscalWeekOfPeriod
+
+		annotation SummarizationSetBy = User
+
+	column FiscalYearStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4c9db6aa-f955-4f44-83fa-5e6bc41d72eb
+		summarizeBy: none
+		sourceColumn: FiscalYearStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_Date = m
+		mode: import
+		source = ```
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Date.parquet"), 
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,149 @@
+table dim_Vacancy
+	lineageTag: 43f98b15-afb1-43dc-9f2d-e42ba4166f0a
+
+	column VacancyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0b56e4e7-6121-435d-be7b-335a02bcc248
+		summarizeBy: none
+		sourceColumn: VacancyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		lineageTag: f63bdb61-1a30-4d21-8e9c-ad7ee6bdb4bc
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobStatus
+		dataType: string
+		lineageTag: 756962d9-aadb-4222-996d-17c4781242a8
+		summarizeBy: none
+		sourceColumn: JobStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: 13593102-da92-43c3-9276-a144c54bc7ab
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkArrangement
+		dataType: string
+		lineageTag: beee2267-a073-488d-9bff-15803ecc42c9
+		summarizeBy: none
+		sourceColumn: WorkArrangement
+
+		annotation SummarizationSetBy = Automatic
+
+	column OwningOffice
+		dataType: string
+		lineageTag: 40a0874b-00af-48be-936e-9b220a323076
+		summarizeBy: none
+		sourceColumn: OwningOffice
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 0d11ccb5-ff59-4045-9027-fc9d8217a860
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 8b592ff6-1777-4a3d-a650-dc64e48787a9
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Openings
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e1d7244-7fac-4261-a716-264e7cf2e497
+		summarizeBy: sum
+		sourceColumn: Openings
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryText
+		dataType: string
+		lineageTag: 73bb9480-0a91-4f9c-b273-659bc43a4601
+		summarizeBy: none
+		sourceColumn: SalaryText
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryMin
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 0cb23c33-cc62-4672-98df-0308c620e680
+		summarizeBy: sum
+		sourceColumn: SalaryMin
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryMax
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 0c34eb9d-be7f-4887-90ff-3ca79aef0606
+		summarizeBy: sum
+		sourceColumn: SalaryMax
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalaryCurrency
+		dataType: string
+		lineageTag: 78a82368-3770-4706-b717-c775ffb33ca5
+		summarizeBy: none
+		sourceColumn: SalaryCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3de3fd78-cb93-4fdc-ba1f-8fffaac0921f
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ExpectedStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e17e627b-e99c-4128-be86-60cdf066ed1c
+		summarizeBy: none
+		sourceColumn: ExpectedStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_Vacancy = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Vacancy.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
+				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
+				        {{"SalaryMin", Currency.Type}, {"SalaryMax", Currency.Type}})
+				in
+				    #"Money as fixed decimal"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

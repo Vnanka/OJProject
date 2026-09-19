@@ -121,6 +121,59 @@ models:
           - relationships:
               arguments: {to: ref('dim_Date'), field: DateKey}
 
+  - name: fact_ApplicationLine
+    description: "One row per status change (the event log) - the 'line' to fact_Application's 'header'. Active date = EventDateKey (activity view). dim_Stage plays two roles: StatusToKey active, StatusFromKey inactive. No relationship to fact_Application; ApplicationId is a plain column."
+    columns:
+      - name: ApplicationLineId
+        description: "The CRM's own status history id."
+        data_tests: [unique, not_null]
+      - name: ApplicationId
+        description: "Every line must belong to an application in the header fact."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('fact_Application'), field: ApplicationId}
+      - name: VacancyKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
+      - name: ClientKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Client'), field: ClientKey}
+      - name: IndustryKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Industry'), field: IndustryKey}
+      - name: DisciplineKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
+      - name: ConsultantKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
+      - name: OfficeKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Office'), field: OfficeKey}
+      - name: StatusToKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Stage'), field: StageKey}
+      - name: StatusFromKey
+        description: "0 'No Status' on the first event of an application."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Stage'), field: StageKey}
+      - name: EventDateKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+
   - name: fact_Placement
     description: "One row per placement, from finance. Booked fee = salary x fee %, local and GBP (monthly rate of the placed month). Fee % exactly as recorded (3 known gaps are reported, not patched). Start/Leave dates blank when they haven't happened."
     columns:
@@ -218,6 +271,45 @@ models:
               arguments: {to: ref('dim_Date'), field: DateKey}
       - name: NetAmountGbp
         description: "Every document must find an exchange rate, or it would silently drop out of NFI."
+        data_tests: [not_null]
+
+  - name: fact_Target
+    description: "Monthly NFI target per consultant, GBP. Month grain: DateKey = 1st of the month. Only consultant, office and date apply - no client/industry/discipline/vacancy by design."
+    columns:
+      - name: ConsultantKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
+      - name: OfficeKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Office'), field: OfficeKey}
+      - name: DateKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: TargetNfiGbp
+        data_tests: [not_null]
+
+  - name: sec_UserTeam
+    description: "Row-level security access list: one row per email per team they may see. No relationship in Power BI; used by the dynamic RLS role filtering dim_Consultant[Team]. CEO and CFO also see team 'Unknown'."
+    columns:
+      - name: Email
+        description: "Team managers must be real CRM users, so RLS works for them by their own email."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: Email}
+              config:
+                where: "RoleDescription like 'Team Manager%'"
+      - name: Team
+        description: "Every team in the list must exist in dim_Consultant (incl. 'Unknown')."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: Team}
+      - name: RoleDescription
         data_tests: [not_null]
 
   - name: dim_FxRateMonthly

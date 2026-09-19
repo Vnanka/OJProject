@@ -1,0 +1,32 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_Date","dim_Office","dim_Industry","dim_Discipline","dim_Consultant","dim_Client","dim_Vacancy","dim_Stage","fact_Application","fact_ApplicationLine","fact_Placement","fact_FeeTransaction","fact_Target","sec_UserTeam"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_Date
+ref table dim_Office
+ref table dim_Industry
+ref table fact_Target
+ref table dim_Discipline
+ref table dim_Consultant
+ref table dim_Client
+ref table dim_Vacancy
+ref table dim_Stage
+ref table fact_Application
+ref table fact_ApplicationLine
+ref table fact_Placement
+ref table fact_FeeTransaction
+ref table sec_UserTeam
+
+ref cultureInfo en-GB
+

@@ -1,0 +1,152 @@
+table fact_ApplicationLine
+	lineageTag: 9cfc1b4a-a7bf-4a6c-bddd-fabeeba3fac0
+
+	column ApplicationLineId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f494afa-a9cb-4263-bc1d-f189fca40ca2
+		summarizeBy: none
+		sourceColumn: ApplicationLineId
+
+		annotation SummarizationSetBy = User
+
+	column ApplicationId
+		dataType: int64
+		formatString: 0
+		lineageTag: a9d85bd9-4487-4152-9101-92ac07ad00a8
+		summarizeBy: none
+		sourceColumn: ApplicationId
+
+		annotation SummarizationSetBy = User
+
+	column CandidateId
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7c40d930-b858-4aa2-9ca3-f9dec6c0407e
+		summarizeBy: none
+		sourceColumn: CandidateId
+
+		annotation SummarizationSetBy = User
+
+	column VacancyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 152555f7-04cb-4994-a8aa-267011e4a3be
+		summarizeBy: none
+		sourceColumn: VacancyKey
+
+		annotation SummarizationSetBy = User
+
+	column ClientKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 00084237-ea85-4a74-97e4-ed280353f1d3
+		summarizeBy: none
+		sourceColumn: ClientKey
+
+		annotation SummarizationSetBy = User
+
+	column IndustryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 13886068-1401-4b81-ba94-e9b38cced743
+		summarizeBy: none
+		sourceColumn: IndustryKey
+
+		annotation SummarizationSetBy = User
+
+	column DisciplineKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5835e6f3-80c0-4dbb-92dc-b4b6590a8421
+		summarizeBy: none
+		sourceColumn: DisciplineKey
+
+		annotation SummarizationSetBy = User
+
+	column ConsultantKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0836bc16-9773-49dc-95ec-95774061e335
+		summarizeBy: none
+		sourceColumn: ConsultantKey
+
+		annotation SummarizationSetBy = User
+
+	column OfficeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 25681b20-22f7-4caf-a0a6-7448da84571e
+		summarizeBy: none
+		sourceColumn: OfficeKey
+
+		annotation SummarizationSetBy = User
+
+	column StatusToKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 72fc4daa-e248-45b1-98ce-638ef44e92b6
+		summarizeBy: none
+		sourceColumn: StatusToKey
+
+		annotation SummarizationSetBy = User
+
+	column StatusFromKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c8c888ee-bba0-407e-9756-f79c96e8d647
+		summarizeBy: none
+		sourceColumn: StatusFromKey
+
+		annotation SummarizationSetBy = User
+
+	column EventDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1ac71193-ff47-45b1-8402-021af6533363
+		summarizeBy: none
+		sourceColumn: EventDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventAt
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ae140604-8d9a-468e-8942-84f7f5deeb7b
+		summarizeBy: none
+		sourceColumn: EventAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysInPreviousStage
+		dataType: int64
+		formatString: 0
+		lineageTag: c740114d-76c8-4f24-ac86-3fc937bfbf77
+		summarizeBy: none
+		sourceColumn: DaysInPreviousStage
+
+		annotation SummarizationSetBy = User
+
+	partition fact_ApplicationLine = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\fact_ApplicationLine.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

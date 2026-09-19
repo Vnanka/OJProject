@@ -1,0 +1,140 @@
+table dim_Consultant
+	lineageTag: 4cfb42e4-084a-4cc0-9523-10d5b8655c75
+
+	column ConsultantKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9d145089-a7aa-4e39-ad65-68ba6b7f19bc
+		summarizeBy: none
+		sourceColumn: ConsultantKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsultantName
+		dataType: string
+		lineageTag: 27ef6fb6-b394-4395-b1e1-3319c46a368f
+		summarizeBy: none
+		sourceColumn: ConsultantName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 191f21a4-cc62-46e8-9a5e-780b7060563b
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: ec9b08a8-2f67-4828-8db1-55a962d00890
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: a368d98d-8e46-40cf-b900-bb7c1a45ea3b
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 60d2650d-46ea-40bf-8600-59c2d4b29132
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 5ed152c7-33f5-4221-93a8-6f7852cb4f3d
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column Office
+		dataType: string
+		lineageTag: aeb5e3ae-35e3-40ad-b127-92e62827d709
+		summarizeBy: none
+		sourceColumn: Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 33775f78-b146-4e31-b0f3-767b6894ee66
+		summarizeBy: none
+		sourceColumn: ManagerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerName
+		dataType: string
+		lineageTag: ef4661e3-84b6-4399-83e5-1313763d6619
+		summarizeBy: none
+		sourceColumn: ManagerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsManager
+		dataType: boolean
+		formatString: """TRUE"";""FALSE"";""TRUE"""
+		lineageTag: 17bab926-ef2d-41d8-b5e2-62a5711043b0
+		summarizeBy: none
+		sourceColumn: IsManager
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 03135965-a82f-4456-9566-82f09885e849
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LeaveDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 57e3e22f-cdb7-4715-8517-430b118fe5a0
+		summarizeBy: none
+		sourceColumn: LeaveDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""FALSE"";""TRUE"""
+		lineageTag: cfe4538c-4a37-4f4a-83ec-1b06767deeb5
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Consultant = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Consultant.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

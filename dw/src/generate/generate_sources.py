@@ -905,6 +905,11 @@ def main():
     target_rows = build_targets(users, teams)
     security_rows = [(email, team, role, mod_crm(date(2026, 9, 1), 5))
                      for email, team, role in build_security(teams)]
+    # 19 Sep: the access list's owner grants the CEO and CFO the "Unknown" team -
+    # records that can't be tied to a team (e.g. orphan credit notes). A fixed
+    # timestamp, NOT MOD_RNG, so no other file's values shift.
+    security_rows += [(email, "Unknown", "Executive - unassigned records", "2026-09-19 10:00:00")
+                      for email in ("ceo@example.com", "cfo@example.com")]
 
     for c in companies:
         c["last_event"] = c["first_job"]

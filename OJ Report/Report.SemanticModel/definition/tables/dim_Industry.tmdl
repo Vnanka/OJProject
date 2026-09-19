@@ -1,0 +1,73 @@
+table dim_Industry
+	lineageTag: babda5ea-fbcf-4bb4-9051-4ae959ac8358
+
+	column IndustryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ff3529eb-31a6-4cda-9253-56a578316e3e
+		summarizeBy: none
+		sourceColumn: IndustryKey
+
+		annotation SummarizationSetBy = User
+
+	column SubSector
+		dataType: string
+		lineageTag: eb225e4d-4680-4787-94be-702762c26f86
+		summarizeBy: none
+		sourceColumn: SubSector
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 7c8c1b2e-7a67-453f-a547-659cb55a410e
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustrySortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: c760b1fb-4af4-4630-868e-9d26fa4ff18d
+		summarizeBy: none
+		sourceColumn: IndustrySortOrder
+
+		annotation SummarizationSetBy = User
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 926f182b-2bf0-480b-9e70-7cd0d77b0c91
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ValidTo
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f9446e46-f2c7-4845-9207-3c851c08a005
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_Industry = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Industry.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

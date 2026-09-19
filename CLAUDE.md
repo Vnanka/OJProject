@@ -1,14 +1,14 @@
 # CLAUDE.md — OJ Project (Oliver James interview dashboard)
 
-Working context for this folder. Read this first, then look at `data-rules.md`,
-then ask what to work on.
+Working context for this folder. Read this first, then `data-rules.md` (v3.1, the data
+plan), then ask what to work on.
 
 ---
 
 ## 1. The job
 
-Vlad has a second-stage interview for **Senior BI Analyst (Microsoft Fabric)** at
-**Oliver James**, a recruitment firm.
+Second-stage interview for **Senior BI Analyst (Microsoft Fabric)** at **Oliver James**,
+a recruitment firm.
 
 | | |
 |---|---|
@@ -17,542 +17,442 @@ Vlad has a second-stage interview for **Senior BI Analyst (Microsoft Fabric)** a
 | **Task** | Build a Power BI dashboard on a dataset of his choosing, present it, then Q&A |
 | **Q&A covers** | Data model, KPI logic, governance, scalability, stakeholders, productionising |
 
-Full brief, job spec and company research: **`Misc/CLAUDE_1.md`** (the previous session's
-handoff — still accurate, do not delete). Source documents, all in **`Misc/`** (Vlad moved
-them there on 17 Sep to keep the root tidy): `1.pdf` (recruiter email),
+Brief, job spec and company research: **`Misc/CLAUDE_1.md`** (previous session's handoff,
+still accurate, do not delete). Source documents in **`Misc/`**: `1.pdf` (recruiter email),
 `Senior BI Analyst - OJA (1).docx` (job spec), `Vladislavs Nanaks_CV_BI_D V4.docx` (CV).
-
-**Time available.** He works full time Wed 16 – Fri 18 Sep, so only evenings.
-Then the weekend. Roughly 20–25 usable hours in total, and some of that must go to the
-presentation and rehearsal. **Scope discipline matters more than ambition.**
 
 ---
 
 ## 2. How to work with Vlad
 
 - **Plain, simple English.** English is his second language. Explain like he is a junior
-  data engineer: short sentences, no unexplained jargon. Name a concept, then define it
-  in one line (grain, idempotent, conformed dimension, role-playing dimension).
-- **One thing at a time, then stop and wait.** Propose, get agreement, then do it.
+  data engineer: short sentences, no unexplained jargon. Name a concept, then define it in
+  one line (grain, idempotent, conformed dimension, role-playing dimension).
+- **One thing at a time.** Propose → get agreement → do it. Show prerequisites and open
+  decisions *before* building. He has stopped a build twice for skipping this.
 - **Show real command output.** Never claim something ran or worked without pasting it.
 - **Never invent his work history.** CV facts only. Synthetic *demo* data is fine and is
   always labelled synthetic.
-- **He owns Power BI.** It is his strongest skill — advise on what the model should
-  expose, do not try to design the report for him.
-- **He does not know DuckDB or dbt yet.** Both need a short, practical lesson when we
-  reach them. He has a dbt project in `../lol-data-warehouse` but has not yet learned how
-  it works. Bridge from what he knows: raw → staging → marts is bronze → silver → gold;
-  a dbt model is a SELECT and dbt writes the CREATE around it; dbt tests are data quality
-  gates that run *before* the report.
-- The strict "Vlad types all the Python" rule belongs to the **lol-data-warehouse** repo.
-  It does **not** apply here — there is no time. Here Claude writes the generator and the
-  dbt models, explains them, and Vlad reviews. (Confirm with him if in doubt.)
+- **He owns Power BI.** It is his strongest skill — advise on what the model should expose,
+  do not design the report for him.
+- **He is learning DuckDB and dbt here.** Bridge from what he knows: raw → staging → marts
+  is bronze → silver → gold; a dbt model is a SELECT and dbt writes the CREATE around it;
+  dbt tests are data quality gates that run *before* the report.
+- Claude writes the code here and explains it; Vlad reviews and decides. (The "Vlad types
+  all the Python" rule belongs to the **lol-data-warehouse** repo, not this one.)
+- Keep the root tidy — new files go in the right subfolder.
 
 ---
 
-## 3. Decisions already agreed (15 Sep 2026)
+## 3. The design
 
-**Dataset.** Not League of Legends — no commercial meaning for a recruitment panel.
+**Dataset.** Not League of Legends (no commercial meaning for a recruitment panel).
 Synthetic recruitment data shaped like Oliver James, plus real reference data from public
-APIs. The LoL warehouse is used as *evidence of how he works* in the Q&A only.
+APIs. The LoL warehouse is Q&A evidence of how he works, nothing more.
 
-**Architecture ("Level B") — a small local warehouse:**
+**Architecture — a small local warehouse:**
 
 ```
-generated CSV exports        BRONZE           SILVER            GOLD               Power BI
-+ real API data        ->  DuckDB raw.*  ->  dbt stg_* views ->  dim_/fact_ tables  ->  import
-(two "source systems")     loaded as text     rename, cast       + dbt tests           Parquet
-                                              standardise
+generated CSV exports     BRONZE          SILVER           GOLD              Power BI
++ real API data       -> DuckDB raw.* -> dbt stg_* views -> dim_/fact_ tables -> import
+(two "source systems")   loaded as text   rename, cast      + dbt tests          Parquet
+                                          standardise
 ```
 
-- Business logic lives in **SQL in the warehouse**, not in Power Query. This matches the
-  job spec ("consolidate SQL and business logic into governed datasets").
-- Power BI reads **Parquet files** exported by dbt. Chosen over a DuckDB ODBC connection
-  because it cannot fail on the day.
-- Cloud (Fabric / Azure SQL) is **deliberately not built** — it is one architecture slide
-  showing how this becomes production. He talks about Fabric from real job experience.
+- Business logic lives in **SQL in the warehouse**, not Power Query — matches the job spec
+  ("consolidate SQL and business logic into governed datasets").
+- Power BI reads **Parquet files** written by `export_parquet.py`. Chosen over a live DuckDB
+  connection because a file cannot fail on the day.
+- Cloud (Fabric / Azure SQL) is **deliberately not built** — one architecture slide shows how
+  this becomes production. He talks about Fabric from real job experience.
 
-**Gold layer — 4 facts, 8 dimensions:**
+**Gold: 5 facts, 8 dimensions, 1 security table, 1 FX helper.**
 
 | Fact | Grain |
 |---|---|
-| `fact_Application` | one application (candidate × job): milestone dates, reached flags, current stage — replaces `fact_pipeline_event` (19 Sep) |
-| `fact_ApplicationLine` | one status change within an application (the event log) — optional second fact |
-| `fact_placement` | one placement |
-| `fact_fee_transaction` | one invoice **or** credit note |
-| `fact_target` | one consultant per month (NFI target, GBP) — added 16 Sep for the manager level |
+| `fact_Application` | one application (candidate × vacancy) — accumulating snapshot |
+| `fact_ApplicationLine` | one status change — the event log |
+| `fact_Placement` | one placement |
+| `fact_FeeTransaction` | one invoice **or** credit note |
+| `fact_Target` | one consultant per month (NFI target, GBP) |
 
-Dimensions: `dim_date`, `dim_consultant`, `dim_client`, `dim_vacancy` (includes
-work arrangement + employment type), `dim_stage`, `dim_industry`, `dim_discipline`,
-`dim_office`.
+Dimensions: `dim_Date`, `dim_Consultant`, `dim_Client`, `dim_Vacancy`, `dim_Stage`,
+`dim_Industry`, `dim_Discipline`, `dim_Office`. Plus `dim_FxRateMonthly` (helper, not
+exported) and `sec_UserTeam` (RLS access list).
 
-**Key design choices and why (these are the Q&A talking points):**
+**Key design choices:**
 
-- **The quirk: rebates.** If a candidate leaves inside a 12-week guarantee period, a
-  credit note refunds part of the fee. So booked fee != invoiced != **Net Fee Income**.
-  NFI is how Oliver James actually reports growth.
-- **`dim_date` is role-playing**: one table, extra dates use inactive relationships plus
-  `USERELATIONSHIP()`. Built in dbt, not with `CALENDAR()`, so there is one source of truth.
-  Fiscal year starts **1 April**; weeks are **ISO**, Monday start. Calendar + fiscal
-  columns, UK bank holidays and working-day flags.
-- **Industry and discipline are two separate dimensions.** Industry = what the client is
-  (4 of them). Discipline = what the job is (7, and they repeat across all industries).
-- **`office_key` sits on the fact rows**, recorded at the time of the event, so a
-  consultant moving office does not rewrite history. Avoids needing SCD Type 2.
+- **The quirk: rebates.** A candidate leaving inside the 12-week guarantee triggers a credit
+  note refunding part of the fee. So booked fee ≠ invoiced ≠ **Net Fee Income**. NFI is how
+  Oliver James actually reports growth.
+- **`dim_Date` is role-playing**: one conformed table; each fact's main date is the active
+  relationship, other dates are inactive + `USERELATIONSHIP()`. Fiscal year starts **1 April**;
+  ISO weeks, Monday start. Built in dbt, not `CALENDAR()`, so there is one source of truth.
+- **Star, not snowflake.** Facts carry EVERY dimension key directly; dims never point at each
+  other. Reasons: filters flow one step, field parameters need direct relationships, the
+  lookup cost is paid once at build time. `dim_Client`/`dim_Vacancy` keep industry and
+  discipline NAMES as text for convenience only.
+- **Industry ≠ discipline.** Industry = what the client is; discipline = what the job is
+  (they repeat across all industries). Two separate dimensions.
+- **`OfficeKey` sits on fact rows**, fixed at build time, so a consultant moving office does
+  not rewrite history. Avoids SCD Type 2.
 - **No candidate dimension** — not needed for these KPIs, and it is a GDPR point.
-- **Perm only.** Contract/interim invoicing was cut as too much work.
-- **Multi-currency with real ECB rates.** Conversion to GBP happens **in dbt**, so every
-  report uses the same number. Frankfurter API (`api.frankfurter.dev/v1`, no key) covers
-  all seven office currencies — verified working. It publishes nothing on weekends and
-  holidays, so we use a **monthly average rate**, which is what finance teams do anyway.
+- **Perm only.** Contract/interim invoicing cut as too much work.
+- **Multi-currency with real ECB rates.** GBP conversion happens **in dbt**, so every report
+  uses the same number. Frankfurter API (`api.frankfurter.dev/v1`, no key) covers all seven
+  office currencies. No weekend/holiday rates, so we use a **monthly average** — what finance
+  teams do anyway. Rule: **GBP = local ÷ RatePerGbp**, at the month of the document date.
 
-**Source export shape (16 Sep 2026).** The CRM export copies the table/column names,
-status codes and messy value formats of **OpenCATS** (open-source recruitment CRM).
-Industry, discipline and work arrangement are **plain custom columns**. Vlad rejected
-OpenCATS `extra_field` (EAV, key-value rows) as overcomplication; it is only a Q&A point.
-Added `can_relocate` (flag copied onto fact rows) and `candidate_duplicates` (merged in
-silver before counting). Placements and fees come from a separate finance export.
-Full detail: `data-rules.md` v3.
+**Source shape.** The CRM export copies the table/column names, status codes and messy value
+formats of **OpenCATS** (open-source recruitment CRM). Industry, discipline and work
+arrangement are plain custom columns — Vlad rejected OpenCATS `extra_field` (EAV) as
+overcomplication (Q&A point only). Placements, fees and targets come from a separate finance
+export. Real data used: ECB rates, gov.uk bank holidays, and OJ's real industry, discipline
+and office lists. Everything transactional is generated. Full detail: `data-rules.md`.
 
-**Report ideas (16 Sep 2026, not final).** 1–2 executive pages + a drillthrough detail page,
-time series, KPI cards for conversion rates (cohort-based, non-round, change by fiscal year),
-**field parameters** to switch the grouping (industry / office / discipline / team…).
-**Two audiences:** executives (whole firm) and **team managers** (own team; consultant
-ranking, NFI vs target, tenure-adjusted comparison), plus a consultant drillthrough.
-**Row-level security** is a known gap from Vlad's first interview; he wants to show he has
-learned it. Plan: **dynamic RLS at team level** with `USERPRINCIPALNAME()` and a fake
-access list (`security_user_team.csv`, ~120 rows: execs → all teams, directors → their
-region/office teams, managers → own team), demoed with Desktop "View as". Every fact
-carries the consultant key so the filter reaches everything; transaction facts carry all
-the same dimension keys so field parameters work. Known limit: current team only (no SCD2).
-
-**Real data used:** ECB exchange rates, gov.uk bank holidays, and OJ's real industry,
-discipline and office lists from their website. Everything transactional is generated.
+**Report plan (not final).** 1–2 executive pages + a drillthrough detail page; time series;
+KPI cards for cohort conversion rates; **field parameters** to switch the grouping
+(industry / office / discipline / team). **Two audiences:** executives (whole firm) and team
+managers (own team, consultant ranking, NFI vs target). **Row-level security** was a known
+gap from his first interview and he wants to show he has learned it: dynamic RLS at team
+level, demoed with Desktop "View as".
 
 ---
 
-## 4. Current state
+## 4. Standards and rules
 
-- `data-rules.md` — **v3, agreed by Vlad (16 Sep). The data plan is complete.** Volumes, funnel rates,
-  seasonality, fee and rebate rules, the six stories planted in the data, seven deliberate
-  data quality problems, and what is out of scope. Section 10 records his answers; section 11 has
-  the actual generated counts (214 users, 7,506 jobs, 145,619 history rows, 4,714 placements).
-- **Raw data is generated (16 Sep).** Layout, agreed with Vlad: everything for the warehouse
-  lives under `dw/`, data in `dw/raw/<source system>/`.
-  ```
-  dw/raw/crm/  finance/  security/  api/       9.7 MB, see data-rules.md §11
-  dw/src/generate/generate_sources.py          synthetic CRM + finance + security (fixed seed)
-  dw/src/extract/fetch_reference.py            real ECB rates + gov.uk bank holidays
-  ```
-  Both scripts are standard library only (they run with any Python 3.12). The generator prints checks of its output against data-rules.md; last run matched
-  the plan (details in §11). CRM go-live is 1 Oct 2022 (six-month run-in before FY23/24).
-- **Bronze loaded (17 Sep).** `dw/src/load/load_raw.py` creates `dw/warehouse/oj_dw.duckdb`
-  (7.0 MB) and lands all 13 files in schema `raw` — **every column VARCHAR** (verified: 0
-  non-text columns), CSVs via `read_csv(all_varchar=true)`, the two API files as one row of
-  JSON text each via `read_text` (dbt parses them with `json_extract_string`). Table names
-  keep the source visible: `crm_*`, `fin_*`, `sec_*`, `api_*`. Idempotent
-  (`create or replace`), re-runs in seconds.
-- **Modified timestamps added (17 Sep, Vlad's request).** Every source file now has a
-  "record last modified" column — `date_modified` (CRM), `modified_at` (finance),
-  `last_updated` (security) — with meaningful values (see `data-rules.md` §3.1). Purpose:
-  realism now, and a possible incremental load later. Added with a **separate random
-  generator**, so every other value in the data is byte-identical (verified against a
-  backup). Vlad re-ran the generator and the bronze load himself.
-- **dbt project skeleton created (17 Sep, ~22:40).** `dw/dbt/` holds `dbt_project.yml`
-  (profile `oj_dw`; `models/silver` → views, `models/gold` → tables), `profiles.yml`
-  (duckdb, `../warehouse/oj_dw.duckdb`, 4 threads) and `models/silver/sources.yml`
-  (all 13 bronze tables declared under source `raw`, with descriptions).
-  `dbt debug --profiles-dir .` → **All checks passed** (run by both Claude and Vlad).
-  dbt writes to schema `main`; bronze stays in `raw`.
-  Commands must run from `dw/dbt` with the venv active:
-  `..\..\.venv\Scripts\Activate.ps1`, then `dbt build --profiles-dir .`
-- **Column naming standard (Vlad's decision, 18 Sep): PascalCase, no underscores**, for all
-  silver and gold columns: `UserId`, `StartDate`, `ModifiedAt`. IDs end in `Id`, dates in
-  `Date`, timestamps in `At`; gold surrogate keys end in `Key`. DuckDB preserves the casing
-  (verified), so Power BI will show these names as written.
-- **Model naming standard (Vlad's decision, 19 Sep): lowercase layer prefix + PascalCase**:
-  `stg_User`, `stg_JobOrder`, `dim_Date`, `dim_FxRateMonthly`, `fact_Application`,
-  `fact_ApplicationLine`. Applied to silver and gold (26 models renamed 19 Sep, full rebuild
-  from scratch identical: PASS=104 WARN=6). **Bronze keeps source-shaped names**
-  (`raw.crm_user`) because it mirrors the source systems. Singular test files keep
-  `assert_*` names. Older entries in this file use the old snake_case names (`stg_user`,
-  `dim_date`, `fx_rate_monthly`) — same models. Git on Windows (`core.ignorecase=true`)
-  misses capital-only renames: fix with `git rm -r --cached <dir>` then `git add <dir>`
-  (done 19 Sep; 26 renames staged, not yet committed).
-- **Silver rules:** one bronze table per model; only rename, cast, standardise; no joins, no
-  business logic (no derived flags like `IsManager`/`IsActive` — those go to gold). Use
-  `cast` for IDs and dates so bad data fails the build loudly; `try_cast` only where bad
-  values are expected (free-text salary) and then count the NULLs with a test. Every model
-  starts `with source as (select * from {{ source(...) }})`. The audit column is always
-  renamed to `ModifiedAt`.
-- **Silver built (18 Sep): 13 views + `schema.yml` + 1 singular test.** `dbt build` →
-  **PASS=43 WARN=6 ERROR=0**. The 6 warnings are exactly the planted problems: Discipline
-  blank 30, status 999 on 20 rows, FeePct blank 2 + zero 1 (`tests/assert_fee_pct_positive.sql`),
-  orphan credit notes 2, unparseable salary ('Competitive') 356. Planted problems use
-  `severity: warn` (reported, pipeline continues, gold decides how to show them); broken
-  assumptions are `error`. Tests use dbt 1.12 syntax: `data_tests:` with `arguments:` /
-  `config:`.
-  Key silver logic: `stg_joborder` parses free-text salary into `SalaryMin`/`SalaryMax`
-  (local currency, keeps `SalaryText`); `stg_transactions` makes credit notes **negative**
-  (`NetAmountLocal`); `stg_fx_rates` unpacks the JSON to 6,054 rows (1,009 days × 6
-  currencies, `RatePerGbp`); `stg_bank_holidays` keeps all 3 divisions; finance dates parsed
-  with explicit `strptime('%d/%m/%Y')`. Money stays in local currency — GBP conversion and
-  the monthly average rate are gold.
-  **One agreed exception to "no joins in silver":** applying the CRM's own duplicate-merge
-  list (`stg_candidate_duplicates`) in `stg_candidate` (drops merged records: 46,934 →
-  46,434), `stg_status_history` and `stg_placements` (`CandidateId` = merged,
-  `SourceCandidateId` = as recorded). Claude flagged this to Vlad as the one bend of the rule.
-  Funnel-stage mapping of status codes is **gold** (`dim_stage`), not silver.
-- **Gold started (18–19 Sep). `dim_date` built** (table, tests pass): 1 Apr 2022 – 31 Mar
-  2028 (2,192 days, 6 fiscal years) + `-1` Unknown row; `DateKey` = yyyymmdd int; England &
-  Wales bank holidays (51) and `IsWorkingDay` (253 in FY25/26); calendar, ISO week
-  (`IsoWeekNumber` 14, `IsoWeekName` W14, `IsoYearWeek` 2026-W14) and fiscal columns
-  (`FiscalYear` FY26/27, `FiscalPeriod` P01, `FiscalQuarter` FQ1, `FiscalWeekNumber`/`Name`
-  FW01, `FiscalWeekOfQuarter`, `FiscalWeekOfPeriod`, `WeekOfMonth`). Week 1 of a
-  period/quarter = the Mon–Sun week containing its 1st day, so boundary weeks split (e.g.
-  30–31 Mar 2026 = P12 week 6 / FW53). Sort-by columns for Power BI: MonthName→MonthNumber,
-  YearMonth→YearMonthKey, FiscalPeriod→FiscalYearPeriodKey. Vlad rejected a 4-4-5 calendar
-  (5-week periods distort period-on-period stats) — agreed calendar months suit a business
-  that invoices and sets targets monthly. Gold tests are `error` severity.
-- **No dbt seeds — one ingestion path for everything (Vlad's decision, 19 Sep).** Claude
-  proposed a seed CSV for office attributes; Vlad rejected it as technical debt and
-  fragmentation. Reference data the business maintains is a **source file** like any other:
-  `dw/raw/reference/office.csv` (13 rows: office, city, country code/name, region, currency,
-  `last_updated`) → bronze `raw.ref_office` (prefix `ref_`) → silver `stg_office` → gold.
-  The generator writes it from its own `OFFICES` table (no randomness; the other 13 raw files
-  were verified byte-identical by md5). New tests: `stg_office` unique/not-null, currency in
-  the ECB list, and **every user's office exists in the office list** (relationships).
-  Bronze now has 14 tables. Also fixed a Claude bug from 17 Sep: the generator's summary
-  crashed after the `modified_at` change (targets rows got a 4th value); data files were
-  unaffected because they are written before the summary.
-- **CRM lookup tables added (19 Sep, Vlad's idea incl. valid dates).** `dw/raw/crm/industry.csv`
-  (14 rows: `sub_sector_id, sub_sector, industry_id, industry, valid_from, valid_to,
-  date_modified`) and `dw/raw/crm/discipline.csv` (8 rows: `discipline_id, discipline,
-  valid_from, valid_to, date_modified`). Empty `valid_to` = still in use (arrives as NULL).
-  All in-use values valid from go-live 2022-10-01. One retired value each — sub-sector
-  "Reinsurance" (to 2024-03-31), discipline "Tax" (to 2023-09-30) — used by no record.
-  **Vlad: keep them for realism only, build NOTHING around them** (no logic, flags, tests or
-  story); in gold they are ordinary rows with ValidFrom/ValidTo passed through. Written by the
-  generator without randomness; the other 14 raw files verified byte-identical by md5.
-  **Done (19 Sep):** added to `load_raw.py` (bronze now **16 tables**, 104 columns, all
-  VARCHAR), full bronze reload, silver `stg_industry` (SubSectorId, SubSector, IndustryId,
-  Industry, ValidFrom, ValidTo) and `stg_discipline` (DisciplineId, Discipline, ValidFrom,
-  ValidTo), tests that every client sub-sector and every non-blank job discipline exists in
-  the lists. Full `dbt build`: **PASS=67 WARN=6 ERROR=0 (73)** — same 6 planted warnings.
-  Silver now has **16 views**. Gold dims must be built FROM these lookups (and
-  `stg_office`), not from distinct fact values.
-- **Never change a source to fit the model (Vlad's rule, 19 Sep).** Bronze lands the source
-  exactly as the business delivers it; silver CHOOSES which columns to use. Example:
-  `ExitBy` was judged redundant in `dim_Stage` (StatusName already says who ended it);
-  Claude wrongly removed `exit_by` from `funnel_stage.csv` itself — Vlad stopped it, the
-  generator was reverted (file verified byte-identical by md5), and `exit_by` stays in
-  bronze but is simply not selected in `stg_FunnelStage`. Full build PASS=104 WARN=6.
-- **Redundant-column audit (19 Sep), Vlad's decisions:** removed `dim_Date.WeekOfMonth`
-  (identical to `FiscalWeekOfPeriod`) and `JobTypeCode` (always 'H') from `stg_JobOrder` and
-  `dim_Vacancy` — still in raw. **Kept** `dim_Vacancy.City/CountryCode` ("in some instances
-  this can vary"). Text copies of other dims (Industry/SubSector in `dim_Client`,
-  Discipline/OwningOffice in `dim_Vacancy`, Office in `dim_Consultant`) and convenience
-  columns left **unchanged** — Vlad: stop, too much detail. `StageType` kept (fact SQL uses it
-  to find exits without hard-coding status codes). Full build PASS=104 WARN=6 ERROR=0.
-  Don't reopen this audit unless Vlad asks.
-- **No business-mapping CASE statements in SQL (Vlad's rule, 19 Sep).** Mappings such as
-  "status code → funnel stage" are reference data: a source file → bronze → silver → joined
-  in gold. `CASE` only when absolutely necessary. Applied: `reference/funnel_stage.csv`
-  (12 rows: status_code, funnel_stage, funnel_stage_order, stage_type, exit_by,
-  last_updated) → `raw.ref_funnel_stage` → `stg_funnel_stage` → `dim_stage` (now a plain
-  inner join of `stg_status` + `stg_funnel_stage`, plus the `-1` "Unknown exit" row). New
-  silver test: every CRM status code has a funnel mapping. Output identical to the old CASE
-  version. Bronze now **17 tables**. Calendar arithmetic in `dim_date` (fiscal year, weeks)
-  is computation, not a business mapping, so it stays SQL — Vlad agrees, noting date
-  logic varies by company and a downloadable calendar template would also be valid; building
-  it in SQL here was his choice to try something new. `dim_office` fixed too:
-  `region_sort_order` added to `reference/office.csv` (only that file changed, other 16
-  verified identical) → `stg_office.RegionSortOrder` → `dim_office` (no CASE left).
-- **Gold dims built (19 Sep):** `dim_date`, `dim_office` (generated OfficeKey via
-  row_number over name), `dim_industry` (key = SubSectorId), `dim_discipline` (key =
-  DisciplineId), `dim_stage` (key = status code). All have `-1` Unknown rows; all tests pass.
-- **Star, not snowflake (agreed 19 Sep).** Facts carry EVERY dimension key directly; dims do
-  not point at each other in the Power BI model. When a fact is built, gold joins it to e.g.
-  the vacancy to pick up that vacancy's `DisciplineKey` and stores it on the fact row (Vlad's
-  description). `dim_client` / `dim_vacancy` keep industry/discipline NAMES as plain text for
-  convenience only. Reasons: Power BI filters flow one step; field parameters need direct
-  relationships; the lookup cost is paid once at build time.
-- **All 8 dimensions built (19 Sep).** `dim_consultant` (key UserId; ConsultantName,
-  ManagerKey/ManagerName, `IsManager` = someone reports to them → 24 = one per team,
-  `IsActive` = no leave date → 164, matches generator headcount; current Team/Office for RLS
-  and the Team→Consultant hierarchy), `dim_client` (key CompanyId; Industry/SubSector as
-  text only), `dim_vacancy` (key JobOrderId; blank discipline → 'Unknown'; salary in local
-  currency + `SalaryCurrency` from the office list; `JobTypeCode` left as raw 'H' — a label
-  would need a CRM job-type lookup, not a CASE; proposed to leave as a Q&A mention). All
-  gold tests pass.
-- **`fx_rate_monthly` built (19 Sep).** Gold helper table: one row per month × currency
-  (343 = 49 months × 7 currencies), `RatePerGbp` = average of the ECB daily rates in the
-  month, `RateDaysUsed` for audit, plus GBP = 1.0 every month (identity, so all currencies
-  convert with one join). Conversion rule for the facts: **GBP = local / RatePerGbp**, using
-  the month of the document date. Tests: not_null, `tests/assert_fx_rate_monthly_unique.sql`,
-  and `tests/assert_every_transaction_has_fx_rate.sql` (all 4,903 transactions have a rate).
-  Hand-checked: EUR Mar 2023 = 1.1339 from 23 days. Edge months: Sep 2022 = 1 day (no
-  transactions then), Sep 2026 = month-to-date.
-- **Facts redesigned (19 Sep, Vlad).** The planned `fact_pipeline_event` is dropped — Vlad
-  found the name misleading and a status-change fact alone hard to use. Agreed instead a
-  **header/line pair**, like an invoice and its lines (Kimball: accumulating snapshot +
-  transaction fact, sharing the same dims):
-  - **`fact_Application`** — one row per candidate × job (~57k): milestone date keys
-    (Submitted / Interview / Offer / Placed / Exit), reached flags (ReachedInterview,
-    ReachedOffer, IsPlaced), current stage + ExitBy, day counts. Cohort conversion =
-    reached flags ÷ applications by submitted date; activity by date via inactive
-    milestone-date relationships + USERELATIONSHIP. **Build this first.**
-  - **`fact_ApplicationLine`** — one row per status change (145,619). Built second from the
-    parked draft (`fact_pipeline_event.sql`, in Claude's scratchpad `parked/`, NOT in the
-    project; it had an INT32 overflow in its ApplicationId calc). First thing to cut if short.
-  - **No relationship between the two facts in Power BI**; both connect to the same dims;
-    `ApplicationId` sits on both as a plain identifier.
-  Claude started building before the prerequisites were agreed — Vlad stopped it.
-  **Agreed for `fact_Application` (19 Sep):** (1) grain candidate × job; (2) `ApplicationId`
-  = composite of candidate and job as a big integer (stable across rebuilds); (3) credit to
-  the consultant working the job (CRM column `recruiter`) → `ConsultantKey`; (4) every
-  application row carries its own `OfficeKey` from the job's office, fixed at build time;
-  (5) **keep ALL data from 1 Oct 2022 — nothing is filtered out of reporting** (the "run-in
-  filtered from reporting" idea was Claude's, never agreed; Vlad rejected it). FY22/23 is a
-  6-month partial year with thin early months; label it partial when comparing years;
-  targets start Apr 2023; (6) milestones = FIRST time each stage was reached, meaning "date
-  the application entered the stage" — interview meetings/reschedules live in the CRM
-  calendar (`calendar_event`), not exported, not modelled (Q&A note only).
-  (7) only `CurrentStageKey` on the fact (ExitBy since removed from dim_Stage); (8) funnel
-  order checks as warnings — agreed.
-  **`fact_Application` BUILT (19 Sep):** 59,678 rows; milestones found by the CRM's fixed
-  status codes (400/500/600/800) — Vlad's choice over joining `stg_FunnelStage` just to
-  filter on text; exit = any status not in (400, 500, 600, 800), so unknown codes (999) still
-  count as exits. (The "no CASE" rule is about BUSINESS mappings; fixed CRM system codes in a
-  filter are fine.) Verified the switch changed nothing: full-table MD5 fingerprint identical; `ApplicationId` = bigint candidate×100000 + job. 18 checks pass incl.
-  `tests/assert_fact_Application_reconciles.sql` (rows = distinct candidate × job in silver)
-  and the two order checks (`..._placed_has_offer`, `..._offer_has_interview`, warn, 0 rows).
-  Verified: application 4700010 = the traced story (sent 9 Oct 2022, interview 15 Oct, 6
-  days, Rejected); cohort rates equal the generator's (CV→int 33.8/35.3/35.9% FY23/24–25/26);
-  **4,714 placed in CRM = 4,714 placements in finance**; 20 unknown exits; 224 applications
-  on blank-discipline jobs; 595 open.
-- **Blank vs `-1` (Vlad's rule, 19 Sep):** `-1` "Unknown" ONLY for a value that should exist
-  but is missing/unrecognised (blank discipline, status 999, a missing submission date).
-  An event that simply HASN'T HAPPENED (never reached offer, candidate never left) is
-  **blank (NULL)** — "that's how most CRMs work". Applied to `fact_Application` milestone
-  dates (38,785 blank interview dates = exactly those not reached) and `fact_Placement`
-  start/leave dates. Inactive date relationships with blank keys simply match no date.
-- **`fact_Placement` BUILT (19 Sep):** 4,714 rows from finance; PlacementRef + ApplicationId
-  (plain column, no fact-to-fact relationship); consultant + office from FINANCE (matched
-  CRM 100%); PlacedDateKey active, StartDateKey/LeaveDateKey inactive and blank when not
-  happened; SalaryLocal, FeePct, BookedFeeLocal, SalaryGbp, BookedFeeGbp — all
-  **DECIMAL(18,2)** (money never floating point) at the monthly rate of the placed month;
-  IsFallOff = leave date recorded (finance only records leaves inside the guarantee), 415
-  fall-offs; WeeksWorked; DaysToFill = vacancy opened → first offer (avg 37.5). Tests: 16 pass
-  incl. `assert_fact_Placement_reconciles.sql`, every placement exists in `fact_Application`,
-  every placement found an FX rate. **Fee % gaps NOT patched** (PL-000819 = 0%, PL-001882 and
-  PL-002652 blank → booked fee 0 / blank). Verified PL-000051 = £18,537.70, 5 weeks worked.
-  Note for the demo: fall-off is 8.8% over ALL placements vs 9.6% over matured ones — recent
-  placements are still inside the 12-week window, so recent months always look better
-  than they will end up.
-- **`fact_FeeTransaction` BUILT (19 Sep):** 4,903 rows (4,489 INV + 414 CRN); signed
-  `NetAmountLocal` + `NetAmountGbp` (DECIMAL, rate of the document's own month);
-  `DocumentDateKey` active (ledger NFI), `OriginalInvoiceDateKey` inactive (NFI attributed;
-  = own date for invoices, the placement's invoice date for credit notes); keys taken from
-  `fact_Placement` so a document and its placement always agree. **Orphans (agreed with
-  Vlad):** the 2 credit notes kept; all placement-based keys `-1` (they join to "Unknown" in
-  every dim) and `OriginalInvoiceDateKey = -1` (a refund SHOULD have an invoice → missing,
-  not "hasn't happened"). **RLS for Unknown: only the CEO and the CFO (the finance person
-  responsible) see team "Unknown"** — add those 2 rows to the SOURCE access list
-  (`security_user_team.csv`, owned by the BI team) when building the security table;
-  directors and managers don't see refunds that aren't theirs. Tests: 16 pass incl.
-  `assert_fact_FeeTransaction_reconciles.sql` (doc count AND local total per currency =
-  silver, to the penny). Verified: PL-000051 = +18,537.70 / −9,268.85 → NFI 9,268.85.
-  **The two NFI views, real numbers (great Q&A slide):** FY23/24 ledger £16,023,437 vs
-  attributed £15,988,244; FY24/25 £17,967,823 vs £18,058,308; FY25/26 £20,614,741 vs
-  £20,551,425; orphans −£10,423 under Unknown; **all time both £69,971,251.44** — every year
-  differs because refunds cross the April year-end, the totals reconcile to the penny.
-- **Not built yet:** `fact_Target`, optional `fact_ApplicationLine`, security table (incl.
-  CEO/CFO → Unknown), Parquet export, Power BI.
-- **Q&A talking points collected so far** (use in presentation prep):
-  - *Fix the cause, not only the symptom* (Vlad's own point, 18 Sep): find the data owner,
-    ask for validation at entry (salary as min/max number fields + currency dropdown). The
-    pipeline still defends itself because history is already dirty, vendor CRMs change
-    slowly, and tests are how the problem is found. Test results grouped by team = a data
-    quality report to take to the owner. Frame as partnership, not blame — in Vlad's
-    words: a free-text salary box *sets people up to make mistakes*; it is a system design
-    problem, not the consultant's fault.
-  - *`not_null`/`unique` catch broken data; reasonableness tests catch wrong data*: e.g.
-    `'£92,5k'` parses to 925,000 — plausible-looking, passes every test. Fix: range checks
-    (SalaryMin ≤ SalaryMax, salary within a band per discipline).
-  - *warn vs error tests*: known source problems warn and continue; broken assumptions stop
-    the build.
-  - *Candidate duplicates* (checked in OpenCATS source, `lib/Candidates.php`): the CRM fills
-    `candidate_duplicates` **automatically** on save (`checkDuplicity`: same first + last
-    name AND one of middle name / phone / email / city+address). A user then clicks Merge
-    (moves activities, attachments, calendar to the old id, deletes the row) or "Remove
-    duplicity warning" (different people, deletes the row). So in real OpenCATS the table
-    holds **unreviewed suspects**, not confirmed merges. Our generator only makes true
-    duplicates and silver auto-merges them — a simplification to state openly. Real options:
-    trust the CRM rule, or merge only reviewed pairs and report the rest. Real fix is at the
-    source: block the save instead of warning afterwards.
-  - *Bronze all text*: one place decides types; guessing is silent and can change between
-    files (day/month swap).
-  - *dim_date: arithmetic vs business rules* (19 Sep): date logic varies by company, and a
-    finance-owned calendar or a downloadable template is a valid source (Vlad built it in SQL
-    to learn). Refinement: the arithmetic (ISO weeks, day counts) belongs in SQL, but two
-    business rules sit inside it — fiscal year starts in April (`month(d) >= 4`) and England &
-    Wales holidays. Q&A line: "I computed the calendar for simplicity, but the fiscal-year
-    start and the holiday region are business rules. In production I'd take them from
-    finance's official calendar or from configuration." (A 4-4-5 calendar can't be derived
-    by formula at all — it must be ingested.) Not changing it now.
-  - *Don't patch data to make the numbers match* (Vlad, 19 Sep): the 3 placements with a
-    missing/zero fee % could be "fixed" from their invoices, but Vlad chose to leave them as
-    recorded and trigger an investigation first — fix only after the cause is understood,
-    ideally at the source. The tests report them; the data owner gets the evidence.
-  - *Handling NULLs and unknowns is the crucial governance point* (Vlad, 19 Sep): every
-    dimension has a `-1` Unknown member; facts map missing or unmatched keys to `-1`, so no
-    row disappears from a visual or shows as "(Blank)", and totals always reconcile.
-    `dim_stage`'s `-1` catches ANY unmapped status code, not just today's 999. Mappings
-    live in reference data, not CASE statements.
-  - *Storage maintenance* (19 Sep): repeated `create or replace` loads grew `oj_dw.duckdb` to
-    33.5 MB for ~10 MB of data (unused space is not reclaimed). Vlad chose NOT to fix it now
-    (no time). Production equivalent: a scheduled maintenance job — in Fabric, `OPTIMIZE`
-    (compact small files) and `VACUUM` (remove old versions) on Delta tables.
-  - *Don't derive dimensions from fact values* (Vlad's principle, 19 Sep): a dimension built
-    from DISTINCT values in transactions loses members with no activity yet and turns typos
-    into new members. First find the source system's own lookup table — in OpenCATS that is
-    `extra_field_settings` (field type DROPDOWN, allowed values in `extra_field_options`).
-    Derive from facts only as a last resort. Claude had missed this for industry and
-    discipline; Vlad caught it.
-  - *Rebate timing — model both, don't force one* (from Vlad's real job, 18 Sep: at his
-    company finance departments can't agree whether rebates belong to the credit note's
-    month or the original invoice's). Refinements: in the GL a credit note is *linked* to
-    the original invoice but *posted* in the period it is issued (closed months aren't
-    reopened); and it does NOT always net out within the year — FY starts 1 April, so a
-    Feb invoice with an April credit note crosses the year-end. Design: two named,
-    documented measures that reconcile to the same all-time total: **NFI** (credit note in
-    its issue month — finance/CFO, ties to the ledger) and **NFI (attributed)** (credit note
-    moved to the original invoice month — managers judging consultants). Vlad may tell the
-    work story himself; don't embellish it.
-- **Handling the planted problems in gold (18 Sep, after Vlad's "investigate cold" exercise).**
-  Silver stays as-is (problems remain visible; tests report them). Decisions for gold:
-  - Blank discipline → **`-1` "Unknown"** row in `dim_discipline` — agreed ("known practice").
-  - Status 999 → **"Unknown exit"** in `dim_stage` — agreed.
-  - Orphan credit notes (`CRN-299901/2`, −£10,422.65, refs `PL-099901/2` outside the real
-    range) → **a `-1` "Unknown" member**, kept in firm totals so NFI reconciles to the
-    ledger — Vlad: "this is what we do in our business". **He wants to discuss the details
-    when we build it — raise it, don't just implement it.** Note: our plan has no placement
-    *dimension* (placement is a fact), so this likely means `-1` keys on those fee rows.
-  - Missing/zero fee % (PL-000819, PL-001882, PL-002652 — all invoiced, implied 19.0 / 21.5 /
-    21.2%) → proposed: take fee % from the invoice + flag. **Deferred by Vlad to when we
-    build `fact_placement`** — raise it then, with the 3 rows on screen. Affects booked fee
-    only, not NFI.
-  - dbt test thresholds (`warn_if`/`error_if`) → **rejected** as overcomplication.
-  Every dimension gets a `-1` Unknown row (agreed practice).
-- **Role-playing dates: option A agreed (18 Sep).** One conformed `dim_date`, each fact's
-  main date active, other dates inactive + `USERELATIONSHIP()` inside specific measures.
-  Vlad asked about loading the date table twice (Tabular Editor alias style); rejected for
-  now because the exec page needs ONE timeline/slicer across NFI, placements and funnel,
-  and "NFI attributed" is a measure decision, not a filter. Switch to a named copy
-  ("Original Invoice Date") only if finance asks to slice by that date — the key is
-  already in the fact, so it is additive. Q&A line prepared.
-- **Gold design decision (18 Sep, agreed):** `fact_fee_transaction` carries
-  `DocumentDateKey` (active relationship) and `OriginalInvoiceDateKey` (inactive, used via
-  `USERELATIONSHIP()` for NFI attributed). Worked example for the demo: PL-000051 — salary
-  £94,100 × 19.7% = invoice £18,537.70 (1 Feb 2023), left after 29 days (week 5 → 50%),
-  credit note −£9,268.85 (15 Mar 2023), NFI £9,268.85; summing bronze would give
-  £27,806.55 (3× the truth).
-- **dbt lesson done (17 Sep):** model = a SELECT dbt wraps; `ref()`/`source()` build the
-  dependency graph (Vlad can explain why a hardcoded table name breaks lineage, run order
-  and selection); view vs table per folder; tests declared in YAML run inside `dbt build`.
-- **Root layout (17 Sep):** `CLAUDE.md`, `data-rules.md`, `requirements.txt`, `.venv/`,
-  `dw/`, `Misc/` (specs, CV, recruiter email, old handoff), `.vscode/settings.json` (points
-  VS Code and the dbt Power User extension at `.venv`). Vlad keeps the root tidy —
-  put new files in the right subfolder, not the root.
-- **venv:** `OJ Project/.venv` (Python 3.12.10), created by Vlad on 17 Sep with
-  `requirements.txt` installed — duckdb 1.5.5, dbt-core 1.12.3, dbt-duckdb 1.11.0, all
-  verified present and absent from global Python. Ignore the "dbt 1.12.5 available" notice:
-  versions are pinned on purpose this close to the interview. Vlad works in **VS Code** with a PowerShell terminal; if
-  `Activate.ps1` is blocked, use `.venv\Scripts\python.exe` directly — do not change the
-  execution policy.
-- **Git (19 Sep):** `OJ Project` is a git repo, pushed to a **private** GitHub repo
-  **https://github.com/Vnanka/OJProject** (branch `main`, tracks `origin/main`). History:
-  `1d9e886` Initial commit (Vlad's README from GitHub) → `a15cc4c` sources, bronze, silver
-  and gold dimensions (60 files). Vlad pushed it himself. `.gitignore` excludes `.venv/`,
-  the `.duckdb` warehouse, dbt `target/`/`logs/`/`.user.yml`, and `Misc/*` except
-  `Misc/CLAUDE_1.md` (CV, recruiter email and job spec never go to GitHub, even private).
-  `dw/raw/` IS committed (Vlad's choice). Commit only when Vlad asks; he likes to push
-  himself. LF→CRLF warnings on commit are harmless (Windows autocrlf).
-- Windows console here uses a Cyrillic code page: printing `£`/`€` from Python fails unless
-  `PYTHONIOENCODING=utf-8` is set. The files are UTF-8 and fine.
+**Naming.** Columns: **PascalCase, no underscores** (`UserId`, `StartDate`, `ModifiedAt`);
+IDs end `Id`, dates `Date`, timestamps `At`, gold surrogate keys `Key`. Models: **lowercase
+layer prefix + PascalCase** (`stg_JobOrder`, `dim_Date`, `fact_Application`). **Bronze keeps
+source-shaped names** (`raw.crm_user`) because it mirrors the source systems. Singular tests
+keep `assert_*`. DuckDB preserves casing, so Power BI shows these names as written.
+
+**Bronze.** Every column VARCHAR. One place decides types (silver); a loader that guesses too
+would be a second source of truth that can disagree. `create or replace` = idempotent.
+
+**Silver.** One bronze table per model; rename, cast, standardise only. No joins, no business
+logic, no derived flags. `cast` for IDs and dates so bad data fails loudly; `try_cast` only
+where bad values are expected (free-text salary), then count the NULLs with a test. Every
+model starts `with source as (select * from {{ source(...) }})`. Audit column always
+`ModifiedAt`. **One agreed exception to "no joins":** applying the CRM's own duplicate-merge
+list in `stg_Candidate`, `stg_StatusHistory` and `stg_Placements`.
+
+**Tests.** Planted source problems → `severity: warn` (reported, pipeline continues, gold
+decides how to show them). Broken assumptions → `error`. Gold tests are all `error`. dbt 1.12
+syntax: `data_tests:` with `arguments:` / `config:`. Test thresholds (`warn_if`/`error_if`)
+were rejected as overcomplication.
+
+**Vlad's rules (he corrected Claude on each of these):**
+
+- **No dbt seeds — one ingestion path for everything.** Reference data the business maintains
+  is a source file like any other: file → bronze → silver → gold. Seeds are technical debt
+  and fragmentation.
+- **Don't derive dimensions from fact values.** A dimension built from DISTINCT transaction
+  values loses members with no activity and turns typos into members. Find the source
+  system's own lookup table first (in OpenCATS: `extra_field_settings` / `extra_field_options`).
+- **No business-mapping CASE statements.** Mappings like "status code → funnel stage" are
+  reference data, not code. `CASE` only when unavoidable. (Calendar arithmetic is computation,
+  not a business mapping, so it stays SQL. Fixed CRM system codes in a filter are fine.)
+- **Never change a source to fit the model.** Bronze lands the source exactly as delivered;
+  silver CHOOSES which columns to use.
+- **Blank vs `-1`.** `-1` "Unknown" ONLY for a value that should exist but is missing or
+  unrecognised. An event that simply HASN'T HAPPENED is **blank (NULL)** — "that's how most
+  CRMs work". Every dimension has a `-1` row.
+- **Don't patch data to make the numbers match.** Report it, investigate the cause, fix at
+  the source — not in the model.
 
 ---
 
-## 5. Next steps, in order
+## 5. What is built
 
-1. ~~Vlad reviews `data-rules.md`~~ — done, v3 agreed.
-2. ~~Generate the raw source exports~~ — done 16 Sep (`dw/raw/`).
-3. ~~venv, packages, DuckDB lesson, bronze load~~ — all done 17 Sep.
-4. ~~dbt lesson + project skeleton~~ — done 17 Sep. ~~Silver~~ and ~~gold dimensions + FX~~ —
-   done 18–19 Sep. **Next: the 4 facts** (start with `fact_pipeline_event`: no open
-   decisions, teaches the key-lookup + `-1` pattern the others reuse), then the RLS security
-   table, then the Parquet export.
-   **Raise with Vlad when building the facts (do not decide alone):**
-   - `fact_placement`: the 3 placements with missing/zero fee % (PL-000819, PL-001882,
-     PL-002652) — take fee % from the invoice + flag, or leave blank?
-   - `fact_fee_transaction`: the 2 orphan credit notes → `-1` Unknown member, kept in firm
-     totals so NFI reconciles to the ledger. He wants to discuss the details.
-   - `JobTypeCode` 'H' left raw in `dim_vacancy` (a label needs a CRM lookup, not a CASE) —
-     proposed as a Q&A mention only; not yet confirmed.
-5. Export gold to Parquet, build the Power BI model and measures (Vlad leads).
-6. Dashboard pages — small, clean, commercial.
-7. Presentation: ~10 minutes, plus the Fabric production slide and Q&A practice.
+**Everything through to Parquet. Gold is complete.** Verified by a full rebuild from deleted
+warehouse on 19 Sep: `dbt build` → **32 models, 160 tests, PASS=186 WARN=6 ERROR=0** in 3.4s.
+The 6 warnings are exactly the planted problems.
 
-**Power BI build method (decided 17 Sep).** **PBIP format** — Vlad creates the empty project
-in Desktop (so the folder structure is Desktop's own, not guessed), then Claude writes the
-TMDL/M text: tables over the gold Parquet files, relationships, hidden keys, measures and
-the RLS role. Vlad builds the visuals. Tabular Editor 3 was rejected (licence). Claude
-cannot click in Desktop — only text files.
+```
+dw/raw/<source>/                14 MB, 17 files: crm, finance, security, reference, api
+dw/src/generate/generate_sources.py   synthetic CRM + finance + security (fixed seed)
+dw/src/extract/fetch_reference.py     real ECB rates + gov.uk bank holidays
+dw/src/load/load_raw.py               bronze: 17 tables, all VARCHAR
+dw/dbt/                               17 silver views, 15 gold tables, 11 singular tests
+dw/src/export/export_parquet.py       14 Parquet files for Power BI
+dw/export/parquet/                    4.0 MB, 232,110 rows (gitignored)
+```
 
-**Plan agreed for Fri 18 Sep evening:** work through the data side **together** (Vlad
-declined an unattended build): silver models, then gold + tests + Parquet export, then
-start Power BI if time allows. Vlad expects the Power BI model itself to be quick
-("select sources, one-to-many relationships, hide keys").
+**Pipeline, in order** (each step idempotent; nothing runs automatically):
 
-**Status at Sat 19 Sep, ~03:00 (Vlad clocked off, in a good place).** Worked Fri evening
-into the night. Done: all of silver (18 views), all 8 gold dimensions + `fx_rate_monthly`,
-three reference/lookup files added the proper way (office, funnel stage, CRM industry and
-discipline), both CASE mappings removed, git repo created and pushed. Final full
-`dbt build`: **26 models, 84 tests → PASS=104 WARN=6 (the planted problems) ERROR=0.**
-Much of the evening went on Vlad understanding each piece (his priority: "understanding of
-how things work is crucial") — worth it for the Q&A.
-**Uncommitted at clock-off:** CLAUDE.md edits since `a15cc4c`. Vlad commits and pushes
-himself.
+```
+python dw/src/load/load_raw.py
+cd dw/dbt && dbt build --profiles-dir .
+python dw/src/export/export_parquet.py
+```
 
-**Waiting for Vlad's "go": a document of HIS input** — what he did, decided and contributed
-across the whole project, for use in the presentation. He will say when to start. Ask him
-first: Markdown in the repo, or a Word document? Source material: this file's decisions
-and talking points, plus the list Claude gave him on 19 Sep of design choices where he
-corrected Claude (no dbt seeds → one ingestion path; no dims derived from facts → CRM lookup
-tables; no CASE mappings → reference data; fix data at the source / "a free-text box sets
-people up to fail") and his other judgement calls (rebate timing from his real job, rejecting
-4-4-5, scope cuts, `-1` unknowns as the governance point, stopping to understand things).
-Only facts from the project and his CV — never embellish.
+`dbt build` does **not** refresh the Parquet files — that trap is worth remembering. Do not
+run `fetch_reference.py` before the interview: it pulls live rates and would change every GBP
+figure. `generate_sources.py` is reproducible (fixed seed; all 17 files verified md5-identical
+after a regeneration).
 
-**Presentation cautions agreed 19 Sep** (Claude's honest assessment, Vlad asked for it):
+**Verified numbers** (end-to-end audit, 19 Sep, 90 checks, all passed):
+
+- Row counts match at every layer. Only intentional drop: 46,934 → 46,434 candidates
+  (500 merged duplicates).
+- Money reconciles **CSV → silver → gold → Parquet** to the penny in all 7 currencies.
+  All-time NFI **£69,971,251.44**.
+- CRM and finance agree: **4,714 placed applications = 4,714 placements**.
+- No dimension key is ever NULL in any fact. Unknown (`-1`) usage: Application 244,
+  ApplicationLine 560, Placement 20, FeeTransaction 26, Target 0.
+- All fact dates land inside `dim_Date`.
+
+**The gold tables:**
+
+- **`dim_Date`** — 1 Apr 2022 – 31 Mar 2028 (2,192 days + `-1`). `DateKey` = yyyymmdd int.
+  England & Wales bank holidays, `IsWorkingDay`, ISO week columns, fiscal columns
+  (`FiscalYear` FY26/27, `FiscalPeriod` P01, `FiscalQuarter` FQ1, `FiscalWeekNumber`,
+  `FiscalWeekOfQuarter`, `FiscalWeekOfPeriod`). Week 1 of a period/quarter = the Mon–Sun week
+  containing its 1st day, so boundary weeks split. Sort-by columns for Power BI:
+  MonthName→MonthNumber, YearMonth→YearMonthKey, FiscalPeriod→FiscalYearPeriodKey. Vlad
+  rejected a 4-4-5 calendar (5-week periods distort period-on-period stats).
+- **`dim_Office`** (generated key), **`dim_Industry`** (key = SubSectorId),
+  **`dim_Discipline`** (key = DisciplineId), **`dim_Stage`** (key = status code; a plain join
+  of `stg_Status` + `stg_FunnelStage`; `-1` = "Unknown exit", catches ANY unmapped code).
+- **`dim_Consultant`** (key UserId; ManagerKey/Name; `IsManager` 24 = one per team;
+  `IsActive` 164 = matches generator headcount; current Team/Office for RLS).
+- **`dim_Client`** (key CompanyId), **`dim_Vacancy`** (key JobOrderId; blank discipline →
+  'Unknown'; salary in local currency + `SalaryCurrency`).
+- **`dim_FxRateMonthly`** — 343 rows (49 months × 7 currencies), `RatePerGbp` = monthly
+  average of ECB daily rates, `RateDaysUsed` for audit, GBP = 1.0 so one join covers every
+  currency. Not exported to Power BI (conversion already done in dbt).
+- **`fact_Application`** — 59,678 rows. Milestones = FIRST time each stage was reached, found
+  by fixed CRM status codes (400 Submitted / 500 Interviewing / 600 Offered / 800 Placed);
+  exit = any other code, so 999 still counts as an exit. `ApplicationId` = candidate × 100000
+  + job as bigint, stable across rebuilds. Milestone dates blank when not reached. Credit to
+  the job's `recruiter`; office from the job. All data from CRM go-live 1 Oct 2022 is kept —
+  FY22/23 is a partial 6-month year, label it when comparing. Cohort rates match the
+  generator (CV→interview 33.8 / 35.3 / 35.9% for FY23/24–25/26). 595 open, 20 unknown exits.
+- **`fact_ApplicationLine`** — 145,619 rows, one status change. Key = the CRM's own
+  `StatusHistoryId`. `dim_Stage` plays two roles: `StatusToKey` active, `StatusFromKey`
+  inactive (`status_from` = 0 on a first event, and `dim_Stage` already has a 0 "No Status"
+  member). `DaysInPreviousStage` via `lag`, blank on the first event (59,678 blanks = one per
+  application). `ApplicationId` is a plain column — **no fact-to-fact relationship**.
+- **`fact_Placement`** — 4,714 rows from finance. Consultant and office from finance (matched
+  CRM 100%). `PlacedDateKey` active; Start/Leave inactive and blank when not happened. Money
+  all **DECIMAL(18,2)** at the monthly rate of the placed month. `IsFallOff` = leave date
+  recorded (finance only records leaves inside the guarantee), 415 fall-offs. `DaysToFill`
+  avg 37.5. The 3 missing/zero fee % rows are **not patched**.
+- **`fact_FeeTransaction`** — 4,903 rows (4,489 INV + 414 CRN). Signed `NetAmountLocal` /
+  `NetAmountGbp` at the rate of the document's own month. `DocumentDateKey` active (ledger
+  NFI); `OriginalInvoiceDateKey` inactive (attributed NFI). Keys taken from `fact_Placement`
+  so a document and its placement always agree. The 2 orphan credit notes are kept with all
+  placement-based keys `-1`.
+- **`fact_Target`** — 6,143 rows (211 consultants, Apr 2023 – Sep 2026), month grain,
+  `DateKey` = 1st of month. Office = consultant's current office (targets file has none).
+  **No client/industry/discipline/vacancy columns** by design. Firm NFI vs target: FY23/24
+  98.0%, FY24/25 98.3%, FY25/26 95.8%, FY26/27 100.7% — the last is month-to-date against a
+  full-month target, so exclude or label MTD. Filter targets by whole months only.
+- **`sec_UserTeam`** — 122 rows, one per email × team. **No relationship in Power BI.** One
+  dynamic RLS role filters `dim_Consultant`:
+  `[Team] IN CALCULATETABLE(VALUES(sec_UserTeam[Team]), sec_UserTeam[Email] = USERPRINCIPALNAME())`,
+  flowing to all 5 facts via ConsultantKey. CEO and CFO also see team "Unknown" (so refunds
+  that can't be tied to a team stay in firm totals); directors and managers do not. Demo
+  scopes: CEO/CFO 25 teams, Manchester director 4, manager `lucas.taylor@example.com` 1.
+  Demo via Desktop → Modeling → View as → Other user. Other dims' *lists* are not filtered,
+  only the numbers — normal.
+
+**The planted problems and how gold shows them** (all still present after rebuild):
+
+| Problem | Count | Handling |
+|---|---|---|
+| Blank discipline on jobs | 30 | `-1` "Unknown" in `dim_Discipline` |
+| Unparseable salary ('Competitive') | 356 | `try_cast` → NULL, counted by a test |
+| Status code 999 | 20 | `-1` "Unknown exit" in `dim_Stage` |
+| Blank / zero fee % | 2 / 1 | left as recorded, reported, **not patched** |
+| Orphan credit notes (−£10,422.65) | 2 | kept with `-1` keys so NFI ties to the ledger |
+| Duplicate candidates | 500 | merged in silver before counting |
+
+---
+
+## 6. Q&A talking points
+
+**Governance and data quality**
+
+- **Handling NULLs and unknowns is the crucial point.** Every dimension has a `-1` member;
+  facts map missing or unmatched keys to it, so no row disappears from a visual, nothing
+  shows as "(Blank)", and totals always reconcile.
+- **Fix the cause, not only the symptom.** Find the data owner; ask for validation at entry
+  (salary as min/max number fields + currency dropdown). The pipeline still defends itself,
+  because history is already dirty, vendor CRMs change slowly, and tests are how the problem
+  gets found. Test results grouped by team = a data quality report to take to the owner.
+  Frame as partnership, not blame: a free-text salary box *sets people up to make mistakes*.
+- **`not_null`/`unique` catch broken data; reasonableness tests catch wrong data.** `'£92,5k'`
+  parses to 925,000 — plausible, passes every test. Fix: range checks (SalaryMin ≤ SalaryMax,
+  salary within a band per discipline).
+- **warn vs error.** Known source problems warn and continue; broken assumptions stop the build.
+- **Don't patch data to make numbers match.** The 3 bad fee % rows could be back-filled from
+  their invoices; Vlad chose to leave them and investigate first.
+- **Bronze all text.** One place decides types; guessing is silent and can change between
+  files (day/month swap).
+- **Candidate duplicates** (checked in OpenCATS source, `lib/Candidates.php`): the CRM fills
+  `candidate_duplicates` automatically on save (same first + last name AND one of middle name
+  / phone / email / city+address). A user then clicks Merge or "Remove duplicity warning". So
+  in real OpenCATS the table holds **unreviewed suspects**, not confirmed merges. Our
+  generator makes only true duplicates and silver auto-merges them — a simplification to
+  state openly. Real fix is at the source: block the save instead of warning afterwards.
+
+**Modelling**
+
+- **Rebate timing — model both, don't force one** (from Vlad's real job, where finance
+  departments can't agree). In the GL a credit note is *linked* to the original invoice but
+  *posted* in the period it is issued (closed months aren't reopened), and it does not always
+  net out within the year — FY starts 1 April, so a Feb invoice with an April credit note
+  crosses the year-end. Two named measures that reconcile to the same all-time total:
+  **NFI** (credit note in its issue month — finance/CFO, ties to the ledger) and **NFI
+  (attributed)** (moved to the original invoice month — managers judging consultants).
+
+  | FY | Ledger | Attributed | Diff |
+  |---|---:|---:|---:|
+  | FY22/23 | 3,475,563.70 | 3,361,320.13 | 114,243.57 |
+  | FY23/24 | 16,023,436.75 | 15,988,244.23 | 35,192.52 |
+  | FY24/25 | 17,967,823.00 | 18,058,307.98 | −90,484.98 |
+  | FY25/26 | 20,614,741.49 | 20,551,425.18 | 63,316.31 |
+  | FY26/27 | 11,889,686.50 | 12,022,376.57 | −132,690.07 |
+  | **All time** | **69,971,251.44** | **69,971,251.44** | **0.00** |
+
+  Every year differs; the total ties to the penny.
+- **Worked example for the demo: PL-000051.** Salary £94,100 × 19.7% = invoice £18,537.70
+  (1 Feb 2023); candidate left after 29 days (week 5 → 50%); credit note −£9,268.85
+  (15 Mar 2023); NFI £9,268.85. Summing bronze would give £27,806.55 — 3× the truth.
+- **Role-playing dates: one conformed `dim_Date`** (option A). Vlad asked about loading the
+  date table twice (Tabular Editor alias style); rejected because the exec page needs ONE
+  timeline across NFI, placements and funnel, and "NFI attributed" is a measure decision, not
+  a filter. Switch to a named copy only if finance asks to slice by that date — the key is
+  already on the fact, so it is additive.
+- **Header + line, two grains.** `fact_Application` answers cohort questions ("how many
+  reached interview?"); `fact_ApplicationLine` answers activity and speed questions. Only the
+  line fact can show **where the pipeline slows down**: avg days in the stage being left —
+  Submitted 7.9, **Interviewing 14.2**, Offered 5.3.
+- **`dim_Date`: arithmetic vs business rules.** ISO weeks and day counts are computation and
+  belong in SQL, but two business rules sit inside: fiscal year starts in April, and the
+  holiday region is England & Wales. Line: *"I computed the calendar for simplicity, but the
+  fiscal-year start and holiday region are business rules — in production I'd take them from
+  finance's official calendar or from configuration."* A 4-4-5 calendar can't be derived by
+  formula at all; it must be ingested.
+- **Fall-off maturity bias:** 8.8% over ALL placements vs 9.6% over matured ones. Recent
+  placements are still inside the 12-week window, so recent months always look better than
+  they will end up.
+
+**Engineering and production**
+
+- **No orchestrator here, deliberately.** Locally these are three idempotent steps run in
+  order. In Fabric this is a **Data Pipeline**: scheduled, each activity depending on the one
+  before, so if `dbt build` fails the export never runs and the report keeps yesterday's good
+  data instead of getting bad data. Plus alerting on failure and a dev/test/prod split.
+- **Why CSV in raw and not Parquet?** You don't choose a source system's format; `dw/raw/` is
+  the landing layer, the files exactly as delivered. Parquet is typed, so writing raw as
+  Parquet would force type decisions at landing — the guessing we designed out.
+- **In Fabric, every table is Delta Lake** = Parquet files + a `_delta_log`. The log gives
+  ACID transactions, time travel, and updates/deletes, which plain Parquet cannot. Warehouse
+  = T-SQL only, files hidden; Lakehouse = `Files/` for landing + `Tables/` for Delta. Power BI
+  can then use **Direct Lake** (reads the Parquet straight into the model, no refresh).
+  The layers don't change — only the storage format and the engine.
+- **Reproducibility.** Fixed seed: regenerating all 17 source files gives byte-identical
+  output (md5-verified). The whole warehouse rebuilds from deleted in 3.4 seconds.
+- **Storage maintenance.** Repeated `create or replace` grew the DuckDB file to 33.5 MB for
+  ~10 MB of data; a fresh rebuild is 11.0 MB (unused space is not reclaimed). Production
+  equivalent: a scheduled maintenance job — in Fabric, `OPTIMIZE` (compact small files) and
+  `VACUUM` (remove old versions) on Delta tables.
+- **Parquet decimals.** `SalaryGbp` shows as INT64 in the raw Parquet schema — that is the
+  *physical* type; Parquet stores an exact decimal as an integer plus a DECIMAL(18,2)
+  annotation. Reading it back gives DECIMAL(18,2). Nothing is lost to floating point.
+
+---
+
+## 7. Next steps
+
+**→ The work plan for Sunday is `dashboard-plan.md`. Start there.**
+
+**Power BI model BUILT (late 19 / early 20 Sep).** PBIP project at `OJ Report/` (Vlad created
+it in Desktop; Claude wrote the TMDL). State, validated end to end:
+- **14 tables** over the Parquet files, each matching its file column for column. M query:
+  `Parquet.Document(File.Contents("<abs path>"))`.
+- **35 relationships, 33 active + 2 inactive** (`fact_FeeTransaction.OriginalInvoiceDateKey`
+  → attributed NFI; `fact_ApplicationLine.StatusFromKey` → the bottleneck chart). All
+  many-to-one, single direction. **Checked against the real data: every dim key unique and
+  not null, ZERO orphan fact rows** — no blank rows in any visual.
+- Date relationships deliberately cut from 11 to 6 (**Vlad's rule, 19 Sep: build only what we
+  use**). `fact_Application` = SubmittedDateKey only (cohort); activity comes from
+  `fact_ApplicationLine.EventDateKey`. Dropped columns stay in the tables, so adding one back
+  is a one-line change.
+- **55 key columns hidden**; `summarizeBy: none` on all keys, durations and percentages —
+  only money and 0/1 flags are summable, each marked `SummarizationSetBy = User` so Desktop
+  stops re-guessing.
+- **Money is Fixed Decimal end to end.** A TMDL-only edit reverts on refresh, because the
+  mashup delivers the Parquet decimal as a double. Fix that holds: a `Currency.Type` step in
+  the M query (`fact_FeeTransaction`, `fact_Placement`, `fact_Target`, `dim_Vacancy`).
+- **Auto date/time OFF** (`__PBI_TimeIntelligenceEnabled = 0`, 7 hidden tables + their
+  variations and relationships removed). Q&A line: one conformed `dim_Date` with the fiscal
+  calendar; auto date/time would add a hidden calendar-year table per date column = a second
+  version of the truth.
+- Validation script (Claude's scratchpad `check_model.py`): structure, table-vs-Parquet
+  columns, relationship integrity against real data, hygiene. **Currently 0 failures,
+  0 warnings.**
+
+**Editing TMDL by hand — three traps learned the hard way (19–20 Sep):**
+1. **Desktop is the authority.** It rewrites every file on save and normalises syntax
+   (`isHidden: true` → bare `isHidden`). Only edit with Desktop closed, and re-read files
+   afterwards rather than trusting an earlier read.
+2. **Never insert a property without checking it exists.** Claude added a second
+   `formatString` to 10 columns; TMDL forbids duplicates and **Desktop refused to open the
+   whole project** (`DuplicatedProperty`). Always scan every object for repeated properties
+   before saying a file is ready.
+3. **Auto-detected relationships are guesses.** Desktop invented
+   `fact_Application.PlacedDateKey → dim_Date` — plausible and wrong (it must be
+   `SubmittedDateKey`). Worth turning off "Autodetect new relationships after data is loaded".
+
+**Still to do:** sort-by columns, measures, the RLS role, then the visuals (Vlad), then the
+presentation. All sequenced in `dashboard-plan.md`.
+
+**Waiting for Vlad's "go": a document of HIS input** — what he decided and contributed, for
+the presentation. Ask first: Markdown in the repo, or Word? Source material: §4's rules
+(every one of them is a Claude correction he caught), his judgement calls (rebate timing from
+his real job, rejecting 4-4-5, rejecting EAV, rejecting seeds, scope cuts, `-1` unknowns,
+"investigate before patching"), and his insistence on understanding each piece. Only facts
+from the project and his CV — never embellish.
+
+**Presentation cautions (Claude's honest assessment, Vlad asked for it):**
+
 1. Be open that AI wrote much of the code: "I designed and decided; AI sped up the
    implementation; I reviewed and can explain every part." Anything he can't yet explain:
    practise it or leave it out.
-2. The data is synthetic and the six stories were PLANTED — present them as "patterns I
+2. The data is synthetic and the six stories were **planted** — present them as "patterns I
    built in to show the dashboard can surface them", never as discoveries.
 3. The dashboard must be excellent — the panel sees it first; the warehouse is the Q&A
-   strength. Prepare "why DuckDB/dbt, not Fabric?" and state dev/test/prod, CI/CD,
-   scheduling and incremental loads confidently as production next steps.
+   strength.
 
-Time left: Sat ~10h, Sun ~8h, Mon morning ~3h (rehearsal only). **The critical path is
-Power BI, not the warehouse** — finish the facts + Parquet export early on Saturday, then
-move to PBIP.
-
-Cut list if Saturday evening looks tight, in this order: (1) field parameters → fixed
-visuals, (2) drillthrough page → a detail table, (3) manager page → mention verbally but
-keep `fact_target` in the model, (4) stories 5 and 6 → leave them in the data only.
+**Time left:** Sat 19 Sep evening, Sun 20 Sep ~8h, Mon morning ~3h (**rehearsal only, no new
+building**). Cut list if tight, in order: (1) field parameters → fixed visuals,
+(2) drillthrough page → a detail table, (3) manager page → mention verbally but keep
+`fact_Target` in the model, (4) stories 5 and 6 → leave them in the data only.
 **Never cut:** RLS, the NFI/rebate logic, the star schema, the Fabric production slide.
 
-**Hard rule on time:** if the dashboard is not being built by Saturday, cut scope, not
-rehearsal. Monday morning is for rehearsal only — no new building.
+---
+
+## 8. Environment
+
+- **venv:** `OJ Project/.venv` (Python 3.12.10) — duckdb 1.5.5, dbt-core 1.12.3,
+  dbt-duckdb 1.11.0. Versions are pinned on purpose this close to the interview; ignore the
+  "dbt 1.12.5 available" notice. Vlad works in **VS Code** with a PowerShell terminal; if
+  `Activate.ps1` is blocked use `.venv\Scripts\python.exe` directly — **do not change the
+  execution policy**.
+- **dbt commands** run from `dw/dbt` with `--profiles-dir .`. dbt writes to schema `main`;
+  bronze stays in `raw`.
+- **Root layout:** `CLAUDE.md`, `data-rules.md`, `requirements.txt`, `.venv/`, `dw/`, `Misc/`,
+  `.vscode/settings.json` (points VS Code and the dbt Power User extension at `.venv`).
+- **Git:** private repo **https://github.com/Vnanka/OJProject**, branch `main`. `.gitignore`
+  excludes `.venv/`, the `.duckdb` warehouse, `dw/export/`, dbt `target/`/`logs/`/`.user.yml`,
+  and `Misc/*` except `Misc/CLAUDE_1.md` — **CV, recruiter email and job spec never go to
+  GitHub, even private**. `dw/raw/` IS committed (Vlad's choice). **Commit only when Vlad
+  asks; he pushes himself.** LF→CRLF warnings are harmless. Git on Windows
+  (`core.ignorecase=true`) misses capital-only renames: fix with `git rm -r --cached <dir>`
+  then `git add <dir>`.
+- Windows console here uses a Cyrillic code page: printing `£`/`€` from Python fails unless
+  `PYTHONUTF8=1` is set. The files themselves are UTF-8 and fine.

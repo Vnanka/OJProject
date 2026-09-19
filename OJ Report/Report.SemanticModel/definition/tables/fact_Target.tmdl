@@ -1,0 +1,57 @@
+table fact_Target
+	lineageTag: 3e180516-390c-4cd7-8f27-614b51679aa2
+
+	column ConsultantKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b5b00994-2e33-4011-b2cb-8a3813f413bd
+		summarizeBy: none
+		sourceColumn: ConsultantKey
+
+		annotation SummarizationSetBy = User
+
+	column OfficeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a221f65c-13b8-452e-9b34-f70f63fac4b4
+		summarizeBy: none
+		sourceColumn: OfficeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 36e4343b-e9b4-4bf5-b531-c704763e7699
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetNfiGbp
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 3b6a5cde-6b45-4fa0-835d-f98b8be088aa
+		summarizeBy: sum
+		sourceColumn: TargetNfiGbp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_Target = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\fact_Target.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
+				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
+				        {{"TargetNfiGbp", Currency.Type}})
+				in
+				    #"Money as fixed decimal"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

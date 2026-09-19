@@ -1,0 +1,77 @@
+table dim_Client
+	lineageTag: 73e6c8bf-b949-4f18-ac6b-eccde81fc5d9
+
+	column ClientKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f048e546-6e96-43a0-b060-3e8f5920e400
+		summarizeBy: none
+		sourceColumn: ClientKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientName
+		dataType: string
+		lineageTag: 53e59fd1-c043-4531-9a0c-3b3d657623c4
+		summarizeBy: none
+		sourceColumn: ClientName
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 7cbe5bb3-fc11-475d-812b-3d306afa4306
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: f245fd9e-a100-4bfb-a463-a4f457a183d8
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 2ba0c97f-c01f-4628-93ec-a6bfa6af27f4
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubSector
+		dataType: string
+		lineageTag: 48bf5e40-4e92-40c4-929f-88538d9dde31
+		summarizeBy: none
+		sourceColumn: SubSector
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientSinceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 72eebcad-3dd9-44d4-98fa-1a0aacd87bf6
+		summarizeBy: none
+		sourceColumn: ClientSinceDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_Client = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Client.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

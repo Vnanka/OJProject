@@ -1,0 +1,40 @@
+table sec_UserTeam
+	lineageTag: 9ef24c93-e09a-4436-a669-d06f76d379c9
+
+	column Email
+		dataType: string
+		lineageTag: a8478dd7-f9e7-49cb-83fd-af763f637e49
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 12fab5d0-8dfa-40fb-98ef-e0a1ca58996f
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleDescription
+		dataType: string
+		lineageTag: bb5388ca-e55f-4c42-9af9-cafba9da21a0
+		summarizeBy: none
+		sourceColumn: RoleDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sec_UserTeam = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\sec_UserTeam.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

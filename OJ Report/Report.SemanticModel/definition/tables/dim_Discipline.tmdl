@@ -1,0 +1,56 @@
+table dim_Discipline
+	lineageTag: 68c0b887-41b9-4977-b838-c6440444a291
+
+	column DisciplineKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 99849f15-7aba-42c3-9c67-e8c0ddeaf98f
+		summarizeBy: none
+		sourceColumn: DisciplineKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: 475bb047-5a20-4cf8-910f-8a7c55adff0c
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0a02d693-09ba-4442-9f01-b81f9e829d11
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ValidTo
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 61beb41f-d323-4d61-a90f-68eb1da1ea2e
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_Discipline = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Discipline.parquet"),
+				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
