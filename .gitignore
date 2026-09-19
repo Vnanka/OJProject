@@ -1,0 +1,24 @@
+# =============================================================================
+# .gitignore — commit code and definitions, not things that can be rebuilt
+# =============================================================================
+
+# ---- Python environment (rebuilt with: pip install -r requirements.txt) -----
+.venv/
+__pycache__/
+*.pyc
+
+# ---- The warehouse file (rebuilt by load_raw.py + dbt build) ---------------
+dw/warehouse/
+*.duckdb
+*.duckdb.wal
+
+# ---- dbt artefacts (regenerated on every run) -------------------------------
+dw/dbt/target/
+dw/dbt/dbt_packages/
+dw/dbt/.user.yml
+logs/
+
+# ---- Personal documents: never in a code repo, even a private one -----------
+# (CV, recruiter email, job spec). The old session handoff is kept.
+Misc/*
+!Misc/CLAUDE_1.md

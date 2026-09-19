@@ -1,0 +1,14 @@
+office_name,city,country_code,country_name,region,region_sort_order,currency_code,last_updated
+Manchester,Manchester,GB,United Kingdom,UK & Ireland,1,GBP,2022-10-01 09:00:00
+London,London,GB,United Kingdom,UK & Ireland,1,GBP,2022-10-01 09:00:00
+Dublin,Dublin,IE,Ireland,UK & Ireland,1,EUR,2022-10-01 09:00:00
+Amsterdam,Amsterdam,NL,Netherlands,Europe,2,EUR,2022-10-01 09:00:00
+Brussels,Brussels,BE,Belgium,Europe,2,EUR,2022-10-01 09:00:00
+Madrid,Madrid,ES,Spain,Europe,2,EUR,2022-10-01 09:00:00
+Paris,Paris,FR,France,Europe,2,EUR,2022-10-01 09:00:00
+Zurich,Zurich,CH,Switzerland,Europe,2,CHF,2022-10-01 09:00:00
+New York,New York,US,United States,North America,3,USD,2022-10-01 09:00:00
+Charlotte,Charlotte,US,United States,North America,3,USD,2022-10-01 09:00:00
+Hong Kong,Hong Kong,HK,Hong Kong,APAC,4,HKD,2022-10-01 09:00:00
+Singapore,Singapore,SG,Singapore,APAC,4,SGD,2022-10-01 09:00:00
+Malaysia,Kuala Lumpur,MY,Malaysia,APAC,4,MYR,2022-10-01 09:00:00

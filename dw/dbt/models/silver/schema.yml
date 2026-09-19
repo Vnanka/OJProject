@@ -1,0 +1,235 @@
+version: 2
+
+# -----------------------------------------------------------------------------
+# schema.yml — descriptions and tests for the silver models.
+#
+# Two kinds of test here:
+#   error (default) -> a broken assumption. The build FAILS and stops.
+#   warn            -> a KNOWN data quality problem in the source (the planted
+#                      ones from data-rules.md §8). It is reported on every
+#                      build, but does not stop the pipeline - gold decides how
+#                      to show the bad rows.
+# -----------------------------------------------------------------------------
+
+models:
+
+  - name: stg_user
+    description: "CRM users (consultants and team managers). One row per UserId."
+    columns:
+      - name: UserId
+        data_tests: [unique, not_null]
+      - name: Email
+        data_tests: [unique, not_null]
+      - name: Office
+        description: "Every user's office must exist in the office reference list."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_office')
+                field: OfficeName
+
+  - name: stg_company
+    description: "Clients. One row per CompanyId."
+    columns:
+      - name: CompanyId
+        data_tests: [unique, not_null]
+      - name: Industry
+        data_tests: [not_null]
+      - name: SubSector
+        description: "Every client's sub-sector must exist in the CRM's industry list."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_industry')
+                field: SubSector
+
+  - name: stg_joborder
+    description: "Vacancies. One row per JobOrderId. Salary parsed from free text into SalaryMin / SalaryMax, local currency."
+    columns:
+      - name: JobOrderId
+        data_tests: [unique, not_null]
+      - name: CompanyId
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_company')
+                field: CompanyId
+      - name: Discipline
+        description: "Planted problem: ~30 blank (warn). Every non-blank value must exist in the CRM's discipline list (error)."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              arguments:
+                to: ref('stg_discipline')
+                field: Discipline
+      - name: SalaryMin
+        description: "NULL when the text holds no number (e.g. 'Competitive')."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: stg_candidate
+    description: "Candidates after merging duplicates. One row per real person."
+    columns:
+      - name: CandidateId
+        data_tests: [unique, not_null]
+
+  - name: stg_candidate_duplicates
+    description: "The CRM's merge list: NewCandidateId is the same person as OldCandidateId."
+    columns:
+      - name: NewCandidateId
+        data_tests: [unique, not_null]
+
+  - name: stg_status
+    description: "CRM pipeline status lookup."
+    columns:
+      - name: StatusCode
+        description: "Every CRM status must have a funnel mapping - a new status can never go unmapped silently."
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_funnel_stage')
+                field: StatusCode
+
+  - name: stg_funnel_stage
+    description: "The business definition of the funnel: CRM status code -> funnel stage."
+    columns:
+      - name: StatusCode
+        data_tests: [unique, not_null]
+      - name: StageType
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Progress', 'Exit', 'Start', 'Pre-funnel']
+
+  - name: stg_status_history
+    description: "Pipeline event log, one row per status change. CandidateId is after merging duplicates."
+    columns:
+      - name: StatusHistoryId
+        data_tests: [unique, not_null]
+      - name: CandidateId
+        description: "Must point at a real person - proves the duplicate merge worked."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_candidate')
+                field: CandidateId
+      - name: JobOrderId
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_joborder')
+                field: JobOrderId
+      - name: StatusToCode
+        description: "Planted problem: a few rows use code 999, which is not in the lookup."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_status')
+                field: StatusCode
+              config:
+                severity: warn
+
+  - name: stg_placements
+    description: "Placements from finance, local currency. One row per PlacementRef."
+    columns:
+      - name: PlacementRef
+        data_tests: [unique, not_null]
+      - name: JobOrderId
+        description: "The cross-system join: every finance placement must exist in the CRM."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_joborder')
+                field: JobOrderId
+      - name: FeePct
+        description: "Planted problem: 2 blank, 1 zero (the zero is caught by tests/assert_fee_pct_positive.sql)."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: stg_transactions
+    description: "Invoices and credit notes, signed: credit notes are negative. Local currency."
+    columns:
+      - name: DocumentNo
+        data_tests: [unique, not_null]
+      - name: DocumentType
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['INV', 'CRN']
+      - name: PlacementRef
+        description: "Planted problem: 2 credit notes point at placements that don't exist."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_placements')
+                field: PlacementRef
+              config:
+                severity: warn
+
+  - name: stg_targets
+    description: "Monthly NFI target per consultant, GBP."
+    columns:
+      - name: UserId
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_user')
+                field: UserId
+
+  - name: stg_user_team
+    description: "Row-level security access list: which email sees which team."
+    columns:
+      - name: Email
+        data_tests: [not_null]
+
+  - name: stg_industry
+    description: "CRM industry dropdown: one row per sub-sector with its industry. ValidTo NULL = in use."
+    columns:
+      - name: SubSectorId
+        data_tests: [unique, not_null]
+      - name: SubSector
+        data_tests: [unique, not_null]
+      - name: Industry
+        data_tests: [not_null]
+
+  - name: stg_discipline
+    description: "CRM discipline dropdown. ValidTo NULL = in use."
+    columns:
+      - name: DisciplineId
+        data_tests: [unique, not_null]
+      - name: Discipline
+        data_tests: [unique, not_null]
+
+  - name: stg_office
+    description: "Office reference list: city, country, region, currency. One row per office."
+    columns:
+      - name: OfficeName
+        data_tests: [unique, not_null]
+      - name: CurrencyCode
+        description: "Every office currency must have ECB rates, or its fees can't be converted to GBP. GBP itself is the base."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['GBP', 'EUR', 'USD', 'CHF', 'HKD', 'SGD', 'MYR']
+
+  - name: stg_fx_rates
+    description: "Daily ECB rates. RatePerGbp = units of the currency per 1 GBP. No rows on weekends/holidays."
+    columns:
+      - name: RatePerGbp
+        data_tests: [not_null]
+
+  - name: stg_bank_holidays
+    description: "UK bank holidays for all three divisions."
+    columns:
+      - name: HolidayDate
+        data_tests: [not_null]

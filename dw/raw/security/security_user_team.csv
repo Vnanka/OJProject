@@ -1,0 +1,121 @@
+user_email,team,role_description,last_updated
+ceo@example.com,Manchester Actuarial,Executive - all teams,2026-09-06 18:46:23
+ceo@example.com,Manchester Finance,Executive - all teams,2026-09-01 16:00:32
+ceo@example.com,Manchester Underwriting,Executive - all teams,2026-09-01 16:41:46
+ceo@example.com,Manchester Technology,Executive - all teams,2026-09-05 08:04:46
+ceo@example.com,London Legal,Executive - all teams,2026-09-06 17:29:42
+ceo@example.com,London Risk,Executive - all teams,2026-09-04 08:32:38
+ceo@example.com,London Change,Executive - all teams,2026-09-02 10:55:34
+ceo@example.com,London Actuarial,Executive - all teams,2026-09-05 09:34:42
+ceo@example.com,Dublin Underwriting,Executive - all teams,2026-09-02 14:10:18
+ceo@example.com,Dublin Finance,Executive - all teams,2026-09-03 12:06:25
+ceo@example.com,Amsterdam Change,Executive - all teams,2026-09-06 13:58:52
+ceo@example.com,Brussels Actuarial,Executive - all teams,2026-09-01 09:07:26
+ceo@example.com,Madrid Legal,Executive - all teams,2026-09-03 15:13:15
+ceo@example.com,Paris Change,Executive - all teams,2026-09-01 13:17:40
+ceo@example.com,Paris Underwriting,Executive - all teams,2026-09-01 10:09:45
+ceo@example.com,Zurich Finance,Executive - all teams,2026-09-05 16:54:01
+ceo@example.com,Zurich Change,Executive - all teams,2026-09-02 10:03:40
+ceo@example.com,New York Change,Executive - all teams,2026-09-02 10:59:12
+ceo@example.com,New York Technology,Executive - all teams,2026-09-05 11:58:01
+ceo@example.com,New York Legal,Executive - all teams,2026-09-06 18:16:06
+ceo@example.com,Charlotte Underwriting,Executive - all teams,2026-09-05 15:22:22
+ceo@example.com,Hong Kong Finance,Executive - all teams,2026-09-01 08:21:40
+ceo@example.com,Singapore Change,Executive - all teams,2026-09-05 13:16:52
+ceo@example.com,Malaysia Underwriting,Executive - all teams,2026-09-01 11:50:38
+cfo@example.com,Manchester Actuarial,Executive - all teams,2026-09-05 18:21:00
+cfo@example.com,Manchester Finance,Executive - all teams,2026-09-06 10:37:49
+cfo@example.com,Manchester Underwriting,Executive - all teams,2026-09-05 17:13:05
+cfo@example.com,Manchester Technology,Executive - all teams,2026-09-03 10:33:16
+cfo@example.com,London Legal,Executive - all teams,2026-09-02 14:02:37
+cfo@example.com,London Risk,Executive - all teams,2026-09-01 08:39:30
+cfo@example.com,London Change,Executive - all teams,2026-09-05 16:45:03
+cfo@example.com,London Actuarial,Executive - all teams,2026-09-03 17:06:07
+cfo@example.com,Dublin Underwriting,Executive - all teams,2026-09-06 18:54:34
+cfo@example.com,Dublin Finance,Executive - all teams,2026-09-02 12:44:21
+cfo@example.com,Amsterdam Change,Executive - all teams,2026-09-03 13:02:48
+cfo@example.com,Brussels Actuarial,Executive - all teams,2026-09-04 18:34:42
+cfo@example.com,Madrid Legal,Executive - all teams,2026-09-01 08:32:52
+cfo@example.com,Paris Change,Executive - all teams,2026-09-02 08:16:09
+cfo@example.com,Paris Underwriting,Executive - all teams,2026-09-04 09:59:01
+cfo@example.com,Zurich Finance,Executive - all teams,2026-09-06 09:27:48
+cfo@example.com,Zurich Change,Executive - all teams,2026-09-06 15:24:08
+cfo@example.com,New York Change,Executive - all teams,2026-09-06 09:53:50
+cfo@example.com,New York Technology,Executive - all teams,2026-09-03 13:02:52
+cfo@example.com,New York Legal,Executive - all teams,2026-09-06 14:53:55
+cfo@example.com,Charlotte Underwriting,Executive - all teams,2026-09-05 15:28:52
+cfo@example.com,Hong Kong Finance,Executive - all teams,2026-09-05 16:28:27
+cfo@example.com,Singapore Change,Executive - all teams,2026-09-02 14:35:55
+cfo@example.com,Malaysia Underwriting,Executive - all teams,2026-09-03 12:01:22
+apac.director@example.com,Hong Kong Finance,Regional Director - APAC,2026-09-04 08:49:03
+apac.director@example.com,Singapore Change,Regional Director - APAC,2026-09-02 08:11:07
+apac.director@example.com,Malaysia Underwriting,Regional Director - APAC,2026-09-05 13:57:52
+europe.director@example.com,Amsterdam Change,Regional Director - Europe,2026-09-02 14:48:13
+europe.director@example.com,Brussels Actuarial,Regional Director - Europe,2026-09-05 16:49:01
+europe.director@example.com,Madrid Legal,Regional Director - Europe,2026-09-04 12:14:20
+europe.director@example.com,Paris Change,Regional Director - Europe,2026-09-01 14:51:44
+europe.director@example.com,Paris Underwriting,Regional Director - Europe,2026-09-06 12:56:24
+europe.director@example.com,Zurich Finance,Regional Director - Europe,2026-09-02 10:32:28
+europe.director@example.com,Zurich Change,Regional Director - Europe,2026-09-03 16:46:50
+north.america.director@example.com,New York Change,Regional Director - North America,2026-09-03 16:29:44
+north.america.director@example.com,New York Technology,Regional Director - North America,2026-09-05 15:31:16
+north.america.director@example.com,New York Legal,Regional Director - North America,2026-09-02 16:29:40
+north.america.director@example.com,Charlotte Underwriting,Regional Director - North America,2026-09-01 14:10:23
+uk.ireland.director@example.com,Manchester Actuarial,Regional Director - UK & Ireland,2026-09-03 13:12:35
+uk.ireland.director@example.com,Manchester Finance,Regional Director - UK & Ireland,2026-09-02 18:32:17
+uk.ireland.director@example.com,Manchester Underwriting,Regional Director - UK & Ireland,2026-09-05 14:42:29
+uk.ireland.director@example.com,Manchester Technology,Regional Director - UK & Ireland,2026-09-03 18:38:38
+uk.ireland.director@example.com,London Legal,Regional Director - UK & Ireland,2026-09-05 16:17:52
+uk.ireland.director@example.com,London Risk,Regional Director - UK & Ireland,2026-09-03 13:47:24
+uk.ireland.director@example.com,London Change,Regional Director - UK & Ireland,2026-09-03 18:16:23
+uk.ireland.director@example.com,London Actuarial,Regional Director - UK & Ireland,2026-09-03 16:49:35
+uk.ireland.director@example.com,Dublin Underwriting,Regional Director - UK & Ireland,2026-09-05 10:28:08
+uk.ireland.director@example.com,Dublin Finance,Regional Director - UK & Ireland,2026-09-05 11:25:57
+manchester.director@example.com,Manchester Actuarial,Office Director - Manchester,2026-09-01 15:12:11
+manchester.director@example.com,Manchester Finance,Office Director - Manchester,2026-09-05 11:34:25
+manchester.director@example.com,Manchester Underwriting,Office Director - Manchester,2026-09-06 12:12:16
+manchester.director@example.com,Manchester Technology,Office Director - Manchester,2026-09-04 09:48:27
+london.director@example.com,London Legal,Office Director - London,2026-09-01 15:24:57
+london.director@example.com,London Risk,Office Director - London,2026-09-05 11:18:18
+london.director@example.com,London Change,Office Director - London,2026-09-03 11:21:15
+london.director@example.com,London Actuarial,Office Director - London,2026-09-01 18:44:07
+dublin.director@example.com,Dublin Underwriting,Office Director - Dublin,2026-09-04 13:49:15
+dublin.director@example.com,Dublin Finance,Office Director - Dublin,2026-09-02 08:33:10
+amsterdam.director@example.com,Amsterdam Change,Office Director - Amsterdam,2026-09-03 08:48:18
+brussels.director@example.com,Brussels Actuarial,Office Director - Brussels,2026-09-04 13:02:46
+madrid.director@example.com,Madrid Legal,Office Director - Madrid,2026-09-02 15:53:40
+paris.director@example.com,Paris Change,Office Director - Paris,2026-09-02 11:29:13
+paris.director@example.com,Paris Underwriting,Office Director - Paris,2026-09-06 18:54:21
+zurich.director@example.com,Zurich Finance,Office Director - Zurich,2026-09-02 14:28:28
+zurich.director@example.com,Zurich Change,Office Director - Zurich,2026-09-02 12:27:12
+new.york.director@example.com,New York Change,Office Director - New York,2026-09-04 18:31:40
+new.york.director@example.com,New York Technology,Office Director - New York,2026-09-04 12:37:53
+new.york.director@example.com,New York Legal,Office Director - New York,2026-09-01 12:37:43
+charlotte.director@example.com,Charlotte Underwriting,Office Director - Charlotte,2026-09-05 17:49:41
+hong.kong.director@example.com,Hong Kong Finance,Office Director - Hong Kong,2026-09-02 11:00:13
+singapore.director@example.com,Singapore Change,Office Director - Singapore,2026-09-04 12:23:47
+malaysia.director@example.com,Malaysia Underwriting,Office Director - Malaysia,2026-09-02 18:14:06
+lucas.taylor@example.com,Manchester Actuarial,Team Manager - Manchester Actuarial,2026-09-04 16:38:52
+amelia.wright@example.com,Manchester Finance,Team Manager - Manchester Finance,2026-09-03 17:59:35
+aoife.garcia@example.com,Manchester Underwriting,Team Manager - Manchester Underwriting,2026-09-05 18:04:54
+aoife.jones@example.com,Manchester Technology,Team Manager - Manchester Technology,2026-09-06 10:45:21
+priya.garcia@example.com,London Legal,Team Manager - London Legal,2026-09-06 14:49:19
+daniel.muller@example.com,London Risk,Team Manager - London Risk,2026-09-01 08:24:16
+aisha.rahman@example.com,London Change,Team Manager - London Change,2026-09-03 15:51:55
+sophie.roberts@example.com,London Actuarial,Team Manager - London Actuarial,2026-09-05 11:43:57
+sophie.peeters@example.com,Dublin Underwriting,Team Manager - Dublin Underwriting,2026-09-01 10:06:27
+grace.smith@example.com,Dublin Finance,Team Manager - Dublin Finance,2026-09-06 09:45:22
+jonas.keller@example.com,Amsterdam Change,Team Manager - Amsterdam Change,2026-09-01 17:01:47
+george.scott@example.com,Brussels Actuarial,Team Manager - Brussels Actuarial,2026-09-03 16:29:40
+claire.king@example.com,Madrid Legal,Team Manager - Madrid Legal,2026-09-06 08:41:15
+hugo.brown@example.com,Paris Change,Team Manager - Paris Change,2026-09-01 18:55:52
+oliver.patel@example.com,Paris Underwriting,Team Manager - Paris Underwriting,2026-09-06 13:27:19
+jun.evans@example.com,Zurich Finance,Team Manager - Zurich Finance,2026-09-03 15:17:30
+lucie.clarke@example.com,Zurich Change,Team Manager - Zurich Change,2026-09-02 14:18:17
+amelia.rahman@example.com,New York Change,Team Manager - New York Change,2026-09-06 14:39:16
+madison.jones@example.com,New York Technology,Team Manager - New York Technology,2026-09-04 11:51:50
+mia.patel@example.com,New York Legal,Team Manager - New York Legal,2026-09-06 13:03:21
+chloe.tan@example.com,Charlotte Underwriting,Team Manager - Charlotte Underwriting,2026-09-03 13:35:37
+nurul.wright@example.com,Hong Kong Finance,Team Manager - Hong Kong Finance,2026-09-06 17:11:55
+sanne.wood@example.com,Singapore Change,Team Manager - Singapore Change,2026-09-02 11:19:24
+sophie.martin@example.com,Malaysia Underwriting,Team Manager - Malaysia Underwriting,2026-09-05 14:10:54

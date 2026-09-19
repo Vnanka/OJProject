@@ -1,0 +1,42 @@
+# dbt_project.yml
+# -----------------------------------------------------------------------------
+# The project file. dbt reads this first to learn the project name, where the
+# models live, and how each folder should be materialised.
+# Its presence is what makes this folder "a dbt project".
+# -----------------------------------------------------------------------------
+
+name: 'oj_dw'
+version: '1.0.0'
+config-version: 2
+
+# Which connection to use. Must match a block in profiles.yml.
+profile: 'oj_dw'
+
+# Standard dbt folder layout. We only use model-paths for now; the others are
+# listed so dbt does not go looking in the wrong place.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# `dbt clean` deletes these folders. Both are regenerated, so they are safe to
+# delete at any time.
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# -----------------------------------------------------------------------------
+# Materialisation: view or table, set per folder rather than per model.
+#
+#   silver/ -> views.  Thin renaming and casting, cheap to re-run, never stale.
+#   gold/   -> tables. Joined and aggregated, then read over and over by
+#              Power BI, so it is worth computing once at build time.
+# -----------------------------------------------------------------------------
+models:
+  oj_dw:
+    silver:
+      +materialized: view
+    gold:
+      +materialized: table

@@ -1,0 +1,11 @@
+# Python packages for the OJ demo warehouse.
+# Install into the project venv:  pip install -r requirements.txt
+# Requires Python 3.12 (3.14 has no wheels for the data libraries yet).
+# Same versions as ../lol-data-warehouse, which are known to work together.
+
+# Warehouse engine (single-file analytics database)
+duckdb==1.5.5
+
+# Transformation layer (dbt + its DuckDB connector)
+dbt-core==1.12.3
+dbt-duckdb==1.11.0

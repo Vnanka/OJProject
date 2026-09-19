@@ -1,0 +1,13 @@
+candidate_joborder_status_id,short_description,date_modified
+0,No Status,2022-10-01 09:00:00
+100,No Contact,2022-10-01 09:00:00
+200,Contacted,2022-10-01 09:00:00
+250,Candidate Responded,2022-10-01 09:00:00
+300,Qualifying,2022-10-01 09:00:00
+400,Submitted,2022-10-01 09:00:00
+500,Interviewing,2022-10-01 09:00:00
+600,Offered,2022-10-01 09:00:00
+650,Not in Consideration,2022-10-01 09:00:00
+675,Candidate Declined,2022-10-01 09:00:00
+700,Client Declined,2022-10-01 09:00:00
+800,Placed,2022-10-01 09:00:00

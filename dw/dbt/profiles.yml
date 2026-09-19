@@ -1,0 +1,23 @@
+# profiles.yml
+# -----------------------------------------------------------------------------
+# The connection file: HOW dbt reaches the warehouse.
+#
+# By default dbt looks for this file in your user folder (~/.dbt/profiles.yml).
+# We keep it inside the project instead and point dbt at it with
+# --profiles-dir, so the connection lives next to the models it belongs to.
+#
+# Safe to keep here: DuckDB is a local file, so there is no host, user or
+# password in this file. With a real database, secrets would come from
+# environment variables instead, e.g.  password: "{{ env_var('DBT_PASSWORD') }}"
+# -----------------------------------------------------------------------------
+
+oj_dw:                      # must match `profile:` in dbt_project.yml
+  target: dev               # which output below to use by default
+  outputs:
+
+    dev:
+      type: duckdb          # provided by the dbt-duckdb adapter we installed
+      # Relative to this folder, so it resolves to dw/warehouse/oj_dw.duckdb
+      # This is the same database the bronze load writes to.
+      path: "../warehouse/oj_dw.duckdb"
+      threads: 4            # how many models dbt may build at the same time

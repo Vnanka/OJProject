@@ -1,0 +1,13 @@
+status_code,funnel_stage,funnel_stage_order,stage_type,exit_by,last_updated
+0,Not started,0,Start,,2022-10-01 09:00:00
+100,Pre-funnel,0,Pre-funnel,,2022-10-01 09:00:00
+200,Pre-funnel,0,Pre-funnel,,2022-10-01 09:00:00
+250,Pre-funnel,0,Pre-funnel,,2022-10-01 09:00:00
+300,Pre-funnel,0,Pre-funnel,,2022-10-01 09:00:00
+400,CV Sent,1,Progress,,2022-10-01 09:00:00
+500,Interview,2,Progress,,2022-10-01 09:00:00
+600,Offer,3,Progress,,2022-10-01 09:00:00
+650,Rejected,5,Exit,Agency,2022-10-01 09:00:00
+675,Withdrawn,6,Exit,Candidate,2022-10-01 09:00:00
+700,Rejected,5,Exit,Client,2022-10-01 09:00:00
+800,Placed,4,Progress,,2022-10-01 09:00:00

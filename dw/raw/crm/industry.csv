@@ -1,0 +1,15 @@
+sub_sector_id,sub_sector,industry_id,industry,valid_from,valid_to,date_modified
+1,General Insurance,1,Insurance,2022-10-01,,2022-10-01 09:00:00
+2,Life & Pensions,1,Insurance,2022-10-01,,2022-10-01 09:00:00
+3,Health,1,Insurance,2022-10-01,,2022-10-01 09:00:00
+4,Banking,2,Financial Services,2022-10-01,,2022-10-01 09:00:00
+5,Asset & Wealth Management,2,Financial Services,2022-10-01,,2022-10-01 09:00:00
+6,Payments & Fintech,2,Financial Services,2022-10-01,,2022-10-01 09:00:00
+7,Technology,3,Commerce & Industry,2022-10-01,,2022-10-01 09:00:00
+8,Industrials,3,Commerce & Industry,2022-10-01,,2022-10-01 09:00:00
+9,Energy & Infrastructure,3,Commerce & Industry,2022-10-01,,2022-10-01 09:00:00
+10,Consumer,3,Commerce & Industry,2022-10-01,,2022-10-01 09:00:00
+11,Consulting,4,Professional Services,2022-10-01,,2022-10-01 09:00:00
+12,Legal & Advisory,4,Professional Services,2022-10-01,,2022-10-01 09:00:00
+13,Actuarial Consulting,4,Professional Services,2022-10-01,,2022-10-01 09:00:00
+14,Reinsurance,1,Insurance,2022-10-01,2024-03-31,2024-03-31 17:00:00

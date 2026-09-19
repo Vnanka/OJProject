@@ -1,0 +1,86 @@
+version: 2
+
+# -----------------------------------------------------------------------------
+# schema.yml — descriptions and tests for the gold star schema.
+#
+# Gold tests are ERRORS: gold is what Power BI reads, so a broken key or a
+# fact row pointing at nothing must stop the build. Known source problems were
+# already reported (as warnings) in silver and are mapped to -1 "Unknown" here.
+# -----------------------------------------------------------------------------
+
+models:
+
+  - name: dim_date
+    description: "Calendar, 1 Apr 2022 - 31 Mar 2028, plus the -1 Unknown row. Fiscal year starts 1 April; ISO weeks; England & Wales bank holidays."
+    columns:
+      - name: DateKey
+        description: "yyyymmdd as an integer, e.g. 20260921. -1 = unknown date."
+        data_tests: [unique, not_null]
+      - name: FiscalYear
+        data_tests: [not_null]
+
+  - name: dim_office
+    description: "Offices, from the office reference list. Generated OfficeKey; -1 = Unknown."
+    columns:
+      - name: OfficeKey
+        data_tests: [unique, not_null]
+      - name: OfficeName
+        data_tests: [unique, not_null]
+
+  - name: dim_industry
+    description: "Client industry hierarchy (Industry -> SubSector), from the CRM dropdown. Key = SubSectorId; -1 = Unknown."
+    columns:
+      - name: IndustryKey
+        data_tests: [unique, not_null]
+
+  - name: dim_discipline
+    description: "Job disciplines, from the CRM dropdown. Key = DisciplineId; -1 = Unknown (blank in the CRM)."
+    columns:
+      - name: DisciplineKey
+        data_tests: [unique, not_null]
+
+  - name: dim_consultant
+    description: "Consultants and team managers, current team/office. Key = UserId; -1 = Unknown."
+    columns:
+      - name: ConsultantKey
+        data_tests: [unique, not_null]
+      - name: Email
+        data_tests: [unique]
+      - name: Team
+        data_tests: [not_null]
+
+  - name: dim_client
+    description: "Clients. Key = CompanyId; -1 = Unknown. Industry text is for convenience; facts carry IndustryKey."
+    columns:
+      - name: ClientKey
+        data_tests: [unique, not_null]
+
+  - name: dim_vacancy
+    description: "Vacancies. Key = JobOrderId; -1 = Unknown. Salary in local currency. Facts carry DisciplineKey."
+    columns:
+      - name: VacancyKey
+        data_tests: [unique, not_null]
+      - name: SalaryCurrency
+        description: "Every real vacancy's office must have a currency."
+        data_tests:
+          - not_null:
+              config:
+                where: "VacancyKey <> -1"
+
+  - name: fx_rate_monthly
+    description: "Monthly average ECB rate per currency (units per 1 GBP), plus GBP = 1.0. Used to convert every amount to GBP: local / RatePerGbp."
+    columns:
+      - name: RatePerGbp
+        data_tests: [not_null]
+
+  - name: dim_stage
+    description: "Pipeline stages: the CRM status codes mapped to the business funnel. Key = status code; -1 = Unknown exit."
+    columns:
+      - name: StageKey
+        data_tests: [unique, not_null]
+      - name: FunnelStage
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['CV Sent', 'Interview', 'Offer', 'Placed', 'Rejected', 'Withdrawn', 'Not started', 'Pre-funnel', 'Unknown exit']

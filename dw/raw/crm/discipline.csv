@@ -1,0 +1,9 @@
+discipline_id,discipline,valid_from,valid_to,date_modified
+1,"Accountancy, Finance & Audit",2022-10-01,,2022-10-01 09:00:00
+2,Actuarial,2022-10-01,,2022-10-01 09:00:00
+3,Risk & Compliance,2022-10-01,,2022-10-01 09:00:00
+4,Technology,2022-10-01,,2022-10-01 09:00:00
+5,Transformation & Change,2022-10-01,,2022-10-01 09:00:00
+6,"Underwriting, Broking & Claims",2022-10-01,,2022-10-01 09:00:00
+7,Legal,2022-10-01,,2022-10-01 09:00:00
+8,Tax,2022-10-01,2023-09-30,2023-09-30 17:00:00

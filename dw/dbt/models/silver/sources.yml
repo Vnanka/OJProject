@@ -1,0 +1,78 @@
+version: 2
+
+# -----------------------------------------------------------------------------
+# sources.yml — the tables dbt did NOT create.
+#
+# These are our bronze tables, loaded by dw/src/load/load_raw.py. Declaring them
+# here is what makes {{ source('raw', 'crm_user') }} work in a model, and it is
+# where the dbt lineage graph starts.
+#
+# Everything here is VARCHAR: bronze lands data as text on purpose, and the
+# silver models below are the single place where types are decided.
+# -----------------------------------------------------------------------------
+
+sources:
+  - name: raw
+    description: >
+      Bronze landing zone. Loaded from dw/raw/ by src/load/load_raw.py with
+      all_varchar=true (CSV) or read_text (JSON). Shape is as close to the
+      source system exports as possible - no renaming, casting or filtering.
+    database: oj_dw        # DuckDB: the database name is the file name stem
+    schema: raw
+
+    tables:
+      # ---- CRM export (OpenCATS-shaped) ---------------------------------
+      - name: crm_user
+        description: "Consultants and team managers. One row per user_id. `team`, `office` and `manager_user_id` are the agency's custom columns."
+
+      - name: crm_company
+        description: "Clients. One row per company_id, with `industry` and `sub_sector`."
+
+      - name: crm_joborder
+        description: "Vacancies. One row per joborder_id. `salary` is free text, `type` is a code ('H' = perm hire), `owning_office` is the office that owns the job."
+
+      - name: crm_candidate
+        description: "Candidates: id, can_relocate flag and dates only. No personal data by design (GDPR)."
+
+      - name: crm_candidate_duplicates
+        description: "Pairs of candidate records that are the same person. Silver maps new_candidate_id back to old_candidate_id before anything is counted."
+
+      - name: crm_status
+        description: "Pipeline status lookup (0 No Status, 400 Submitted, 500 Interviewing, 600 Offered, 800 Placed, plus the exit codes)."
+
+      - name: crm_status_history
+        description: "The pipeline event log: one row per status change, with status_from and status_to. The source of fact_pipeline_event."
+
+      - name: crm_industry
+        description: "The CRM's industry dropdown: one row per sub-sector, with its industry. valid_to empty = still in use."
+
+      - name: crm_discipline
+        description: "The CRM's discipline dropdown. valid_to empty = still in use."
+
+      # ---- Finance export ----------------------------------------------
+      - name: fin_placements
+        description: "One row per placement, with salary and fee_pct in local currency, plus leave_date when the candidate left inside the guarantee period."
+
+      - name: fin_transactions
+        description: "Invoices (INV) and credit notes (CRN). net_amount is positive for both - the sign comes from doc_type."
+
+      - name: fin_targets
+        description: "Monthly NFI target per consultant, in GBP. Grain: one row per user_id and month."
+
+      # ---- Access list maintained by the BI team ------------------------
+      - name: sec_user_team
+        description: "Row-level security: which email may see which team. Fake example.com people."
+
+      # ---- Reference lists the business maintains -----------------------
+      - name: ref_office
+        description: "The office list: one row per office, with city, country, region and currency. Maintained by the business; regions are OJ's reporting grouping."
+
+      - name: ref_funnel_stage
+        description: "The business definition of the funnel: which CRM status code counts as which funnel stage, its order, type (Progress/Exit/Start/Pre-funnel) and who caused an exit. Maintained by the BI team / sales operations."
+
+      # ---- Public reference data, landed as raw JSON text ---------------
+      - name: api_fx_rates
+        description: "One row holding the whole Frankfurter/ECB response as JSON text. Daily GBP rates, no rates on weekends or holidays."
+
+      - name: api_bank_holidays
+        description: "One row holding the whole gov.uk bank holidays response as JSON text."

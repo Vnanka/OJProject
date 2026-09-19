@@ -1,0 +1,965 @@
+company_id,name,city,country,owner,date_created,date_modified,industry,sub_sector
+1,Ashdown Gate Retail Ltd,Manchester,GB,1,2022-04-09 14:53:02,2026-09-12 08:36:22,Commerce & Industry,Energy & Infrastructure
+2,Upfield Park Payments Ltd,Manchester,GB,1,2021-10-05 11:39:20,2026-09-12 11:42:46,Financial Services,Asset & Wealth Management
+3,Ivybridge Gate Assurance Ltd,Manchester,GB,1,2022-04-29 14:25:36,2026-09-11 16:18:00,Insurance,Health
+4,Pembury Park Bank Ltd,Manchester,GB,1,2022-08-25 13:50:55,2026-09-11 14:27:29,Financial Services,Asset & Wealth Management
+5,Yarrow Park Insurance Ltd,Manchester,GB,1,2022-04-10 10:27:21,2026-08-11 13:21:01,Insurance,Health
+6,Northcote Bank Ltd,Manchester,GB,1,2022-06-18 18:07:07,2026-09-12 15:29:03,Financial Services,Payments & Fintech
+7,Bexmoor Bay Bank Ltd,Manchester,GB,1,2022-06-20 11:59:15,2026-05-28 14:55:37,Financial Services,Banking
+8,Larkspur Park Partners Ltd,Manchester,GB,1,2021-10-26 18:15:27,2026-09-07 09:00:23,Professional Services,Consulting
+9,Westbrook Hill Mutual Ltd,Manchester,GB,1,2022-07-14 18:15:35,2026-08-22 09:16:58,Insurance,Life & Pensions
+10,Marlowe Vale Solutions Ltd,Manchester,GB,1,2022-10-07 12:49:13,2026-07-04 15:17:20,Professional Services,Legal & Advisory
+11,Larkspur Mutual Ltd,Manchester,GB,1,2023-08-27 17:42:46,2026-09-07 11:36:22,Insurance,Life & Pensions
+12,Glenmoor Capital Ltd,Manchester,GB,1,2022-05-26 11:39:41,2026-06-17 16:47:30,Financial Services,Asset & Wealth Management
+13,Ashdown Park Mutual Ltd,Manchester,GB,1,2022-05-19 18:28:23,2026-07-24 11:04:19,Insurance,Life & Pensions
+14,Greywell Hill Re Ltd,Manchester,GB,1,2021-11-26 09:08:00,2026-09-12 13:15:44,Insurance,Life & Pensions
+15,Eastleigh Gate Advisory Ltd,Manchester,GB,1,2022-08-13 11:12:39,2026-07-27 17:29:38,Professional Services,Actuarial Consulting
+16,Larkspur Gate Assurance Ltd,Manchester,GB,1,2024-08-06 16:38:32,2026-05-30 08:56:27,Insurance,Life & Pensions
+17,Kestrel Vale Bank Ltd,Manchester,GB,1,2022-05-26 14:22:17,2026-07-15 18:42:31,Financial Services,Banking
+18,Elmstead Bank Ltd,Manchester,GB,1,2022-11-20 13:03:00,2026-09-12 18:23:14,Financial Services,Asset & Wealth Management
+19,Ivybridge Bay Advisory Ltd,Manchester,GB,1,2021-12-05 09:58:26,2026-09-04 11:04:42,Professional Services,Consulting
+20,Kestrel Park Underwriting Ltd,Manchester,GB,1,2022-06-22 10:16:44,2026-07-04 09:23:58,Insurance,Life & Pensions
+21,Valemont Bay Consulting Ltd,Manchester,GB,1,2022-12-24 12:36:24,2026-04-20 18:18:10,Professional Services,Actuarial Consulting
+22,Redfern Consulting Ltd,Manchester,GB,1,2022-11-16 17:33:18,2026-04-01 18:19:13,Professional Services,Consulting
+23,Westbrook Partners Ltd,Manchester,GB,1,2022-05-10 08:06:28,2026-07-01 17:19:55,Professional Services,Legal & Advisory
+24,Yarrow Vale Partners Ltd,Manchester,GB,1,2022-05-06 14:13:09,2026-04-13 10:29:22,Professional Services,Consulting
+25,Fernbrook Hill Assurance Ltd,Manchester,GB,1,2023-05-26 18:07:40,2026-03-01 11:34:08,Insurance,Life & Pensions
+26,Fernbrook Vale Underwriting Ltd,Manchester,GB,1,2022-11-16 09:04:42,2026-03-29 08:07:40,Insurance,Life & Pensions
+27,Quayside Assurance Ltd,Manchester,GB,1,2022-06-25 17:11:42,2026-02-21 16:01:33,Insurance,General Insurance
+28,Yarrow Capital Ltd,Manchester,GB,1,2022-11-20 18:39:46,2026-04-25 16:17:22,Financial Services,Banking
+29,Marlowe Energy Ltd,Manchester,GB,1,2022-11-27 18:30:20,2026-05-09 10:43:52,Commerce & Industry,Industrials
+30,Glenmoor Bay Mutual Ltd,Manchester,GB,1,2022-03-29 10:18:26,2026-09-12 17:36:25,Insurance,General Insurance
+31,Glenmoor Technologies Ltd,Manchester,GB,1,2022-06-18 17:01:15,2026-01-05 10:37:55,Commerce & Industry,Consumer
+32,Harlow Partners Ltd,Manchester,GB,1,2021-11-07 10:05:49,2025-07-30 11:25:09,Professional Services,Legal & Advisory
+33,Calderwood Hill Industries Ltd,Manchester,GB,1,2023-11-21 10:52:28,2026-04-15 12:00:47,Commerce & Industry,Consumer
+34,Westbrook Park Energy Ltd,Manchester,GB,1,2022-08-25 09:28:51,2026-09-09 15:05:50,Commerce & Industry,Technology
+35,Kestrel Hill Industries Ltd,Manchester,GB,1,2022-03-08 13:02:15,2026-08-03 15:26:47,Commerce & Industry,Energy & Infrastructure
+36,Yarrow Gate Mutual Ltd,Manchester,GB,1,2022-08-21 18:58:22,2026-08-09 16:06:30,Insurance,Life & Pensions
+37,Ashdown Payments Ltd,Manchester,GB,1,2022-03-20 15:55:39,2026-05-11 08:15:37,Financial Services,Payments & Fintech
+38,Larkspur Underwriting Ltd,Manchester,GB,1,2022-11-08 18:31:13,2025-08-16 09:17:13,Insurance,General Insurance
+39,Dunmore Hill Insurance Ltd,Manchester,GB,1,2022-06-15 12:11:59,2026-05-01 13:17:03,Insurance,General Insurance
+40,Marlowe Underwriting Ltd,Manchester,GB,1,2023-05-25 17:46:29,2025-06-21 09:52:23,Insurance,General Insurance
+41,Thornbury Vale Underwriting Ltd,Manchester,GB,1,2022-08-09 11:29:34,2026-05-02 10:40:39,Insurance,Life & Pensions
+42,Yarrow Gate Re Ltd,Manchester,GB,1,2023-08-21 08:35:13,2025-08-09 14:06:39,Insurance,General Insurance
+43,Fernbrook Consulting Ltd,Manchester,GB,1,2022-04-11 13:03:26,2026-05-04 12:14:04,Professional Services,Actuarial Consulting
+44,Quayside Bridge Industries Ltd,Manchester,GB,1,2022-07-04 13:31:02,2026-09-04 17:58:08,Commerce & Industry,Technology
+45,Northcote Hill Wealth Ltd,Manchester,GB,1,2023-08-19 12:04:56,2025-11-27 14:03:29,Financial Services,Payments & Fintech
+46,Redfern Asset Management Ltd,Manchester,GB,1,2022-03-28 15:20:58,2025-06-25 18:33:25,Financial Services,Banking
+47,Valemont Vale Partners Ltd,Manchester,GB,1,2024-06-04 13:04:54,2026-06-12 12:06:42,Professional Services,Consulting
+48,Valemont Gate Payments Ltd,Manchester,GB,1,2024-01-08 11:40:37,2026-06-04 09:09:46,Financial Services,Banking
+49,Kestrel Park Insurance Ltd,Manchester,GB,1,2023-05-06 11:44:07,2026-08-26 13:53:05,Insurance,General Insurance
+50,Greywell Park Wealth Ltd,Manchester,GB,1,2021-12-21 12:50:11,2025-09-01 13:52:44,Financial Services,Banking
+51,Brackley Vale Underwriting Ltd,Manchester,GB,1,2022-09-22 09:18:05,2026-09-12 18:59:03,Insurance,Health
+52,Aldwick Gate Mutual Ltd,Manchester,GB,1,2022-09-17 09:50:53,2026-08-12 11:11:50,Insurance,Life & Pensions
+53,Calderwood Bay Wealth Ltd,Manchester,GB,1,2024-03-23 11:46:49,2026-08-05 14:34:20,Financial Services,Payments & Fintech
+54,Elmstead Bay Mutual Ltd,Manchester,GB,1,2024-04-09 17:53:47,2026-01-03 14:34:06,Insurance,Life & Pensions
+55,Ashdown Vale Industries Ltd,Manchester,GB,1,2022-06-17 12:48:56,2026-09-10 14:44:08,Commerce & Industry,Industrials
+56,Thornbury Gate Solutions Ltd,Manchester,GB,1,2022-08-21 13:34:03,2026-09-11 10:55:35,Professional Services,Consulting
+57,Redfern Industries Ltd,Manchester,GB,1,2023-04-30 16:58:20,2026-04-13 13:25:03,Commerce & Industry,Consumer
+58,Cresswell Asset Management Ltd,Manchester,GB,1,2024-01-18 12:39:49,2026-05-12 10:26:41,Financial Services,Banking
+59,Ashdown Park Solutions Ltd,Manchester,GB,1,2022-08-26 10:25:46,2026-09-05 11:49:14,Professional Services,Legal & Advisory
+60,Upfield Hill Group Ltd,Manchester,GB,1,2022-07-08 15:31:32,2026-06-16 15:33:59,Commerce & Industry,Consumer
+61,Bexmoor Insurance Ltd,Manchester,GB,1,2022-03-15 13:24:43,2026-03-18 10:28:47,Insurance,Health
+62,Harlow Bay Insurance Ltd,Manchester,GB,1,2022-08-17 17:59:58,2023-09-11 08:12:27,Insurance,Health
+63,Yarrow Re Ltd,Manchester,GB,1,2024-08-11 11:38:47,2026-07-08 15:07:19,Insurance,Health
+65,Cresswell Gate Retail Ltd,Manchester,GB,1,2023-11-03 16:50:20,2024-05-01 13:05:38,Commerce & Industry,Consumer
+66,Larkspur Park Payments Ltd,Manchester,GB,1,2022-07-31 11:03:42,2025-05-23 17:50:09,Financial Services,Banking
+67,Brackley Hill Industries Ltd,Manchester,GB,1,2022-09-01 12:18:26,2025-11-15 08:04:38,Commerce & Industry,Consumer
+68,Thornbury Bridge Insurance Ltd,Manchester,GB,1,2022-06-10 16:02:28,2026-06-05 13:54:46,Insurance,General Insurance
+69,Ashdown Vale Capital Ltd,Manchester,GB,1,2023-08-13 15:27:36,2026-09-07 09:51:43,Financial Services,Payments & Fintech
+70,Marlowe Vale Advisory Ltd,Manchester,GB,1,2022-07-14 14:20:36,2026-09-03 11:43:52,Professional Services,Legal & Advisory
+71,Eastleigh Assurance Ltd,Manchester,GB,1,2024-03-29 18:33:42,2026-05-28 15:43:10,Insurance,Health
+72,Northcote Park Insurance Ltd,Manchester,GB,1,2022-09-25 17:54:12,2026-07-23 16:40:03,Insurance,Life & Pensions
+74,Redfern Insurance Ltd,Manchester,GB,1,2022-07-15 14:26:40,2024-03-30 18:26:56,Insurance,General Insurance
+75,Kestrel Gate Mutual Ltd,Manchester,GB,1,2022-06-09 16:00:16,2025-12-26 12:08:23,Insurance,Health
+76,Denholm Bridge Insurance Ltd,Manchester,GB,1,2025-04-16 11:26:49,2025-10-10 14:40:17,Insurance,General Insurance
+77,Glenmoor Wealth Ltd,Manchester,GB,1,2026-05-22 11:32:09,2026-09-12 12:42:48,Financial Services,Banking
+78,Elmstead Park Mutual Ltd,Manchester,GB,1,2022-01-25 16:56:31,2025-12-14 08:24:08,Insurance,General Insurance
+79,Ivybridge Partners Ltd,Manchester,GB,1,2023-06-09 09:49:41,2026-07-17 10:11:35,Professional Services,Legal & Advisory
+80,Ashdown Vale Retail Ltd,Manchester,GB,1,2023-01-18 15:51:22,2026-09-12 16:07:14,Commerce & Industry,Industrials
+81,Greywell Insurance Ltd,Manchester,GB,1,2025-07-02 14:59:46,2026-01-07 12:37:42,Insurance,Life & Pensions
+82,Thornbury Park Assurance Ltd,Manchester,GB,1,2023-07-14 12:15:57,2026-05-23 15:57:00,Insurance,Health
+83,Oakhurst Bay Wealth Ltd,Manchester,GB,1,2023-05-16 15:42:13,2026-03-17 10:09:19,Financial Services,Asset & Wealth Management
+85,Greywell Park Retail Ltd,Manchester,GB,1,2022-07-21 12:28:05,2024-11-18 16:54:58,Commerce & Industry,Technology
+86,Ivybridge Park Actuarial Ltd,Manchester,GB,1,2023-10-21 12:59:47,2024-07-08 13:24:39,Professional Services,Legal & Advisory
+87,Yarrow Partners Ltd,Manchester,GB,1,2023-03-20 09:40:33,2025-04-16 11:09:31,Professional Services,Legal & Advisory
+88,Oakhurst Bridge Retail Ltd,Manchester,GB,1,2023-11-02 09:05:01,2024-08-23 18:26:22,Commerce & Industry,Consumer
+89,Pembury Park Payments Ltd,Manchester,GB,1,2022-03-18 16:05:07,2026-07-12 18:41:34,Financial Services,Banking
+90,Westbrook Park Technologies Ltd,Manchester,GB,1,2022-07-17 17:27:12,2025-08-17 08:01:52,Commerce & Industry,Industrials
+91,Cresswell Vale Assurance Ltd,Manchester,GB,1,2022-12-03 13:51:09,2026-09-12 10:54:39,Insurance,Health
+92,Dunmore Bay Insurance Ltd,Manchester,GB,1,2022-07-14 16:32:11,2025-09-02 13:38:37,Insurance,Health
+93,Calderwood Bridge Capital Ltd,Manchester,GB,1,2023-03-21 14:48:27,2023-11-08 09:02:41,Financial Services,Asset & Wealth Management
+94,Northcote Solutions Ltd,Manchester,GB,1,2022-04-15 17:13:58,2026-09-11 11:00:52,Professional Services,Actuarial Consulting
+95,Glenmoor Gate Solutions Ltd,Manchester,GB,1,2023-10-15 15:14:25,2025-03-10 08:23:22,Professional Services,Actuarial Consulting
+96,Denholm Park Technologies Ltd,Manchester,GB,1,2022-06-27 18:16:21,2026-07-29 11:46:18,Commerce & Industry,Consumer
+97,Kestrel Bay Re Ltd,Manchester,GB,1,2023-06-06 16:02:30,2024-05-31 14:13:25,Insurance,General Insurance
+98,Aldwick Mutual Ltd,Manchester,GB,1,2023-08-10 14:06:12,2026-01-05 11:14:34,Insurance,Life & Pensions
+100,Glenmoor Vale Technologies Ltd,Manchester,GB,1,2022-06-03 16:07:27,2026-05-06 18:27:31,Commerce & Industry,Energy & Infrastructure
+101,Thornbury Bay Bank Ltd,Manchester,GB,1,2022-07-23 14:57:13,2026-01-26 17:50:12,Financial Services,Banking
+102,Thornbury Gate Partners Ltd,Manchester,GB,1,2023-10-17 16:10:12,2026-09-09 15:40:26,Professional Services,Actuarial Consulting
+103,Stanwick Park Retail Ltd,Manchester,GB,1,2023-07-29 18:08:00,2026-06-07 17:52:26,Commerce & Industry,Technology
+104,Thornbury Actuarial Ltd,Manchester,GB,1,2026-04-07 10:13:53,2026-08-09 11:50:24,Professional Services,Actuarial Consulting
+105,Upfield Hill Insurance Ltd,Manchester,GB,1,2023-05-16 18:58:42,2023-09-26 14:25:32,Insurance,Health
+106,Dunmore Assurance Ltd,Manchester,GB,1,2023-10-17 14:30:36,2026-03-27 11:53:09,Insurance,General Insurance
+107,Yarrow Underwriting Ltd,Manchester,GB,1,2023-01-30 09:50:06,2026-07-30 10:30:45,Insurance,Life & Pensions
+109,Oakhurst Advisory Ltd,Manchester,GB,1,2023-11-18 11:17:36,2024-05-08 10:02:52,Professional Services,Actuarial Consulting
+110,Greywell Bay Group Ltd,Manchester,GB,1,2022-08-18 16:49:57,2024-10-15 17:07:15,Commerce & Industry,Technology
+111,Foxley Asset Management Ltd,Manchester,GB,1,2022-09-23 18:18:14,2025-05-24 12:05:05,Financial Services,Payments & Fintech
+112,Northcote Underwriting Ltd,Manchester,GB,1,2022-06-28 18:51:03,2023-11-03 15:46:15,Insurance,Life & Pensions
+113,Denholm Bay Technologies Ltd,Manchester,GB,1,2022-09-28 09:06:50,2026-07-18 10:54:45,Commerce & Industry,Technology
+114,Glenmoor Vale Mutual Ltd,Manchester,GB,1,2022-04-08 09:42:11,2024-01-01 13:56:19,Insurance,General Insurance
+115,Elmstead Capital Ltd,Manchester,GB,1,2023-12-12 14:41:45,2024-09-09 16:36:57,Financial Services,Payments & Fintech
+116,Ashdown Advisory Ltd,Manchester,GB,1,2024-06-20 11:08:51,2026-07-06 08:40:38,Professional Services,Actuarial Consulting
+117,Quayside Park Wealth Ltd,Manchester,GB,1,2024-07-31 10:04:25,2025-03-12 12:17:17,Financial Services,Payments & Fintech
+118,Kestrel Vale Asset Management Ltd,Manchester,GB,1,2025-04-27 08:02:50,2025-09-07 14:53:37,Financial Services,Payments & Fintech
+119,Larkspur Hill Retail Ltd,Manchester,GB,1,2024-01-01 11:43:34,2025-02-16 08:43:15,Commerce & Industry,Consumer
+120,Fernbrook Re Ltd,Manchester,GB,1,2022-04-20 13:05:31,2025-07-08 13:36:17,Insurance,General Insurance
+121,Eastleigh Capital Ltd,Manchester,GB,1,2022-12-18 15:10:50,2026-07-26 11:07:32,Financial Services,Asset & Wealth Management
+122,Bexmoor Hill Asset Management Ltd,Manchester,GB,1,2025-03-16 12:35:00,2025-09-25 13:47:24,Financial Services,Asset & Wealth Management
+123,Stanwick Underwriting Ltd,Manchester,GB,1,2025-04-24 09:31:27,2026-03-08 11:00:59,Insurance,Health
+124,Redfern Bay Underwriting Ltd,Manchester,GB,1,2024-02-12 11:23:14,2026-01-30 18:15:37,Insurance,Life & Pensions
+125,Aldwick Bank Ltd,Manchester,GB,1,2023-09-04 08:12:46,2024-09-26 08:17:16,Financial Services,Banking
+126,Thornbury Consulting Ltd,Manchester,GB,1,2024-08-31 10:47:57,2026-07-09 15:01:15,Professional Services,Actuarial Consulting
+128,Aldwick Wealth Ltd,Manchester,GB,1,2023-03-28 16:26:40,2024-07-30 18:32:00,Financial Services,Banking
+129,Denholm Bank Ltd,Manchester,GB,1,2022-06-18 10:37:41,2025-09-23 17:44:34,Financial Services,Asset & Wealth Management
+132,Kestrel Capital Ltd,Manchester,GB,1,2024-12-28 09:07:58,2026-08-30 14:55:21,Financial Services,Payments & Fintech
+134,Aldwick Hill Payments Ltd,Manchester,GB,1,2024-04-05 13:21:02,2026-03-29 09:26:53,Financial Services,Asset & Wealth Management
+135,Upfield Park Insurance Ltd,Manchester,GB,1,2023-11-08 17:31:13,2024-12-06 15:21:05,Insurance,Life & Pensions
+136,Oakhurst Bay Consulting Ltd,Manchester,GB,1,2024-04-13 18:21:42,2025-01-23 13:10:01,Professional Services,Legal & Advisory
+137,Bexmoor Park Energy Ltd,Manchester,GB,1,2023-01-25 11:15:59,2025-03-29 10:50:36,Commerce & Industry,Industrials
+139,Brackley Assurance Ltd,Manchester,GB,1,2022-10-13 13:52:31,2024-12-01 16:04:30,Insurance,Life & Pensions
+140,Glenmoor Hill Industries Ltd,Manchester,GB,1,2024-04-11 09:23:28,2026-09-11 08:37:08,Commerce & Industry,Industrials
+141,Northcote Re Ltd,Manchester,GB,1,2022-06-08 08:44:43,2026-08-19 10:34:31,Insurance,Life & Pensions
+142,Thornbury Energy Ltd,Manchester,GB,1,2023-03-19 14:57:44,2026-09-03 09:49:15,Commerce & Industry,Technology
+143,Marlowe Solutions Ltd,Manchester,GB,1,2022-01-19 12:56:24,2022-12-18 14:53:39,Professional Services,Legal & Advisory
+144,Quayside Vale Capital Ltd,Manchester,GB,1,2024-04-03 13:44:20,2025-06-02 10:32:28,Financial Services,Payments & Fintech
+145,Dunmore Park Payments Ltd,Manchester,GB,1,2022-08-15 15:19:24,2023-09-30 12:51:43,Financial Services,Asset & Wealth Management
+146,Westbrook Bridge Underwriting Ltd,Manchester,GB,1,2022-08-20 16:41:20,2024-09-03 14:44:58,Insurance,General Insurance
+147,Ivybridge Park Capital Ltd,Manchester,GB,1,2023-12-21 09:08:52,2024-04-30 14:04:32,Financial Services,Banking
+148,Elmstead Park Payments Ltd,Manchester,GB,1,2024-07-01 10:41:45,2026-07-28 08:10:52,Financial Services,Banking
+149,Marlowe Insurance Ltd,Manchester,GB,1,2022-08-10 17:00:20,2026-09-09 12:22:04,Insurance,Life & Pensions
+150,Fernbrook Payments Ltd,Manchester,GB,1,2022-04-15 12:35:05,2023-02-21 14:41:14,Financial Services,Payments & Fintech
+151,Stanwick Mutual Ltd,Manchester,GB,1,2024-09-01 15:01:43,2025-07-30 18:59:36,Insurance,Health
+153,Fernbrook Solutions Ltd,Manchester,GB,1,2024-06-12 13:12:09,2025-08-05 14:41:36,Professional Services,Actuarial Consulting
+154,Upfield Vale Actuarial Ltd,Manchester,GB,1,2025-02-11 08:24:25,2025-06-25 18:48:42,Professional Services,Actuarial Consulting
+155,Elmstead Hill Underwriting Ltd,Manchester,GB,1,2022-08-19 11:26:49,2024-02-17 15:52:00,Insurance,Health
+156,Redfern Re Ltd,Manchester,GB,1,2025-05-27 14:42:31,2026-06-27 12:09:22,Insurance,Health
+157,Valemont Solutions Ltd,Manchester,GB,1,2023-12-28 17:19:17,2025-02-22 17:13:20,Professional Services,Consulting
+158,Upfield Park Assurance Ltd,Manchester,GB,1,2024-07-10 16:03:21,2026-04-12 10:46:49,Insurance,General Insurance
+159,Calderwood Vale Capital Ltd,Manchester,GB,1,2024-01-17 09:28:45,2024-08-09 16:34:35,Financial Services,Payments & Fintech
+160,Thornbury Park Advisory Ltd,Manchester,GB,1,2024-04-16 16:25:12,2026-05-15 14:41:34,Professional Services,Consulting
+161,Marlowe Park Consulting Ltd,Manchester,GB,1,2022-11-26 13:51:58,2026-09-11 12:36:57,Professional Services,Legal & Advisory
+162,Glenmoor Hill Assurance Ltd,Manchester,GB,1,2023-04-19 10:44:41,2024-11-07 12:47:13,Insurance,General Insurance
+164,Eastleigh Bridge Capital Ltd,Manchester,GB,1,2022-10-23 15:23:10,2025-04-23 15:09:40,Financial Services,Asset & Wealth Management
+165,Cresswell Hill Underwriting Ltd,Manchester,GB,1,2023-12-08 15:33:43,2025-10-19 17:57:38,Insurance,General Insurance
+166,Westbrook Vale Insurance Ltd,Manchester,GB,1,2024-11-13 08:22:33,2025-10-09 08:01:20,Insurance,Life & Pensions
+167,Foxley Hill Industries Ltd,Manchester,GB,1,2022-11-16 10:28:30,2026-08-09 15:19:04,Commerce & Industry,Energy & Infrastructure
+168,Marlowe Retail Ltd,London,GB,28,2021-12-17 13:19:59,2026-09-12 14:40:07,Commerce & Industry,Consumer
+169,Redfern Advisory Ltd,London,GB,28,2022-09-12 15:38:07,2026-09-12 13:23:56,Professional Services,Legal & Advisory
+170,Yarrow Bay Bank Ltd,London,GB,28,2022-06-25 12:33:59,2026-09-09 09:43:39,Financial Services,Banking
+171,Ivybridge Vale Underwriting Ltd,London,GB,28,2022-07-10 16:00:42,2026-09-11 09:07:32,Insurance,Health
+172,Westbrook Underwriting Ltd,London,GB,28,2022-06-03 14:11:37,2026-04-28 16:11:46,Insurance,Health
+173,Larkspur Vale Energy Ltd,London,GB,28,2022-11-23 16:32:15,2026-09-11 11:42:53,Commerce & Industry,Energy & Infrastructure
+174,Denholm Park Energy Ltd,London,GB,28,2022-05-03 14:04:41,2026-09-01 14:43:23,Commerce & Industry,Industrials
+175,Calderwood Gate Energy Ltd,London,GB,28,2022-04-30 18:25:12,2026-09-12 16:37:39,Commerce & Industry,Energy & Infrastructure
+176,Eastleigh Energy Ltd,London,GB,28,2021-12-04 11:54:20,2026-08-26 09:10:18,Commerce & Industry,Energy & Infrastructure
+177,Ivybridge Hill Insurance Ltd,London,GB,28,2022-01-16 17:54:47,2026-09-11 16:47:13,Insurance,General Insurance
+178,Aldwick Consulting Ltd,London,GB,28,2022-06-19 15:10:52,2026-07-16 08:48:00,Professional Services,Legal & Advisory
+179,Ashdown Hill Retail Ltd,London,GB,28,2021-10-01 08:26:28,2026-09-10 15:38:59,Commerce & Industry,Energy & Infrastructure
+180,Eastleigh Payments Ltd,London,GB,28,2022-04-06 09:31:11,2026-09-11 15:20:06,Financial Services,Banking
+181,Brackley Technologies Ltd,London,GB,28,2022-01-06 17:02:22,2026-08-22 15:09:18,Commerce & Industry,Consumer
+182,Calderwood Insurance Ltd,London,GB,28,2022-05-26 12:17:10,2026-06-01 10:24:37,Insurance,Life & Pensions
+183,Marlowe Hill Energy Ltd,London,GB,28,2023-03-19 17:28:36,2026-09-12 17:40:08,Commerce & Industry,Industrials
+184,Fernbrook Technologies Ltd,London,GB,28,2023-01-21 15:10:21,2026-09-12 12:06:54,Commerce & Industry,Consumer
+185,Greywell Gate Payments Ltd,London,GB,28,2022-07-26 18:14:00,2026-08-20 09:55:34,Financial Services,Payments & Fintech
+186,Dunmore Vale Payments Ltd,London,GB,28,2022-06-09 18:53:31,2026-09-01 16:56:01,Financial Services,Payments & Fintech
+187,Brackley Bank Ltd,London,GB,28,2022-07-04 16:44:59,2025-11-21 09:53:31,Financial Services,Asset & Wealth Management
+188,Glenmoor Asset Management Ltd,London,GB,28,2022-05-05 14:44:06,2025-10-06 09:28:34,Financial Services,Banking
+189,Oakhurst Energy Ltd,London,GB,28,2022-08-13 12:55:30,2026-04-07 10:42:26,Commerce & Industry,Consumer
+190,Elmstead Gate Industries Ltd,London,GB,28,2022-04-08 08:57:14,2026-07-09 08:35:07,Commerce & Industry,Industrials
+191,Kestrel Gate Group Ltd,London,GB,28,2021-10-28 10:34:40,2026-07-28 17:25:02,Commerce & Industry,Industrials
+192,Dunmore Bridge Bank Ltd,London,GB,28,2023-03-12 13:05:03,2026-09-12 12:10:39,Financial Services,Banking
+193,Denholm Gate Retail Ltd,London,GB,28,2022-04-15 11:32:40,2026-09-04 15:42:34,Commerce & Industry,Consumer
+194,Marlowe Bridge Insurance Ltd,London,GB,28,2023-01-28 16:28:42,2026-08-25 17:51:33,Insurance,Health
+195,Foxley Hill Underwriting Ltd,London,GB,28,2023-03-15 18:54:25,2026-09-11 10:34:31,Insurance,Life & Pensions
+196,Marlowe Hill Capital Ltd,London,GB,28,2023-01-07 15:12:38,2026-09-10 13:45:30,Financial Services,Banking
+197,Valemont Bay Solutions Ltd,London,GB,28,2024-07-24 12:52:21,2026-09-12 14:18:25,Professional Services,Consulting
+198,Dunmore Group Ltd,London,GB,28,2022-05-31 12:34:39,2026-02-03 10:10:52,Commerce & Industry,Industrials
+199,Stanwick Bridge Payments Ltd,London,GB,28,2023-12-15 18:31:31,2026-06-26 14:08:19,Financial Services,Banking
+200,Glenmoor Bank Ltd,London,GB,28,2022-06-11 09:57:20,2026-07-09 18:51:22,Financial Services,Asset & Wealth Management
+201,Fernbrook Gate Capital Ltd,London,GB,28,2022-09-08 12:46:06,2026-09-12 08:22:38,Financial Services,Banking
+202,Bexmoor Bridge Underwriting Ltd,London,GB,28,2022-05-26 10:32:01,2026-03-21 09:06:42,Insurance,General Insurance
+203,Oakhurst Park Asset Management Ltd,London,GB,28,2022-02-20 10:52:57,2026-09-09 10:21:43,Financial Services,Payments & Fintech
+204,Dunmore Bridge Asset Management Ltd,London,GB,28,2021-11-29 08:39:31,2026-01-04 08:55:32,Financial Services,Payments & Fintech
+205,Northcote Bridge Payments Ltd,London,GB,28,2022-10-29 11:38:59,2026-08-04 11:32:17,Financial Services,Banking
+206,Harlow Bank Ltd,London,GB,28,2022-10-11 15:51:33,2026-04-01 18:59:47,Financial Services,Payments & Fintech
+207,Fernbrook Gate Re Ltd,London,GB,28,2022-02-11 14:54:30,2026-02-07 16:09:49,Insurance,General Insurance
+208,Brackley Underwriting Ltd,London,GB,28,2022-06-16 18:05:44,2026-05-25 18:14:45,Insurance,Health
+209,Stanwick Bridge Wealth Ltd,London,GB,28,2023-04-09 13:49:46,2026-06-15 15:58:00,Financial Services,Banking
+210,Kestrel Mutual Ltd,London,GB,28,2021-12-10 11:31:03,2026-04-23 16:14:49,Insurance,General Insurance
+211,Cresswell Gate Re Ltd,London,GB,28,2023-11-26 13:48:04,2026-06-26 16:55:59,Insurance,Life & Pensions
+212,Dunmore Partners Ltd,London,GB,28,2022-02-28 17:13:20,2026-05-23 09:25:16,Professional Services,Consulting
+213,Larkspur Vale Re Ltd,London,GB,28,2022-07-27 17:50:19,2026-06-25 11:57:56,Insurance,General Insurance
+214,Northcote Vale Technologies Ltd,London,GB,28,2022-05-22 13:22:22,2026-06-07 09:48:00,Commerce & Industry,Industrials
+215,Oakhurst Bay Technologies Ltd,London,GB,28,2022-10-31 16:53:42,2026-06-16 13:36:19,Commerce & Industry,Technology
+216,Marlowe Technologies Ltd,London,GB,28,2022-03-09 15:15:25,2026-07-23 08:16:36,Commerce & Industry,Technology
+217,Valemont Hill Mutual Ltd,London,GB,28,2022-12-21 10:26:35,2024-04-04 10:49:17,Insurance,Life & Pensions
+218,Kestrel Assurance Ltd,London,GB,28,2022-08-30 10:17:37,2026-09-09 12:41:33,Insurance,Health
+219,Brackley Gate Retail Ltd,London,GB,28,2022-08-13 12:10:30,2026-05-09 16:19:57,Commerce & Industry,Industrials
+220,Valemont Hill Wealth Ltd,London,GB,28,2024-06-13 09:37:14,2026-09-12 11:04:24,Financial Services,Asset & Wealth Management
+221,Kestrel Consulting Ltd,London,GB,28,2022-12-10 13:52:07,2026-07-18 18:27:03,Professional Services,Consulting
+222,Dunmore Gate Capital Ltd,London,GB,28,2022-08-10 15:07:10,2026-09-11 11:40:33,Financial Services,Banking
+223,Quayside Vale Energy Ltd,London,GB,28,2024-06-07 17:31:12,2025-06-18 13:40:14,Commerce & Industry,Technology
+224,Harlow Bridge Group Ltd,London,GB,28,2021-10-31 12:28:44,2026-09-10 11:05:20,Commerce & Industry,Energy & Infrastructure
+225,Larkspur Bay Underwriting Ltd,London,GB,28,2023-04-23 09:53:59,2026-02-09 11:22:48,Insurance,Life & Pensions
+226,Harlow Bridge Consulting Ltd,London,GB,28,2023-09-25 13:31:47,2025-12-05 10:32:36,Professional Services,Actuarial Consulting
+227,Yarrow Bay Capital Ltd,London,GB,28,2023-02-24 11:15:43,2025-09-27 13:37:26,Financial Services,Asset & Wealth Management
+228,Dunmore Bridge Capital Ltd,London,GB,28,2022-07-13 08:26:26,2026-08-09 13:45:28,Financial Services,Payments & Fintech
+229,Eastleigh Vale Bank Ltd,London,GB,28,2022-08-29 12:17:09,2026-07-03 11:50:48,Financial Services,Asset & Wealth Management
+230,Redfern Solutions Ltd,London,GB,28,2022-10-21 12:33:43,2026-09-05 17:45:02,Professional Services,Legal & Advisory
+231,Foxley Consulting Ltd,London,GB,28,2023-03-24 15:26:54,2026-03-30 11:43:54,Professional Services,Actuarial Consulting
+232,Fernbrook Bridge Wealth Ltd,London,GB,28,2022-07-10 15:19:24,2024-06-11 09:53:22,Financial Services,Banking
+233,Harlow Bay Bank Ltd,London,GB,28,2021-12-21 15:49:54,2025-06-14 18:27:50,Financial Services,Asset & Wealth Management
+234,Elmstead Gate Asset Management Ltd,London,GB,28,2022-10-20 17:16:59,2026-09-10 11:33:26,Financial Services,Banking
+235,Elmstead Bay Insurance Ltd,London,GB,28,2022-01-13 13:40:47,2026-03-12 17:16:11,Insurance,Life & Pensions
+236,Ivybridge Hill Mutual Ltd,London,GB,28,2022-01-15 09:57:57,2026-04-06 15:25:33,Insurance,General Insurance
+237,Redfern Hill Solutions Ltd,London,GB,28,2022-04-30 15:30:07,2026-04-29 16:53:31,Professional Services,Actuarial Consulting
+238,Greywell Gate Underwriting Ltd,London,GB,28,2025-02-09 08:22:07,2026-07-13 15:40:34,Insurance,Life & Pensions
+239,Westbrook Vale Bank Ltd,London,GB,28,2022-03-02 16:16:17,2026-06-20 14:05:21,Financial Services,Payments & Fintech
+240,Eastleigh Vale Underwriting Ltd,London,GB,28,2023-01-31 16:40:10,2025-10-07 15:39:47,Insurance,Life & Pensions
+241,Ivybridge Vale Advisory Ltd,London,GB,28,2025-02-01 08:47:16,2026-07-12 13:04:32,Professional Services,Actuarial Consulting
+242,Kestrel Bridge Energy Ltd,London,GB,28,2023-04-06 12:26:37,2026-08-24 08:59:52,Commerce & Industry,Consumer
+243,Redfern Gate Wealth Ltd,London,GB,28,2022-09-26 13:48:14,2024-08-09 17:46:36,Financial Services,Payments & Fintech
+244,Foxley Gate Underwriting Ltd,London,GB,28,2022-09-09 17:38:45,2024-08-06 10:38:55,Insurance,Health
+245,Thornbury Bay Actuarial Ltd,London,GB,28,2022-06-16 11:09:38,2026-07-25 15:55:50,Professional Services,Actuarial Consulting
+246,Brackley Gate Capital Ltd,London,GB,28,2023-06-15 17:18:21,2025-10-04 08:46:01,Financial Services,Payments & Fintech
+247,Quayside Vale Re Ltd,London,GB,28,2022-02-17 09:53:26,2025-10-22 12:24:31,Insurance,Life & Pensions
+248,Brackley Bridge Bank Ltd,London,GB,28,2022-04-05 11:31:13,2026-08-29 18:15:34,Financial Services,Asset & Wealth Management
+249,Yarrow Insurance Ltd,London,GB,28,2022-06-21 16:17:59,2025-09-29 08:48:30,Insurance,Health
+250,Oakhurst Bay Capital Ltd,London,GB,28,2022-01-17 12:02:13,2026-08-12 18:37:37,Financial Services,Payments & Fintech
+251,Cresswell Park Industries Ltd,London,GB,28,2024-06-27 15:52:15,2026-07-24 13:25:12,Commerce & Industry,Technology
+252,Marlowe Bay Solutions Ltd,London,GB,28,2023-03-07 18:20:21,2025-05-06 16:14:20,Professional Services,Actuarial Consulting
+253,Ivybridge Park Mutual Ltd,London,GB,28,2023-04-22 17:19:05,2023-10-27 18:41:18,Insurance,Health
+254,Glenmoor Gate Retail Ltd,London,GB,28,2022-10-04 12:15:49,2026-08-29 10:40:02,Commerce & Industry,Technology
+255,Calderwood Vale Re Ltd,London,GB,28,2023-08-21 17:25:46,2025-10-10 08:27:26,Insurance,Life & Pensions
+256,Northcote Technologies Ltd,London,GB,28,2021-12-27 18:48:46,2025-06-07 15:39:22,Commerce & Industry,Energy & Infrastructure
+257,Elmstead Vale Asset Management Ltd,London,GB,28,2022-09-20 09:24:27,2026-07-15 13:59:23,Financial Services,Banking
+258,Brackley Bridge Payments Ltd,London,GB,28,2022-08-25 12:56:12,2025-12-20 08:42:44,Financial Services,Payments & Fintech
+259,Valemont Vale Insurance Ltd,London,GB,28,2022-05-08 17:16:58,2026-09-12 18:44:42,Insurance,General Insurance
+260,Dunmore Bay Actuarial Ltd,London,GB,28,2023-05-27 08:49:47,2024-05-28 16:07:34,Professional Services,Actuarial Consulting
+261,Fernbrook Industries Ltd,London,GB,28,2023-04-23 16:09:53,2026-02-27 16:49:51,Commerce & Industry,Industrials
+262,Calderwood Hill Re Ltd,London,GB,28,2022-02-10 12:29:17,2025-12-01 14:13:22,Insurance,Health
+263,Quayside Capital Ltd,London,GB,28,2024-03-27 15:05:15,2026-09-11 18:07:26,Financial Services,Banking
+264,Ashdown Bank Ltd,London,GB,28,2022-08-27 09:15:57,2026-06-24 09:35:23,Financial Services,Payments & Fintech
+265,Quayside Consulting Ltd,London,GB,28,2024-06-01 16:06:44,2024-08-06 10:55:54,Professional Services,Actuarial Consulting
+266,Eastleigh Consulting Ltd,London,GB,28,2022-11-17 13:06:32,2023-11-23 11:47:27,Professional Services,Legal & Advisory
+267,Valemont Park Assurance Ltd,London,GB,28,2024-01-23 13:16:53,2026-06-14 13:38:29,Insurance,General Insurance
+268,Valemont Park Re Ltd,London,GB,28,2022-12-13 18:18:16,2023-04-25 10:54:57,Insurance,General Insurance
+269,Redfern Capital Ltd,London,GB,28,2022-06-20 12:33:06,2026-05-06 08:09:24,Financial Services,Banking
+270,Upfield Park Re Ltd,London,GB,28,2022-06-03 09:20:48,2025-01-06 14:41:11,Insurance,Life & Pensions
+271,Denholm Hill Re Ltd,London,GB,28,2023-01-28 09:03:53,2026-07-22 10:46:14,Insurance,Life & Pensions
+272,Northcote Bridge Bank Ltd,London,GB,28,2022-10-16 10:36:02,2026-05-08 10:00:55,Financial Services,Asset & Wealth Management
+273,Oakhurst Hill Mutual Ltd,London,GB,28,2021-11-17 11:00:42,2025-08-12 18:46:15,Insurance,Health
+274,Fernbrook Mutual Ltd,London,GB,28,2022-11-16 10:34:21,2024-06-23 10:22:15,Insurance,Health
+275,Ivybridge Vale Asset Management Ltd,London,GB,28,2022-12-23 15:10:28,2023-07-10 11:49:13,Financial Services,Payments & Fintech
+276,Quayside Advisory Ltd,London,GB,28,2022-09-19 14:00:44,2022-11-07 08:06:45,Professional Services,Actuarial Consulting
+277,Oakhurst Technologies Ltd,London,GB,28,2024-12-24 18:23:08,2026-03-10 17:39:04,Commerce & Industry,Energy & Infrastructure
+278,Pembury Hill Assurance Ltd,London,GB,28,2023-10-10 10:19:52,2024-08-28 18:12:56,Insurance,Health
+279,Marlowe Bay Payments Ltd,London,GB,28,2024-11-01 18:49:08,2026-04-01 13:45:33,Financial Services,Payments & Fintech
+281,Glenmoor Vale Assurance Ltd,London,GB,28,2024-07-02 09:51:35,2026-05-19 08:07:27,Insurance,Health
+282,Upfield Gate Payments Ltd,London,GB,28,2022-12-17 08:30:05,2026-06-11 16:14:25,Financial Services,Asset & Wealth Management
+283,Greywell Bay Capital Ltd,London,GB,28,2022-02-21 16:01:49,2026-08-20 08:02:11,Financial Services,Asset & Wealth Management
+284,Oakhurst Bay Bank Ltd,London,GB,28,2023-08-25 13:55:22,2026-08-29 14:48:53,Financial Services,Payments & Fintech
+285,Fernbrook Bridge Group Ltd,London,GB,28,2022-10-11 08:52:46,2025-09-30 14:50:32,Commerce & Industry,Consumer
+286,Brackley Bay Mutual Ltd,London,GB,28,2024-07-10 08:51:13,2025-02-13 12:34:54,Insurance,Health
+287,Pembury Energy Ltd,London,GB,28,2022-06-22 18:02:37,2026-01-10 14:44:03,Commerce & Industry,Technology
+290,Yarrow Group Ltd,London,GB,28,2022-11-16 11:20:50,2024-12-26 16:00:11,Commerce & Industry,Consumer
+291,Kestrel Bay Asset Management Ltd,London,GB,28,2023-11-17 11:24:11,2024-10-22 08:16:08,Financial Services,Banking
+292,Bexmoor Park Capital Ltd,London,GB,28,2023-11-11 14:53:55,2024-09-16 13:59:30,Financial Services,Banking
+293,Yarrow Bay Wealth Ltd,London,GB,28,2023-02-07 16:14:13,2026-04-22 08:16:22,Financial Services,Asset & Wealth Management
+294,Upfield Bay Mutual Ltd,London,GB,28,2024-02-03 14:16:08,2025-07-23 10:34:01,Insurance,General Insurance
+295,Valemont Retail Ltd,London,GB,28,2024-12-13 17:58:51,2025-06-10 11:04:30,Commerce & Industry,Technology
+296,Yarrow Asset Management Ltd,London,GB,28,2024-01-22 09:57:39,2026-09-11 12:47:13,Financial Services,Payments & Fintech
+297,Yarrow Advisory Ltd,London,GB,28,2022-09-30 13:35:33,2026-09-09 08:17:28,Professional Services,Legal & Advisory
+298,Denholm Gate Underwriting Ltd,London,GB,28,2024-01-15 10:10:00,2025-05-13 11:19:45,Insurance,General Insurance
+299,Brackley Vale Partners Ltd,London,GB,28,2024-11-26 09:58:27,2025-03-14 11:22:16,Professional Services,Consulting
+300,Thornbury Capital Ltd,London,GB,28,2024-10-12 12:26:37,2026-09-10 13:58:06,Financial Services,Asset & Wealth Management
+301,Bexmoor Park Partners Ltd,London,GB,28,2023-01-22 12:15:21,2026-04-04 08:54:22,Professional Services,Actuarial Consulting
+302,Stanwick Park Insurance Ltd,London,GB,28,2023-08-24 18:41:09,2026-03-07 17:39:12,Insurance,General Insurance
+303,Thornbury Solutions Ltd,London,GB,28,2023-09-05 15:09:27,2024-06-08 10:51:19,Professional Services,Actuarial Consulting
+304,Elmstead Vale Mutual Ltd,London,GB,28,2025-09-01 10:10:26,2026-09-11 10:52:30,Insurance,Life & Pensions
+306,Foxley Bridge Assurance Ltd,London,GB,28,2022-07-31 13:18:05,2023-09-09 10:21:34,Insurance,Life & Pensions
+307,Westbrook Industries Ltd,London,GB,28,2023-07-02 11:21:49,2026-03-25 11:26:45,Commerce & Industry,Industrials
+308,Harlow Hill Advisory Ltd,London,GB,28,2021-09-20 10:39:37,2026-04-05 17:25:28,Professional Services,Legal & Advisory
+309,Upfield Vale Advisory Ltd,London,GB,28,2024-01-06 11:34:25,2024-08-21 15:46:37,Professional Services,Legal & Advisory
+310,Oakhurst Hill Technologies Ltd,London,GB,28,2025-04-03 14:24:33,2026-08-14 10:49:38,Commerce & Industry,Consumer
+311,Foxley Gate Payments Ltd,London,GB,28,2024-07-24 10:43:16,2025-11-08 14:23:42,Financial Services,Payments & Fintech
+312,Greywell Re Ltd,London,GB,28,2022-04-12 18:05:13,2024-07-11 17:47:13,Insurance,Life & Pensions
+314,Brackley Vale Technologies Ltd,London,GB,28,2022-11-04 18:57:15,2024-12-01 15:11:31,Commerce & Industry,Industrials
+315,Redfern Hill Group Ltd,London,GB,28,2024-10-30 08:35:26,2025-09-08 13:54:45,Commerce & Industry,Technology
+316,Glenmoor Gate Energy Ltd,London,GB,28,2022-12-07 14:23:38,2026-09-11 10:38:50,Commerce & Industry,Consumer
+317,Fernbrook Bridge Solutions Ltd,London,GB,28,2022-07-11 10:18:28,2026-09-09 17:11:41,Professional Services,Consulting
+318,Bexmoor Gate Insurance Ltd,London,GB,28,2022-06-01 17:12:52,2023-04-08 18:50:05,Insurance,General Insurance
+319,Pembury Bridge Industries Ltd,London,GB,28,2023-07-13 11:42:46,2026-06-28 09:53:10,Commerce & Industry,Industrials
+320,Calderwood Hill Retail Ltd,London,GB,28,2024-02-01 17:44:52,2024-11-07 17:47:21,Commerce & Industry,Technology
+323,Thornbury Wealth Ltd,London,GB,28,2023-07-05 15:02:25,2026-05-14 14:32:55,Financial Services,Asset & Wealth Management
+325,Pembury Gate Energy Ltd,London,GB,28,2022-05-18 09:03:30,2026-01-12 12:50:46,Commerce & Industry,Energy & Infrastructure
+326,Dunmore Bay Group Ltd,London,GB,28,2022-04-17 11:09:25,2025-10-21 10:12:04,Commerce & Industry,Technology
+327,Elmstead Bridge Partners Ltd,London,GB,28,2023-10-20 10:04:57,2024-08-04 17:28:07,Professional Services,Legal & Advisory
+328,Quayside Solutions Ltd,London,GB,28,2022-09-14 13:58:34,2025-11-07 11:47:03,Professional Services,Consulting
+329,Dunmore Hill Partners Ltd,London,GB,28,2022-10-09 13:28:25,2025-12-19 13:54:57,Professional Services,Actuarial Consulting
+330,Dunmore Industries Ltd,London,GB,28,2022-03-12 17:48:08,2026-08-19 11:44:36,Commerce & Industry,Technology
+331,Ivybridge Vale Insurance Ltd,London,GB,28,2025-10-27 12:22:58,2026-08-31 12:16:49,Insurance,Life & Pensions
+332,Westbrook Group Ltd,London,GB,28,2022-03-09 16:12:31,2023-10-11 10:13:58,Commerce & Industry,Industrials
+335,Quayside Energy Ltd,Dublin,IE,64,2022-01-05 09:26:36,2026-09-12 15:48:18,Commerce & Industry,Consumer
+336,Glenmoor Payments Ltd,Dublin,IE,64,2021-10-03 15:16:49,2026-09-11 13:04:12,Financial Services,Payments & Fintech
+337,Stanwick Wealth Ltd,Dublin,IE,64,2021-12-20 13:48:17,2026-08-27 09:01:25,Financial Services,Payments & Fintech
+338,Eastleigh Gate Wealth Ltd,Dublin,IE,64,2021-12-18 09:32:27,2026-07-07 11:43:09,Financial Services,Banking
+339,Greywell Bridge Capital Ltd,Dublin,IE,64,2022-08-13 14:27:27,2026-08-08 11:22:58,Financial Services,Payments & Fintech
+340,Larkspur Hill Group Ltd,Dublin,IE,64,2022-10-24 14:14:21,2026-09-12 11:07:05,Commerce & Industry,Technology
+341,Upfield Bridge Insurance Ltd,Dublin,IE,64,2022-04-24 18:16:33,2026-06-05 10:51:46,Insurance,Health
+342,Larkspur Group Ltd,Dublin,IE,64,2022-09-14 11:53:51,2026-09-04 18:49:40,Commerce & Industry,Technology
+343,Harlow Bridge Bank Ltd,Dublin,IE,64,2022-01-13 17:47:34,2026-09-11 14:41:43,Financial Services,Payments & Fintech
+344,Redfern Energy Ltd,Dublin,IE,64,2022-10-31 10:49:02,2026-05-28 11:22:38,Commerce & Industry,Industrials
+345,Calderwood Gate Re Ltd,Dublin,IE,64,2022-12-17 12:17:54,2025-09-07 14:20:53,Insurance,Life & Pensions
+346,Stanwick Payments Ltd,Dublin,IE,64,2022-07-03 13:32:46,2026-05-01 17:14:09,Financial Services,Payments & Fintech
+347,Greywell Gate Wealth Ltd,Dublin,IE,64,2022-02-04 14:14:34,2026-05-06 18:40:41,Financial Services,Payments & Fintech
+348,Marlowe Assurance Ltd,Dublin,IE,64,2022-05-26 12:28:21,2026-02-06 14:25:53,Insurance,Life & Pensions
+349,Brackley Energy Ltd,Dublin,IE,64,2022-08-17 15:44:42,2026-08-22 13:12:38,Commerce & Industry,Industrials
+350,Harlow Park Assurance Ltd,Dublin,IE,64,2022-10-28 10:37:11,2026-08-24 15:14:06,Insurance,Life & Pensions
+351,Fernbrook Hill Underwriting Ltd,Dublin,IE,64,2022-06-27 10:45:58,2026-07-06 13:51:44,Insurance,General Insurance
+352,Ivybridge Vale Solutions Ltd,Dublin,IE,64,2024-02-05 14:47:15,2026-06-19 15:11:51,Professional Services,Legal & Advisory
+353,Larkspur Hill Bank Ltd,Dublin,IE,64,2023-10-14 13:26:05,2026-09-12 14:08:08,Financial Services,Payments & Fintech
+354,Marlowe Capital Ltd,Dublin,IE,64,2022-12-27 15:44:25,2025-07-14 14:45:42,Financial Services,Asset & Wealth Management
+355,Upfield Assurance Ltd,Dublin,IE,64,2024-01-14 08:20:28,2026-09-09 17:18:51,Insurance,Health
+356,Foxley Park Capital Ltd,Dublin,IE,64,2022-08-06 15:49:20,2026-09-10 08:02:05,Financial Services,Banking
+357,Yarrow Industries Ltd,Dublin,IE,64,2022-03-17 17:03:19,2026-08-15 13:32:09,Commerce & Industry,Industrials
+358,Brackley Bay Re Ltd,Dublin,IE,64,2024-06-23 09:09:34,2026-09-06 14:15:47,Insurance,General Insurance
+359,Eastleigh Gate Asset Management Ltd,Dublin,IE,64,2022-01-16 12:29:53,2026-07-05 13:39:53,Financial Services,Asset & Wealth Management
+360,Yarrow Mutual Ltd,Dublin,IE,64,2023-03-17 16:34:35,2025-05-23 16:48:15,Insurance,Life & Pensions
+361,Fernbrook Hill Industries Ltd,Dublin,IE,64,2021-11-02 10:12:26,2026-06-28 10:34:32,Commerce & Industry,Technology
+362,Harlow Bay Partners Ltd,Dublin,IE,64,2024-03-12 18:36:34,2025-11-27 16:34:53,Professional Services,Legal & Advisory
+363,Cresswell Bay Assurance Ltd,Dublin,IE,64,2022-05-23 15:33:37,2026-06-21 14:24:29,Insurance,Health
+364,Ashdown Hill Asset Management Ltd,Dublin,IE,64,2022-01-28 09:44:54,2024-09-22 08:45:33,Financial Services,Payments & Fintech
+365,Kestrel Park Group Ltd,Dublin,IE,64,2022-12-10 08:00:58,2023-03-06 12:33:19,Commerce & Industry,Consumer
+366,Ivybridge Consulting Ltd,Dublin,IE,64,2022-04-03 10:30:22,2025-11-04 15:49:32,Professional Services,Actuarial Consulting
+367,Bexmoor Bay Capital Ltd,Dublin,IE,64,2022-05-20 10:26:43,2026-07-24 10:20:31,Financial Services,Asset & Wealth Management
+368,Ashdown Bay Insurance Ltd,Dublin,IE,64,2022-10-02 17:36:44,2023-12-25 16:22:52,Insurance,Life & Pensions
+369,Fernbrook Vale Bank Ltd,Dublin,IE,64,2022-07-01 08:06:40,2025-10-14 09:41:24,Financial Services,Banking
+370,Thornbury Vale Advisory Ltd,Dublin,IE,64,2023-03-24 15:07:19,2025-11-07 13:12:42,Professional Services,Legal & Advisory
+371,Harlow Hill Assurance Ltd,Dublin,IE,64,2022-11-12 09:44:28,2026-08-30 09:58:44,Insurance,Life & Pensions
+372,Eastleigh Wealth Ltd,Dublin,IE,64,2022-08-19 12:58:10,2026-06-13 09:26:24,Financial Services,Banking
+373,Oakhurst Gate Wealth Ltd,Dublin,IE,64,2024-06-10 16:38:06,2026-08-02 18:25:24,Financial Services,Asset & Wealth Management
+374,Harlow Vale Re Ltd,Dublin,IE,64,2022-09-02 12:42:30,2025-04-05 11:25:08,Insurance,General Insurance
+375,Larkspur Park Consulting Ltd,Dublin,IE,64,2024-01-29 10:00:08,2026-05-01 13:48:20,Professional Services,Consulting
+376,Calderwood Underwriting Ltd,Dublin,IE,64,2023-03-04 16:20:13,2025-08-18 10:42:51,Insurance,Life & Pensions
+377,Fernbrook Vale Retail Ltd,Dublin,IE,64,2025-03-06 10:37:20,2026-04-29 08:52:38,Commerce & Industry,Energy & Infrastructure
+378,Westbrook Payments Ltd,Dublin,IE,64,2023-07-24 18:07:51,2023-11-18 13:04:55,Financial Services,Asset & Wealth Management
+379,Quayside Park Bank Ltd,Dublin,IE,64,2023-04-19 09:49:09,2026-05-24 18:29:21,Financial Services,Asset & Wealth Management
+380,Marlowe Asset Management Ltd,Dublin,IE,64,2022-10-24 16:40:53,2026-05-02 09:54:29,Financial Services,Banking
+381,Northcote Vale Energy Ltd,Dublin,IE,64,2022-06-13 15:51:36,2025-07-07 17:50:10,Commerce & Industry,Industrials
+382,Redfern Vale Industries Ltd,Dublin,IE,64,2023-08-05 17:29:29,2026-04-10 12:25:56,Commerce & Industry,Technology
+383,Yarrow Park Consulting Ltd,Dublin,IE,64,2022-09-29 16:10:17,2026-07-06 13:43:28,Professional Services,Actuarial Consulting
+384,Larkspur Asset Management Ltd,Dublin,IE,64,2024-02-27 12:56:50,2026-05-09 09:18:22,Financial Services,Payments & Fintech
+385,Elmstead Underwriting Ltd,Dublin,IE,64,2023-08-17 11:14:50,2026-03-02 08:06:39,Insurance,Health
+386,Yarrow Park Re Ltd,Dublin,IE,64,2022-10-04 10:53:47,2023-06-23 18:03:46,Insurance,Life & Pensions
+387,Oakhurst Hill Asset Management Ltd,Dublin,IE,64,2026-05-19 17:18:59,2026-07-26 12:36:51,Financial Services,Asset & Wealth Management
+388,Cresswell Vale Industries Ltd,Dublin,IE,64,2024-08-29 12:39:28,2025-10-29 17:39:35,Commerce & Industry,Energy & Infrastructure
+389,Yarrow Park Energy Ltd,Dublin,IE,64,2022-11-01 10:50:57,2026-09-12 16:31:25,Commerce & Industry,Consumer
+390,Kestrel Partners Ltd,Dublin,IE,64,2024-10-25 17:19:43,2025-10-14 09:44:14,Professional Services,Consulting
+391,Ivybridge Assurance Ltd,Dublin,IE,64,2022-04-20 12:36:27,2026-09-12 18:13:53,Insurance,Life & Pensions
+392,Quayside Hill Actuarial Ltd,Dublin,IE,64,2021-11-25 17:15:29,2026-05-03 09:35:18,Professional Services,Legal & Advisory
+393,Yarrow Bank Ltd,Dublin,IE,64,2023-03-14 18:10:34,2026-09-06 13:35:16,Financial Services,Banking
+394,Fernbrook Vale Asset Management Ltd,Dublin,IE,64,2025-02-15 08:22:28,2025-08-07 15:46:47,Financial Services,Payments & Fintech
+395,Valemont Park Payments Ltd,Dublin,IE,64,2022-10-23 10:01:48,2026-02-21 15:41:07,Financial Services,Banking
+396,Westbrook Gate Group Ltd,Dublin,IE,64,2022-07-26 08:13:26,2026-09-07 12:56:51,Commerce & Industry,Industrials
+397,Glenmoor Park Energy Ltd,Dublin,IE,64,2023-02-23 14:28:34,2024-03-24 15:34:31,Commerce & Industry,Consumer
+398,Elmstead Park Asset Management Ltd,Dublin,IE,64,2022-04-21 14:46:46,2026-03-08 16:38:07,Financial Services,Payments & Fintech
+399,Larkspur Gate Consulting Ltd,Dublin,IE,64,2022-03-07 18:15:05,2026-03-26 12:50:10,Professional Services,Consulting
+400,Oakhurst Gate Assurance Ltd,Dublin,IE,64,2023-03-31 17:40:11,2026-09-12 13:54:21,Insurance,Health
+401,Kestrel Hill Solutions Ltd,Dublin,IE,64,2025-03-09 10:19:30,2026-02-13 14:37:26,Professional Services,Consulting
+402,Oakhurst Bridge Solutions Ltd,Dublin,IE,64,2022-07-12 11:15:40,2026-07-04 13:58:39,Professional Services,Actuarial Consulting
+403,Foxley Bridge Technologies Ltd,Dublin,IE,64,2025-04-23 08:12:13,2025-11-11 08:09:09,Commerce & Industry,Technology
+404,Greywell Retail Ltd,Dublin,IE,64,2024-12-13 18:10:19,2026-07-25 10:05:41,Commerce & Industry,Technology
+405,Denholm Gate Consulting Ltd,Dublin,IE,64,2023-09-18 10:33:08,2025-08-14 09:59:10,Professional Services,Actuarial Consulting
+406,Kestrel Group Ltd,Dublin,IE,64,2023-01-25 18:28:45,2026-07-20 13:15:09,Commerce & Industry,Energy & Infrastructure
+407,Quayside Hill Re Ltd,Dublin,IE,64,2022-03-20 16:10:26,2023-04-19 15:12:59,Insurance,Health
+408,Harlow Vale Mutual Ltd,Dublin,IE,64,2022-11-18 10:54:19,2025-08-13 16:16:00,Insurance,Health
+409,Oakhurst Hill Advisory Ltd,Dublin,IE,64,2025-08-25 11:17:56,2026-03-14 09:34:51,Professional Services,Legal & Advisory
+410,Foxley Park Actuarial Ltd,Dublin,IE,64,2022-03-15 11:29:13,2026-08-16 10:43:16,Professional Services,Legal & Advisory
+411,Dunmore Gate Payments Ltd,Dublin,IE,64,2022-05-15 18:23:17,2025-10-09 11:18:06,Financial Services,Banking
+412,Yarrow Hill Capital Ltd,Dublin,IE,64,2023-08-11 12:13:33,2025-07-09 15:51:19,Financial Services,Banking
+413,Bexmoor Bridge Consulting Ltd,Dublin,IE,64,2023-05-15 14:56:13,2024-08-01 17:12:20,Professional Services,Consulting
+414,Foxley Bank Ltd,Dublin,IE,64,2023-01-17 18:25:00,2024-11-17 11:51:48,Financial Services,Asset & Wealth Management
+415,Glenmoor Bridge Solutions Ltd,Dublin,IE,64,2023-10-03 18:42:56,2025-01-29 11:39:43,Professional Services,Consulting
+416,Brackley Hill Capital Ltd,Dublin,IE,64,2022-04-10 14:40:25,2026-06-23 12:29:43,Financial Services,Asset & Wealth Management
+417,Glenmoor Group Ltd,Dublin,IE,64,2024-01-07 08:46:32,2025-01-06 18:24:59,Commerce & Industry,Consumer
+418,Thornbury Capital B.V.,Amsterdam,NL,79,2022-06-14 18:28:19,2026-09-11 08:09:32,Financial Services,Payments & Fintech
+419,Greywell Partners B.V.,Amsterdam,NL,79,2022-12-18 16:42:40,2026-09-12 14:11:27,Professional Services,Consulting
+420,Northcote Vale Payments B.V.,Amsterdam,NL,79,2022-04-27 10:15:11,2026-09-12 15:11:27,Financial Services,Asset & Wealth Management
+421,Pembury Energy B.V.,Amsterdam,NL,79,2022-09-02 15:46:07,2026-08-25 09:14:16,Commerce & Industry,Technology
+422,Harlow Bridge Technologies B.V.,Amsterdam,NL,79,2021-10-03 15:04:07,2026-08-26 17:16:19,Commerce & Industry,Energy & Infrastructure
+423,Redfern Payments B.V.,Amsterdam,NL,79,2022-07-02 18:39:30,2026-06-13 17:14:05,Financial Services,Banking
+424,Brackley Gate Wealth B.V.,Amsterdam,NL,79,2022-06-09 10:24:59,2026-09-04 13:26:24,Financial Services,Banking
+425,Greywell Hill Mutual B.V.,Amsterdam,NL,79,2022-06-25 13:01:52,2026-09-03 16:55:50,Insurance,Health
+426,Ashdown Bridge Mutual B.V.,Amsterdam,NL,79,2023-10-01 15:00:31,2026-06-30 10:47:28,Insurance,Health
+427,Ashdown Technologies B.V.,Amsterdam,NL,79,2022-02-27 14:42:45,2026-04-14 18:52:14,Commerce & Industry,Technology
+428,Westbrook Park Wealth B.V.,Amsterdam,NL,79,2023-03-31 17:04:03,2026-06-14 11:32:21,Financial Services,Payments & Fintech
+429,Fernbrook Bay Group B.V.,Amsterdam,NL,79,2023-04-16 13:14:22,2026-07-22 16:32:30,Commerce & Industry,Technology
+430,Oakhurst Vale Re B.V.,Amsterdam,NL,79,2023-04-30 10:38:07,2026-08-14 09:16:04,Insurance,General Insurance
+431,Aldwick Bay Advisory B.V.,Amsterdam,NL,79,2022-12-05 10:45:56,2026-02-23 09:24:58,Professional Services,Legal & Advisory
+432,Glenmoor Re B.V.,Amsterdam,NL,79,2021-10-12 15:14:54,2026-09-12 13:57:09,Insurance,General Insurance
+433,Cresswell Vale Bank B.V.,Amsterdam,NL,79,2022-01-17 15:09:42,2025-10-27 10:28:51,Financial Services,Banking
+434,Denholm Hill Consulting B.V.,Amsterdam,NL,79,2023-02-15 10:13:55,2025-05-25 14:26:10,Professional Services,Consulting
+435,Westbrook Re B.V.,Amsterdam,NL,79,2021-12-22 08:10:24,2026-06-28 08:16:57,Insurance,General Insurance
+436,Aldwick Park Wealth B.V.,Amsterdam,NL,79,2023-03-24 11:56:35,2025-09-07 10:26:33,Financial Services,Payments & Fintech
+437,Stanwick Energy B.V.,Amsterdam,NL,79,2023-12-07 14:43:45,2026-09-12 15:35:44,Commerce & Industry,Energy & Infrastructure
+438,Harlow Bridge Actuarial B.V.,Amsterdam,NL,79,2022-05-30 08:20:39,2025-04-23 15:25:01,Professional Services,Legal & Advisory
+439,Thornbury Asset Management B.V.,Amsterdam,NL,79,2022-12-14 11:16:11,2026-03-31 09:32:42,Financial Services,Payments & Fintech
+440,Thornbury Vale Partners B.V.,Amsterdam,NL,79,2022-06-14 14:20:49,2026-01-03 12:29:37,Professional Services,Actuarial Consulting
+441,Harlow Park Bank B.V.,Amsterdam,NL,79,2022-11-12 11:52:56,2026-08-23 15:34:44,Financial Services,Payments & Fintech
+442,Glenmoor Gate Assurance B.V.,Amsterdam,NL,79,2023-06-09 15:00:33,2026-08-01 12:09:50,Insurance,General Insurance
+443,Foxley Gate Wealth B.V.,Amsterdam,NL,79,2022-12-26 11:09:32,2026-08-31 15:55:25,Financial Services,Banking
+444,Stanwick Solutions B.V.,Amsterdam,NL,79,2022-10-04 17:37:19,2026-01-19 09:44:14,Professional Services,Actuarial Consulting
+445,Cresswell Vale Solutions B.V.,Amsterdam,NL,79,2022-04-05 13:19:21,2026-08-13 09:26:48,Professional Services,Consulting
+446,Elmstead Park Capital B.V.,Amsterdam,NL,79,2023-05-24 11:48:26,2024-12-02 12:49:10,Financial Services,Payments & Fintech
+447,Larkspur Re B.V.,Amsterdam,NL,79,2022-09-03 11:56:52,2025-06-09 10:46:53,Insurance,Life & Pensions
+448,Thornbury Group B.V.,Amsterdam,NL,79,2022-09-15 09:07:51,2026-04-06 13:10:14,Commerce & Industry,Technology
+449,Eastleigh Retail B.V.,Amsterdam,NL,79,2023-03-11 08:55:13,2024-07-04 09:39:04,Commerce & Industry,Technology
+450,Larkspur Retail B.V.,Amsterdam,NL,79,2023-06-04 16:12:09,2026-06-23 16:09:49,Commerce & Industry,Technology
+451,Ashdown Industries B.V.,Amsterdam,NL,79,2022-07-04 08:28:02,2026-07-16 12:33:34,Commerce & Industry,Energy & Infrastructure
+452,Ivybridge Vale Capital B.V.,Amsterdam,NL,79,2022-11-08 18:20:49,2026-09-11 13:14:42,Financial Services,Payments & Fintech
+453,Bexmoor Park Mutual B.V.,Amsterdam,NL,79,2022-03-30 14:37:22,2025-09-25 17:11:41,Insurance,Health
+454,Elmstead Hill Insurance B.V.,Amsterdam,NL,79,2022-09-18 09:30:20,2026-01-25 18:02:11,Insurance,General Insurance
+455,Stanwick Partners B.V.,Amsterdam,NL,79,2023-07-16 08:21:17,2025-10-09 15:08:51,Professional Services,Legal & Advisory
+457,Larkspur Gate Bank B.V.,Amsterdam,NL,79,2023-04-08 09:18:13,2026-09-10 10:14:32,Financial Services,Banking
+458,Cresswell Vale Payments B.V.,Amsterdam,NL,79,2025-07-11 13:31:51,2026-07-08 10:11:20,Financial Services,Asset & Wealth Management
+459,Westbrook Bridge Underwriting B.V.,Amsterdam,NL,79,2022-05-07 09:47:47,2026-03-26 09:28:52,Insurance,Health
+460,Redfern Park Partners SA,Brussels,BE,88,2021-10-16 17:34:03,2026-09-10 09:38:44,Professional Services,Actuarial Consulting
+461,Northcote Group SA,Brussels,BE,88,2022-08-23 09:54:46,2026-09-12 13:14:17,Commerce & Industry,Consumer
+462,Larkspur Bay Energy SA,Brussels,BE,88,2021-12-21 18:05:34,2026-09-02 12:38:40,Commerce & Industry,Industrials
+463,Yarrow Bay Advisory SA,Brussels,BE,88,2023-06-21 13:39:59,2026-08-04 10:01:01,Professional Services,Actuarial Consulting
+464,Foxley Vale Advisory SA,Brussels,BE,88,2022-08-27 08:54:07,2026-09-06 18:07:15,Professional Services,Consulting
+465,Harlow Retail SA,Brussels,BE,88,2022-03-31 14:59:10,2026-07-24 12:47:35,Commerce & Industry,Industrials
+466,Stanwick Hill Payments SA,Brussels,BE,88,2023-04-01 12:14:40,2026-09-12 15:00:35,Financial Services,Payments & Fintech
+467,Cresswell Underwriting SA,Brussels,BE,88,2022-05-18 15:19:32,2026-09-12 18:22:00,Insurance,Life & Pensions
+468,Pembury Bridge Energy SA,Brussels,BE,88,2021-09-08 08:09:05,2025-04-29 11:26:29,Commerce & Industry,Energy & Infrastructure
+469,Pembury Vale Wealth SA,Brussels,BE,88,2022-01-28 17:45:53,2025-12-22 10:52:15,Financial Services,Asset & Wealth Management
+470,Oakhurst Vale Insurance SA,Brussels,BE,88,2022-09-03 09:04:32,2026-09-07 18:11:20,Insurance,Health
+471,Brackley Bay Insurance SA,Brussels,BE,88,2023-08-10 08:07:55,2026-06-17 15:33:49,Insurance,General Insurance
+472,Glenmoor Assurance SA,Brussels,BE,88,2022-07-17 12:43:50,2026-02-27 12:33:30,Insurance,General Insurance
+473,Calderwood Park Payments SA,Brussels,BE,88,2023-10-23 17:50:50,2026-09-07 15:12:14,Financial Services,Asset & Wealth Management
+474,Oakhurst Hill Payments SA,Brussels,BE,88,2023-10-18 12:47:17,2026-09-10 14:05:13,Financial Services,Asset & Wealth Management
+475,Marlowe Bridge Insurance SA,Brussels,BE,88,2022-11-10 15:20:45,2026-01-24 10:48:24,Insurance,Health
+476,Yarrow Park Assurance SA,Brussels,BE,88,2022-10-23 13:59:03,2026-08-27 11:38:35,Insurance,Health
+477,Kestrel Park Assurance SA,Brussels,BE,88,2024-04-15 16:15:49,2026-06-08 11:23:22,Insurance,Health
+478,Westbrook Industries SA,Brussels,BE,88,2024-05-10 10:05:31,2026-06-15 10:21:44,Commerce & Industry,Consumer
+479,Upfield Mutual SA,Brussels,BE,88,2023-01-16 17:55:27,2026-04-28 15:28:10,Insurance,General Insurance
+480,Denholm Gate Re SA,Brussels,BE,88,2022-09-05 11:08:07,2025-09-10 13:23:59,Insurance,Life & Pensions
+481,Calderwood Hill Industries SA,Brussels,BE,88,2023-02-05 18:58:00,2025-03-22 14:36:09,Commerce & Industry,Technology
+482,Elmstead Park Wealth SA,Brussels,BE,88,2023-01-21 15:42:53,2025-04-06 18:50:12,Financial Services,Banking
+483,Redfern Gate Group SA,Brussels,BE,88,2022-08-31 16:48:22,2025-11-13 14:02:07,Commerce & Industry,Energy & Infrastructure
+484,Oakhurst Vale Assurance SA,Brussels,BE,88,2022-11-29 15:36:01,2023-12-26 11:27:06,Insurance,Life & Pensions
+485,Bexmoor Bay Insurance SA,Brussels,BE,88,2022-10-27 10:49:06,2026-06-20 12:19:23,Insurance,Health
+486,Fernbrook Vale Advisory SA,Brussels,BE,88,2022-05-11 17:58:33,2026-04-30 16:48:34,Professional Services,Legal & Advisory
+487,Yarrow Underwriting SA,Brussels,BE,88,2022-03-31 11:59:16,2026-06-14 14:45:33,Insurance,Health
+488,Bexmoor Bridge Technologies SA,Brussels,BE,88,2022-09-17 12:20:05,2024-04-29 16:31:55,Commerce & Industry,Energy & Infrastructure
+489,Denholm Retail SA,Brussels,BE,88,2025-07-09 18:51:29,2026-01-07 13:43:41,Commerce & Industry,Technology
+490,Yarrow Vale Energy SA,Brussels,BE,88,2023-05-15 17:56:24,2026-08-10 18:45:39,Commerce & Industry,Energy & Infrastructure
+491,Harlow Wealth SA,Brussels,BE,88,2021-09-07 15:13:00,2025-08-12 18:10:06,Financial Services,Asset & Wealth Management
+492,Glenmoor Hill Solutions SA,Brussels,BE,88,2023-04-16 11:58:07,2026-09-08 08:23:00,Professional Services,Consulting
+493,Eastleigh Industries SA,Brussels,BE,88,2025-02-18 18:51:49,2025-06-21 12:23:07,Commerce & Industry,Consumer
+494,Kestrel Payments SA,Brussels,BE,88,2022-10-07 13:14:05,2026-02-11 13:33:24,Financial Services,Asset & Wealth Management
+495,Thornbury Bay Actuarial SA,Brussels,BE,88,2023-06-01 15:36:31,2026-06-22 08:22:46,Professional Services,Legal & Advisory
+496,Ivybridge Bridge Industries SA,Brussels,BE,88,2023-05-04 12:02:26,2024-05-11 12:19:36,Commerce & Industry,Energy & Infrastructure
+497,Harlow Park Mutual SA,Brussels,BE,88,2024-07-19 14:19:11,2025-07-25 09:23:05,Insurance,General Insurance
+498,Brackley Insurance SA,Brussels,BE,88,2023-02-11 18:16:27,2026-09-12 12:49:10,Insurance,Life & Pensions
+499,Upfield Park Advisory SA,Brussels,BE,88,2022-07-10 15:50:58,2026-05-14 12:27:13,Professional Services,Consulting
+500,Oakhurst Hill Capital SA,Brussels,BE,88,2025-05-08 10:32:31,2026-08-24 18:55:42,Financial Services,Banking
+501,Quayside Hill Assurance SA,Brussels,BE,88,2022-11-13 17:44:31,2025-10-18 17:20:22,Insurance,Life & Pensions
+502,Yarrow Mutual S.A.,Madrid,ES,97,2022-06-29 14:05:24,2026-09-12 16:29:08,Insurance,Health
+503,Oakhurst Bay Retail S.A.,Madrid,ES,97,2021-11-25 10:57:51,2026-09-12 17:13:01,Commerce & Industry,Technology
+504,Oakhurst Bridge Bank S.A.,Madrid,ES,97,2022-04-26 09:03:00,2026-09-11 16:06:35,Financial Services,Asset & Wealth Management
+505,Stanwick Bridge Technologies S.A.,Madrid,ES,97,2023-02-05 13:45:07,2026-09-11 08:05:45,Commerce & Industry,Energy & Infrastructure
+506,Quayside Insurance S.A.,Madrid,ES,97,2022-03-05 14:16:02,2026-09-10 10:29:56,Insurance,General Insurance
+507,Marlowe Consulting S.A.,Madrid,ES,97,2022-03-05 15:12:04,2026-08-10 17:14:55,Professional Services,Actuarial Consulting
+508,Marlowe Mutual S.A.,Madrid,ES,97,2023-01-27 15:46:02,2026-03-22 10:48:33,Insurance,Life & Pensions
+509,Brackley Capital S.A.,Madrid,ES,97,2023-01-09 12:59:27,2026-09-06 11:45:41,Financial Services,Payments & Fintech
+510,Brackley Bridge Re S.A.,Madrid,ES,97,2022-07-21 13:30:37,2026-09-09 10:50:08,Insurance,General Insurance
+511,Greywell Bridge Wealth S.A.,Madrid,ES,97,2023-11-02 11:21:39,2026-04-11 10:09:14,Financial Services,Asset & Wealth Management
+512,Aldwick Gate Industries S.A.,Madrid,ES,97,2021-11-17 16:25:36,2026-09-12 18:47:27,Commerce & Industry,Technology
+513,Calderwood Bridge Actuarial S.A.,Madrid,ES,97,2024-08-31 12:50:05,2026-08-20 13:50:00,Professional Services,Consulting
+514,Elmstead Vale Retail S.A.,Madrid,ES,97,2023-02-21 14:00:47,2026-03-03 18:59:56,Commerce & Industry,Energy & Infrastructure
+515,Marlowe Partners S.A.,Madrid,ES,97,2021-12-13 09:41:15,2025-11-11 18:51:31,Professional Services,Consulting
+516,Dunmore Bay Insurance S.A.,Madrid,ES,97,2022-12-04 18:45:12,2026-08-10 18:28:04,Insurance,Life & Pensions
+517,Eastleigh Partners S.A.,Madrid,ES,97,2025-03-21 08:18:19,2025-05-22 18:57:07,Professional Services,Consulting
+518,Brackley Group S.A.,Madrid,ES,97,2022-08-13 12:33:36,2026-09-09 17:49:19,Commerce & Industry,Industrials
+519,Stanwick Bridge Industries S.A.,Madrid,ES,97,2022-10-06 15:10:15,2024-06-27 15:45:32,Commerce & Industry,Consumer
+520,Dunmore Gate Payments S.A.,Madrid,ES,97,2022-04-21 15:09:10,2025-04-24 10:51:28,Financial Services,Payments & Fintech
+521,Bexmoor Park Group S.A.,Madrid,ES,97,2023-06-08 16:30:25,2026-01-08 14:03:35,Commerce & Industry,Industrials
+522,Greywell Gate Group S.A.,Madrid,ES,97,2022-06-19 15:01:34,2026-09-11 18:44:04,Commerce & Industry,Consumer
+523,Redfern Hill Payments S.A.,Madrid,ES,97,2023-10-21 13:20:41,2026-07-18 09:56:26,Financial Services,Asset & Wealth Management
+524,Thornbury Gate Re S.A.,Madrid,ES,97,2022-05-30 18:37:35,2026-07-09 17:29:52,Insurance,Life & Pensions
+525,Foxley Bridge Group S.A.,Madrid,ES,97,2022-08-20 08:23:18,2026-05-02 12:08:54,Commerce & Industry,Industrials
+526,Pembury Park Wealth S.A.,Madrid,ES,97,2023-07-04 13:45:57,2024-08-19 11:26:49,Financial Services,Banking
+527,Glenmoor Park Re S.A.,Madrid,ES,97,2022-09-30 15:28:52,2026-09-11 14:06:51,Insurance,Health
+528,Redfern Hill Asset Management S.A.,Madrid,ES,97,2022-06-24 14:34:26,2025-10-05 11:06:37,Financial Services,Banking
+529,Stanwick Solutions S.A.,Madrid,ES,97,2022-07-09 15:25:19,2026-04-08 09:44:27,Professional Services,Consulting
+530,Eastleigh Bridge Insurance S.A.,Madrid,ES,97,2022-11-11 10:23:59,2025-11-03 13:21:42,Insurance,Life & Pensions
+531,Stanwick Bridge Insurance S.A.,Madrid,ES,97,2022-09-27 17:56:28,2024-03-19 17:24:11,Insurance,Health
+532,Ivybridge Vale Capital S.A.,Madrid,ES,97,2022-09-19 14:48:49,2025-07-15 12:38:45,Financial Services,Asset & Wealth Management
+533,Northcote Vale Technologies S.A.,Madrid,ES,97,2026-03-22 11:32:34,2026-08-13 16:07:33,Commerce & Industry,Industrials
+535,Westbrook Bay Technologies S.A.,Madrid,ES,97,2024-02-20 17:12:51,2026-04-19 13:39:25,Commerce & Industry,Technology
+536,Pembury Energy S.A.,Madrid,ES,97,2023-06-15 09:12:00,2026-04-28 08:00:17,Commerce & Industry,Industrials
+537,Redfern Vale Asset Management S.A.,Madrid,ES,97,2022-04-15 08:51:10,2026-08-22 16:56:54,Financial Services,Banking
+538,Denholm Payments S.A.,Madrid,ES,97,2022-05-03 10:33:34,2023-11-28 13:09:42,Financial Services,Asset & Wealth Management
+539,Cresswell Wealth S.A.,Madrid,ES,97,2023-01-09 09:19:58,2025-06-27 16:18:06,Financial Services,Banking
+540,Kestrel Vale Payments S.A.,Madrid,ES,97,2022-04-14 14:15:54,2026-04-24 08:44:04,Financial Services,Payments & Fintech
+541,Thornbury Capital S.A.,Madrid,ES,97,2025-08-11 09:13:09,2026-05-22 09:02:57,Financial Services,Asset & Wealth Management
+542,Valemont Gate Retail S.A.,Madrid,ES,97,2022-04-02 09:20:43,2023-11-30 09:38:46,Commerce & Industry,Industrials
+543,Yarrow Gate Capital S.A.,Madrid,ES,97,2025-02-11 08:18:44,2025-12-22 16:00:16,Financial Services,Banking
+544,Quayside Technologies SAS,Paris,FR,106,2021-12-03 12:32:28,2026-09-12 08:51:33,Commerce & Industry,Technology
+545,Foxley Capital SAS,Paris,FR,106,2022-01-11 12:48:31,2026-09-11 15:15:28,Financial Services,Payments & Fintech
+546,Elmstead Solutions SAS,Paris,FR,106,2021-10-13 13:51:23,2026-09-12 08:29:54,Professional Services,Legal & Advisory
+547,Pembury Group SAS,Paris,FR,106,2021-12-30 14:29:27,2026-06-16 16:54:05,Commerce & Industry,Industrials
+548,Valemont Gate Insurance SAS,Paris,FR,106,2022-07-06 15:24:22,2026-09-12 13:46:17,Insurance,General Insurance
+549,Redfern Consulting SAS,Paris,FR,106,2022-06-03 13:18:19,2026-08-08 17:23:44,Professional Services,Consulting
+550,Bexmoor Park Solutions SAS,Paris,FR,106,2022-02-15 16:59:57,2026-08-18 17:16:37,Professional Services,Consulting
+551,Marlowe Bay Group SAS,Paris,FR,106,2022-05-09 18:08:59,2026-01-13 15:51:32,Commerce & Industry,Energy & Infrastructure
+552,Northcote Gate Consulting SAS,Paris,FR,106,2023-09-09 08:56:17,2026-09-12 11:25:02,Professional Services,Actuarial Consulting
+553,Bexmoor Hill Group SAS,Paris,FR,106,2022-08-07 13:37:26,2026-05-08 13:21:43,Commerce & Industry,Technology
+554,Stanwick Partners SAS,Paris,FR,106,2022-03-02 09:18:41,2026-09-12 10:26:52,Professional Services,Consulting
+555,Thornbury Hill Partners SAS,Paris,FR,106,2022-09-01 17:20:25,2026-03-21 08:12:59,Professional Services,Actuarial Consulting
+556,Kestrel Park Capital SAS,Paris,FR,106,2022-11-09 08:56:21,2026-06-19 11:03:12,Financial Services,Payments & Fintech
+557,Elmstead Energy SAS,Paris,FR,106,2022-04-14 10:24:27,2026-05-17 10:14:37,Commerce & Industry,Energy & Infrastructure
+558,Stanwick Hill Consulting SAS,Paris,FR,106,2022-06-14 10:06:21,2026-07-28 11:12:05,Professional Services,Consulting
+559,Ivybridge Park Asset Management SAS,Paris,FR,106,2022-12-16 16:28:18,2025-12-20 11:35:32,Financial Services,Banking
+560,Glenmoor Hill Solutions SAS,Paris,FR,106,2021-11-16 17:23:15,2026-09-04 16:18:04,Professional Services,Consulting
+561,Brackley Solutions SAS,Paris,FR,106,2022-01-19 09:31:19,2026-08-31 12:25:24,Professional Services,Consulting
+562,Cresswell Hill Insurance SAS,Paris,FR,106,2022-01-05 10:15:58,2026-08-19 08:29:05,Insurance,General Insurance
+563,Ashdown Payments SAS,Paris,FR,106,2022-06-15 08:39:53,2026-09-12 13:18:02,Financial Services,Asset & Wealth Management
+564,Fernbrook Park Payments SAS,Paris,FR,106,2022-12-01 13:59:16,2026-04-23 16:57:30,Financial Services,Payments & Fintech
+565,Larkspur Bridge Insurance SAS,Paris,FR,106,2023-02-05 11:54:46,2026-06-29 15:41:25,Insurance,Life & Pensions
+566,Larkspur Bridge Capital SAS,Paris,FR,106,2022-06-23 15:29:37,2026-05-15 14:20:53,Financial Services,Payments & Fintech
+567,Valemont Energy SAS,Paris,FR,106,2022-02-26 16:30:58,2026-08-29 18:05:37,Commerce & Industry,Consumer
+568,Pembury Bay Capital SAS,Paris,FR,106,2023-01-16 14:18:47,2026-08-26 16:31:13,Financial Services,Payments & Fintech
+569,Denholm Bay Payments SAS,Paris,FR,106,2022-11-03 10:56:47,2025-11-30 08:25:27,Financial Services,Banking
+570,Aldwick Bank SAS,Paris,FR,106,2022-04-22 09:34:01,2025-02-16 11:37:49,Financial Services,Asset & Wealth Management
+571,Marlowe Bridge Solutions SAS,Paris,FR,106,2023-05-02 14:47:13,2026-06-29 16:53:31,Professional Services,Actuarial Consulting
+572,Elmstead Hill Retail SAS,Paris,FR,106,2023-11-08 08:08:22,2026-09-07 12:33:08,Commerce & Industry,Energy & Infrastructure
+573,Brackley Hill Asset Management SAS,Paris,FR,106,2022-11-17 10:11:01,2024-03-23 09:14:16,Financial Services,Banking
+574,Ashdown Gate Partners SAS,Paris,FR,106,2022-11-14 16:09:37,2024-08-25 11:25:04,Professional Services,Consulting
+575,Bexmoor Group SAS,Paris,FR,106,2023-04-03 09:29:42,2026-06-10 15:08:13,Commerce & Industry,Consumer
+576,Foxley Underwriting SAS,Paris,FR,106,2022-10-13 18:37:27,2026-09-09 11:39:35,Insurance,Life & Pensions
+577,Oakhurst Park Wealth SAS,Paris,FR,106,2022-10-04 16:51:50,2026-04-29 14:58:50,Financial Services,Banking
+578,Ivybridge Gate Retail SAS,Paris,FR,106,2022-09-01 14:18:46,2026-08-11 11:19:53,Commerce & Industry,Technology
+579,Aldwick Energy SAS,Paris,FR,106,2023-03-12 13:16:45,2026-09-03 11:44:46,Commerce & Industry,Industrials
+580,Greywell Vale Solutions SAS,Paris,FR,106,2023-12-30 10:17:31,2026-08-19 15:25:43,Professional Services,Actuarial Consulting
+581,Westbrook Bridge Asset Management SAS,Paris,FR,106,2022-03-16 12:57:20,2026-08-13 12:45:44,Financial Services,Banking
+582,Upfield Bank SAS,Paris,FR,106,2023-05-07 18:01:36,2026-05-20 14:17:39,Financial Services,Payments & Fintech
+583,Ashdown Capital SAS,Paris,FR,106,2023-08-14 17:00:07,2026-06-22 13:55:14,Financial Services,Asset & Wealth Management
+584,Upfield Bridge Assurance SAS,Paris,FR,106,2025-05-03 17:49:50,2025-07-20 16:06:47,Insurance,General Insurance
+585,Ivybridge Hill Actuarial SAS,Paris,FR,106,2023-01-28 13:53:31,2026-09-10 16:09:18,Professional Services,Actuarial Consulting
+586,Stanwick Vale Wealth SAS,Paris,FR,106,2021-12-21 15:30:31,2025-07-16 10:05:56,Financial Services,Payments & Fintech
+587,Thornbury Capital SAS,Paris,FR,106,2024-01-04 10:27:47,2025-11-14 13:23:08,Financial Services,Banking
+588,Denholm Mutual SAS,Paris,FR,106,2022-07-27 13:40:08,2026-09-05 16:37:09,Insurance,General Insurance
+589,Quayside Bridge Assurance SAS,Paris,FR,106,2023-05-31 18:10:30,2026-06-22 18:27:53,Insurance,General Insurance
+590,Fernbrook Bay Technologies SAS,Paris,FR,106,2024-10-31 12:28:50,2026-05-01 15:38:35,Commerce & Industry,Industrials
+591,Ashdown Hill Re SAS,Paris,FR,106,2021-12-12 14:03:03,2025-08-28 15:06:05,Insurance,Health
+592,Larkspur Re SAS,Paris,FR,106,2023-05-18 16:20:31,2026-06-14 17:44:55,Insurance,Health
+593,Harlow Underwriting SAS,Paris,FR,106,2025-02-08 09:21:35,2026-09-12 13:14:04,Insurance,Health
+594,Kestrel Park Mutual SAS,Paris,FR,106,2023-08-18 10:17:50,2026-05-06 09:03:37,Insurance,General Insurance
+595,Aldwick Wealth SAS,Paris,FR,106,2022-07-05 13:25:32,2026-07-07 16:19:09,Financial Services,Asset & Wealth Management
+596,Eastleigh Vale Retail SAS,Paris,FR,106,2022-10-28 12:49:05,2026-09-10 15:28:31,Commerce & Industry,Consumer
+597,Ivybridge Hill Advisory SAS,Paris,FR,106,2022-11-26 17:48:38,2026-05-01 08:54:06,Professional Services,Legal & Advisory
+598,Yarrow Park Actuarial SAS,Paris,FR,106,2023-01-22 18:01:27,2026-07-28 14:46:26,Professional Services,Actuarial Consulting
+600,Ashdown Bridge Energy SAS,Paris,FR,106,2023-01-28 12:35:40,2023-03-14 14:32:36,Commerce & Industry,Industrials
+601,Stanwick Group SAS,Paris,FR,106,2021-12-11 15:13:36,2026-03-01 16:36:44,Commerce & Industry,Consumer
+602,Brackley Gate Partners SAS,Paris,FR,106,2022-11-21 12:43:22,2026-03-01 09:20:20,Professional Services,Legal & Advisory
+603,Ashdown Bank SAS,Paris,FR,106,2023-01-28 15:49:50,2026-08-20 08:17:48,Financial Services,Payments & Fintech
+604,Upfield Park Insurance SAS,Paris,FR,106,2024-04-09 12:09:04,2026-06-27 11:58:56,Insurance,General Insurance
+605,Redfern Group SAS,Paris,FR,106,2021-12-23 12:22:47,2026-04-26 18:54:31,Commerce & Industry,Technology
+606,Greywell Park Mutual SAS,Paris,FR,106,2023-01-22 14:01:29,2026-04-25 13:40:04,Insurance,Life & Pensions
+607,Larkspur Park Assurance SAS,Paris,FR,106,2022-05-17 14:44:58,2026-03-03 08:00:26,Insurance,Health
+608,Cresswell Gate Underwriting SAS,Paris,FR,106,2023-07-23 16:12:24,2025-01-11 14:30:15,Insurance,Life & Pensions
+609,Dunmore Asset Management SAS,Paris,FR,106,2023-07-03 13:25:32,2026-07-23 08:36:41,Financial Services,Asset & Wealth Management
+610,Fernbrook Vale Asset Management SAS,Paris,FR,106,2023-10-28 08:29:27,2025-06-27 16:07:23,Financial Services,Banking
+611,Calderwood Bay Capital SAS,Paris,FR,106,2022-04-06 13:01:45,2025-08-09 15:02:16,Financial Services,Banking
+612,Aldwick Park Mutual SAS,Paris,FR,106,2023-07-22 10:09:41,2024-07-28 14:10:36,Insurance,General Insurance
+613,Quayside Hill Payments SAS,Paris,FR,106,2022-03-16 10:25:37,2026-07-28 18:28:25,Financial Services,Asset & Wealth Management
+614,Pembury Hill Technologies SAS,Paris,FR,106,2022-08-11 11:51:14,2025-12-26 11:28:22,Commerce & Industry,Energy & Infrastructure
+615,Fernbrook Vale Actuarial SAS,Paris,FR,106,2022-10-15 14:37:01,2025-09-21 17:05:34,Professional Services,Legal & Advisory
+616,Calderwood Hill Payments SAS,Paris,FR,106,2024-01-13 13:31:40,2026-04-10 11:38:32,Financial Services,Payments & Fintech
+617,Stanwick Bay Capital SAS,Paris,FR,106,2023-09-04 13:17:14,2025-08-19 17:03:10,Financial Services,Banking
+618,Cresswell Park Partners SAS,Paris,FR,106,2024-08-26 18:06:36,2026-07-01 14:08:04,Professional Services,Legal & Advisory
+620,Harlow Park Capital SAS,Paris,FR,106,2022-08-18 15:45:27,2026-08-12 11:21:36,Financial Services,Asset & Wealth Management
+621,Brackley Park Actuarial SAS,Paris,FR,106,2023-04-10 13:13:12,2024-12-21 10:39:58,Professional Services,Consulting
+623,Kestrel Hill Wealth SAS,Paris,FR,106,2021-10-19 10:40:28,2026-08-16 14:18:20,Financial Services,Asset & Wealth Management
+624,Ivybridge Vale Asset Management SAS,Paris,FR,106,2024-08-02 09:23:11,2025-08-30 18:03:11,Financial Services,Payments & Fintech
+625,Greywell Bridge Advisory SAS,Paris,FR,106,2023-10-17 11:39:21,2026-01-01 13:15:16,Professional Services,Consulting
+626,Greywell Hill Solutions SAS,Paris,FR,106,2022-06-13 12:44:41,2025-09-02 10:37:28,Professional Services,Legal & Advisory
+627,Larkspur Bridge Capital AG,Zurich,CH,132,2021-11-01 16:16:03,2026-09-09 11:16:08,Financial Services,Asset & Wealth Management
+628,Yarrow Vale Wealth AG,Zurich,CH,132,2022-06-08 09:42:31,2026-09-12 16:37:34,Financial Services,Asset & Wealth Management
+629,Marlowe Underwriting AG,Zurich,CH,132,2021-11-01 09:14:38,2026-09-11 14:54:01,Insurance,Life & Pensions
+630,Greywell Hill Bank AG,Zurich,CH,132,2022-01-15 08:35:23,2026-09-01 08:49:47,Financial Services,Banking
+631,Dunmore Bridge Solutions AG,Zurich,CH,132,2022-10-23 11:01:49,2026-09-11 13:15:40,Professional Services,Actuarial Consulting
+632,Aldwick Park Asset Management AG,Zurich,CH,132,2022-01-09 17:20:28,2026-09-12 15:58:18,Financial Services,Banking
+633,Ivybridge Gate Asset Management AG,Zurich,CH,132,2022-05-01 16:13:10,2026-09-05 16:49:10,Financial Services,Payments & Fintech
+634,Eastleigh Retail AG,Zurich,CH,132,2022-01-16 15:12:47,2026-08-30 10:07:21,Commerce & Industry,Industrials
+635,Quayside Vale Industries AG,Zurich,CH,132,2022-06-08 14:25:45,2026-09-12 14:53:59,Commerce & Industry,Energy & Infrastructure
+636,Larkspur Energy AG,Zurich,CH,132,2022-08-09 11:10:42,2026-07-17 17:05:48,Commerce & Industry,Technology
+637,Thornbury Bridge Insurance AG,Zurich,CH,132,2021-09-30 18:45:49,2026-05-15 10:18:00,Insurance,Life & Pensions
+638,Westbrook Energy AG,Zurich,CH,132,2022-02-20 18:56:09,2026-09-05 14:29:12,Commerce & Industry,Consumer
+639,Valemont Gate Re AG,Zurich,CH,132,2022-06-26 12:32:30,2026-09-12 10:44:21,Insurance,Health
+640,Quayside Park Mutual AG,Zurich,CH,132,2022-02-03 11:42:26,2026-06-28 14:39:15,Insurance,Health
+641,Thornbury Bridge Bank AG,Zurich,CH,132,2023-02-28 10:02:07,2026-04-06 13:23:39,Financial Services,Payments & Fintech
+642,Brackley Solutions AG,Zurich,CH,132,2022-04-01 16:27:40,2026-09-12 15:08:20,Professional Services,Consulting
+644,Pembury Bay Underwriting AG,Zurich,CH,132,2023-08-03 17:39:09,2026-09-02 14:46:02,Insurance,Health
+645,Upfield Energy AG,Zurich,CH,132,2022-09-20 08:46:11,2023-07-22 09:27:37,Commerce & Industry,Energy & Infrastructure
+646,Quayside Bay Industries AG,Zurich,CH,132,2024-08-15 17:10:26,2026-03-31 10:08:16,Commerce & Industry,Consumer
+647,Quayside Assurance AG,Zurich,CH,132,2022-01-23 13:24:59,2026-08-20 18:31:30,Insurance,Health
+648,Redfern Re AG,Zurich,CH,132,2023-06-29 16:24:26,2025-08-28 16:17:00,Insurance,General Insurance
+649,Yarrow Wealth AG,Zurich,CH,132,2023-03-05 14:24:43,2026-08-12 15:20:03,Financial Services,Payments & Fintech
+650,Cresswell Bridge Capital AG,Zurich,CH,132,2024-02-03 16:31:17,2024-08-05 16:21:56,Financial Services,Banking
+651,Quayside Hill Wealth AG,Zurich,CH,132,2022-08-29 14:58:49,2025-08-08 14:32:56,Financial Services,Banking
+652,Redfern Gate Re AG,Zurich,CH,132,2023-12-04 11:13:58,2024-11-17 11:30:39,Insurance,General Insurance
+653,Bexmoor Mutual AG,Zurich,CH,132,2023-04-07 18:42:47,2025-12-06 14:01:34,Insurance,General Insurance
+654,Brackley Hill Re AG,Zurich,CH,132,2022-07-05 13:24:35,2026-06-21 10:08:38,Insurance,Life & Pensions
+655,Eastleigh Energy AG,Zurich,CH,132,2024-12-25 12:50:03,2026-06-03 12:53:22,Commerce & Industry,Consumer
+656,Oakhurst Vale Assurance AG,Zurich,CH,132,2024-05-10 10:53:40,2025-11-12 08:27:08,Insurance,Health
+657,Ivybridge Park Advisory AG,Zurich,CH,132,2022-12-17 18:31:33,2025-11-11 10:09:24,Professional Services,Actuarial Consulting
+658,Northcote Bay Payments AG,Zurich,CH,132,2023-01-29 18:51:32,2026-09-12 17:07:48,Financial Services,Banking
+659,Marlowe Gate Assurance AG,Zurich,CH,132,2022-03-31 09:09:59,2026-08-13 18:10:20,Insurance,Health
+660,Westbrook Bay Asset Management AG,Zurich,CH,132,2022-12-08 12:56:32,2026-05-28 08:09:18,Financial Services,Banking
+661,Kestrel Group AG,Zurich,CH,132,2022-05-22 14:50:40,2026-01-07 15:52:40,Commerce & Industry,Industrials
+662,Greywell Capital AG,Zurich,CH,132,2022-02-10 10:27:59,2026-07-04 11:48:32,Financial Services,Banking
+663,Glenmoor Vale Partners AG,Zurich,CH,132,2022-01-08 15:13:04,2026-08-14 10:48:03,Professional Services,Legal & Advisory
+664,Stanwick Gate Capital AG,Zurich,CH,132,2023-02-17 08:59:58,2026-03-21 08:58:07,Financial Services,Payments & Fintech
+665,Greywell Technologies AG,Zurich,CH,132,2025-02-16 10:29:28,2026-05-14 09:25:31,Commerce & Industry,Energy & Infrastructure
+666,Aldwick Bridge Technologies AG,Zurich,CH,132,2022-08-12 08:47:39,2026-05-02 16:20:02,Commerce & Industry,Industrials
+667,Eastleigh Gate Payments AG,Zurich,CH,132,2022-11-10 14:10:38,2026-07-02 10:16:13,Financial Services,Payments & Fintech
+668,Thornbury Bay Wealth AG,Zurich,CH,132,2026-05-05 18:02:20,2026-07-08 13:10:03,Financial Services,Asset & Wealth Management
+669,Westbrook Vale Group AG,Zurich,CH,132,2023-10-07 18:08:59,2026-09-12 11:30:36,Commerce & Industry,Industrials
+670,Ashdown Park Technologies AG,Zurich,CH,132,2024-03-02 16:13:32,2026-07-28 15:23:40,Commerce & Industry,Industrials
+671,Eastleigh Insurance AG,Zurich,CH,132,2025-01-11 13:25:45,2025-04-02 09:39:41,Insurance,General Insurance
+672,Kestrel Industries AG,Zurich,CH,132,2022-08-17 13:22:00,2026-07-16 18:32:01,Commerce & Industry,Technology
+673,Eastleigh Capital AG,Zurich,CH,132,2023-05-02 16:25:21,2023-07-21 15:59:37,Financial Services,Payments & Fintech
+674,Cresswell Vale Insurance AG,Zurich,CH,132,2021-11-11 11:13:48,2026-06-27 11:07:50,Insurance,General Insurance
+675,Bexmoor Underwriting AG,Zurich,CH,132,2024-03-05 11:53:35,2024-06-03 13:57:08,Insurance,General Insurance
+676,Denholm Hill Assurance AG,Zurich,CH,132,2023-03-21 15:02:20,2024-11-21 18:46:17,Insurance,General Insurance
+677,Pembury Hill Insurance AG,Zurich,CH,132,2023-11-17 17:06:16,2026-03-05 08:23:43,Insurance,Health
+678,Elmstead Industries AG,Zurich,CH,132,2024-02-01 10:09:12,2026-07-18 13:23:29,Commerce & Industry,Technology
+679,Brackley Vale Re AG,Zurich,CH,132,2022-06-02 08:24:05,2025-03-28 14:59:19,Insurance,Life & Pensions
+680,Pembury Gate Retail AG,Zurich,CH,132,2021-12-17 11:10:42,2025-01-09 12:05:07,Commerce & Industry,Consumer
+681,Brackley Assurance AG,Zurich,CH,132,2023-06-04 13:08:52,2026-05-10 17:55:52,Insurance,Health
+682,Elmstead Energy AG,Zurich,CH,132,2022-04-17 17:56:13,2026-03-03 08:22:10,Commerce & Industry,Technology
+683,Bexmoor Advisory AG,Zurich,CH,132,2022-01-11 18:44:11,2026-08-10 08:20:26,Professional Services,Actuarial Consulting
+684,Foxley Hill Assurance AG,Zurich,CH,132,2023-01-07 13:51:08,2025-04-18 18:24:55,Insurance,Life & Pensions
+685,Quayside Bay Re AG,Zurich,CH,132,2022-07-20 17:05:03,2023-12-28 16:56:56,Insurance,Health
+686,Ivybridge Assurance AG,Zurich,CH,132,2023-10-24 12:23:19,2026-03-24 17:59:20,Insurance,Life & Pensions
+687,Valemont Bridge Bank AG,Zurich,CH,132,2022-05-28 11:07:37,2024-03-03 17:00:27,Financial Services,Banking
+688,Westbrook Vale Payments AG,Zurich,CH,132,2023-04-09 09:00:37,2026-03-28 11:28:03,Financial Services,Payments & Fintech
+689,Upfield Underwriting AG,Zurich,CH,132,2023-07-04 13:57:49,2025-04-24 17:18:58,Insurance,Life & Pensions
+690,Cresswell Re AG,Zurich,CH,132,2023-10-24 10:53:42,2026-05-11 08:34:55,Insurance,General Insurance
+692,Northcote Park Re AG,Zurich,CH,132,2022-04-14 14:17:29,2024-06-02 10:41:09,Insurance,Health
+693,Ivybridge Retail AG,Zurich,CH,132,2023-04-10 13:04:45,2026-08-20 16:26:10,Commerce & Industry,Technology
+694,Ivybridge Payments AG,Zurich,CH,132,2023-03-20 18:41:35,2025-08-01 16:09:54,Financial Services,Payments & Fintech
+695,Elmstead Bay Partners AG,Zurich,CH,132,2021-11-20 16:03:59,2024-11-25 13:02:51,Professional Services,Consulting
+696,Eastleigh Assurance AG,Zurich,CH,132,2022-05-20 08:08:05,2024-11-13 18:52:03,Insurance,Life & Pensions
+697,Redfern Gate Solutions AG,Zurich,CH,132,2022-06-13 14:30:48,2025-12-04 16:38:25,Professional Services,Actuarial Consulting
+698,Kestrel Technologies AG,Zurich,CH,132,2023-02-12 09:56:17,2025-06-28 13:30:27,Commerce & Industry,Technology
+699,Cresswell Bay Insurance AG,Zurich,CH,132,2023-05-10 18:48:55,2026-01-08 18:44:08,Insurance,General Insurance
+700,Marlowe Bridge Actuarial AG,Zurich,CH,132,2022-11-18 17:11:27,2025-10-25 10:11:26,Professional Services,Actuarial Consulting
+701,Northcote Hill Bank AG,Zurich,CH,132,2022-12-13 08:48:22,2025-11-13 12:25:56,Financial Services,Banking
+702,Pembury Hill Capital AG,Zurich,CH,132,2025-03-06 18:28:36,2026-09-09 09:34:09,Financial Services,Payments & Fintech
+704,Marlowe Park Advisory AG,Zurich,CH,132,2022-10-24 13:06:10,2026-04-02 09:43:44,Professional Services,Consulting
+705,Ashdown Hill Underwriting AG,Zurich,CH,132,2022-05-06 12:00:24,2025-04-20 11:50:07,Insurance,General Insurance
+707,Harlow Bay Advisory AG,Zurich,CH,132,2024-01-09 13:49:26,2026-08-21 09:52:08,Professional Services,Actuarial Consulting
+708,Foxley Gate Insurance AG,Zurich,CH,132,2022-11-03 13:41:39,2025-10-23 10:11:45,Insurance,General Insurance
+709,Harlow Bridge Wealth AG,Zurich,CH,132,2022-04-16 15:01:33,2026-03-18 13:04:56,Financial Services,Payments & Fintech
+710,Greywell Vale Industries Inc.,New York,US,146,2021-11-23 09:24:08,2026-09-12 10:57:44,Commerce & Industry,Technology
+711,Upfield Bay Asset Management Inc.,New York,US,146,2021-10-28 14:19:25,2026-08-21 08:17:53,Financial Services,Payments & Fintech
+712,Ivybridge Bay Advisory Inc.,New York,US,146,2021-09-24 12:14:48,2026-09-10 08:05:23,Professional Services,Legal & Advisory
+713,Cresswell Re Inc.,New York,US,146,2021-12-07 17:30:46,2026-09-09 13:20:59,Insurance,General Insurance
+714,Glenmoor Mutual Inc.,New York,US,146,2022-08-06 12:48:51,2026-08-31 08:51:24,Insurance,General Insurance
+715,Quayside Hill Industries Inc.,New York,US,146,2022-08-14 13:21:19,2026-08-28 15:55:05,Commerce & Industry,Technology
+716,Northcote Hill Capital Inc.,New York,US,146,2022-05-15 11:15:23,2026-09-10 17:23:21,Financial Services,Payments & Fintech
+717,Harlow Vale Group Inc.,New York,US,146,2021-10-21 11:30:30,2026-09-05 18:50:49,Commerce & Industry,Consumer
+718,Denholm Bay Underwriting Inc.,New York,US,146,2022-03-02 16:59:22,2026-09-09 17:25:41,Insurance,General Insurance
+719,Kestrel Bay Retail Inc.,New York,US,146,2021-12-20 09:31:57,2026-08-13 17:58:47,Commerce & Industry,Energy & Infrastructure
+720,Eastleigh Bridge Consulting Inc.,New York,US,146,2022-01-26 16:35:51,2026-08-18 16:25:54,Professional Services,Consulting
+721,Calderwood Gate Industries Inc.,New York,US,146,2023-01-20 10:23:26,2026-09-12 16:10:54,Commerce & Industry,Energy & Infrastructure
+722,Bexmoor Re Inc.,New York,US,146,2022-09-21 16:52:28,2026-09-05 11:28:18,Insurance,Health
+723,Bexmoor Bay Mutual Inc.,New York,US,146,2023-02-16 13:03:41,2025-10-27 08:35:06,Insurance,General Insurance
+724,Brackley Park Capital Inc.,New York,US,146,2022-05-18 09:44:12,2026-09-12 13:24:09,Financial Services,Payments & Fintech
+725,Aldwick Hill Mutual Inc.,New York,US,146,2022-09-18 08:31:13,2026-09-12 14:59:15,Insurance,General Insurance
+726,Foxley Bay Payments Inc.,New York,US,146,2022-04-28 11:25:04,2026-06-29 16:56:05,Financial Services,Asset & Wealth Management
+727,Denholm Bank Inc.,New York,US,146,2021-10-15 17:59:11,2026-05-11 18:19:53,Financial Services,Asset & Wealth Management
+728,Elmstead Park Mutual Inc.,New York,US,146,2023-10-27 11:56:53,2026-09-12 17:07:31,Insurance,Health
+729,Cresswell Gate Energy Inc.,New York,US,146,2023-01-08 09:22:35,2026-06-21 11:51:31,Commerce & Industry,Technology
+730,Harlow Underwriting Inc.,New York,US,146,2023-09-22 09:33:56,2026-03-07 18:55:37,Insurance,Life & Pensions
+731,Redfern Bay Technologies Inc.,New York,US,146,2023-06-07 13:34:37,2026-09-09 13:22:13,Commerce & Industry,Technology
+732,Yarrow Solutions Inc.,New York,US,146,2022-03-15 10:22:03,2026-07-04 13:31:13,Professional Services,Legal & Advisory
+733,Larkspur Insurance Inc.,New York,US,146,2022-03-14 14:56:55,2026-08-20 15:45:11,Insurance,Health
+734,Cresswell Gate Consulting Inc.,New York,US,146,2021-12-21 16:14:14,2026-05-22 11:13:07,Professional Services,Consulting
+735,Cresswell Park Energy Inc.,New York,US,146,2022-03-04 12:20:29,2026-01-13 13:51:36,Commerce & Industry,Technology
+736,Eastleigh Park Insurance Inc.,New York,US,146,2022-09-14 16:08:18,2026-07-16 11:17:07,Insurance,General Insurance
+737,Eastleigh Bay Wealth Inc.,New York,US,146,2023-01-05 11:00:41,2025-08-12 16:37:26,Financial Services,Banking
+738,Quayside Insurance Inc.,New York,US,146,2022-11-20 09:00:19,2026-09-10 16:18:27,Insurance,General Insurance
+739,Glenmoor Bay Re Inc.,New York,US,146,2021-09-28 08:03:29,2026-06-29 14:36:19,Insurance,Health
+740,Brackley Bank Inc.,New York,US,146,2022-10-09 11:51:21,2026-09-10 08:24:36,Financial Services,Banking
+741,Denholm Retail Inc.,New York,US,146,2023-05-10 10:52:55,2025-09-01 09:11:39,Commerce & Industry,Technology
+742,Thornbury Gate Assurance Inc.,New York,US,146,2023-01-30 10:03:31,2026-05-07 14:48:30,Insurance,General Insurance
+743,Westbrook Hill Retail Inc.,New York,US,146,2023-06-24 17:02:25,2026-01-18 13:02:47,Commerce & Industry,Technology
+744,Ashdown Assurance Inc.,New York,US,146,2022-10-22 18:54:43,2026-07-23 13:23:58,Insurance,Health
+745,Greywell Bay Energy Inc.,New York,US,146,2023-11-30 08:55:59,2026-09-11 12:07:48,Commerce & Industry,Consumer
+746,Cresswell Bay Industries Inc.,New York,US,146,2023-08-24 16:48:00,2025-03-04 15:27:43,Commerce & Industry,Consumer
+747,Westbrook Park Re Inc.,New York,US,146,2025-02-25 09:57:38,2026-02-25 14:45:25,Insurance,Health
+748,Greywell Gate Payments Inc.,New York,US,146,2022-02-10 09:55:58,2026-04-25 08:04:51,Financial Services,Payments & Fintech
+749,Harlow Bay Re Inc.,New York,US,146,2021-12-31 15:46:49,2026-08-11 14:38:47,Insurance,General Insurance
+750,Pembury Park Retail Inc.,New York,US,146,2022-09-27 10:54:14,2025-10-25 17:24:33,Commerce & Industry,Consumer
+751,Kestrel Re Inc.,New York,US,146,2022-11-18 18:45:36,2026-08-01 10:25:22,Insurance,General Insurance
+752,Dunmore Park Retail Inc.,New York,US,146,2022-11-08 12:32:41,2025-06-26 08:45:58,Commerce & Industry,Industrials
+753,Eastleigh Re Inc.,New York,US,146,2022-03-06 18:41:04,2026-09-08 08:02:30,Insurance,General Insurance
+754,Cresswell Vale Solutions Inc.,New York,US,146,2022-02-04 10:26:16,2026-08-18 12:41:46,Professional Services,Actuarial Consulting
+755,Kestrel Wealth Inc.,New York,US,146,2023-04-18 14:18:53,2025-09-02 08:17:25,Financial Services,Banking
+756,Bexmoor Bank Inc.,New York,US,146,2023-05-14 16:22:28,2026-03-19 14:50:14,Financial Services,Asset & Wealth Management
+757,Harlow Industries Inc.,New York,US,146,2022-05-24 11:21:02,2025-12-14 10:05:02,Commerce & Industry,Energy & Infrastructure
+758,Glenmoor Vale Assurance Inc.,New York,US,146,2021-09-30 08:34:05,2026-07-19 11:05:55,Insurance,General Insurance
+759,Kestrel Bay Insurance Inc.,New York,US,146,2023-05-09 11:30:26,2026-03-19 14:13:32,Insurance,General Insurance
+760,Yarrow Assurance Inc.,New York,US,146,2023-05-26 08:30:02,2026-06-21 14:17:30,Insurance,General Insurance
+761,Glenmoor Bank Inc.,New York,US,146,2024-03-27 08:01:41,2026-07-03 16:44:15,Financial Services,Payments & Fintech
+762,Elmstead Vale Bank Inc.,New York,US,146,2023-02-03 09:32:41,2024-08-17 12:59:49,Financial Services,Asset & Wealth Management
+763,Fernbrook Park Technologies Inc.,New York,US,146,2024-11-25 13:43:09,2026-09-04 13:58:05,Commerce & Industry,Industrials
+764,Glenmoor Gate Actuarial Inc.,New York,US,146,2023-11-10 09:32:01,2026-01-20 16:47:29,Professional Services,Legal & Advisory
+765,Oakhurst Bridge Re Inc.,New York,US,146,2022-12-05 14:57:30,2026-07-02 09:33:56,Insurance,Life & Pensions
+766,Denholm Park Technologies Inc.,New York,US,146,2022-12-07 08:37:52,2024-04-10 14:36:37,Commerce & Industry,Consumer
+767,Glenmoor Hill Re Inc.,New York,US,146,2023-11-07 12:46:32,2026-02-20 08:26:51,Insurance,Health
+768,Pembury Vale Retail Inc.,New York,US,146,2022-09-06 18:55:55,2026-07-19 13:57:16,Commerce & Industry,Technology
+769,Harlow Hill Bank Inc.,New York,US,146,2025-09-23 14:04:33,2026-06-08 08:52:03,Financial Services,Payments & Fintech
+770,Cresswell Capital Inc.,New York,US,146,2025-04-27 13:14:25,2026-04-10 11:17:20,Financial Services,Banking
+771,Yarrow Bridge Asset Management Inc.,New York,US,146,2023-02-17 18:47:13,2026-02-17 16:15:25,Financial Services,Payments & Fintech
+772,Calderwood Assurance Inc.,New York,US,146,2023-06-30 14:57:22,2026-07-16 17:10:53,Insurance,Health
+773,Larkspur Hill Capital Inc.,New York,US,146,2022-01-15 16:56:25,2026-09-09 17:55:54,Financial Services,Asset & Wealth Management
+774,Ivybridge Energy Inc.,New York,US,146,2023-10-02 09:41:33,2026-04-07 12:56:31,Commerce & Industry,Industrials
+775,Westbrook Re Inc.,New York,US,146,2024-03-31 09:30:54,2026-07-24 12:53:37,Insurance,Life & Pensions
+776,Dunmore Technologies Inc.,New York,US,146,2023-07-22 12:13:02,2026-04-04 18:50:09,Commerce & Industry,Consumer
+777,Aldwick Re Inc.,New York,US,146,2023-02-18 12:00:31,2026-09-06 12:13:10,Insurance,Health
+778,Thornbury Bank Inc.,New York,US,146,2022-06-07 08:01:32,2023-07-14 18:54:16,Financial Services,Asset & Wealth Management
+779,Thornbury Asset Management Inc.,New York,US,146,2023-08-20 09:51:59,2026-09-10 17:02:38,Financial Services,Banking
+780,Eastleigh Payments Inc.,New York,US,146,2023-03-03 14:12:15,2026-09-11 14:49:04,Financial Services,Payments & Fintech
+781,Greywell Vale Re Inc.,New York,US,146,2022-07-13 18:33:35,2026-08-22 11:31:14,Insurance,Health
+782,Oakhurst Vale Bank Inc.,New York,US,146,2022-11-15 08:31:37,2026-04-07 08:33:32,Financial Services,Banking
+783,Pembury Vale Industries Inc.,New York,US,146,2022-10-17 10:05:01,2025-04-01 16:01:01,Commerce & Industry,Industrials
+784,Dunmore Payments Inc.,New York,US,146,2026-02-05 11:26:23,2026-06-16 17:56:11,Financial Services,Payments & Fintech
+785,Upfield Vale Capital Inc.,New York,US,146,2022-09-20 08:28:31,2024-03-09 09:01:32,Financial Services,Payments & Fintech
+786,Yarrow Hill Technologies Inc.,New York,US,146,2023-02-19 18:03:02,2026-07-02 16:21:05,Commerce & Industry,Technology
+787,Kestrel Bridge Insurance Inc.,New York,US,146,2023-11-06 14:59:27,2025-11-26 14:42:50,Insurance,Life & Pensions
+788,Fernbrook Mutual Inc.,New York,US,146,2022-11-06 16:50:49,2026-09-06 11:53:36,Insurance,Health
+789,Ivybridge Bridge Capital Inc.,New York,US,146,2023-08-23 14:33:08,2026-04-13 09:28:14,Financial Services,Asset & Wealth Management
+790,Calderwood Capital Inc.,New York,US,146,2022-01-06 14:15:47,2025-07-23 15:21:28,Financial Services,Asset & Wealth Management
+791,Kestrel Bay Mutual Inc.,New York,US,146,2022-10-16 16:44:20,2026-01-10 16:49:09,Insurance,Health
+792,Greywell Mutual Inc.,New York,US,146,2022-07-14 13:47:47,2026-05-02 10:17:34,Insurance,Life & Pensions
+793,Marlowe Gate Payments Inc.,New York,US,146,2023-08-05 09:48:43,2025-12-25 10:16:39,Financial Services,Payments & Fintech
+794,Greywell Hill Actuarial Inc.,New York,US,146,2023-02-06 11:56:49,2026-05-23 14:58:09,Professional Services,Actuarial Consulting
+795,Stanwick Technologies Inc.,New York,US,146,2022-03-01 18:43:33,2024-03-24 10:07:57,Commerce & Industry,Energy & Infrastructure
+796,Bexmoor Industries Inc.,New York,US,146,2022-05-18 11:54:46,2025-04-03 16:41:29,Commerce & Industry,Industrials
+797,Ashdown Park Wealth Inc.,New York,US,146,2022-06-18 12:07:12,2026-06-04 16:17:47,Financial Services,Payments & Fintech
+798,Ivybridge Gate Wealth Inc.,New York,US,146,2022-09-08 08:49:40,2026-07-22 08:20:01,Financial Services,Payments & Fintech
+799,Redfern Vale Actuarial Inc.,New York,US,146,2023-01-02 08:26:14,2026-09-03 12:48:22,Professional Services,Legal & Advisory
+800,Stanwick Park Consulting Inc.,New York,US,146,2022-10-14 16:25:28,2026-03-16 10:18:50,Professional Services,Actuarial Consulting
+801,Kestrel Hill Underwriting Inc.,New York,US,146,2023-05-20 12:17:52,2026-06-20 11:50:04,Insurance,General Insurance
+802,Upfield Bay Underwriting Inc.,New York,US,146,2023-02-08 14:47:45,2025-08-24 08:00:52,Insurance,Life & Pensions
+803,Stanwick Bridge Re Inc.,New York,US,146,2023-08-23 11:54:49,2026-06-04 10:42:27,Insurance,Health
+804,Dunmore Bay Technologies Inc.,New York,US,146,2022-10-26 18:54:11,2025-09-03 17:53:10,Commerce & Industry,Technology
+805,Westbrook Bridge Partners Inc.,New York,US,146,2024-06-24 10:13:01,2025-08-29 08:14:16,Professional Services,Consulting
+807,Ashdown Bridge Re Inc.,New York,US,146,2022-03-10 12:48:23,2026-08-27 18:30:17,Insurance,General Insurance
+808,Greywell Insurance Inc.,New York,US,146,2024-01-30 13:49:06,2025-04-03 09:41:29,Insurance,Life & Pensions
+809,Northcote Gate Asset Management Inc.,New York,US,146,2025-04-12 09:55:54,2026-08-05 13:02:10,Financial Services,Banking
+811,Kestrel Park Wealth Inc.,New York,US,146,2021-12-17 09:23:15,2026-04-18 15:53:33,Financial Services,Asset & Wealth Management
+812,Quayside Bridge Energy Inc.,New York,US,146,2023-08-21 09:16:53,2026-05-22 16:49:49,Commerce & Industry,Energy & Infrastructure
+813,Ashdown Park Insurance Inc.,New York,US,146,2022-11-01 10:30:15,2023-10-15 12:58:37,Insurance,General Insurance
+814,Glenmoor Bridge Re Inc.,New York,US,146,2025-09-12 16:16:39,2026-09-12 16:20:59,Insurance,Health
+815,Fernbrook Capital Inc.,New York,US,146,2023-04-27 14:52:05,2026-08-06 14:00:05,Financial Services,Asset & Wealth Management
+816,Redfern Gate Technologies Inc.,New York,US,146,2023-01-05 13:22:47,2026-03-15 12:53:53,Commerce & Industry,Industrials
+817,Fernbrook Bridge Partners Inc.,New York,US,146,2023-08-20 11:16:26,2026-02-20 10:31:08,Professional Services,Consulting
+818,Eastleigh Hill Asset Management Inc.,New York,US,146,2022-10-17 08:44:47,2026-02-19 13:44:25,Financial Services,Payments & Fintech
+819,Yarrow Technologies Inc.,New York,US,146,2026-03-03 14:17:41,2026-07-22 11:59:11,Commerce & Industry,Energy & Infrastructure
+820,Larkspur Vale Technologies Inc.,New York,US,146,2024-02-28 14:19:53,2026-09-09 11:54:08,Commerce & Industry,Energy & Infrastructure
+822,Quayside Group Inc.,New York,US,146,2022-02-24 18:04:46,2023-01-13 14:08:24,Commerce & Industry,Technology
+823,Kestrel Hill Asset Management Inc.,New York,US,146,2024-02-11 16:36:50,2026-09-12 13:42:39,Financial Services,Banking
+824,Dunmore Bridge Retail Inc.,New York,US,146,2024-05-07 15:22:38,2025-01-12 15:36:01,Commerce & Industry,Energy & Infrastructure
+825,Oakhurst Gate Group Inc.,New York,US,146,2022-09-12 09:41:05,2025-01-31 12:37:08,Commerce & Industry,Industrials
+826,Denholm Vale Bank Inc.,New York,US,146,2023-11-11 13:20:58,2026-04-17 16:41:31,Financial Services,Payments & Fintech
+827,Upfield Bank Inc.,New York,US,146,2024-03-10 08:30:51,2024-11-18 18:54:10,Financial Services,Asset & Wealth Management
+828,Pembury Hill Assurance Inc.,New York,US,146,2023-10-07 09:52:15,2024-11-30 10:39:15,Insurance,General Insurance
+829,Westbrook Bridge Solutions Inc.,New York,US,146,2023-10-15 13:56:43,2026-05-21 12:29:46,Professional Services,Legal & Advisory
+830,Pembury Hill Retail Inc.,New York,US,146,2024-03-06 13:19:13,2025-12-13 10:16:04,Commerce & Industry,Energy & Infrastructure
+831,Pembury Bay Technologies Inc.,New York,US,146,2024-12-27 13:47:02,2026-01-21 18:22:21,Commerce & Industry,Consumer
+832,Calderwood Park Actuarial Inc.,New York,US,146,2022-05-24 13:34:35,2026-03-30 18:59:31,Professional Services,Actuarial Consulting
+833,Calderwood Bay Wealth Inc.,New York,US,146,2023-08-02 16:17:35,2024-02-23 13:12:22,Financial Services,Banking
+835,Foxley Technologies Inc.,Charlotte,US,174,2022-04-10 08:29:01,2026-09-06 13:59:05,Commerce & Industry,Industrials
+836,Upfield Technologies Inc.,Charlotte,US,174,2021-11-22 12:18:21,2026-08-29 18:43:49,Commerce & Industry,Consumer
+837,Bexmoor Hill Partners Inc.,Charlotte,US,174,2022-12-17 16:41:20,2026-09-05 17:03:09,Professional Services,Consulting
+838,Denholm Wealth Inc.,Charlotte,US,174,2022-05-21 10:42:08,2026-09-12 08:33:28,Financial Services,Payments & Fintech
+839,Marlowe Bay Group Inc.,Charlotte,US,174,2022-01-13 11:53:51,2026-09-12 18:20:56,Commerce & Industry,Energy & Infrastructure
+840,Aldwick Actuarial Inc.,Charlotte,US,174,2021-12-13 12:07:46,2026-04-14 17:48:39,Professional Services,Legal & Advisory
+841,Glenmoor Park Underwriting Inc.,Charlotte,US,174,2022-06-03 17:20:35,2026-04-11 15:23:11,Insurance,Life & Pensions
+842,Redfern Partners Inc.,Charlotte,US,174,2022-07-18 15:29:56,2026-09-04 18:05:09,Professional Services,Consulting
+843,Redfern Park Payments Inc.,Charlotte,US,174,2023-03-16 17:50:31,2026-05-29 15:38:43,Financial Services,Banking
+844,Ashdown Bay Underwriting Inc.,Charlotte,US,174,2022-01-31 10:58:51,2026-08-14 18:53:25,Insurance,Life & Pensions
+845,Harlow Bank Inc.,Charlotte,US,174,2022-08-18 11:54:43,2026-09-05 14:00:10,Financial Services,Asset & Wealth Management
+846,Fernbrook Re Inc.,Charlotte,US,174,2023-08-10 13:05:50,2025-08-25 15:45:37,Insurance,Life & Pensions
+847,Yarrow Bridge Technologies Inc.,Charlotte,US,174,2022-08-19 12:50:04,2026-05-02 09:19:20,Commerce & Industry,Consumer
+848,Dunmore Park Payments Inc.,Charlotte,US,174,2022-10-02 15:35:49,2026-01-22 16:17:15,Financial Services,Payments & Fintech
+849,Fernbrook Vale Advisory Inc.,Charlotte,US,174,2022-10-26 09:49:10,2026-03-22 16:10:09,Professional Services,Actuarial Consulting
+850,Brackley Bridge Re Inc.,Charlotte,US,174,2022-06-09 10:15:03,2024-08-30 15:53:58,Insurance,Life & Pensions
+851,Elmstead Gate Payments Inc.,Charlotte,US,174,2022-09-20 10:33:53,2026-09-12 17:06:37,Financial Services,Payments & Fintech
+852,Elmstead Bay Payments Inc.,Charlotte,US,174,2022-06-07 15:23:40,2026-06-23 12:52:02,Financial Services,Banking
+853,Oakhurst Wealth Inc.,Charlotte,US,174,2022-07-21 12:39:34,2026-06-19 08:18:10,Financial Services,Payments & Fintech
+854,Eastleigh Hill Underwriting Inc.,Charlotte,US,174,2024-09-25 09:16:07,2026-05-31 10:23:57,Insurance,Life & Pensions
+855,Denholm Bay Retail Inc.,Charlotte,US,174,2022-08-24 17:33:53,2026-07-20 15:56:48,Commerce & Industry,Energy & Infrastructure
+856,Pembury Bay Payments Inc.,Charlotte,US,174,2022-12-31 14:34:33,2026-03-15 11:56:01,Financial Services,Banking
+857,Ivybridge Re Inc.,Charlotte,US,174,2022-10-05 13:08:05,2025-10-18 11:23:06,Insurance,Health
+858,Northcote Park Mutual Inc.,Charlotte,US,174,2022-10-13 18:51:22,2026-06-24 12:46:17,Insurance,Life & Pensions
+859,Kestrel Bank Inc.,Charlotte,US,174,2023-03-19 18:42:09,2026-09-05 18:20:35,Financial Services,Banking
+860,Ivybridge Gate Underwriting Inc.,Charlotte,US,174,2026-02-11 18:37:11,2026-09-03 12:59:49,Insurance,General Insurance
+861,Larkspur Hill Energy Inc.,Charlotte,US,174,2023-02-24 15:54:19,2025-12-13 16:50:30,Commerce & Industry,Energy & Infrastructure
+862,Pembury Payments Inc.,Charlotte,US,174,2022-06-12 10:03:39,2025-02-23 11:50:35,Financial Services,Asset & Wealth Management
+863,Northcote Insurance Inc.,Charlotte,US,174,2023-10-16 12:07:16,2026-05-21 18:39:10,Insurance,Life & Pensions
+865,Upfield Bridge Retail Inc.,Charlotte,US,174,2025-02-10 15:59:44,2026-08-06 13:00:12,Commerce & Industry,Consumer
+867,Pembury Vale Underwriting Inc.,Charlotte,US,174,2023-01-14 14:58:53,2024-06-19 16:07:06,Insurance,Health
+868,Westbrook Actuarial Inc.,Charlotte,US,174,2024-10-02 08:34:57,2025-05-04 18:26:20,Professional Services,Consulting
+869,Harlow Park Mutual Inc.,Charlotte,US,174,2023-02-09 11:08:43,2025-09-22 14:14:44,Insurance,Health
+870,Glenmoor Vale Group Inc.,Charlotte,US,174,2022-09-11 15:54:40,2026-09-11 18:13:37,Commerce & Industry,Technology
+871,Harlow Bridge Underwriting Inc.,Charlotte,US,174,2024-04-15 10:14:26,2025-04-24 10:00:57,Insurance,Health
+872,Brackley Re Inc.,Charlotte,US,174,2024-05-01 15:58:31,2025-07-10 10:05:15,Insurance,Health
+873,Oakhurst Hill Retail Inc.,Charlotte,US,174,2023-11-03 10:49:42,2026-01-01 11:56:50,Commerce & Industry,Technology
+874,Cresswell Insurance Inc.,Charlotte,US,174,2023-06-12 10:21:03,2025-10-26 08:55:20,Insurance,General Insurance
+875,Kestrel Gate Bank Inc.,Charlotte,US,174,2025-08-12 13:59:49,2026-09-12 18:40:12,Financial Services,Payments & Fintech
+876,Oakhurst Energy Inc.,Charlotte,US,174,2025-12-24 14:07:50,2026-09-11 13:06:29,Commerce & Industry,Consumer
+877,Aldwick Bridge Advisory Limited,Hong Kong,HK,182,2022-09-27 15:30:30,2026-09-12 13:53:59,Professional Services,Consulting
+878,Eastleigh Gate Asset Management Limited,Hong Kong,HK,182,2021-10-30 18:11:34,2026-09-12 13:52:40,Financial Services,Banking
+879,Eastleigh Bay Energy Limited,Hong Kong,HK,182,2022-11-29 08:47:43,2026-08-06 10:51:42,Commerce & Industry,Energy & Infrastructure
+880,Westbrook Bridge Wealth Limited,Hong Kong,HK,182,2022-10-05 18:46:56,2026-09-12 18:29:35,Financial Services,Banking
+881,Brackley Bay Asset Management Limited,Hong Kong,HK,182,2021-10-24 18:56:06,2026-09-12 11:09:19,Financial Services,Banking
+882,Thornbury Energy Limited,Hong Kong,HK,182,2022-03-28 17:28:36,2026-05-11 08:23:50,Commerce & Industry,Consumer
+883,Oakhurst Hill Wealth Limited,Hong Kong,HK,182,2024-05-18 16:55:42,2026-07-28 09:48:06,Financial Services,Payments & Fintech
+884,Aldwick Capital Limited,Hong Kong,HK,182,2022-09-24 08:18:44,2025-12-25 11:14:17,Financial Services,Payments & Fintech
+885,Stanwick Wealth Limited,Hong Kong,HK,182,2022-03-15 14:46:39,2026-09-11 14:29:44,Financial Services,Banking
+886,Valemont Bank Limited,Hong Kong,HK,182,2022-01-27 13:16:08,2026-08-08 16:48:16,Financial Services,Payments & Fintech
+887,Thornbury Park Underwriting Limited,Hong Kong,HK,182,2022-11-24 18:33:01,2025-12-28 10:38:40,Insurance,Life & Pensions
+888,Pembury Hill Group Limited,Hong Kong,HK,182,2022-05-31 11:38:15,2026-04-27 14:26:24,Commerce & Industry,Industrials
+889,Brackley Park Payments Limited,Hong Kong,HK,182,2023-01-05 10:37:30,2026-01-30 10:46:14,Financial Services,Banking
+890,Harlow Retail Limited,Hong Kong,HK,182,2022-12-05 15:25:08,2026-02-12 12:25:47,Commerce & Industry,Industrials
+891,Quayside Vale Re Limited,Hong Kong,HK,182,2022-03-01 14:36:06,2026-09-10 08:18:59,Insurance,Life & Pensions
+892,Foxley Bay Capital Limited,Hong Kong,HK,182,2022-10-28 16:38:05,2026-02-21 18:14:41,Financial Services,Payments & Fintech
+893,Denholm Vale Wealth Limited,Hong Kong,HK,182,2023-04-07 12:53:55,2026-05-06 11:43:07,Financial Services,Asset & Wealth Management
+894,Glenmoor Mutual Limited,Hong Kong,HK,182,2022-08-28 08:48:24,2026-06-02 13:47:02,Insurance,Life & Pensions
+895,Eastleigh Vale Underwriting Limited,Hong Kong,HK,182,2022-11-16 09:58:11,2026-04-03 18:06:25,Insurance,Health
+896,Westbrook Bridge Partners Limited,Hong Kong,HK,182,2024-02-04 18:11:13,2025-08-04 17:26:44,Professional Services,Actuarial Consulting
+897,Brackley Bridge Bank Limited,Hong Kong,HK,182,2022-07-05 16:11:27,2026-07-01 09:48:50,Financial Services,Payments & Fintech
+898,Eastleigh Vale Payments Limited,Hong Kong,HK,182,2022-12-14 14:09:48,2025-07-03 14:03:45,Financial Services,Asset & Wealth Management
+899,Upfield Park Capital Limited,Hong Kong,HK,182,2023-02-21 09:45:23,2025-11-03 08:33:32,Financial Services,Asset & Wealth Management
+900,Bexmoor Asset Management Limited,Hong Kong,HK,182,2022-03-06 13:37:06,2026-04-12 11:42:36,Financial Services,Payments & Fintech
+901,Denholm Park Energy Limited,Hong Kong,HK,182,2023-03-28 15:05:39,2026-05-16 11:53:06,Commerce & Industry,Energy & Infrastructure
+902,Ivybridge Vale Bank Limited,Hong Kong,HK,182,2022-05-11 15:47:05,2026-06-04 14:02:07,Financial Services,Payments & Fintech
+903,Cresswell Bridge Assurance Limited,Hong Kong,HK,182,2022-03-28 11:22:31,2026-04-25 13:02:40,Insurance,General Insurance
+904,Upfield Hill Bank Limited,Hong Kong,HK,182,2022-11-14 11:44:35,2026-04-10 08:14:47,Financial Services,Banking
+905,Upfield Bay Capital Limited,Hong Kong,HK,182,2022-05-18 11:19:02,2024-11-01 08:04:16,Financial Services,Banking
+906,Quayside Park Wealth Limited,Hong Kong,HK,182,2022-04-04 10:53:46,2024-04-28 13:56:12,Financial Services,Banking
+907,Harlow Underwriting Limited,Hong Kong,HK,182,2022-10-05 09:56:50,2026-09-01 08:18:07,Insurance,Life & Pensions
+908,Valemont Park Asset Management Limited,Hong Kong,HK,182,2023-04-15 10:07:35,2025-07-01 13:19:14,Financial Services,Asset & Wealth Management
+909,Dunmore Asset Management Limited,Hong Kong,HK,182,2023-12-28 10:59:24,2025-10-18 14:23:32,Financial Services,Banking
+910,Harlow Park Energy Limited,Hong Kong,HK,182,2022-12-03 17:04:20,2026-06-22 17:53:40,Commerce & Industry,Energy & Infrastructure
+911,Oakhurst Actuarial Limited,Hong Kong,HK,182,2022-02-04 08:25:53,2024-01-08 15:38:42,Professional Services,Legal & Advisory
+912,Foxley Hill Retail Limited,Hong Kong,HK,182,2024-12-28 10:05:54,2025-12-06 10:30:00,Commerce & Industry,Energy & Infrastructure
+913,Dunmore Gate Advisory Limited,Hong Kong,HK,182,2023-05-12 18:39:53,2024-09-30 08:15:23,Professional Services,Actuarial Consulting
+914,Calderwood Insurance Limited,Hong Kong,HK,182,2024-02-18 13:45:47,2026-06-25 15:30:28,Insurance,Health
+915,Glenmoor Re Limited,Hong Kong,HK,182,2025-06-27 17:08:45,2026-09-11 13:40:45,Insurance,Life & Pensions
+916,Larkspur Vale Re Limited,Hong Kong,HK,182,2024-11-15 15:02:33,2025-08-24 17:07:41,Insurance,General Insurance
+917,Eastleigh Asset Management Limited,Hong Kong,HK,182,2023-11-10 18:41:57,2025-06-22 15:06:48,Financial Services,Banking
+918,Redfern Capital Limited,Hong Kong,HK,182,2022-03-23 18:14:58,2025-05-22 16:10:50,Financial Services,Payments & Fintech
+919,Larkspur Wealth Pte Ltd,Singapore,SG,194,2022-06-13 10:52:15,2026-09-07 09:50:00,Financial Services,Asset & Wealth Management
+920,Stanwick Vale Re Pte Ltd,Singapore,SG,194,2021-10-09 08:50:15,2026-09-06 16:51:38,Insurance,Health
+921,Brackley Insurance Pte Ltd,Singapore,SG,194,2023-01-16 18:08:28,2026-08-30 14:50:13,Insurance,Health
+922,Harlow Hill Mutual Pte Ltd,Singapore,SG,194,2022-12-02 17:49:16,2026-09-11 15:33:26,Insurance,Health
+923,Quayside Vale Asset Management Pte Ltd,Singapore,SG,194,2022-01-24 16:17:50,2026-04-30 11:56:38,Financial Services,Asset & Wealth Management
+924,Ivybridge Gate Bank Pte Ltd,Singapore,SG,194,2022-11-25 15:21:13,2026-09-12 13:58:49,Financial Services,Banking
+925,Fernbrook Park Wealth Pte Ltd,Singapore,SG,194,2022-09-17 15:42:39,2026-07-14 18:23:52,Financial Services,Asset & Wealth Management
+926,Dunmore Park Mutual Pte Ltd,Singapore,SG,194,2022-05-22 08:41:13,2026-07-30 09:56:19,Insurance,Health
+927,Eastleigh Wealth Pte Ltd,Singapore,SG,194,2022-10-21 14:02:35,2025-09-06 17:42:04,Financial Services,Banking
+928,Foxley Bridge Advisory Pte Ltd,Singapore,SG,194,2023-06-07 17:13:00,2026-07-11 15:55:20,Professional Services,Consulting
+929,Pembury Bay Group Pte Ltd,Singapore,SG,194,2023-04-10 18:45:53,2026-06-01 09:43:46,Commerce & Industry,Consumer
+930,Ivybridge Vale Retail Pte Ltd,Singapore,SG,194,2022-05-02 09:14:18,2025-11-10 18:31:13,Commerce & Industry,Energy & Infrastructure
+931,Bexmoor Bank Pte Ltd,Singapore,SG,194,2025-01-02 09:47:16,2026-09-11 13:40:19,Financial Services,Asset & Wealth Management
+932,Foxley Retail Pte Ltd,Singapore,SG,194,2022-10-10 11:39:22,2026-09-12 15:39:48,Commerce & Industry,Technology
+933,Westbrook Hill Assurance Pte Ltd,Singapore,SG,194,2022-06-21 11:52:01,2025-12-14 09:51:31,Insurance,Health
+934,Harlow Hill Insurance Pte Ltd,Singapore,SG,194,2022-11-22 16:26:42,2026-05-10 14:32:19,Insurance,General Insurance
+935,Fernbrook Vale Asset Management Pte Ltd,Singapore,SG,194,2021-12-15 15:18:35,2026-08-18 10:25:06,Financial Services,Banking
+936,Northcote Assurance Pte Ltd,Singapore,SG,194,2023-06-02 13:41:02,2025-06-08 08:53:58,Insurance,Life & Pensions
+937,Kestrel Gate Wealth Pte Ltd,Singapore,SG,194,2022-12-27 16:46:40,2023-07-08 12:43:56,Financial Services,Banking
+938,Glenmoor Park Bank Pte Ltd,Singapore,SG,194,2024-07-22 11:52:11,2025-05-10 10:02:13,Financial Services,Payments & Fintech
+939,Redfern Bridge Wealth Pte Ltd,Singapore,SG,194,2023-01-17 11:32:45,2025-02-01 18:08:40,Financial Services,Payments & Fintech
+940,Elmstead Bridge Advisory Pte Ltd,Singapore,SG,194,2022-12-24 14:44:43,2024-01-03 18:29:07,Professional Services,Legal & Advisory
+941,Valemont Partners Pte Ltd,Singapore,SG,194,2022-05-15 14:44:14,2024-04-17 18:20:26,Professional Services,Consulting
+942,Quayside Assurance Pte Ltd,Singapore,SG,194,2022-06-11 09:36:53,2026-05-14 12:42:06,Insurance,Health
+943,Northcote Vale Group Pte Ltd,Singapore,SG,194,2022-05-16 09:03:52,2026-09-07 14:50:24,Commerce & Industry,Industrials
+944,Bexmoor Technologies Pte Ltd,Singapore,SG,194,2024-06-12 11:24:51,2026-07-01 09:10:26,Commerce & Industry,Energy & Infrastructure
+945,Harlow Bay Capital Pte Ltd,Singapore,SG,194,2022-12-21 17:05:56,2026-05-01 13:25:12,Financial Services,Asset & Wealth Management
+946,Denholm Gate Re Pte Ltd,Singapore,SG,194,2022-07-21 13:31:19,2026-02-27 13:48:43,Insurance,General Insurance
+947,Foxley Bridge Payments Pte Ltd,Singapore,SG,194,2022-07-06 13:09:07,2025-08-20 13:54:29,Financial Services,Banking
+948,Brackley Gate Actuarial Pte Ltd,Singapore,SG,194,2025-02-12 18:51:58,2026-02-14 15:05:48,Professional Services,Legal & Advisory
+949,Westbrook Hill Insurance Pte Ltd,Singapore,SG,194,2022-11-13 12:49:35,2023-05-11 16:04:19,Insurance,Health
+950,Cresswell Hill Solutions Pte Ltd,Singapore,SG,194,2022-07-13 12:50:18,2026-07-16 14:06:47,Professional Services,Actuarial Consulting
+951,Kestrel Gate Assurance Pte Ltd,Singapore,SG,194,2023-05-11 11:24:55,2026-03-16 12:47:27,Insurance,Health
+952,Cresswell Group Pte Ltd,Singapore,SG,194,2025-05-24 16:01:26,2026-05-07 10:23:07,Commerce & Industry,Consumer
+953,Aldwick Bay Payments Pte Ltd,Singapore,SG,194,2022-06-30 12:02:40,2026-06-08 16:20:27,Financial Services,Asset & Wealth Management
+954,Greywell Gate Retail Pte Ltd,Singapore,SG,194,2025-06-22 09:06:00,2026-07-07 09:04:53,Commerce & Industry,Industrials
+955,Glenmoor Technologies Pte Ltd,Singapore,SG,194,2024-07-20 09:24:27,2025-01-20 18:24:46,Commerce & Industry,Industrials
+956,Brackley Gate Underwriting Pte Ltd,Singapore,SG,194,2024-10-23 14:16:51,2026-09-09 11:58:09,Insurance,Life & Pensions
+957,Eastleigh Bay Mutual Pte Ltd,Singapore,SG,194,2022-09-04 09:24:42,2026-03-28 16:06:03,Insurance,Life & Pensions
+958,Calderwood Gate Assurance Pte Ltd,Singapore,SG,194,2023-07-17 15:47:53,2024-11-29 09:30:13,Insurance,Life & Pensions
+959,Redfern Assurance Pte Ltd,Singapore,SG,194,2023-11-07 09:40:53,2024-11-19 08:11:33,Insurance,General Insurance
+960,Fernbrook Park Retail Pte Ltd,Singapore,SG,194,2024-09-18 08:53:22,2025-04-18 14:43:08,Commerce & Industry,Technology
+961,Larkspur Bridge Partners Sdn Bhd,Kuala Lumpur,MY,207,2022-06-13 14:33:52,2026-09-12 11:07:49,Professional Services,Actuarial Consulting
+962,Brackley Park Technologies Sdn Bhd,Kuala Lumpur,MY,207,2022-09-25 14:20:21,2026-08-13 11:50:47,Commerce & Industry,Consumer
+963,Pembury Park Capital Sdn Bhd,Kuala Lumpur,MY,207,2022-10-09 14:13:12,2026-09-12 09:39:26,Financial Services,Asset & Wealth Management
+964,Redfern Bay Underwriting Sdn Bhd,Kuala Lumpur,MY,207,2022-04-05 17:51:46,2025-05-26 08:56:05,Insurance,Health
+965,Quayside Park Re Sdn Bhd,Kuala Lumpur,MY,207,2022-02-09 18:10:36,2026-09-12 14:38:36,Insurance,Life & Pensions
+966,Ivybridge Mutual Sdn Bhd,Kuala Lumpur,MY,207,2022-05-08 09:49:15,2026-09-11 17:09:41,Insurance,Health
+967,Harlow Bay Mutual Sdn Bhd,Kuala Lumpur,MY,207,2022-05-30 09:01:05,2026-07-24 11:40:16,Insurance,Life & Pensions
+968,Upfield Bay Mutual Sdn Bhd,Kuala Lumpur,MY,207,2022-09-03 13:09:03,2026-04-23 11:44:32,Insurance,General Insurance
+969,Marlowe Gate Insurance Sdn Bhd,Kuala Lumpur,MY,207,2022-01-29 11:45:26,2026-07-17 15:54:11,Insurance,General Insurance
+970,Westbrook Underwriting Sdn Bhd,Kuala Lumpur,MY,207,2023-05-31 11:09:48,2026-05-07 18:51:49,Insurance,Health
+971,Glenmoor Advisory Sdn Bhd,Kuala Lumpur,MY,207,2022-07-30 18:33:24,2026-02-20 11:24:00,Professional Services,Actuarial Consulting
+972,Eastleigh Wealth Sdn Bhd,Kuala Lumpur,MY,207,2021-11-16 15:15:33,2026-08-31 16:47:49,Financial Services,Banking
+974,Brackley Bay Technologies Sdn Bhd,Kuala Lumpur,MY,207,2022-05-12 09:30:18,2026-08-24 15:41:11,Commerce & Industry,Technology
+975,Valemont Capital Sdn Bhd,Kuala Lumpur,MY,207,2022-03-08 11:27:14,2026-06-07 16:45:29,Financial Services,Banking
+976,Northcote Park Payments Sdn Bhd,Kuala Lumpur,MY,207,2022-05-22 10:10:05,2026-04-26 15:10:00,Financial Services,Asset & Wealth Management
+977,Glenmoor Wealth Sdn Bhd,Kuala Lumpur,MY,207,2022-03-15 10:30:46,2025-10-12 17:48:28,Financial Services,Payments & Fintech
+978,Thornbury Advisory Sdn Bhd,Kuala Lumpur,MY,207,2022-02-05 08:44:02,2026-01-24 11:21:01,Professional Services,Legal & Advisory
+979,Oakhurst Park Capital Sdn Bhd,Kuala Lumpur,MY,207,2024-03-25 10:16:59,2026-05-28 17:26:45,Financial Services,Banking
+980,Calderwood Park Mutual Sdn Bhd,Kuala Lumpur,MY,207,2023-01-09 08:47:49,2025-08-31 11:50:49,Insurance,General Insurance
+981,Valemont Gate Energy Sdn Bhd,Kuala Lumpur,MY,207,2024-05-13 12:59:46,2024-12-23 17:36:38,Commerce & Industry,Consumer
+982,Thornbury Asset Management Sdn Bhd,Kuala Lumpur,MY,207,2022-04-26 12:50:55,2024-09-26 14:09:29,Financial Services,Banking
+983,Stanwick Vale Actuarial Sdn Bhd,Kuala Lumpur,MY,207,2022-06-18 18:02:28,2025-11-24 15:13:53,Professional Services,Legal & Advisory
+984,Bexmoor Bridge Consulting Sdn Bhd,Kuala Lumpur,MY,207,2022-06-12 10:14:53,2025-10-29 12:13:39,Professional Services,Consulting
+985,Brackley Hill Solutions Sdn Bhd,Kuala Lumpur,MY,207,2022-10-28 13:23:03,2026-09-06 13:52:51,Professional Services,Consulting
+986,Elmstead Gate Wealth Sdn Bhd,Kuala Lumpur,MY,207,2023-12-28 17:21:46,2026-04-16 16:03:44,Financial Services,Payments & Fintech
+987,Ivybridge Gate Capital Sdn Bhd,Kuala Lumpur,MY,207,2022-11-07 12:59:20,2025-06-20 15:44:54,Financial Services,Payments & Fintech
+988,Quayside Asset Management Sdn Bhd,Kuala Lumpur,MY,207,2024-06-23 11:20:04,2026-08-09 11:05:22,Financial Services,Banking
+989,Northcote Hill Partners Sdn Bhd,Kuala Lumpur,MY,207,2024-09-13 14:07:18,2026-03-13 17:54:35,Professional Services,Consulting
+990,Bexmoor Vale Payments Sdn Bhd,Kuala Lumpur,MY,207,2023-01-26 13:59:19,2023-07-01 14:22:39,Financial Services,Asset & Wealth Management
+991,Larkspur Industries Sdn Bhd,Kuala Lumpur,MY,207,2024-08-22 13:09:53,2026-02-10 11:24:42,Commerce & Industry,Consumer
+992,Yarrow Hill Asset Management Sdn Bhd,Kuala Lumpur,MY,207,2025-01-10 12:38:05,2026-07-05 12:29:56,Financial Services,Payments & Fintech
+993,Aldwick Bay Assurance Sdn Bhd,Kuala Lumpur,MY,207,2023-03-20 10:15:54,2026-06-03 10:40:46,Insurance,Life & Pensions
+994,Thornbury Vale Asset Management Sdn Bhd,Kuala Lumpur,MY,207,2023-12-05 18:33:59,2024-12-17 16:55:11,Financial Services,Banking
+995,Brackley Hill Payments Sdn Bhd,Kuala Lumpur,MY,207,2022-10-22 13:42:10,2026-09-11 16:56:06,Financial Services,Payments & Fintech
+996,Stanwick Re Sdn Bhd,Kuala Lumpur,MY,207,2022-10-10 09:23:45,2025-12-11 10:48:23,Insurance,General Insurance
+997,Eastleigh Hill Solutions Sdn Bhd,Kuala Lumpur,MY,207,2024-10-21 13:15:17,2025-05-21 16:08:32,Professional Services,Actuarial Consulting
+998,Redfern Bay Wealth Sdn Bhd,Kuala Lumpur,MY,207,2026-03-02 12:20:38,2026-08-05 15:44:43,Financial Services,Asset & Wealth Management
+999,Eastleigh Underwriting Sdn Bhd,Kuala Lumpur,MY,207,2023-08-27 13:07:37,2024-07-26 13:30:58,Insurance,General Insurance
+1000,Greywell Mutual Sdn Bhd,Kuala Lumpur,MY,207,2024-11-15 12:16:23,2025-07-23 11:39:41,Insurance,General Insurance
+1001,Elmstead Park Technologies Sdn Bhd,Kuala Lumpur,MY,207,2022-12-19 08:50:51,2026-08-26 18:55:21,Commerce & Industry,Industrials
+1002,Elmstead Bridge Bank Sdn Bhd,Kuala Lumpur,MY,207,2023-11-01 08:05:15,2025-05-19 15:06:42,Financial Services,Asset & Wealth Management
