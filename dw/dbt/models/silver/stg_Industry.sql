@@ -1,4 +1,4 @@
--- stg_industry.sql
+-- stg_Industry.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the CRM's industry dropdown list. Grain: one row per SubSectorId.
 --

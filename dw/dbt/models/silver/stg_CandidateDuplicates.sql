@@ -1,4 +1,4 @@
--- stg_candidate_duplicates.sql
+-- stg_CandidateDuplicates.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the CRM's list of candidate records that are the same person.
 -- Grain: one row per duplicate (NewCandidateId).

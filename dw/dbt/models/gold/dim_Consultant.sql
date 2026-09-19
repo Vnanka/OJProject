@@ -1,4 +1,4 @@
--- dim_consultant.sql
+-- dim_Consultant.sql
 -- -----------------------------------------------------------------------------
 -- Gold: consultants and team managers. Grain: one row per user, plus -1.
 -- Key = the CRM's own UserId.
@@ -16,7 +16,7 @@
 
 with users as (
 
-    select * from {{ ref('stg_user') }}
+    select * from {{ ref('stg_User') }}
 
 ),
 

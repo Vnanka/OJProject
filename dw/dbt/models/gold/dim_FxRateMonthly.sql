@@ -1,4 +1,4 @@
--- fx_rate_monthly.sql
+-- dim_FxRateMonthly.sql
 -- -----------------------------------------------------------------------------
 -- Gold helper: monthly average exchange rates.
 -- Grain: one row per month and currency.
@@ -18,7 +18,7 @@
 
 with daily as (
 
-    select * from {{ ref('stg_fx_rates') }}
+    select * from {{ ref('stg_FxRates') }}
 
 ),
 

@@ -1,4 +1,4 @@
--- stg_office.sql
+-- stg_Office.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the office reference list. Grain: one row per office.
 --

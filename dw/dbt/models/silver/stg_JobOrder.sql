@@ -1,4 +1,4 @@
--- stg_joborder.sql
+-- stg_JobOrder.sql
 -- -----------------------------------------------------------------------------
 -- Silver: vacancies from the CRM. Grain: one row per JobOrderId.
 --

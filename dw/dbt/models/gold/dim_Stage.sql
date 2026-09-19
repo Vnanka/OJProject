@@ -1,11 +1,11 @@
--- dim_stage.sql
+-- dim_Stage.sql
 -- -----------------------------------------------------------------------------
 -- Gold: pipeline stages. Grain: one row per CRM status code, plus -1.
 -- Key = the CRM's own status code.
 --
 -- No business rules in this file. It joins two sources:
---   stg_status        - the CRM's status codes and names
---   stg_funnel_stage  - the business's funnel definition (reference data)
+--   stg_Status        - the CRM's status codes and names
+--   stg_FunnelStage  - the business's funnel definition (reference data)
 -- A silver test guarantees every CRM status has a funnel mapping, so this
 -- inner join cannot silently drop a status.
 --
@@ -15,13 +15,13 @@
 
 with statuses as (
 
-    select * from {{ ref('stg_status') }}
+    select * from {{ ref('stg_Status') }}
 
 ),
 
 funnel as (
 
-    select * from {{ ref('stg_funnel_stage') }}
+    select * from {{ ref('stg_FunnelStage') }}
 
 )
 

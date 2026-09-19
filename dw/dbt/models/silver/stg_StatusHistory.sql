@@ -1,4 +1,4 @@
--- stg_status_history.sql
+-- stg_StatusHistory.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the pipeline event log. Grain: one row per status change.
 --
@@ -19,7 +19,7 @@ with source as (
 
 duplicates as (
 
-    select OldCandidateId, NewCandidateId from {{ ref('stg_candidate_duplicates') }}
+    select OldCandidateId, NewCandidateId from {{ ref('stg_CandidateDuplicates') }}
 
 )
 

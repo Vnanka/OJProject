@@ -1,10 +1,10 @@
--- stg_targets.sql
+-- stg_Targets.sql
 -- -----------------------------------------------------------------------------
 -- Silver: monthly NFI targets from the FINANCE system.
 -- Grain: one row per UserId and month.
 --
 -- The source gives the month as text ('2025-03'). Turning it into a real date
--- (the first day of that month) lets gold join it to dim_date.
+-- (the first day of that month) lets gold join it to dim_Date.
 -- -----------------------------------------------------------------------------
 
 with source as (

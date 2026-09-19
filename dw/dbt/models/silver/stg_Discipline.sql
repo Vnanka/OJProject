@@ -1,4 +1,4 @@
--- stg_discipline.sql
+-- stg_Discipline.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the CRM's discipline dropdown list. Grain: one row per DisciplineId.
 -- ValidTo NULL = still offered in the CRM dropdown.

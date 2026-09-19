@@ -1,4 +1,4 @@
--- dim_date.sql
+-- dim_Date.sql
 -- -----------------------------------------------------------------------------
 -- Gold: the calendar. Grain: one row per day, plus one "Unknown" row (-1).
 --
@@ -27,7 +27,7 @@ with days as (
 bank_holidays as (
 
     select HolidayDate, HolidayName
-    from {{ ref('stg_bank_holidays') }}
+    from {{ ref('stg_BankHolidays') }}
     where Division = 'england-and-wales'
 
 ),

@@ -1,4 +1,4 @@
--- dim_office.sql
+-- dim_Office.sql
 -- -----------------------------------------------------------------------------
 -- Gold: offices. Grain: one row per office, plus the -1 Unknown row.
 -- Built from the office reference list, not from values found in the facts.
@@ -13,7 +13,7 @@
 
 with offices as (
 
-    select * from {{ ref('stg_office') }}
+    select * from {{ ref('stg_Office') }}
 
 )
 

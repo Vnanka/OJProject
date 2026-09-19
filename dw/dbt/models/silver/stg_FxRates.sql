@@ -1,4 +1,4 @@
--- stg_fx_rates.sql
+-- stg_FxRates.sql
 -- -----------------------------------------------------------------------------
 -- Silver: daily ECB exchange rates. Grain: one row per RateDate + CurrencyCode.
 --

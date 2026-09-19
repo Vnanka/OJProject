@@ -10,7 +10,7 @@ version: 2
 
 models:
 
-  - name: dim_date
+  - name: dim_Date
     description: "Calendar, 1 Apr 2022 - 31 Mar 2028, plus the -1 Unknown row. Fiscal year starts 1 April; ISO weeks; England & Wales bank holidays."
     columns:
       - name: DateKey
@@ -19,7 +19,7 @@ models:
       - name: FiscalYear
         data_tests: [not_null]
 
-  - name: dim_office
+  - name: dim_Office
     description: "Offices, from the office reference list. Generated OfficeKey; -1 = Unknown."
     columns:
       - name: OfficeKey
@@ -27,19 +27,19 @@ models:
       - name: OfficeName
         data_tests: [unique, not_null]
 
-  - name: dim_industry
+  - name: dim_Industry
     description: "Client industry hierarchy (Industry -> SubSector), from the CRM dropdown. Key = SubSectorId; -1 = Unknown."
     columns:
       - name: IndustryKey
         data_tests: [unique, not_null]
 
-  - name: dim_discipline
+  - name: dim_Discipline
     description: "Job disciplines, from the CRM dropdown. Key = DisciplineId; -1 = Unknown (blank in the CRM)."
     columns:
       - name: DisciplineKey
         data_tests: [unique, not_null]
 
-  - name: dim_consultant
+  - name: dim_Consultant
     description: "Consultants and team managers, current team/office. Key = UserId; -1 = Unknown."
     columns:
       - name: ConsultantKey
@@ -49,13 +49,13 @@ models:
       - name: Team
         data_tests: [not_null]
 
-  - name: dim_client
+  - name: dim_Client
     description: "Clients. Key = CompanyId; -1 = Unknown. Industry text is for convenience; facts carry IndustryKey."
     columns:
       - name: ClientKey
         data_tests: [unique, not_null]
 
-  - name: dim_vacancy
+  - name: dim_Vacancy
     description: "Vacancies. Key = JobOrderId; -1 = Unknown. Salary in local currency. Facts carry DisciplineKey."
     columns:
       - name: VacancyKey
@@ -67,13 +67,13 @@ models:
               config:
                 where: "VacancyKey <> -1"
 
-  - name: fx_rate_monthly
+  - name: dim_FxRateMonthly
     description: "Monthly average ECB rate per currency (units per 1 GBP), plus GBP = 1.0. Used to convert every amount to GBP: local / RatePerGbp."
     columns:
       - name: RatePerGbp
         data_tests: [not_null]
 
-  - name: dim_stage
+  - name: dim_Stage
     description: "Pipeline stages: the CRM status codes mapped to the business funnel. Key = status code; -1 = Unknown exit."
     columns:
       - name: StageKey

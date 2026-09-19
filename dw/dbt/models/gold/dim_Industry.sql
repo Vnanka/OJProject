@@ -1,4 +1,4 @@
--- dim_industry.sql
+-- dim_Industry.sql
 -- -----------------------------------------------------------------------------
 -- Gold: client industries. Grain: one row per sub-sector, plus -1 Unknown.
 -- Holds the hierarchy Industry -> Sub-sector. Key = the CRM's own SubSectorId.
@@ -7,7 +7,7 @@
 
 with industries as (
 
-    select * from {{ ref('stg_industry') }}
+    select * from {{ ref('stg_Industry') }}
 
 )
 

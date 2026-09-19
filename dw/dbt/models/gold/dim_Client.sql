@@ -1,4 +1,4 @@
--- dim_client.sql
+-- dim_Client.sql
 -- -----------------------------------------------------------------------------
 -- Gold: clients. Grain: one row per client, plus -1. Key = the CRM's CompanyId.
 --
@@ -9,7 +9,7 @@
 
 with companies as (
 
-    select * from {{ ref('stg_company') }}
+    select * from {{ ref('stg_Company') }}
 
 )
 

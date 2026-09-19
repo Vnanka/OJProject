@@ -6,8 +6,8 @@
 -- -----------------------------------------------------------------------------
 
 select t.DocumentNo, t.CurrencyCode, t.DocumentDate
-from {{ ref('stg_transactions') }} as t
-left join {{ ref('fx_rate_monthly') }} as fx
+from {{ ref('stg_Transactions') }} as t
+left join {{ ref('dim_FxRateMonthly') }} as fx
     on  fx.CurrencyCode   = t.CurrencyCode
     and fx.MonthStartDate = date_trunc('month', t.DocumentDate)::date
 where fx.RatePerGbp is null

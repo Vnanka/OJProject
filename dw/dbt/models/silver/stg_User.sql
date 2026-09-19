@@ -1,4 +1,4 @@
--- stg_user.sql
+-- stg_User.sql
 -- -----------------------------------------------------------------------------
 -- Silver: CRM users (consultants and team managers).
 -- Grain: one row per UserId.

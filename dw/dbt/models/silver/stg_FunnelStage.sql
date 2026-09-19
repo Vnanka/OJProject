@@ -1,4 +1,4 @@
--- stg_funnel_stage.sql
+-- stg_FunnelStage.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the funnel mapping. Grain: one row per CRM status code.
 --

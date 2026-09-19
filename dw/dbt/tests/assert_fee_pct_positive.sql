@@ -11,5 +11,5 @@
 {{ config(severity = 'warn') }}
 
 select PlacementRef, FeePct
-from {{ ref('stg_placements') }}
+from {{ ref('stg_Placements') }}
 where FeePct <= 0

@@ -1,4 +1,4 @@
--- stg_transactions.sql
+-- stg_Transactions.sql
 -- -----------------------------------------------------------------------------
 -- Silver: invoices and credit notes from the FINANCE system.
 -- Grain: one row per DocumentNo.

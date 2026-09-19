@@ -1,4 +1,4 @@
--- stg_placements.sql
+-- stg_Placements.sql
 -- -----------------------------------------------------------------------------
 -- Silver: placements from the FINANCE system. Grain: one row per PlacementRef.
 --
@@ -8,7 +8,7 @@
 -- Money stays in LOCAL currency here. Conversion to GBP is business logic
 -- (which rate? which date?) and happens in gold.
 --
--- Duplicate candidates are merged the same way as in stg_status_history, so
+-- Duplicate candidates are merged the same way as in stg_StatusHistory, so
 -- CRM and finance agree on who the candidate is.
 -- -----------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ with source as (
 
 duplicates as (
 
-    select OldCandidateId, NewCandidateId from {{ ref('stg_candidate_duplicates') }}
+    select OldCandidateId, NewCandidateId from {{ ref('stg_CandidateDuplicates') }}
 
 )
 

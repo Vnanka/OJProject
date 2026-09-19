@@ -13,7 +13,7 @@ version: 2
 
 models:
 
-  - name: stg_user
+  - name: stg_User
     description: "CRM users (consultants and team managers). One row per UserId."
     columns:
       - name: UserId
@@ -25,10 +25,10 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_office')
+                to: ref('stg_Office')
                 field: OfficeName
 
-  - name: stg_company
+  - name: stg_Company
     description: "Clients. One row per CompanyId."
     columns:
       - name: CompanyId
@@ -41,10 +41,10 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_industry')
+                to: ref('stg_Industry')
                 field: SubSector
 
-  - name: stg_joborder
+  - name: stg_JobOrder
     description: "Vacancies. One row per JobOrderId. Salary parsed from free text into SalaryMin / SalaryMax, local currency."
     columns:
       - name: JobOrderId
@@ -53,7 +53,7 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_company')
+                to: ref('stg_Company')
                 field: CompanyId
       - name: Discipline
         description: "Planted problem: ~30 blank (warn). Every non-blank value must exist in the CRM's discipline list (error)."
@@ -63,7 +63,7 @@ models:
                 severity: warn
           - relationships:
               arguments:
-                to: ref('stg_discipline')
+                to: ref('stg_Discipline')
                 field: Discipline
       - name: SalaryMin
         description: "NULL when the text holds no number (e.g. 'Competitive')."
@@ -72,19 +72,19 @@ models:
               config:
                 severity: warn
 
-  - name: stg_candidate
+  - name: stg_Candidate
     description: "Candidates after merging duplicates. One row per real person."
     columns:
       - name: CandidateId
         data_tests: [unique, not_null]
 
-  - name: stg_candidate_duplicates
+  - name: stg_CandidateDuplicates
     description: "The CRM's merge list: NewCandidateId is the same person as OldCandidateId."
     columns:
       - name: NewCandidateId
         data_tests: [unique, not_null]
 
-  - name: stg_status
+  - name: stg_Status
     description: "CRM pipeline status lookup."
     columns:
       - name: StatusCode
@@ -94,10 +94,10 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_funnel_stage')
+                to: ref('stg_FunnelStage')
                 field: StatusCode
 
-  - name: stg_funnel_stage
+  - name: stg_FunnelStage
     description: "The business definition of the funnel: CRM status code -> funnel stage."
     columns:
       - name: StatusCode
@@ -108,7 +108,7 @@ models:
               arguments:
                 values: ['Progress', 'Exit', 'Start', 'Pre-funnel']
 
-  - name: stg_status_history
+  - name: stg_StatusHistory
     description: "Pipeline event log, one row per status change. CandidateId is after merging duplicates."
     columns:
       - name: StatusHistoryId
@@ -118,25 +118,25 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_candidate')
+                to: ref('stg_Candidate')
                 field: CandidateId
       - name: JobOrderId
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_joborder')
+                to: ref('stg_JobOrder')
                 field: JobOrderId
       - name: StatusToCode
         description: "Planted problem: a few rows use code 999, which is not in the lookup."
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_status')
+                to: ref('stg_Status')
                 field: StatusCode
               config:
                 severity: warn
 
-  - name: stg_placements
+  - name: stg_Placements
     description: "Placements from finance, local currency. One row per PlacementRef."
     columns:
       - name: PlacementRef
@@ -146,7 +146,7 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_joborder')
+                to: ref('stg_JobOrder')
                 field: JobOrderId
       - name: FeePct
         description: "Planted problem: 2 blank, 1 zero (the zero is caught by tests/assert_fee_pct_positive.sql)."
@@ -155,7 +155,7 @@ models:
               config:
                 severity: warn
 
-  - name: stg_transactions
+  - name: stg_Transactions
     description: "Invoices and credit notes, signed: credit notes are negative. Local currency."
     columns:
       - name: DocumentNo
@@ -170,28 +170,28 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_placements')
+                to: ref('stg_Placements')
                 field: PlacementRef
               config:
                 severity: warn
 
-  - name: stg_targets
+  - name: stg_Targets
     description: "Monthly NFI target per consultant, GBP."
     columns:
       - name: UserId
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_user')
+                to: ref('stg_User')
                 field: UserId
 
-  - name: stg_user_team
+  - name: stg_UserTeam
     description: "Row-level security access list: which email sees which team."
     columns:
       - name: Email
         data_tests: [not_null]
 
-  - name: stg_industry
+  - name: stg_Industry
     description: "CRM industry dropdown: one row per sub-sector with its industry. ValidTo NULL = in use."
     columns:
       - name: SubSectorId
@@ -201,7 +201,7 @@ models:
       - name: Industry
         data_tests: [not_null]
 
-  - name: stg_discipline
+  - name: stg_Discipline
     description: "CRM discipline dropdown. ValidTo NULL = in use."
     columns:
       - name: DisciplineId
@@ -209,7 +209,7 @@ models:
       - name: Discipline
         data_tests: [unique, not_null]
 
-  - name: stg_office
+  - name: stg_Office
     description: "Office reference list: city, country, region, currency. One row per office."
     columns:
       - name: OfficeName
@@ -222,13 +222,13 @@ models:
               arguments:
                 values: ['GBP', 'EUR', 'USD', 'CHF', 'HKD', 'SGD', 'MYR']
 
-  - name: stg_fx_rates
+  - name: stg_FxRates
     description: "Daily ECB rates. RatePerGbp = units of the currency per 1 GBP. No rows on weekends/holidays."
     columns:
       - name: RatePerGbp
         data_tests: [not_null]
 
-  - name: stg_bank_holidays
+  - name: stg_BankHolidays
     description: "UK bank holidays for all three divisions."
     columns:
       - name: HolidayDate

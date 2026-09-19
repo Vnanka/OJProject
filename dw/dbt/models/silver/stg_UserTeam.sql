@@ -1,4 +1,4 @@
--- stg_user_team.sql
+-- stg_UserTeam.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the row-level security access list. Grain: one row per Email + Team.
 --

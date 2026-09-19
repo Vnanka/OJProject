@@ -1,4 +1,4 @@
--- stg_bank_holidays.sql
+-- stg_BankHolidays.sql
 -- -----------------------------------------------------------------------------
 -- Silver: UK bank holidays from gov.uk. Grain: one row per Division + date.
 --
@@ -8,7 +8,7 @@
 --       "northern-ireland":  { "events": [ ... ] } }
 --
 -- We keep all three divisions. Which one applies (England & Wales, for the
--- Manchester and London offices) is decided in gold, in dim_date.
+-- Manchester and London offices) is decided in gold, in dim_Date.
 -- -----------------------------------------------------------------------------
 
 with source as (

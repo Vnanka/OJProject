@@ -6,6 +6,6 @@
 -- -----------------------------------------------------------------------------
 
 select YearMonthKey, CurrencyCode, count(*) as rows_found
-from {{ ref('fx_rate_monthly') }}
+from {{ ref('dim_FxRateMonthly') }}
 group by YearMonthKey, CurrencyCode
 having count(*) > 1

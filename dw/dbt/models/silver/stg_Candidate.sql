@@ -1,4 +1,4 @@
--- stg_candidate.sql
+-- stg_Candidate.sql
 -- -----------------------------------------------------------------------------
 -- Silver: candidates. Grain: one row per REAL person (CandidateId).
 --
@@ -18,7 +18,7 @@ with source as (
 
 duplicates as (
 
-    select NewCandidateId from {{ ref('stg_candidate_duplicates') }}
+    select NewCandidateId from {{ ref('stg_CandidateDuplicates') }}
 
 )
 

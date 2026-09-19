@@ -1,11 +1,11 @@
--- dim_vacancy.sql
+-- dim_Vacancy.sql
 -- -----------------------------------------------------------------------------
 -- Gold: vacancies (job orders). Grain: one row per vacancy, plus -1.
 -- Key = the CRM's JobOrderId.
 --
 -- Star schema: discipline is its own dimension, and the FACTS carry
 -- DisciplineKey. Discipline is kept here as text for convenience; the ~30 blank
--- ones read 'Unknown', matching the -1 member of dim_discipline.
+-- ones read 'Unknown', matching the -1 member of dim_Discipline.
 --
 -- Salary stays in the office's local currency (SalaryCurrency says which). It is
 -- descriptive here; money that is reported (fees, NFI) is converted to GBP in
@@ -14,13 +14,13 @@
 
 with jobs as (
 
-    select * from {{ ref('stg_joborder') }}
+    select * from {{ ref('stg_JobOrder') }}
 
 ),
 
 offices as (
 
-    select OfficeName, CurrencyCode from {{ ref('stg_office') }}
+    select OfficeName, CurrencyCode from {{ ref('stg_Office') }}
 
 )
 

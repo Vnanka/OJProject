@@ -1,4 +1,4 @@
--- dim_discipline.sql
+-- dim_Discipline.sql
 -- -----------------------------------------------------------------------------
 -- Gold: job disciplines. Grain: one row per discipline, plus -1 Unknown.
 -- Key = the CRM's own DisciplineId. The ~30 jobs with a blank discipline point
@@ -7,7 +7,7 @@
 
 with disciplines as (
 
-    select * from {{ ref('stg_discipline') }}
+    select * from {{ ref('stg_Discipline') }}
 
 )
 

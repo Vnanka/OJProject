@@ -1,10 +1,10 @@
--- stg_status.sql
+-- stg_Status.sql
 -- -----------------------------------------------------------------------------
 -- Silver: the CRM's pipeline status lookup. Grain: one row per StatusCode.
 --
 -- Only the CRM's own codes and names. Which code counts as which FUNNEL STAGE
 -- (e.g. 400 Submitted = "CV Sent") is a business definition, so that mapping
--- lives in gold, in dim_stage.
+-- lives in gold, in dim_Stage.
 -- -----------------------------------------------------------------------------
 
 with source as (
