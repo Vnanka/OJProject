@@ -26,7 +26,7 @@ Everything below is **synthetic**, except the real sources listed in §2.
 | Business | A recruitment agency shaped like Oliver James |
 | Placement types | **Permanent only** (job type code `H` = Hire) |
 | Date range | **1 Apr 2023 → 12 Sep 2026** for reporting (3 full fiscal years + part of FY26/27) |
-| CRM go-live | **1 Oct 2022.** Data starts six months early so FY23/24 opens with a normal pipeline. Rows before 1 Apr 2023 are a run-in and are filtered out of reporting. |
+| CRM go-live | **1 Oct 2022.** Data starts six months early so FY23/24 opens with a normal pipeline. **All data from 1 Oct 2022 is kept and shown** (Vlad, 19 Sep: never drop available data). FY22/23 is a partial year (6 months) and its first months are thin (the pipeline starts empty at go-live); targets exist only from April 2023. |
 | Fiscal year | Starts **1 April**. FY23/24, FY24/25, FY25/26, FY26/27 (partial) |
 | Weeks | **ISO weeks**, Monday start |
 | Reporting currency | **GBP**, converted from local currency using real ECB rates |

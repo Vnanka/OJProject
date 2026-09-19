@@ -30,8 +30,7 @@ select
     s.StatusName,
     f.FunnelStage,
     f.FunnelStageOrder,                         -- sort FunnelStage by this in Power BI
-    f.StageType,
-    f.ExitBy
+    f.StageType
 
 from statuses as s
 inner join funnel as f
@@ -39,4 +38,4 @@ inner join funnel as f
 
 union all
 
-select -1, 'Unknown status', 'Unknown exit', 7, 'Exit', 'Unknown'
+select -1, 'Unknown status', 'Unknown exit', 7, 'Exit'

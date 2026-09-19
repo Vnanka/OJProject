@@ -42,7 +42,6 @@ select
 
     -- descriptive
     title                                       as JobTitle,
-    type                                        as JobTypeCode,      -- 'H' = perm hire
     status                                      as JobStatus,
     discipline                                  as Discipline,       -- ~30 are NULL (planted problem)
     work_arrangement                            as WorkArrangement,

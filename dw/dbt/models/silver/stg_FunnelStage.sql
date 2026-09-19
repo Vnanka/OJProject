@@ -18,7 +18,6 @@ select
     funnel_stage                                as FunnelStage,
     cast(funnel_stage_order as integer)         as FunnelStageOrder,
     stage_type                                  as StageType,
-    exit_by                                     as ExitBy,           -- NULL unless StageType = 'Exit'
     cast(last_updated as timestamp)             as ModifiedAt
 
 from source

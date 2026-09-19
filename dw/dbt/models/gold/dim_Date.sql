@@ -66,8 +66,6 @@ select
     strftime(c.d, '%b %Y')                                            as YearMonth,           -- Sep 2026
     year(c.d) * 100 + month(c.d)                                      as YearMonthKey,        -- 202609, sorts YearMonth
     date_trunc('month', c.d)::date                                    as MonthStartDate,
-    datediff('day', date_trunc('week', date_trunc('month', c.d)), c.d) // 7 + 1
-                                                                      as WeekOfMonth,         -- week 1 = the week containing the 1st
 
     -- ISO week
     isoyear(c.d)                                                      as IsoYear,
@@ -108,7 +106,7 @@ union all
 -- the Unknown member: facts with a missing date point here instead of at nothing
 select
     -1, null, null, 'Unknown', 'Unk', null, null, null, null,                             -- day
-    null, null, 'Unknown', null, 'Unknown', 'Unk', 'Unknown', null, null, null,           -- calendar
+    null, null, 'Unknown', null, 'Unknown', 'Unk', 'Unknown', null, null,                 -- calendar
     null, null, 'Unknown', 'Unknown', null,                                               -- ISO week
     null, 'Unknown', null, 'Unknown', null, 'Unknown', null, null, 'Unknown', null, null, -- fiscal
     null

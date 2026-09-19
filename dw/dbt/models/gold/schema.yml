@@ -67,6 +67,159 @@ models:
               config:
                 where: "VacancyKey <> -1"
 
+  - name: fact_Application
+    description: "One row per application (candidate x vacancy): milestone date keys, reached flags, current stage, days to each stage. Active date = SubmittedDateKey (cohort). Milestone dates are blank when the stage was never reached; -1 = genuinely unknown."
+    columns:
+      - name: ApplicationId
+        data_tests: [unique, not_null]
+      - name: VacancyKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
+      - name: ClientKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Client'), field: ClientKey}
+      - name: IndustryKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Industry'), field: IndustryKey}
+      - name: DisciplineKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
+      - name: ConsultantKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
+      - name: OfficeKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Office'), field: OfficeKey}
+      - name: CurrentStageKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Stage'), field: StageKey}
+      - name: SubmittedDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: InterviewDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: OfferDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: PlacedDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: ExitDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+
+  - name: fact_Placement
+    description: "One row per placement, from finance. Booked fee = salary x fee %, local and GBP (monthly rate of the placed month). Fee % exactly as recorded (3 known gaps are reported, not patched). Start/Leave dates blank when they haven't happened."
+    columns:
+      - name: PlacementRef
+        data_tests: [unique, not_null]
+      - name: ApplicationId
+        description: "Every placement must exist as an application in the CRM - proves CRM and finance line up."
+        data_tests:
+          - relationships:
+              arguments: {to: ref('fact_Application'), field: ApplicationId}
+      - name: VacancyKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
+      - name: ClientKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Client'), field: ClientKey}
+      - name: IndustryKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Industry'), field: IndustryKey}
+      - name: DisciplineKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
+      - name: ConsultantKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
+      - name: OfficeKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Office'), field: OfficeKey}
+      - name: PlacedDateKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: StartDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: LeaveDateKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: SalaryGbp
+        description: "Every placement must find an exchange rate, or its GBP values would silently be blank."
+        data_tests: [not_null]
+
+  - name: fact_FeeTransaction
+    description: "The money: one row per invoice or credit note. SUM(NetAmountGbp) = NFI. DocumentDateKey (active) = ledger view; OriginalInvoiceDateKey (inactive) = attributed view. Orphan documents kept with -1 keys so totals match the ledger."
+    columns:
+      - name: DocumentNo
+        data_tests: [unique, not_null]
+      - name: DocumentType
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['INV', 'CRN']
+      - name: VacancyKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
+      - name: ClientKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Client'), field: ClientKey}
+      - name: IndustryKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Industry'), field: IndustryKey}
+      - name: DisciplineKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
+      - name: ConsultantKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
+      - name: OfficeKey
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_Office'), field: OfficeKey}
+      - name: DocumentDateKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: OriginalInvoiceDateKey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: DateKey}
+      - name: NetAmountGbp
+        description: "Every document must find an exchange rate, or it would silently drop out of NFI."
+        data_tests: [not_null]
+
   - name: dim_FxRateMonthly
     description: "Monthly average ECB rate per currency (units per 1 GBP), plus GBP = 1.0. Used to convert every amount to GBP: local / RatePerGbp."
     columns:

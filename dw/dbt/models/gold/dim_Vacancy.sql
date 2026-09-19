@@ -28,7 +28,6 @@ select
     j.JobOrderId                                as VacancyKey,
     j.JobTitle,
     j.JobStatus,
-    j.JobTypeCode,                              -- 'H' = perm hire (all rows: perm only)
     coalesce(j.Discipline, 'Unknown')           as Discipline,
     j.WorkArrangement,
     j.OwningOffice,
@@ -48,5 +47,5 @@ left join offices as o
 
 union all
 
-select -1, 'Unknown', 'Unknown', null, 'Unknown', 'Unknown', 'Unknown', 'Unknown', null,
+select -1, 'Unknown', 'Unknown', 'Unknown', 'Unknown', 'Unknown', 'Unknown', null,
        null, null, null, null, null, null, null
