@@ -13,36 +13,38 @@ models:
   - name: dim_Date
     description: "Calendar, 1 Apr 2022 - 31 Mar 2028, plus the -1 Unknown row. Fiscal year starts 1 April; ISO weeks; England & Wales bank holidays."
     columns:
-      - name: DateKey
+      - name: datekey
         description: "yyyymmdd as an integer, e.g. 20260921. -1 = unknown date."
         data_tests: [unique, not_null]
-      - name: FiscalYear
+      - name: "Fiscal Year"
+        quote: true
         data_tests: [not_null]
 
   - name: dim_Office
     description: "Offices, from the office reference list. Generated OfficeKey; -1 = Unknown."
     columns:
-      - name: OfficeKey
+      - name: officekey
         data_tests: [unique, not_null]
-      - name: OfficeName
+      - name: "Office Name"
+        quote: true
         data_tests: [unique, not_null]
 
   - name: dim_Industry
     description: "Client industry hierarchy (Industry -> SubSector), from the CRM dropdown. Key = SubSectorId; -1 = Unknown."
     columns:
-      - name: IndustryKey
+      - name: industrykey
         data_tests: [unique, not_null]
 
   - name: dim_Discipline
     description: "Job disciplines, from the CRM dropdown. Key = DisciplineId; -1 = Unknown (blank in the CRM)."
     columns:
-      - name: DisciplineKey
+      - name: disciplinekey
         data_tests: [unique, not_null]
 
   - name: dim_Consultant
     description: "Consultants and team managers, current team/office. Key = UserId; -1 = Unknown."
     columns:
-      - name: ConsultantKey
+      - name: consultantkey
         data_tests: [unique, not_null]
       - name: Email
         data_tests: [unique]
@@ -52,15 +54,16 @@ models:
   - name: dim_Client
     description: "Clients. Key = CompanyId; -1 = Unknown. Industry text is for convenience; facts carry IndustryKey."
     columns:
-      - name: ClientKey
+      - name: clientkey
         data_tests: [unique, not_null]
 
   - name: dim_Vacancy
     description: "Vacancies. Key = JobOrderId; -1 = Unknown. Salary in local currency. Facts carry DisciplineKey."
     columns:
-      - name: VacancyKey
+      - name: vacancykey
         data_tests: [unique, not_null]
-      - name: SalaryCurrency
+      - name: "Salary Currency"
+        quote: true
         description: "Every real vacancy's office must have a currency."
         data_tests:
           - not_null:
@@ -70,226 +73,229 @@ models:
   - name: fact_Application
     description: "One row per application (candidate x vacancy): milestone date keys, reached flags, current stage, days to each stage. Active date = SubmittedDateKey (cohort). Milestone dates are blank when the stage was never reached; -1 = genuinely unknown."
     columns:
-      - name: ApplicationId
+      - name: applicationid
         data_tests: [unique, not_null]
-      - name: VacancyKey
+      - name: vacancykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
-      - name: ClientKey
+              arguments: {to: ref('dim_Vacancy'), field: vacancykey}
+      - name: clientkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Client'), field: ClientKey}
-      - name: IndustryKey
+              arguments: {to: ref('dim_Client'), field: clientkey}
+      - name: industrykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Industry'), field: IndustryKey}
-      - name: DisciplineKey
+              arguments: {to: ref('dim_Industry'), field: industrykey}
+      - name: disciplinekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
-      - name: ConsultantKey
+              arguments: {to: ref('dim_Discipline'), field: disciplinekey}
+      - name: consultantkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
-      - name: OfficeKey
+              arguments: {to: ref('dim_Consultant'), field: consultantkey}
+      - name: officekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Office'), field: OfficeKey}
-      - name: CurrentStageKey
+              arguments: {to: ref('dim_Office'), field: officekey}
+      - name: currentstagekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Stage'), field: StageKey}
-      - name: SubmittedDateKey
+              arguments: {to: ref('dim_Stage'), field: stagekey}
+      - name: submitteddatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: InterviewDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: interviewdatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: OfferDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: offerdatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: PlacedDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: placeddatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: ExitDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: exitdatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
+              arguments: {to: ref('dim_Date'), field: datekey}
 
   - name: fact_ApplicationLine
     description: "One row per status change (the event log) - the 'line' to fact_Application's 'header'. Active date = EventDateKey (activity view). dim_Stage plays two roles: StatusToKey active, StatusFromKey inactive. No relationship to fact_Application; ApplicationId is a plain column."
     columns:
-      - name: ApplicationLineId
+      - name: applicationlineid
         description: "The CRM's own status history id."
         data_tests: [unique, not_null]
-      - name: ApplicationId
+      - name: applicationid
         description: "Every line must belong to an application in the header fact."
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('fact_Application'), field: ApplicationId}
-      - name: VacancyKey
+              arguments: {to: ref('fact_Application'), field: applicationid}
+      - name: vacancykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
-      - name: ClientKey
+              arguments: {to: ref('dim_Vacancy'), field: vacancykey}
+      - name: clientkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Client'), field: ClientKey}
-      - name: IndustryKey
+              arguments: {to: ref('dim_Client'), field: clientkey}
+      - name: industrykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Industry'), field: IndustryKey}
-      - name: DisciplineKey
+              arguments: {to: ref('dim_Industry'), field: industrykey}
+      - name: disciplinekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
-      - name: ConsultantKey
+              arguments: {to: ref('dim_Discipline'), field: disciplinekey}
+      - name: consultantkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
-      - name: OfficeKey
+              arguments: {to: ref('dim_Consultant'), field: consultantkey}
+      - name: officekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Office'), field: OfficeKey}
-      - name: StatusToKey
+              arguments: {to: ref('dim_Office'), field: officekey}
+      - name: statustokey
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Stage'), field: StageKey}
-      - name: StatusFromKey
+              arguments: {to: ref('dim_Stage'), field: stagekey}
+      - name: statusfromkey
         description: "0 'No Status' on the first event of an application."
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Stage'), field: StageKey}
-      - name: EventDateKey
+              arguments: {to: ref('dim_Stage'), field: stagekey}
+      - name: eventdatekey
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
+              arguments: {to: ref('dim_Date'), field: datekey}
 
   - name: fact_Placement
     description: "One row per placement, from finance. Booked fee = salary x fee %, local and GBP (monthly rate of the placed month). Fee % exactly as recorded (3 known gaps are reported, not patched). Start/Leave dates blank when they haven't happened."
     columns:
-      - name: PlacementRef
+      - name: "Placement Ref"
+        quote: true
         data_tests: [unique, not_null]
-      - name: ApplicationId
+      - name: applicationid
         description: "Every placement must exist as an application in the CRM - proves CRM and finance line up."
         data_tests:
           - relationships:
-              arguments: {to: ref('fact_Application'), field: ApplicationId}
-      - name: VacancyKey
+              arguments: {to: ref('fact_Application'), field: applicationid}
+      - name: vacancykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
-      - name: ClientKey
+              arguments: {to: ref('dim_Vacancy'), field: vacancykey}
+      - name: clientkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Client'), field: ClientKey}
-      - name: IndustryKey
+              arguments: {to: ref('dim_Client'), field: clientkey}
+      - name: industrykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Industry'), field: IndustryKey}
-      - name: DisciplineKey
+              arguments: {to: ref('dim_Industry'), field: industrykey}
+      - name: disciplinekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
-      - name: ConsultantKey
+              arguments: {to: ref('dim_Discipline'), field: disciplinekey}
+      - name: consultantkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
-      - name: OfficeKey
+              arguments: {to: ref('dim_Consultant'), field: consultantkey}
+      - name: officekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Office'), field: OfficeKey}
-      - name: PlacedDateKey
+              arguments: {to: ref('dim_Office'), field: officekey}
+      - name: placeddatekey
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: StartDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: startdatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: LeaveDateKey
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: leavedatekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: SalaryGbp
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: salarygbp
         description: "Every placement must find an exchange rate, or its GBP values would silently be blank."
         data_tests: [not_null]
 
   - name: fact_FeeTransaction
     description: "The money: one row per invoice or credit note. SUM(NetAmountGbp) = NFI. DocumentDateKey (active) = ledger view; OriginalInvoiceDateKey (inactive) = attributed view. Orphan documents kept with -1 keys so totals match the ledger."
     columns:
-      - name: DocumentNo
+      - name: "Document No"
+        quote: true
         data_tests: [unique, not_null]
-      - name: DocumentType
+      - name: "Document Type"
+        quote: true
         data_tests:
           - accepted_values:
               arguments:
                 values: ['INV', 'CRN']
-      - name: VacancyKey
+      - name: vacancykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Vacancy'), field: VacancyKey}
-      - name: ClientKey
+              arguments: {to: ref('dim_Vacancy'), field: vacancykey}
+      - name: clientkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Client'), field: ClientKey}
-      - name: IndustryKey
+              arguments: {to: ref('dim_Client'), field: clientkey}
+      - name: industrykey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Industry'), field: IndustryKey}
-      - name: DisciplineKey
+              arguments: {to: ref('dim_Industry'), field: industrykey}
+      - name: disciplinekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Discipline'), field: DisciplineKey}
-      - name: ConsultantKey
+              arguments: {to: ref('dim_Discipline'), field: disciplinekey}
+      - name: consultantkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
-      - name: OfficeKey
+              arguments: {to: ref('dim_Consultant'), field: consultantkey}
+      - name: officekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Office'), field: OfficeKey}
-      - name: DocumentDateKey
-        data_tests:
-          - not_null
-          - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: OriginalInvoiceDateKey
+              arguments: {to: ref('dim_Office'), field: officekey}
+      - name: documentdatekey
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: NetAmountGbp
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: originalinvoicedatekey
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: netamountgbp
         description: "Every document must find an exchange rate, or it would silently drop out of NFI."
         data_tests: [not_null]
 
   - name: fact_Target
     description: "Monthly NFI target per consultant, GBP. Month grain: DateKey = 1st of the month. Only consultant, office and date apply - no client/industry/discipline/vacancy by design."
     columns:
-      - name: ConsultantKey
+      - name: consultantkey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Consultant'), field: ConsultantKey}
-      - name: OfficeKey
+              arguments: {to: ref('dim_Consultant'), field: consultantkey}
+      - name: officekey
         data_tests:
           - relationships:
-              arguments: {to: ref('dim_Office'), field: OfficeKey}
-      - name: DateKey
+              arguments: {to: ref('dim_Office'), field: officekey}
+      - name: datekey
         data_tests:
           - not_null
           - relationships:
-              arguments: {to: ref('dim_Date'), field: DateKey}
-      - name: TargetNfiGbp
+              arguments: {to: ref('dim_Date'), field: datekey}
+      - name: targetnfigbp
         data_tests: [not_null]
 
   - name: sec_UserTeam
@@ -302,14 +308,15 @@ models:
           - relationships:
               arguments: {to: ref('dim_Consultant'), field: Email}
               config:
-                where: "RoleDescription like 'Team Manager%'"
+                where: "\"Role Description\" like 'Team Manager%'"
       - name: Team
         description: "Every team in the list must exist in dim_Consultant (incl. 'Unknown')."
         data_tests:
           - not_null
           - relationships:
               arguments: {to: ref('dim_Consultant'), field: Team}
-      - name: RoleDescription
+      - name: "Role Description"
+        quote: true
         data_tests: [not_null]
 
   - name: dim_FxRateMonthly
@@ -321,9 +328,10 @@ models:
   - name: dim_Stage
     description: "Pipeline stages: the CRM status codes mapped to the business funnel. Key = status code; -1 = Unknown exit."
     columns:
-      - name: StageKey
+      - name: stagekey
         data_tests: [unique, not_null]
-      - name: FunnelStage
+      - name: "Funnel Stage"
+        quote: true
         data_tests:
           - not_null
           - accepted_values:

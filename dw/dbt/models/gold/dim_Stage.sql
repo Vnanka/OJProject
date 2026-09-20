@@ -13,6 +13,20 @@
 -- the CRM lookup (today: the 20 rows with code 999).
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    StageKey as stagekey,
+    StatusName as "Status Name",
+    FunnelStage as "Funnel Stage",
+    FunnelStageOrder as "Funnel Stage Order",
+    StageType as "Stage Type"
+
+from (
+
 with statuses as (
 
     select * from {{ ref('stg_Status') }}
@@ -39,3 +53,5 @@ inner join funnel as f
 union all
 
 select -1, 'Unknown status', 'Unknown exit', 7, 'Exit'
+
+) as renamed

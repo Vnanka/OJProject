@@ -14,9 +14,12 @@ with silver as (
 ),
 
 gold as (
-    select CurrencyCode, count(*) as docs, sum(NetAmountLocal) as amount
+    -- gold uses the report naming standard: "Document Currency", netamountlocal
+    select "Document Currency" as CurrencyCode,
+           count(*) as docs,
+           sum(netamountlocal) as amount
     from {{ ref('fact_FeeTransaction') }}
-    group by CurrencyCode
+    group by "Document Currency"
 )
 
 select

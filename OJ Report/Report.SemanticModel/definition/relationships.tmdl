@@ -1,142 +1,142 @@
 relationship AutoDetected_df8c0245-1bef-418d-bd66-638e20f0fc38
-	fromColumn: fact_Target.DateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_Target.datekey
+	toColumn: dim_Date.datekey
 
 relationship AutoDetected_61882b90-57b6-4bf6-a355-78da16b06270
-	fromColumn: fact_Target.OfficeKey
-	toColumn: dim_Office.OfficeKey
+	fromColumn: fact_Target.officekey
+	toColumn: dim_Office.officekey
 
 relationship 32c5d0a5-55c8-5ce0-ad4b-fd94185675d5
-	fromColumn: fact_Application.SubmittedDateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_Application.submitteddatekey
+	toColumn: dim_Date.datekey
 
 relationship 409f2ca2-dd54-d0c1-fe94-39fcb280bcf5
-	fromColumn: fact_ApplicationLine.EventDateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_ApplicationLine.eventdatekey
+	toColumn: dim_Date.datekey
 
 relationship 5592f723-8a98-498e-3496-ff7c8829cdc3
-	fromColumn: fact_Placement.PlacedDateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_Placement.placeddatekey
+	toColumn: dim_Date.datekey
 
 relationship 9458d833-0290-4761-b203-fbac51c2b297
-	fromColumn: fact_Application.VacancyKey
-	toColumn: dim_Vacancy.VacancyKey
+	fromColumn: fact_Application.vacancykey
+	toColumn: dim_Vacancy.vacancykey
 
 relationship 0fa746cb-5403-4311-ab38-285d88e28989
-	fromColumn: fact_Application.ClientKey
-	toColumn: dim_Client.ClientKey
+	fromColumn: fact_Application.clientkey
+	toColumn: dim_Client.clientkey
 
 relationship 3e754873-c051-4c86-bdd5-e4da11b61345
-	fromColumn: fact_Application.IndustryKey
-	toColumn: dim_Industry.IndustryKey
+	fromColumn: fact_Application.industrykey
+	toColumn: dim_Industry.industrykey
 
 relationship 44074c54-2a33-4db6-9850-d3f12c4d43b8
-	fromColumn: fact_Application.DisciplineKey
-	toColumn: dim_Discipline.DisciplineKey
+	fromColumn: fact_Application.disciplinekey
+	toColumn: dim_Discipline.disciplinekey
 
 relationship 6efb1e94-d397-4f20-93c4-0d2c624b6161
-	fromColumn: fact_Application.ConsultantKey
-	toColumn: dim_Consultant.ConsultantKey
+	fromColumn: fact_Application.consultantkey
+	toColumn: dim_Consultant.consultantkey
 
 relationship 4977bb8d-83fa-4565-88df-48c9ae1f6aa8
-	fromColumn: fact_Application.OfficeKey
-	toColumn: dim_Office.OfficeKey
+	fromColumn: fact_Application.officekey
+	toColumn: dim_Office.officekey
 
 relationship 6aba2cf2-3587-4d55-b522-def4de9ad300
-	fromColumn: fact_Application.CurrentStageKey
-	toColumn: dim_Stage.StageKey
+	fromColumn: fact_Application.currentstagekey
+	toColumn: dim_Stage.stagekey
 
 relationship 6ef5413b-b655-4dc0-9f73-7bb67b88d920
-	fromColumn: fact_ApplicationLine.VacancyKey
-	toColumn: dim_Vacancy.VacancyKey
+	fromColumn: fact_ApplicationLine.vacancykey
+	toColumn: dim_Vacancy.vacancykey
 
 relationship 4b79a65f-e123-43c5-a66c-9a2ce5550b9b
-	fromColumn: fact_ApplicationLine.ClientKey
-	toColumn: dim_Client.ClientKey
+	fromColumn: fact_ApplicationLine.clientkey
+	toColumn: dim_Client.clientkey
 
 relationship f2d2bad1-663d-4c8d-823e-12c2e30e0380
-	fromColumn: fact_ApplicationLine.IndustryKey
-	toColumn: dim_Industry.IndustryKey
+	fromColumn: fact_ApplicationLine.industrykey
+	toColumn: dim_Industry.industrykey
 
 relationship af2d4bcf-4e18-4b51-8f46-e159ec11a709
-	fromColumn: fact_ApplicationLine.DisciplineKey
-	toColumn: dim_Discipline.DisciplineKey
+	fromColumn: fact_ApplicationLine.disciplinekey
+	toColumn: dim_Discipline.disciplinekey
 
 relationship af904d3c-c348-4e03-b0e3-dfc91d55d519
-	fromColumn: fact_ApplicationLine.ConsultantKey
-	toColumn: dim_Consultant.ConsultantKey
+	fromColumn: fact_ApplicationLine.consultantkey
+	toColumn: dim_Consultant.consultantkey
 
 relationship 337b9714-281e-46fe-b9f0-cf22e3c09427
-	fromColumn: fact_ApplicationLine.OfficeKey
-	toColumn: dim_Office.OfficeKey
+	fromColumn: fact_ApplicationLine.officekey
+	toColumn: dim_Office.officekey
 
 relationship d843a9a0-da08-432e-8a49-47b32497a87c
-	fromColumn: fact_ApplicationLine.StatusToKey
-	toColumn: dim_Stage.StageKey
+	fromColumn: fact_ApplicationLine.statustokey
+	toColumn: dim_Stage.stagekey
 
 relationship b7a72402-dc2f-445e-838e-c1800347b2bb
 	isActive: false
-	fromColumn: fact_ApplicationLine.StatusFromKey
-	toColumn: dim_Stage.StageKey
+	fromColumn: fact_ApplicationLine.statusfromkey
+	toColumn: dim_Stage.stagekey
 
 relationship 357c7258-8b4f-42ff-9f26-71a1503857ce
-	fromColumn: fact_Placement.VacancyKey
-	toColumn: dim_Vacancy.VacancyKey
+	fromColumn: fact_Placement.vacancykey
+	toColumn: dim_Vacancy.vacancykey
 
 relationship 5e678f8c-8095-4472-988e-09686c6f4c98
-	fromColumn: fact_Placement.ClientKey
-	toColumn: dim_Client.ClientKey
+	fromColumn: fact_Placement.clientkey
+	toColumn: dim_Client.clientkey
 
 relationship 67ebe2b7-03c5-4ebd-98b4-ddcb64b352b7
-	fromColumn: fact_Placement.IndustryKey
-	toColumn: dim_Industry.IndustryKey
+	fromColumn: fact_Placement.industrykey
+	toColumn: dim_Industry.industrykey
 
 relationship 439508a4-fffc-4eda-aea7-ababdab70402
-	fromColumn: fact_Placement.DisciplineKey
-	toColumn: dim_Discipline.DisciplineKey
+	fromColumn: fact_Placement.disciplinekey
+	toColumn: dim_Discipline.disciplinekey
 
 relationship 40521071-7998-4d22-8202-2d0a52a7014e
-	fromColumn: fact_Placement.ConsultantKey
-	toColumn: dim_Consultant.ConsultantKey
+	fromColumn: fact_Placement.consultantkey
+	toColumn: dim_Consultant.consultantkey
 
 relationship 31cbe071-e8d4-4572-8ec4-53b08283bf99
-	fromColumn: fact_Placement.OfficeKey
-	toColumn: dim_Office.OfficeKey
+	fromColumn: fact_Placement.officekey
+	toColumn: dim_Office.officekey
 
 relationship 4dab13f3-f4d6-4a1a-9b3f-01679cfefc97
-	fromColumn: fact_FeeTransaction.VacancyKey
-	toColumn: dim_Vacancy.VacancyKey
+	fromColumn: fact_FeeTransaction.vacancykey
+	toColumn: dim_Vacancy.vacancykey
 
 relationship 01c0c052-590f-4bd8-89d2-12bb0b847c35
-	fromColumn: fact_FeeTransaction.ClientKey
-	toColumn: dim_Client.ClientKey
+	fromColumn: fact_FeeTransaction.clientkey
+	toColumn: dim_Client.clientkey
 
 relationship a02dd7ec-c4e6-43a3-9209-6ef05be07e5f
-	fromColumn: fact_FeeTransaction.IndustryKey
-	toColumn: dim_Industry.IndustryKey
+	fromColumn: fact_FeeTransaction.industrykey
+	toColumn: dim_Industry.industrykey
 
 relationship e8f2429d-2a88-422c-a696-d76a8c70b491
-	fromColumn: fact_FeeTransaction.DisciplineKey
-	toColumn: dim_Discipline.DisciplineKey
+	fromColumn: fact_FeeTransaction.disciplinekey
+	toColumn: dim_Discipline.disciplinekey
 
 relationship fcbc5b8e-80c1-4036-874c-ec3e2b839b2b
-	fromColumn: fact_FeeTransaction.ConsultantKey
-	toColumn: dim_Consultant.ConsultantKey
+	fromColumn: fact_FeeTransaction.consultantkey
+	toColumn: dim_Consultant.consultantkey
 
 relationship ab952351-dfd8-45bb-a460-a158810ed26f
-	fromColumn: fact_FeeTransaction.OfficeKey
-	toColumn: dim_Office.OfficeKey
+	fromColumn: fact_FeeTransaction.officekey
+	toColumn: dim_Office.officekey
 
 relationship 66e8f10f-b548-4c6c-87d0-fbdda51f955a
-	fromColumn: fact_FeeTransaction.DocumentDateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_FeeTransaction.documentdatekey
+	toColumn: dim_Date.datekey
 
 relationship 498a3b88-2cae-4b79-9d5b-23ecc15eef59
 	isActive: false
-	fromColumn: fact_FeeTransaction.OriginalInvoiceDateKey
-	toColumn: dim_Date.DateKey
+	fromColumn: fact_FeeTransaction.originalinvoicedatekey
+	toColumn: dim_Date.datekey
 
 relationship dea8cdb8-140e-4a6c-9359-f66e9a85f6ba
-	fromColumn: fact_Target.ConsultantKey
-	toColumn: dim_Consultant.ConsultantKey
+	fromColumn: fact_Target.consultantkey
+	toColumn: dim_Consultant.consultantkey
 

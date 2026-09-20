@@ -1,13 +1,13 @@
 table dim_Discipline
 	lineageTag: 68c0b887-41b9-4977-b838-c6440444a291
 
-	column DisciplineKey
+	column disciplinekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 99849f15-7aba-42c3-9c67-e8c0ddeaf98f
 		summarizeBy: none
-		sourceColumn: DisciplineKey
+		sourceColumn: disciplinekey
 
 		annotation SummarizationSetBy = Automatic
 
@@ -19,23 +19,23 @@ table dim_Discipline
 
 		annotation SummarizationSetBy = Automatic
 
-	column ValidFrom
+	column 'Valid From'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 0a02d693-09ba-4442-9f01-b81f9e829d11
 		summarizeBy: none
-		sourceColumn: ValidFrom
+		sourceColumn: Valid From
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column ValidTo
+	column 'Valid To'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 61beb41f-d323-4d61-a90f-68eb1da1ea2e
 		summarizeBy: none
-		sourceColumn: ValidTo
+		sourceColumn: Valid To
 
 		annotation SummarizationSetBy = Automatic
 

@@ -1,142 +1,142 @@
 table fact_FeeTransaction
 	lineageTag: 6019809b-2bf0-46ea-bdbb-69426699fe8d
 
-	column DocumentNo
+	column 'Document No'
 		dataType: string
 		lineageTag: f44960f0-35aa-4925-bbde-bd85dd2fde41
 		summarizeBy: none
-		sourceColumn: DocumentNo
+		sourceColumn: Document No
 
 		annotation SummarizationSetBy = Automatic
 
-	column DocumentType
+	column 'Document Type'
 		dataType: string
 		lineageTag: 70bfca25-6e52-40eb-adf2-97acae784cf0
 		summarizeBy: none
-		sourceColumn: DocumentType
+		sourceColumn: Document Type
 
 		annotation SummarizationSetBy = Automatic
 
-	column PlacementRef
+	column 'Placement Ref'
 		dataType: string
 		lineageTag: 94a3afb8-0421-4f63-875a-39540f5ada59
 		summarizeBy: none
-		sourceColumn: PlacementRef
+		sourceColumn: Placement Ref
 
 		annotation SummarizationSetBy = Automatic
 
-	column ApplicationId
+	column applicationid
 		dataType: int64
 		formatString: 0
 		lineageTag: a7b2d821-dfb9-43e6-af61-cd5a2c90854f
 		summarizeBy: none
-		sourceColumn: ApplicationId
+		sourceColumn: applicationid
 
 		annotation SummarizationSetBy = Automatic
 
-	column VacancyKey
+	column vacancykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: c52e56e7-869f-491c-883d-a7d17b40290a
 		summarizeBy: none
-		sourceColumn: VacancyKey
+		sourceColumn: vacancykey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ClientKey
+	column clientkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: b75ae396-5cfc-47d3-b68c-f6434bc5378f
 		summarizeBy: none
-		sourceColumn: ClientKey
+		sourceColumn: clientkey
 
 		annotation SummarizationSetBy = Automatic
 
-	column IndustryKey
+	column industrykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: edc24c5c-c60c-4dd9-97b8-1764b1cc029c
 		summarizeBy: none
-		sourceColumn: IndustryKey
+		sourceColumn: industrykey
 
 		annotation SummarizationSetBy = Automatic
 
-	column DisciplineKey
+	column disciplinekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 4e4fc8b7-f34f-4b42-b5ae-493362fa2aa2
 		summarizeBy: none
-		sourceColumn: DisciplineKey
+		sourceColumn: disciplinekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ConsultantKey
+	column consultantkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 8587f8b6-c1c5-40fe-a694-521d7398c9f2
 		summarizeBy: none
-		sourceColumn: ConsultantKey
+		sourceColumn: consultantkey
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeKey
+	column officekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 9d081c6e-70db-48d3-8cc8-53dd7b79e618
 		summarizeBy: none
-		sourceColumn: OfficeKey
+		sourceColumn: officekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column DocumentDateKey
+	column documentdatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: a50e7da8-9c15-4a21-98c0-15b2c39b6552
 		summarizeBy: none
-		sourceColumn: DocumentDateKey
+		sourceColumn: documentdatekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column OriginalInvoiceDateKey
+	column originalinvoicedatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 877b1f60-6ecb-451a-922f-40cebe57563c
 		summarizeBy: none
-		sourceColumn: OriginalInvoiceDateKey
+		sourceColumn: originalinvoicedatekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column CurrencyCode
+	column 'Document Currency'
 		dataType: string
 		lineageTag: c843d739-4028-4c17-94ce-2f36ffa0a473
 		summarizeBy: none
-		sourceColumn: CurrencyCode
+		sourceColumn: Document Currency
 
 		annotation SummarizationSetBy = Automatic
 
-	column NetAmountLocal
+	column netamountlocal
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: d06e9036-95a3-4422-8429-76349116ee21
 		summarizeBy: sum
-		sourceColumn: NetAmountLocal
+		sourceColumn: netamountlocal
 
 		annotation SummarizationSetBy = Automatic
 
-	column NetAmountGbp
+	column netamountgbp
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 5e247db0-12ce-4601-9eeb-4713cf79d3cd
 		summarizeBy: sum
-		sourceColumn: NetAmountGbp
+		sourceColumn: netamountgbp
 
 		annotation SummarizationSetBy = Automatic
 
@@ -147,7 +147,7 @@ table fact_FeeTransaction
 				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\fact_FeeTransaction.parquet"),
 				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
 				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
-				        {{"NetAmountLocal", Currency.Type}, {"NetAmountGbp", Currency.Type}})
+				        {{"netamountlocal", Currency.Type}, {"netamountgbp", Currency.Type}})
 				in
 				    #"Money as fixed decimal"
 

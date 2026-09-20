@@ -12,6 +12,30 @@
 -- the facts.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    VacancyKey as vacancykey,
+    JobTitle as "Job Title",
+    JobStatus as "Job Status",
+    Discipline as "Vacancy Discipline",
+    WorkArrangement as "Work Arrangement",
+    OwningOffice as "Vacancy Owning Office",
+    City as "Vacancy City",
+    CountryCode as "Vacancy Country",
+    Openings as "Openings",
+    SalaryText as "Salary Text",
+    SalaryMin as "Salary Min",
+    SalaryMax as "Salary Max",
+    SalaryCurrency as "Salary Currency",
+    CreatedDate as "Created Date",
+    ExpectedStartDate as "Expected Start Date"
+
+from (
+
 with jobs as (
 
     select * from {{ ref('stg_JobOrder') }}
@@ -49,3 +73,5 @@ union all
 
 select -1, 'Unknown', 'Unknown', 'Unknown', 'Unknown', 'Unknown', 'Unknown', null,
        null, null, null, null, null, null, null
+
+) as renamed

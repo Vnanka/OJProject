@@ -1,0 +1,155 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "92d6356d3a25e0c1e151",
+  "position": {
+    "x": 700,
+    "y": 480,
+    "z": 4000,
+    "height": 290,
+    "width": 380,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Industry"
+                        }
+                      },
+                      "Hierarchy": "Industry Hierarchy"
+                    }
+                  },
+                  "Level": "Industry"
+                }
+              },
+              "queryRef": "dim_Industry.Industry Hierarchy.Industry",
+              "nativeQueryRef": "Industry Hierarchy Industry",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Industry"
+                        }
+                      },
+                      "Hierarchy": "Industry Hierarchy"
+                    }
+                  },
+                  "Level": "Sub-sector"
+                }
+              },
+              "queryRef": "dim_Industry.Industry Hierarchy.Sub-sector",
+              "nativeQueryRef": "Industry Hierarchy Sub-sector",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Open"
+                }
+              },
+              "queryRef": "_Measures.Open",
+              "nativeQueryRef": "Open",
+              "displayName": "Open"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metric"
+                    }
+                  },
+                  "Property": "Metric"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Industry"
+                      }
+                    },
+                    "Hierarchy": "Industry Hierarchy"
+                  }
+                },
+                "Level": "Industry"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Industry"
+                      }
+                    },
+                    "Hierarchy": "Industry Hierarchy"
+                  }
+                },
+                "Level": "Sub-sector"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

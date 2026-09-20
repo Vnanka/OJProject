@@ -1,13 +1,13 @@
 table dim_Date
 	lineageTag: b39053a7-923f-49d3-a971-bb16f1b0bf9c
 
-	column DateKey
+	column datekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: fb238ed3-29d0-4e4c-a72c-1a3e76feebf1
 		summarizeBy: none
-		sourceColumn: DateKey
+		sourceColumn: datekey
 
 		annotation SummarizationSetBy = Automatic
 
@@ -22,297 +22,331 @@ table dim_Date
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column DayOfWeekNumber
+	column 'Day Of Week Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 87d0827c-dab3-49d8-9130-b71f6360934a
 		summarizeBy: none
-		sourceColumn: DayOfWeekNumber
+		sourceColumn: Day Of Week Number
 
 		annotation SummarizationSetBy = User
 
-	column DayName
+	column 'Day Name'
 		dataType: string
 		lineageTag: dec1baa5-7665-4f39-b335-46237c8d7e46
 		summarizeBy: none
-		sourceColumn: DayName
+		sourceColumn: Day Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column DayNameShort
+	column 'Day Name Short'
 		dataType: string
 		lineageTag: b4a13fe6-d920-40f7-a9fe-b8ac3c8fbd11
 		summarizeBy: none
-		sourceColumn: DayNameShort
+		sourceColumn: Day Name Short
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsWeekend
+	column 'Is Weekend'
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 6c0877c4-977a-424e-87da-1189909ffa1b
 		summarizeBy: none
-		sourceColumn: IsWeekend
+		sourceColumn: Is Weekend
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsBankHoliday
+	column 'Is Bank Holiday'
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: fe9093e4-005b-4d88-a43a-48a8b74ba40d
 		summarizeBy: none
-		sourceColumn: IsBankHoliday
+		sourceColumn: Is Bank Holiday
 
 		annotation SummarizationSetBy = Automatic
 
-	column BankHolidayName
+	column 'Bank Holiday Name'
 		dataType: string
 		lineageTag: dc8e783a-77e1-4ae9-a0fb-1e1f78b5ca0a
 		summarizeBy: none
-		sourceColumn: BankHolidayName
+		sourceColumn: Bank Holiday Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsWorkingDay
+	column 'Is Working Day'
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 49e644a7-7a7d-4a66-ae79-133e2e4d73fb
 		summarizeBy: none
-		sourceColumn: IsWorkingDay
+		sourceColumn: Is Working Day
 
 		annotation SummarizationSetBy = Automatic
 
-	column CalendarYear
+	column 'Calendar Year'
 		dataType: int64
 		formatString: 0
 		lineageTag: 6d7e3229-356f-47b5-be07-23db23589abf
 		summarizeBy: none
-		sourceColumn: CalendarYear
+		sourceColumn: Calendar Year
 
 		annotation SummarizationSetBy = User
 
-	column CalendarQuarterNumber
+	column 'Calendar Quarter Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 00eb15bd-1461-4e85-ba79-98571143d880
 		summarizeBy: none
-		sourceColumn: CalendarQuarterNumber
+		sourceColumn: Calendar Quarter Number
 
 		annotation SummarizationSetBy = User
 
-	column CalendarQuarter
+	column 'Calendar Quarter'
 		dataType: string
 		lineageTag: a27b545a-1b86-4ee0-a599-9c692426e10b
 		summarizeBy: none
-		sourceColumn: CalendarQuarter
+		sourceColumn: Calendar Quarter
 
 		annotation SummarizationSetBy = Automatic
 
-	column MonthNumber
+	column 'Month Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: a40ab157-7b16-48c9-bdb7-6a9e496baca6
 		summarizeBy: none
-		sourceColumn: MonthNumber
+		sourceColumn: Month Number
 
 		annotation SummarizationSetBy = User
 
-	column MonthName
+	column 'Month Name'
 		dataType: string
 		lineageTag: 8ebfb959-fe3f-4106-a11d-886a19e6a372
 		summarizeBy: none
-		sourceColumn: MonthName
+		sourceColumn: Month Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column MonthNameShort
+	column 'Month Name Short'
 		dataType: string
 		lineageTag: 6e64f3b4-f822-41d8-bd5e-7857e387e148
 		summarizeBy: none
-		sourceColumn: MonthNameShort
+		sourceColumn: Month Name Short
 
 		annotation SummarizationSetBy = Automatic
 
-	column YearMonth
+	column 'Year Month'
 		dataType: string
 		lineageTag: 14419a8a-957f-494f-b216-7ae6d8dd7d91
 		summarizeBy: none
-		sourceColumn: YearMonth
+		sourceColumn: Year Month
 
 		annotation SummarizationSetBy = Automatic
 
-	column YearMonthKey
+	column yearmonthkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: abd05818-f80b-4c5d-8f7a-55d4c1b5f478
 		summarizeBy: none
-		sourceColumn: YearMonthKey
+		sourceColumn: yearmonthkey
 
 		annotation SummarizationSetBy = User
 
-	column MonthStartDate
+	column 'Month Start Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: e6870480-7105-4292-b3e1-d21b0e2642dd
 		summarizeBy: none
-		sourceColumn: MonthStartDate
+		sourceColumn: Month Start Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column IsoYear
+	column 'ISO Year'
 		dataType: int64
 		formatString: 0
 		lineageTag: 8c2655e2-b37a-4510-977e-24595588fc7f
 		summarizeBy: none
-		sourceColumn: IsoYear
+		sourceColumn: ISO Year
 
 		annotation SummarizationSetBy = User
 
-	column IsoWeekNumber
+	column 'ISO Week Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 857dcb24-012d-4d02-a107-9b42afb2eca6
 		summarizeBy: none
-		sourceColumn: IsoWeekNumber
+		sourceColumn: ISO Week Number
 
 		annotation SummarizationSetBy = User
 
-	column IsoYearWeek
+	column 'ISO Year Week'
 		dataType: string
 		lineageTag: 5abef1db-3a2c-4602-8685-57be2c6d050a
 		summarizeBy: none
-		sourceColumn: IsoYearWeek
+		sourceColumn: ISO Year Week
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsoWeekName
+	column 'ISO Week Name'
 		dataType: string
 		lineageTag: eca2432e-38bd-4a11-ab72-dce0a37e48c6
 		summarizeBy: none
-		sourceColumn: IsoWeekName
+		sourceColumn: ISO Week Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column WeekStartDate
+	column 'Week Start Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: d339e95a-1f94-4ba8-891f-ff5f5e63f521
 		summarizeBy: none
-		sourceColumn: WeekStartDate
+		sourceColumn: Week Start Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column FiscalYearNumber
+	column 'Fiscal Year Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 1d23dad5-80cf-4321-99a8-5198f872fab4
 		summarizeBy: none
-		sourceColumn: FiscalYearNumber
+		sourceColumn: Fiscal Year Number
 
 		annotation SummarizationSetBy = User
 
-	column FiscalYear
+	column 'Fiscal Year'
 		dataType: string
 		lineageTag: 28728b80-6523-4a2a-bb31-6b6edb4fb39e
 		summarizeBy: none
-		sourceColumn: FiscalYear
+		sourceColumn: Fiscal Year
 
 		annotation SummarizationSetBy = Automatic
 
-	column FiscalQuarterNumber
+	column 'Fiscal Quarter Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 8bf92034-e039-496b-a871-62169a7c0054
 		summarizeBy: none
-		sourceColumn: FiscalQuarterNumber
+		sourceColumn: Fiscal Quarter Number
 
 		annotation SummarizationSetBy = User
 
-	column FiscalQuarter
+	column 'Fiscal Quarter'
 		dataType: string
 		lineageTag: 5116e127-073b-4e39-a82b-39e9d9b73cb2
 		summarizeBy: none
-		sourceColumn: FiscalQuarter
+		sourceColumn: Fiscal Quarter
 
 		annotation SummarizationSetBy = Automatic
 
-	column FiscalPeriodNumber
+	column 'Fiscal Period Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 50a505d9-d4d7-4479-a609-33c8b62cb474
 		summarizeBy: none
-		sourceColumn: FiscalPeriodNumber
+		sourceColumn: Fiscal Period Number
 
 		annotation SummarizationSetBy = User
 
-	column FiscalPeriod
+	column 'Fiscal Period'
 		dataType: string
 		lineageTag: a11f4905-65d0-4995-ab4f-f735a9a300e6
 		summarizeBy: none
-		sourceColumn: FiscalPeriod
+		sourceColumn: Fiscal Period
 
 		annotation SummarizationSetBy = Automatic
 
-	column FiscalYearPeriodKey
+	column fiscalyearperiodkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 0deaa0df-124c-4161-a675-aaced947d890
 		summarizeBy: none
-		sourceColumn: FiscalYearPeriodKey
+		sourceColumn: fiscalyearperiodkey
 
 		annotation SummarizationSetBy = User
 
-	column FiscalWeekNumber
+	column 'Fiscal Week Number'
 		dataType: int64
 		formatString: 0
 		lineageTag: 6542fca1-1d12-456e-90db-bdcc4f3edd08
 		summarizeBy: none
-		sourceColumn: FiscalWeekNumber
+		sourceColumn: Fiscal Week Number
 
 		annotation SummarizationSetBy = User
 
-	column FiscalWeekName
+	column 'Fiscal Week Name'
 		dataType: string
 		lineageTag: 35622a60-3f81-4e92-b270-cc854f07bd01
 		summarizeBy: none
-		sourceColumn: FiscalWeekName
+		sourceColumn: Fiscal Week Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column FiscalWeekOfQuarter
+	column 'Fiscal Week Of Quarter'
 		dataType: int64
 		formatString: 0
 		lineageTag: 67154101-f704-452e-9820-ad7def53cc54
 		summarizeBy: none
-		sourceColumn: FiscalWeekOfQuarter
+		sourceColumn: Fiscal Week Of Quarter
 
 		annotation SummarizationSetBy = User
 
-	column FiscalWeekOfPeriod
+	column 'Fiscal Week Of Period'
 		dataType: int64
 		formatString: 0
 		lineageTag: 34f42620-1ee8-4c46-956e-1336f0ffb97a
 		summarizeBy: none
-		sourceColumn: FiscalWeekOfPeriod
+		sourceColumn: Fiscal Week Of Period
 
 		annotation SummarizationSetBy = User
 
-	column FiscalYearStartDate
+	column 'Fiscal Year Start Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 4c9db6aa-f955-4f44-83fa-5e6bc41d72eb
 		summarizeBy: none
-		sourceColumn: FiscalYearStartDate
+		sourceColumn: Fiscal Year Start Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+	hierarchy Fiscal
+		lineageTag: 5323285b-4084-408d-9ca8-693f1e257c61
+
+		level 'Fiscal Year'
+			lineageTag: d7026c95-9f12-4c21-af91-d1a222da33d2
+			column: 'Fiscal Year'
+
+		level 'Fiscal Quarter'
+			lineageTag: 97fae39b-fc15-4258-9718-d333db96622c
+			column: 'Fiscal Quarter'
+
+		level 'Fiscal Period'
+			lineageTag: 1898d2e4-4c17-41d2-9fa4-21e5e50ca5e3
+			column: 'Fiscal Period'
+
+	hierarchy Calendar
+		lineageTag: 6e61fc77-f8ae-4d65-acd6-a4bca0a4b6d5
+
+		level Year
+			lineageTag: f120fba6-e905-4029-bff1-3459e3e31e70
+			column: 'Calendar Year'
+
+		level Quarter
+			lineageTag: 935b2d50-13d3-4327-8cd4-c619a52f8819
+			column: 'Calendar Quarter'
+
+		level Month
+			lineageTag: 32b52051-d11d-4d11-a299-f92b613b142a
+			column: 'Month Name'
+
+		level Date
+			lineageTag: 8134f113-0aa1-4aab-998a-721fa8140113
+			column: Date
 
 	partition dim_Date = m
 		mode: import

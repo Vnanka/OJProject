@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "fbe0b6f4671241b384ef",
+  "position": {
+    "x": 620,
+    "y": 20,
+    "z": 11,
+    "height": 110,
+    "width": 300,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Income vs Target %"
+                }
+              },
+              "queryRef": "_Measures.Income vs Target %",
+              "nativeQueryRef": "Income vs Target %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

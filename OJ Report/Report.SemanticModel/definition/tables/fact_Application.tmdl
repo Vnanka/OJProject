@@ -1,223 +1,223 @@
 table fact_Application
 	lineageTag: 1891d182-3c34-4166-b096-78421e8a97f9
 
-	column ApplicationId
+	column applicationid
 		dataType: int64
 		formatString: 0
 		lineageTag: 96ea1834-ca91-4be4-861c-d2ea76db0fe7
 		summarizeBy: none
-		sourceColumn: ApplicationId
+		sourceColumn: applicationid
 
 		annotation SummarizationSetBy = User
 
-	column CandidateId
+	column candidateid
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: ff7c0bd2-b21a-4d83-ba81-0ddd8faa4e69
 		summarizeBy: none
-		sourceColumn: CandidateId
+		sourceColumn: candidateid
 
 		annotation SummarizationSetBy = User
 
-	column VacancyKey
+	column vacancykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: c0d6bd8f-6f3a-46ee-8437-08602489cd31
 		summarizeBy: none
-		sourceColumn: VacancyKey
+		sourceColumn: vacancykey
 
 		annotation SummarizationSetBy = User
 
-	column ClientKey
+	column clientkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: ace400d7-e39f-445e-be6c-5e7a04dee7d2
 		summarizeBy: none
-		sourceColumn: ClientKey
+		sourceColumn: clientkey
 
 		annotation SummarizationSetBy = User
 
-	column IndustryKey
+	column industrykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 0960a44d-1398-4cad-91bc-c02d9cd557f8
 		summarizeBy: none
-		sourceColumn: IndustryKey
+		sourceColumn: industrykey
 
 		annotation SummarizationSetBy = User
 
-	column DisciplineKey
+	column disciplinekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 4ada524d-ff3c-4213-a2e6-30c0ca9ae30e
 		summarizeBy: none
-		sourceColumn: DisciplineKey
+		sourceColumn: disciplinekey
 
 		annotation SummarizationSetBy = User
 
-	column ConsultantKey
+	column consultantkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: a087b5d3-a6a2-455d-9472-b499701ecf8d
 		summarizeBy: none
-		sourceColumn: ConsultantKey
+		sourceColumn: consultantkey
 
 		annotation SummarizationSetBy = User
 
-	column OfficeKey
+	column officekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: d5e95526-4f81-44f9-a693-047f8c82a65a
 		summarizeBy: none
-		sourceColumn: OfficeKey
+		sourceColumn: officekey
 
 		annotation SummarizationSetBy = User
 
-	column CurrentStageKey
+	column currentstagekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 64ac87b0-4c64-4422-b106-fc1e5c84211d
 		summarizeBy: none
-		sourceColumn: CurrentStageKey
+		sourceColumn: currentstagekey
 
 		annotation SummarizationSetBy = User
 
-	column SubmittedDateKey
+	column submitteddatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 79c6e67b-58fc-4db8-ad70-805f767ec6d8
 		summarizeBy: none
-		sourceColumn: SubmittedDateKey
+		sourceColumn: submitteddatekey
 
 		annotation SummarizationSetBy = User
 
-	column InterviewDateKey
+	column interviewdatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 365c2f8e-d144-46c2-9e8a-9cfba96d9d3f
 		summarizeBy: none
-		sourceColumn: InterviewDateKey
+		sourceColumn: interviewdatekey
 
 		annotation SummarizationSetBy = User
 
-	column OfferDateKey
+	column offerdatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 1ca42bff-a6f4-4de4-9bc9-29481bd021fe
 		summarizeBy: none
-		sourceColumn: OfferDateKey
+		sourceColumn: offerdatekey
 
 		annotation SummarizationSetBy = User
 
-	column PlacedDateKey
+	column placeddatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 9d85f604-539f-463a-8a30-1a99e974ae8e
 		summarizeBy: none
-		sourceColumn: PlacedDateKey
+		sourceColumn: placeddatekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ExitDateKey
+	column exitdatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 91a0a91e-4ddf-4ea4-a4f4-9327ebe5dfce
 		summarizeBy: none
-		sourceColumn: ExitDateKey
+		sourceColumn: exitdatekey
 
 		annotation SummarizationSetBy = User
 
-	column ReachedInterview
+	column reachedinterview
 		dataType: int64
 		formatString: 0
 		lineageTag: 7dbae0bd-b6ac-4719-b51f-291c7aa1c4f4
 		summarizeBy: sum
-		sourceColumn: ReachedInterview
+		sourceColumn: reachedinterview
 
 		annotation SummarizationSetBy = Automatic
 
-	column ReachedOffer
+	column reachedoffer
 		dataType: int64
 		formatString: 0
 		lineageTag: a5c9e143-e45f-4154-a0d0-20d6f0e764cc
 		summarizeBy: sum
-		sourceColumn: ReachedOffer
+		sourceColumn: reachedoffer
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsPlaced
+	column isplaced
 		dataType: int64
 		formatString: 0
 		lineageTag: bfe6e708-2320-4155-82c2-735d14c3e84d
 		summarizeBy: sum
-		sourceColumn: IsPlaced
+		sourceColumn: isplaced
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsExited
+	column isexited
 		dataType: int64
 		formatString: 0
 		lineageTag: 310b6d2e-8051-4a3c-947f-ef1d8b6c54d1
 		summarizeBy: sum
-		sourceColumn: IsExited
+		sourceColumn: isexited
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsOpen
+	column isopen
 		dataType: int64
 		formatString: 0
 		lineageTag: ef8bfb3b-2b09-4b43-99db-e0a954867169
 		summarizeBy: sum
-		sourceColumn: IsOpen
+		sourceColumn: isopen
 
 		annotation SummarizationSetBy = Automatic
 
-	column DaysToInterview
+	column daystointerview
 		dataType: int64
 		formatString: 0
 		lineageTag: f8d893ec-4feb-4faf-9d7a-bb7b560a024b
 		summarizeBy: none
-		sourceColumn: DaysToInterview
+		sourceColumn: daystointerview
 
 		annotation SummarizationSetBy = User
 
-	column DaysToOffer
+	column daystooffer
 		dataType: int64
 		formatString: 0
 		lineageTag: daa6a6d7-3ac0-4f05-b795-f13c9ce21aa9
 		summarizeBy: none
-		sourceColumn: DaysToOffer
+		sourceColumn: daystooffer
 
 		annotation SummarizationSetBy = User
 
-	column DaysToPlaced
+	column daystoplaced
 		dataType: int64
 		formatString: 0
 		lineageTag: 85f3591b-3c0b-487f-a966-efe62e09126d
 		summarizeBy: none
-		sourceColumn: DaysToPlaced
+		sourceColumn: daystoplaced
 
 		annotation SummarizationSetBy = User
 
-	column CanRelocate
+	column 'Can Relocate'
 		dataType: boolean
 		formatString: """TRUE"";""FALSE"";""TRUE"""
 		lineageTag: 2f2da06e-fbce-4fa4-b2fe-9dcb828f39f3
 		summarizeBy: none
-		sourceColumn: CanRelocate
+		sourceColumn: Can Relocate
 
 		annotation SummarizationSetBy = Automatic
 

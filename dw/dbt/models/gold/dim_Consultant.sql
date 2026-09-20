@@ -14,6 +14,29 @@
 -- the fact rows instead, so history is not rewritten when someone moves.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    ConsultantKey as consultantkey,
+    ConsultantName as "Consultant Name",
+    FirstName as "First Name",
+    LastName as "Last Name",
+    Email as "Email",
+    Title as "Title",
+    Team as "Team",
+    Office as "Consultant Office",
+    ManagerKey as managerkey,
+    ManagerName as "Manager Name",
+    IsManager as "Is Manager",
+    StartDate as "Start Date",
+    LeaveDate as "Leave Date",
+    IsActive as "Is Active"
+
+from (
+
 with users as (
 
     select * from {{ ref('stg_User') }}
@@ -50,3 +73,5 @@ union all
 
 select -1, 'Unknown', 'Unknown', 'Unknown', null, 'Unknown', 'Unknown', 'Unknown',
        null, null, false, null, null, false
+
+) as renamed

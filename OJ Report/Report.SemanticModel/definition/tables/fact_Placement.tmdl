@@ -1,209 +1,209 @@
 table fact_Placement
 	lineageTag: 7424a011-2e0a-42cf-a1c4-5853de760948
 
-	column PlacementRef
+	column 'Placement Ref'
 		dataType: string
 		lineageTag: 77dd75e7-d321-436d-915d-cdcd569de431
 		summarizeBy: none
-		sourceColumn: PlacementRef
+		sourceColumn: Placement Ref
 
 		annotation SummarizationSetBy = Automatic
 
-	column ApplicationId
+	column applicationid
 		dataType: int64
 		formatString: 0
 		lineageTag: 6456b434-991c-4dc7-bde6-de9ac58b0a6b
 		summarizeBy: none
-		sourceColumn: ApplicationId
+		sourceColumn: applicationid
 
 		annotation SummarizationSetBy = User
 
-	column CandidateId
+	column candidateid
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 4b83d563-985d-4844-9659-70e8173e36d0
 		summarizeBy: none
-		sourceColumn: CandidateId
+		sourceColumn: candidateid
 
 		annotation SummarizationSetBy = User
 
-	column VacancyKey
+	column vacancykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: c7787ec5-3d1e-4add-afdc-21a5c81e9628
 		summarizeBy: none
-		sourceColumn: VacancyKey
+		sourceColumn: vacancykey
 
 		annotation SummarizationSetBy = User
 
-	column ClientKey
+	column clientkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 18a78233-5f7e-43f8-bb64-7c59cf0d858e
 		summarizeBy: none
-		sourceColumn: ClientKey
+		sourceColumn: clientkey
 
 		annotation SummarizationSetBy = User
 
-	column IndustryKey
+	column industrykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: c1549d13-746a-4fa2-b42d-26cbf838a821
 		summarizeBy: none
-		sourceColumn: IndustryKey
+		sourceColumn: industrykey
 
 		annotation SummarizationSetBy = User
 
-	column DisciplineKey
+	column disciplinekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 6eb990d6-63b5-43ba-964e-64c9e590c71d
 		summarizeBy: none
-		sourceColumn: DisciplineKey
+		sourceColumn: disciplinekey
 
 		annotation SummarizationSetBy = User
 
-	column ConsultantKey
+	column consultantkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 68a9a25d-93a4-4a3b-9841-1b9a6328b476
 		summarizeBy: none
-		sourceColumn: ConsultantKey
+		sourceColumn: consultantkey
 
 		annotation SummarizationSetBy = User
 
-	column OfficeKey
+	column officekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 1320f659-4526-46b4-9857-dfe70d94fdb2
 		summarizeBy: none
-		sourceColumn: OfficeKey
+		sourceColumn: officekey
 
 		annotation SummarizationSetBy = User
 
-	column PlacedDateKey
+	column placeddatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 202bcd18-cbb3-454a-a190-a246f8821e7b
 		summarizeBy: none
-		sourceColumn: PlacedDateKey
+		sourceColumn: placeddatekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column StartDateKey
+	column startdatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 52608671-fc8e-4efb-be58-f33e489af53b
 		summarizeBy: none
-		sourceColumn: StartDateKey
+		sourceColumn: startdatekey
 
 		annotation SummarizationSetBy = User
 
-	column LeaveDateKey
+	column leavedatekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 72d85e8e-90e3-4d76-bcdc-1484ca50679a
 		summarizeBy: none
-		sourceColumn: LeaveDateKey
+		sourceColumn: leavedatekey
 
 		annotation SummarizationSetBy = User
 
-	column CurrencyCode
+	column 'Placement Currency'
 		dataType: string
 		lineageTag: 838fed40-2555-4a42-8fd7-5410012b0ca6
 		summarizeBy: none
-		sourceColumn: CurrencyCode
+		sourceColumn: Placement Currency
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryLocal
+	column salarylocal
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 2ebac98f-ea8a-4960-a381-2f08f95cbf97
 		summarizeBy: sum
-		sourceColumn: SalaryLocal
+		sourceColumn: salarylocal
 
 		annotation SummarizationSetBy = Automatic
 
-	column FeePct
+	column feepct
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 6b7e9413-a5c9-4ebe-aa80-0b41dc4bb9e2
 		summarizeBy: none
-		sourceColumn: FeePct
+		sourceColumn: feepct
 
 		annotation SummarizationSetBy = User
 
-	column BookedFeeLocal
+	column bookedfeelocal
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 7a76be15-4202-4ad5-a35a-bf8591812c64
 		summarizeBy: sum
-		sourceColumn: BookedFeeLocal
+		sourceColumn: bookedfeelocal
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryGbp
+	column salarygbp
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: e6e24cdc-6e8e-47b2-ac74-531e3ea30998
 		summarizeBy: sum
-		sourceColumn: SalaryGbp
+		sourceColumn: salarygbp
 
 		annotation SummarizationSetBy = Automatic
 
-	column BookedFeeGbp
+	column bookedfeegbp
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 969ac81e-c1b6-401f-a7ab-b07e987be071
 		summarizeBy: sum
-		sourceColumn: BookedFeeGbp
+		sourceColumn: bookedfeegbp
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsFallOff
+	column isfalloff
 		dataType: int64
 		formatString: 0
 		lineageTag: e8628457-0068-49df-952e-b085fa403b7b
 		summarizeBy: sum
-		sourceColumn: IsFallOff
+		sourceColumn: isfalloff
 
 		annotation SummarizationSetBy = Automatic
 
-	column WeeksWorked
+	column weeksworked
 		dataType: int64
 		formatString: 0
 		lineageTag: 86c77f2e-6032-41e0-88e0-c05bf44087b9
 		summarizeBy: none
-		sourceColumn: WeeksWorked
+		sourceColumn: weeksworked
 
 		annotation SummarizationSetBy = User
 
-	column DaysToFill
+	column daystofill
 		dataType: int64
 		formatString: 0
 		lineageTag: 224ae80f-9130-410a-8d3f-adda46c91287
 		summarizeBy: none
-		sourceColumn: DaysToFill
+		sourceColumn: daystofill
 
 		annotation SummarizationSetBy = User
 
-	column CanRelocate
+	column 'Can Relocate'
 		dataType: boolean
 		formatString: """TRUE"";""FALSE"";""TRUE"""
 		lineageTag: ef5fd776-5bb8-4c0d-adcc-cffa0b61b257
 		summarizeBy: none
-		sourceColumn: CanRelocate
+		sourceColumn: Can Relocate
 
 		annotation SummarizationSetBy = Automatic
 
@@ -214,7 +214,7 @@ table fact_Placement
 				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\fact_Placement.parquet"),
 				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
 				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
-				        {{"SalaryLocal", Currency.Type}, {"FeePct", Currency.Type}, {"BookedFeeLocal", Currency.Type}, {"SalaryGbp", Currency.Type}, {"BookedFeeGbp", Currency.Type}})
+				        {{"salarylocal", Currency.Type}, {"feepct", Currency.Type}, {"bookedfeelocal", Currency.Type}, {"salarygbp", Currency.Type}, {"bookedfeegbp", Currency.Type}})
 				in
 				    #"Money as fixed decimal"
 

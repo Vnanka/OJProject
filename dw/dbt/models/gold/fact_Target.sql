@@ -16,6 +16,19 @@
 -- targets only.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    ConsultantKey as consultantkey,
+    OfficeKey as officekey,
+    DateKey as datekey,
+    TargetNfiGbp as targetnfigbp
+
+from (
+
 with targets as (
 
     select * from {{ ref('stg_Targets') }}
@@ -23,8 +36,8 @@ with targets as (
 ),
 
 users       as (select UserId, Office   from {{ ref('stg_User') }}),
-consultants as (select ConsultantKey    from {{ ref('dim_Consultant') }}),
-offices     as (select OfficeKey, OfficeName from {{ ref('dim_Office') }})
+consultants as (select consultantkey as ConsultantKey    from {{ ref('dim_Consultant') }}),
+offices     as (select officekey as OfficeKey, "Office Name" as OfficeName from {{ ref('dim_Office') }})
 
 select
     coalesce(c.ConsultantKey, -1)                                  as ConsultantKey,
@@ -36,3 +49,5 @@ from targets as t
 left join consultants as c on c.ConsultantKey = t.UserId
 left join users       as u on u.UserId        = t.UserId
 left join offices     as o on o.OfficeName    = u.Office
+
+) as renamed

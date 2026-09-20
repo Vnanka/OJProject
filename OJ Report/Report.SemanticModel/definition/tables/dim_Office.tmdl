@@ -1,45 +1,45 @@
 table dim_Office
 	lineageTag: df417810-0b91-4d2e-b841-5d2520a4d217
 
-	column OfficeKey
+	column officekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: e6c6891f-b366-48c2-a7b2-ff5f09ced923
 		summarizeBy: none
-		sourceColumn: OfficeKey
+		sourceColumn: officekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column OfficeName
+	column 'Office Name'
 		dataType: string
 		lineageTag: 86ff21a1-5417-4f2b-ae45-aeaab2192af4
 		summarizeBy: none
-		sourceColumn: OfficeName
+		sourceColumn: Office Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column City
+	column 'Office City'
 		dataType: string
 		lineageTag: 8ae2d741-743b-44d5-bad9-7702e1512841
 		summarizeBy: none
-		sourceColumn: City
+		sourceColumn: Office City
 
 		annotation SummarizationSetBy = Automatic
 
-	column CountryCode
+	column 'Office Country'
 		dataType: string
 		lineageTag: 57192eab-169c-4119-9c4a-efca5c5b00c9
 		summarizeBy: none
-		sourceColumn: CountryCode
+		sourceColumn: Office Country
 
 		annotation SummarizationSetBy = Automatic
 
-	column CountryName
+	column 'Country Name'
 		dataType: string
 		lineageTag: dcc88ded-38b6-43a9-9812-e59251b70669
 		summarizeBy: none
-		sourceColumn: CountryName
+		sourceColumn: Country Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -51,22 +51,37 @@ table dim_Office
 
 		annotation SummarizationSetBy = Automatic
 
-	column RegionSortOrder
+	column 'Region Sort Order'
 		dataType: int64
 		formatString: 0
 		lineageTag: c85d89bb-b517-4dc3-a601-a0841ec7d044
 		summarizeBy: none
-		sourceColumn: RegionSortOrder
+		sourceColumn: Region Sort Order
 
 		annotation SummarizationSetBy = Automatic
 
-	column CurrencyCode
+	column 'Office Currency'
 		dataType: string
 		lineageTag: 85da46a9-eb7b-4c85-91ae-c0237c6eccfb
 		summarizeBy: none
-		sourceColumn: CurrencyCode
+		sourceColumn: Office Currency
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy Geography
+		lineageTag: 91f188ab-7c5d-477a-9187-245657c28830
+
+		level Region
+			lineageTag: cfbefccd-2017-48d6-a819-604a1c01e822
+			column: Region
+
+		level Office
+			lineageTag: 43843f1c-baca-4629-b7ff-d581168fcb8a
+			column: 'Office Name'
+
+		level City
+			lineageTag: 1dc71e66-f755-4127-90c2-ca5131d1e299
+			column: 'Office City'
 
 	partition dim_Office = m
 		mode: import

@@ -1,0 +1,8 @@
+/// Dynamic row-level security. A person sees only the teams listed against their email in sec_UserTeam. The filter is applied to dim_Consultant and flows to all five facts through consultantkey. sec_UserTeam has no relationship in the model - it is read with CALCULATETABLE, so it filters nobody by itself.
+role 'Team Access'
+	modelPermission: read
+
+	tablePermission dim_Consultant = dim_Consultant[Team] IN CALCULATETABLE ( VALUES ( sec_UserTeam[Team] ), sec_UserTeam[Email] = USERPRINCIPALNAME () )
+
+	annotation PBI_Id = 30b0502a771447349dc6bfdadac5c4f9
+

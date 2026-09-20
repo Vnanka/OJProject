@@ -1,0 +1,144 @@
+table _Measures
+	lineageTag: b9373ec8-7d0d-4c90-8b30-b93cf1f693a5
+
+	/// Number of applications (candidate x vacancy). Counted by the date the CV was sent.
+	measure Applications = COUNTROWS ( fact_Application )
+		formatString: #,0
+		lineageTag: 2b9261eb-ea79-4564-8494-40d9d4283607
+
+	/// Applications that reached the interview stage at any point.
+	measure 'Reached Interview' = SUM ( fact_Application[reachedinterview] )
+		formatString: #,0
+		lineageTag: 4703017e-338e-458b-a058-ac2695d5a44a
+
+	/// Applications that reached the offer stage at any point.
+	measure 'Reached Offer' = SUM ( fact_Application[reachedoffer] )
+		formatString: #,0
+		lineageTag: dd907b26-99ab-412d-bdd7-dfb9672b06b9
+
+	/// Applications that ended in a placement.
+	measure Placed = SUM ( fact_Application[isplaced] )
+		formatString: #,0
+		lineageTag: 918e726f-c17c-4fa6-8a96-16045fde9523
+
+	/// Applications that left the process: rejected, declined or withdrawn.
+	measure Exited = SUM ( fact_Application[isexited] )
+		formatString: #,0
+		lineageTag: 77582e83-9ec8-4016-b922-f8e39e4b61c9
+
+	/// Applications still live: not placed and not exited.
+	measure Open = SUM ( fact_Application[isopen] )
+		formatString: #,0
+		lineageTag: 5c0f1a2d-8e47-42b9-9a31-7d6b0e4c8f52
+
+	/// Cohort rate: of the applications submitted in the period, the share that reached interview.
+	measure 'CV to Interview %' = DIVIDE ( [Reached Interview], [Applications] )
+		formatString: 0.0%
+		lineageTag: 8d25733b-2212-42f6-886c-b590b95dea3b
+
+	/// The metric chosen in the Metric slicer, as text, for dynamic visual titles. Built from Metric Order, NOT from Metric[Metric]: that column is a composite key (grouped by Metric Fields) and SELECTEDVALUE on it raises a composite-key error.
+	measure 'Selected Metric' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Metric'[Metric Order], 0 ),
+			    0, "Applications",
+			    1, "Reached Interview",
+			    2, "Reached Offer",
+			    3, "Placed",
+			    4, "Exited",
+			    5, "Open"
+			)
+		lineageTag: c7cc77df-05a7-4942-bbda-599dcbeda051
+
+	/// Returns whichever metric is chosen in the Metric slicer. Filter a visual by 'Matches Metric is greater than 0' to show only the rows that count toward the chosen metric. Switches on Metric Order, not on the label, so renaming an entry cannot break it.
+	measure 'Matches Metric' =
+			SWITCH (
+			    SELECTEDVALUE ( 'Metric'[Metric Order], 0 ),
+			    0, [Applications],
+			    1, [Reached Interview],
+			    2, [Reached Offer],
+			    3, [Placed],
+			    4, [Exited],
+			    5, [Open]
+			)
+		formatString: #,0
+		lineageTag: 7c43d0b9-b34e-40ca-b104-46026c3ea815
+
+	/// The date the application reached the stage chosen in the Metric slicer. Blank when the stage was never reached, and for Open. Converts the yyyymmdd date key with arithmetic rather than LOOKUPVALUE against dim_Date - the lookup version made a drillthrough table time out.
+	measure 'Metric Date' =
+			VAR o = SELECTEDVALUE ( 'Metric'[Metric Order], 0 )
+			VAR k =
+			    SWITCH (
+			        o,
+			        0, SELECTEDVALUE ( fact_Application[submitteddatekey] ),
+			        1, SELECTEDVALUE ( fact_Application[interviewdatekey] ),
+			        2, SELECTEDVALUE ( fact_Application[offerdatekey] ),
+			        3, SELECTEDVALUE ( fact_Application[placeddatekey] ),
+			        4, SELECTEDVALUE ( fact_Application[exitdatekey] )
+			    )
+			RETURN
+			    IF (
+			        k > 0,
+			        DATE ( INT ( k / 10000 ), MOD ( INT ( k / 100 ), 100 ), MOD ( k, 100 ) )
+			    )
+		formatString: dd/mm/yyyy
+		lineageTag: 3b1cd891-7e3b-4649-bf43-f7bedd921dfd
+
+	/// Placements from the finance system, counted on the date placed.
+	measure Placements = COUNTROWS ( fact_Placement )
+		formatString: #,0
+		lineageTag: 74ae325b-a9f0-48e8-b2f4-7cc0ae490f04
+
+	/// Net Fee Income in GBP: invoices minus credit notes. Ledger view - a credit note counts in the month it was issued. This is how the business reports growth.
+	measure Income = SUM ( fact_FeeTransaction[netamountgbp] )
+		formatString: \£#,0
+		lineageTag: 9980c2e0-1139-4ada-82a9-a0ff187a6c01
+
+	/// Monthly NFI target per consultant, GBP. Whole months only - targets start April 2023.
+	measure 'Target Income' = SUM ( fact_Target[targetnfigbp] )
+		formatString: \£#,0
+		lineageTag: 40699d24-ceb6-4c87-9bc0-96f6dfff7d3a
+
+	/// NFI against target. The current month is month-to-date against a full-month target, so it always looks low.
+	measure 'Income vs Target %' = DIVIDE ( [Income], [Target Income] )
+		formatString: 0.0%
+		lineageTag: 8d916766-c7fd-4d97-90ae-9b9acdb815bd
+
+	/// Average days from the vacancy opening to the first offer, over placements made in the period.
+	measure 'Avg Days to Fill' = AVERAGE ( fact_Placement[daystofill] )
+		formatString: #,0.0
+		lineageTag: eed082e7-4582-4748-b2b9-9c0efd965156
+
+	/// The metric chosen in the Metric slicer as a share of all applications submitted in the same period. Cohort-based: fact_Application is counted on its submitted date, so this is 'of the CVs sent in this period, what share reached that stage'. Applications selected gives 100% by definition.
+	measure 'Metric Rate' = DIVIDE ( [Matches Metric], [Applications] )
+		formatString: 0.0%
+		lineageTag: 17f21c18-fb3c-4880-8399-aca30d5797b7
+
+	/// Average days an application spent in the stage it is LEAVING. Group by dim_Stage to find the pipeline bottleneck: Interview 14.2 days vs CV Sent 7.9. Uses the inactive StatusFrom relationship; the active one is StatusTo.
+	measure 'Avg Days in Stage' =
+			CALCULATE (
+			    AVERAGE ( fact_ApplicationLine[daysinpreviousstage] ),
+			    USERELATIONSHIP ( fact_ApplicationLine[statusfromkey], dim_Stage[stagekey] )
+			)
+		formatString: #,0.0
+		lineageTag: 9d01b640-5408-4016-ad40-69dcde2a43e4
+
+	/// Share of placements where the candidate left inside the 12-week guarantee. Recent months look better than they will end up, because those placements have not matured.
+	measure 'Fall-off Rate' = DIVIDE ( SUM ( fact_Placement[isfalloff] ), [Placements] )
+		formatString: 0.0%
+		lineageTag: dc81a4ca-2b02-4226-8612-509b12791efe
+
+	column Value
+		formatString: 0
+		lineageTag: b4ce6f30-e35d-4f25-81d1-ebd74b37cbb3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 267a4ca40e5b4492a27d6045f5f30b92
+

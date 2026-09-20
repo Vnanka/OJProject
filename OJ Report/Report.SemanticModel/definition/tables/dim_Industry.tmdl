@@ -1,21 +1,21 @@
 table dim_Industry
 	lineageTag: babda5ea-fbcf-4bb4-9051-4ae959ac8358
 
-	column IndustryKey
+	column industrykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: ff3529eb-31a6-4cda-9253-56a578316e3e
 		summarizeBy: none
-		sourceColumn: IndustryKey
+		sourceColumn: industrykey
 
 		annotation SummarizationSetBy = User
 
-	column SubSector
+	column Sub-sector
 		dataType: string
 		lineageTag: eb225e4d-4680-4787-94be-702762c26f86
 		summarizeBy: none
-		sourceColumn: SubSector
+		sourceColumn: Sub-sector
 
 		annotation SummarizationSetBy = Automatic
 
@@ -27,36 +27,47 @@ table dim_Industry
 
 		annotation SummarizationSetBy = Automatic
 
-	column IndustrySortOrder
+	column 'Industry Sort Order'
 		dataType: int64
 		formatString: 0
 		lineageTag: c760b1fb-4af4-4630-868e-9d26fa4ff18d
 		summarizeBy: none
-		sourceColumn: IndustrySortOrder
+		sourceColumn: Industry Sort Order
 
 		annotation SummarizationSetBy = User
 
-	column ValidFrom
+	column 'Valid From'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 926f182b-2bf0-480b-9e70-7cd0d77b0c91
 		summarizeBy: none
-		sourceColumn: ValidFrom
+		sourceColumn: Valid From
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column ValidTo
+	column 'Valid To'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: f9446e46-f2c7-4845-9207-3c851c08a005
 		summarizeBy: none
-		sourceColumn: ValidTo
+		sourceColumn: Valid To
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+	hierarchy 'Industry Hierarchy'
+		lineageTag: 7cc03cdb-c3fb-4a6f-b8a3-85a322c3dd59
+
+		level Industry
+			lineageTag: bfb3ada9-db35-435c-ab14-84da382ef1a8
+			column: Industry
+
+		level Sub-sector
+			lineageTag: 572a2352-9005-42d5-8052-2fb8326c5d10
+			column: Sub-sector
 
 	partition dim_Industry = m
 		mode: import

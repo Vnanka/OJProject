@@ -26,6 +26,29 @@
 --     that is "hasn't happened", not "unknown".
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    ApplicationLineId as applicationlineid,
+    ApplicationId as applicationid,
+    CandidateId as candidateid,
+    VacancyKey as vacancykey,
+    ClientKey as clientkey,
+    IndustryKey as industrykey,
+    DisciplineKey as disciplinekey,
+    ConsultantKey as consultantkey,
+    OfficeKey as officekey,
+    StatusToKey as statustokey,
+    StatusFromKey as statusfromkey,
+    EventDateKey as eventdatekey,
+    EventAt as "Event At",
+    DaysInPreviousStage as daysinpreviousstage
+
+from (
+
 with events as (
 
     select
@@ -54,9 +77,9 @@ jobs as (
 companies   as (select CompanyId, SubSector     from {{ ref('stg_Company') }}),
 industries  as (select SubSectorId, SubSector   from {{ ref('stg_Industry') }}),
 disciplines as (select DisciplineId, Discipline from {{ ref('stg_Discipline') }}),
-offices     as (select OfficeKey, OfficeName    from {{ ref('dim_Office') }}),
-consultants as (select ConsultantKey            from {{ ref('dim_Consultant') }}),
-stages      as (select StageKey                 from {{ ref('dim_Stage') }})
+offices     as (select officekey as OfficeKey, "Office Name" as OfficeName    from {{ ref('dim_Office') }}),
+consultants as (select consultantkey as ConsultantKey            from {{ ref('dim_Consultant') }}),
+stages      as (select stagekey as StageKey                 from {{ ref('dim_Stage') }})
 
 select
     -- identifiers
@@ -93,3 +116,5 @@ left join consultants as c     on c.ConsultantKey = j.RecruiterUserId
 left join offices     as o     on o.OfficeName    = j.OwningOffice
 left join stages      as sto   on sto.StageKey    = e.StatusToCode
 left join stages      as sfrom on sfrom.StageKey  = e.StatusFromCode
+
+) as renamed

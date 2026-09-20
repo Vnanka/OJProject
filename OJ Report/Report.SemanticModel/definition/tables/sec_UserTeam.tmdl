@@ -17,11 +17,11 @@ table sec_UserTeam
 
 		annotation SummarizationSetBy = Automatic
 
-	column RoleDescription
+	column 'Role Description'
 		dataType: string
 		lineageTag: bb5388ca-e55f-4c42-9af9-cafba9da21a0
 		summarizeBy: none
-		sourceColumn: RoleDescription
+		sourceColumn: Role Description
 
 		annotation SummarizationSetBy = Automatic
 

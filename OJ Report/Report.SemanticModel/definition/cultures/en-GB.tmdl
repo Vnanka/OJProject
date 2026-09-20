@@ -1,2 +1,173 @@
 cultureInfo en-GB
 
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_client.industry": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Client",
+			          "ConceptualProperty": "Industry"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_vacancy.work_arrangement": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Vacancy",
+			          "ConceptualProperty": "Work Arrangement"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Work Arrangement": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric.metric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric",
+			          "ConceptualProperty": "Metric"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_consultant.team": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Consultant",
+			          "ConceptualProperty": "Team"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_consultant.consultant_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Consultant",
+			          "ConceptualProperty": "Consultant Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_office.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Office",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_office.office_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Office",
+			          "ConceptualProperty": "Office Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_office.office_city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Office",
+			          "ConceptualProperty": "Office City"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_industry.industry": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Industry",
+			          "ConceptualProperty": "Industry"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_industry.subsector": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Industry",
+			          "ConceptualProperty": "Sub-sector"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_discipline.discipline": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_Discipline",
+			          "ConceptualProperty": "Discipline"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Discipline": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measures.reached_offer": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Reached Offer"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "table_measures.open": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Open"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Open": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_measures.reached_interview": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Reached Interview"
+			        }
+			      },
+			      "State": "Generated"
+			    }
+			  }
+			}
+		contentType: json
+

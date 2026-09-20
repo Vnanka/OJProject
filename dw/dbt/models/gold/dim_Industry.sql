@@ -5,6 +5,21 @@
 -- Built from the CRM's dropdown list, so members with no clients still exist.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    IndustryKey as industrykey,
+    SubSector as "Sub-sector",
+    Industry as "Industry",
+    IndustrySortOrder as "Industry Sort Order",
+    ValidFrom as "Valid From",
+    ValidTo as "Valid To"
+
+from (
+
 with industries as (
 
     select * from {{ ref('stg_Industry') }}
@@ -24,3 +39,5 @@ from industries
 union all
 
 select -1, 'Unknown', 'Unknown', 99, null, null
+
+) as renamed

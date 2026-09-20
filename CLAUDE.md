@@ -30,6 +30,9 @@ still accurate, do not delete). Source documents in **`Misc/`**: `1.pdf` (recrui
   one line (grain, idempotent, conformed dimension, role-playing dimension).
 - **One thing at a time.** Propose → get agreement → do it. Show prerequisites and open
   decisions *before* building. He has stopped a build twice for skipping this.
+- **Small bursts. "A couple" means about 5, not 20.** Build the smallest useful set, show it,
+  extend on his word. Name what was left out and where it is written down. A big batch is
+  either accepted blindly or mostly deleted — both waste his time, and he reviews everything.
 - **Show real command output.** Never claim something ran or worked without pasting it.
 - **Never invent his work history.** CV facts only. Synthetic *demo* data is fine and is
   always labelled synthetic.
@@ -121,11 +124,32 @@ level, demoed with Desktop "View as".
 
 ## 4. Standards and rules
 
-**Naming.** Columns: **PascalCase, no underscores** (`UserId`, `StartDate`, `ModifiedAt`);
-IDs end `Id`, dates `Date`, timestamps `At`, gold surrogate keys `Key`. Models: **lowercase
-layer prefix + PascalCase** (`stg_JobOrder`, `dim_Date`, `fact_Application`). **Bronze keeps
-source-shaped names** (`raw.crm_user`) because it mirrors the source systems. Singular tests
-keep `assert_*`. DuckDB preserves casing, so Power BI shows these names as written.
+**Naming.** Models: **lowercase layer prefix + PascalCase** (`stg_JobOrder`, `dim_Date`,
+`fact_Application`). **Bronze keeps source-shaped names** (`raw.crm_user`) because it mirrors
+the source systems. Silver columns are **PascalCase** (`UserId`, `StartDate`, `ModifiedAt`).
+Singular tests keep `assert_*`.
+
+**Gold column standard (Vlad's decision, 20 Sep) — set in the WAREHOUSE, never in a report:**
+
+- **Keys and numeric fact columns** (what measures are built on) → **all lowercase, no
+  separator**: `consultantkey`, `applicationid`, `netamountgbp`, `reachedinterview`.
+- **Attributes people see** → **readable English with spaces**: `Client Industry`,
+  `Office Name`, `Fiscal Year`, `Work Arrangement`.
+- **Duplicated concepts are disambiguated here**, not in the report: `Client Industry` vs
+  `Industry`; `Client City` / `Office City` / `Vacancy City`; `Vacancy Discipline` vs
+  `Discipline`; `Consultant Office` vs `Office Name`; `Office Currency` /
+  `Placement Currency` / `Document Currency`.
+- **Why in gold:** with several reports on one warehouse, renaming in each model means every
+  author invents their own names and the standard dies. One name, defined once, inherited by
+  everyone. (Q&A point.)
+- **How it is applied:** each gold model keeps its original SQL and gets a **rename layer at
+  the end** — `select OfficeKey as officekey, OfficeName as "Office Name" ... from ( <original
+  model> ) as renamed`. Done 20 Sep across all 14 exported models.
+  **Known simplification (accepted, no time):** the *inside* of each model still uses
+  PascalCase, because silver feeds it. The standard is applied at the output of gold only;
+  nothing downstream sees the inner names. `dim_FxRateMonthly` is also left PascalCase — it is
+  a build-time helper and is not exported.
+- dbt tests on a column whose name has a space need **`quote: true`** in `schema.yml`.
 
 **Bronze.** Every column VARCHAR. One place decides types (silver); a loader that guesses too
 would be a second source of truth that can disagree. `create or replace` = idempotent.

@@ -18,6 +18,50 @@
 --     Other countries' holidays are not modelled - a known limitation.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    DateKey as datekey,
+    Date as "Date",
+    DayOfWeekNumber as "Day Of Week Number",
+    DayName as "Day Name",
+    DayNameShort as "Day Name Short",
+    IsWeekend as "Is Weekend",
+    IsBankHoliday as "Is Bank Holiday",
+    BankHolidayName as "Bank Holiday Name",
+    IsWorkingDay as "Is Working Day",
+    CalendarYear as "Calendar Year",
+    CalendarQuarterNumber as "Calendar Quarter Number",
+    CalendarQuarter as "Calendar Quarter",
+    MonthNumber as "Month Number",
+    MonthName as "Month Name",
+    MonthNameShort as "Month Name Short",
+    YearMonth as "Year Month",
+    YearMonthKey as yearmonthkey,
+    MonthStartDate as "Month Start Date",
+    IsoYear as "ISO Year",
+    IsoWeekNumber as "ISO Week Number",
+    IsoYearWeek as "ISO Year Week",
+    IsoWeekName as "ISO Week Name",
+    WeekStartDate as "Week Start Date",
+    FiscalYearNumber as "Fiscal Year Number",
+    FiscalYear as "Fiscal Year",
+    FiscalQuarterNumber as "Fiscal Quarter Number",
+    FiscalQuarter as "Fiscal Quarter",
+    FiscalPeriodNumber as "Fiscal Period Number",
+    FiscalPeriod as "Fiscal Period",
+    FiscalYearPeriodKey as fiscalyearperiodkey,
+    FiscalWeekNumber as "Fiscal Week Number",
+    FiscalWeekName as "Fiscal Week Name",
+    FiscalWeekOfQuarter as "Fiscal Week Of Quarter",
+    FiscalWeekOfPeriod as "Fiscal Week Of Period",
+    FiscalYearStartDate as "Fiscal Year Start Date"
+
+from (
+
 with days as (
 
     select cast(unnest(generate_series(date '2022-04-01', date '2028-03-31', interval 1 day)) as date) as d
@@ -110,3 +154,5 @@ select
     null, null, 'Unknown', 'Unknown', null,                                               -- ISO week
     null, 'Unknown', null, 'Unknown', null, 'Unknown', null, null, 'Unknown', null, null, -- fiscal
     null
+
+) as renamed

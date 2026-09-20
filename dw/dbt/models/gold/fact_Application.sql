@@ -26,6 +26,38 @@
 -- counts ("interviews in October").
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    ApplicationId as applicationid,
+    CandidateId as candidateid,
+    VacancyKey as vacancykey,
+    ClientKey as clientkey,
+    IndustryKey as industrykey,
+    DisciplineKey as disciplinekey,
+    ConsultantKey as consultantkey,
+    OfficeKey as officekey,
+    CurrentStageKey as currentstagekey,
+    SubmittedDateKey as submitteddatekey,
+    InterviewDateKey as interviewdatekey,
+    OfferDateKey as offerdatekey,
+    PlacedDateKey as placeddatekey,
+    ExitDateKey as exitdatekey,
+    ReachedInterview as reachedinterview,
+    ReachedOffer as reachedoffer,
+    IsPlaced as isplaced,
+    IsExited as isexited,
+    IsOpen as isopen,
+    DaysToInterview as daystointerview,
+    DaysToOffer as daystooffer,
+    DaysToPlaced as daystoplaced,
+    CanRelocate as "Can Relocate"
+
+from (
+
 with events as (
 
     select CandidateId, JobOrderId, StatusHistoryId, EventAt, StatusToCode
@@ -71,9 +103,9 @@ jobs as (
 companies   as (select CompanyId, SubSector       from {{ ref('stg_Company') }}),
 industries  as (select SubSectorId, SubSector     from {{ ref('stg_Industry') }}),
 disciplines as (select DisciplineId, Discipline   from {{ ref('stg_Discipline') }}),
-offices     as (select OfficeKey, OfficeName      from {{ ref('dim_Office') }}),
-consultants as (select ConsultantKey              from {{ ref('dim_Consultant') }}),
-stages      as (select StageKey                   from {{ ref('dim_Stage') }}),
+offices     as (select officekey as OfficeKey, "Office Name" as OfficeName      from {{ ref('dim_Office') }}),
+consultants as (select consultantkey as ConsultantKey              from {{ ref('dim_Consultant') }}),
+stages      as (select stagekey as StageKey                   from {{ ref('dim_Stage') }}),
 candidates  as (select CandidateId, CanRelocate   from {{ ref('stg_Candidate') }})
 
 select
@@ -126,3 +158,5 @@ left join consultants as c    on c.ConsultantKey  = j.RecruiterUserId
 left join offices     as o    on o.OfficeName     = j.OwningOffice
 left join stages      as st   on st.StageKey      = l.CurrentStatusCode
 left join candidates  as cand on cand.CandidateId = m.CandidateId
+
+) as renamed

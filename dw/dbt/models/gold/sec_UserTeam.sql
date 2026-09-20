@@ -15,9 +15,23 @@
 -- firm NFI would silently stop matching the ledger.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    Email as "Email",
+    Team as "Team",
+    RoleDescription as "Role Description"
+
+from (
+
 select
     Email,
     Team,
     RoleDescription
 
 from {{ ref('stg_UserTeam') }}
+
+) as renamed

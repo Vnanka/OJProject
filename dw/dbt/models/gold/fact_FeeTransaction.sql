@@ -27,6 +27,30 @@
 --     refunds that aren't theirs.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    DocumentNo as "Document No",
+    DocumentType as "Document Type",
+    PlacementRef as "Placement Ref",
+    ApplicationId as applicationid,
+    VacancyKey as vacancykey,
+    ClientKey as clientkey,
+    IndustryKey as industrykey,
+    DisciplineKey as disciplinekey,
+    ConsultantKey as consultantkey,
+    OfficeKey as officekey,
+    DocumentDateKey as documentdatekey,
+    OriginalInvoiceDateKey as originalinvoicedatekey,
+    CurrencyCode as "Document Currency",
+    NetAmountLocal as netamountlocal,
+    NetAmountGbp as netamountgbp
+
+from (
+
 with documents as (
 
     select * from {{ ref('stg_Transactions') }}
@@ -44,8 +68,9 @@ invoices as (
 
 placements as (
 
-    select PlacementRef, ApplicationId, VacancyKey, ClientKey, IndustryKey,
-           DisciplineKey, ConsultantKey, OfficeKey
+    select "Placement Ref" as PlacementRef, applicationid as ApplicationId,
+           vacancykey as VacancyKey, clientkey as ClientKey, industrykey as IndustryKey,
+           disciplinekey as DisciplineKey, consultantkey as ConsultantKey, officekey as OfficeKey
     from {{ ref('fact_Placement') }}
 
 ),
@@ -85,3 +110,5 @@ left join placements as p   on p.PlacementRef  = t.PlacementRef
 left join invoices   as inv on inv.PlacementRef = t.PlacementRef
 left join fx                on fx.CurrencyCode   = t.CurrencyCode
                            and fx.MonthStartDate = date_trunc('month', t.DocumentDate)::date
+
+) as renamed

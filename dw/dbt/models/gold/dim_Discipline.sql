@@ -5,6 +5,19 @@
 -- at -1, so they show as "Unknown" instead of "(Blank)" and never drop out.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    DisciplineKey as disciplinekey,
+    Discipline as "Discipline",
+    ValidFrom as "Valid From",
+    ValidTo as "Valid To"
+
+from (
+
 with disciplines as (
 
     select * from {{ ref('stg_Discipline') }}
@@ -22,3 +35,5 @@ from disciplines
 union all
 
 select -1, 'Unknown', null, null
+
+) as renamed

@@ -1,0 +1,376 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ae90553a24c6720516b9",
+  "displayName": "Detail",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d4adbd33ee5ec7236da6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office City"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "ccebdac53518a964a2e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office Country"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "ae39112799250c33a544",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office Name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "dda5cad2099297e16c48",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Vacancy"
+              }
+            },
+            "Property": "Work Arrangement"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "49858f807beb54412e30",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Industry"
+              }
+            },
+            "Property": "Industry"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "b142d75f80d3163bc09b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Industry"
+              }
+            },
+            "Property": "Sub-sector"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "962206648ad7045d1823",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Consultant Office"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "cdaa90e4c28603d038aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "86932bb90b7507125307",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Discipline"
+              }
+            },
+            "Property": "Discipline"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_Discipline",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Discipline"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Unknown'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "8ed4a7a80b154210a13c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Selected Metric"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "63ccaa921068016438e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "230b0cfd52c0334ba3d4",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "74148bc1418e0953845e",
+        "boundFilter": "d4adbd33ee5ec7236da6",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office City"
+          }
+        }
+      },
+      {
+        "name": "5312baf17168d40c47e1",
+        "boundFilter": "ccebdac53518a964a2e2",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office Country"
+          }
+        }
+      },
+      {
+        "name": "9f8af6bddd0182c8346a",
+        "boundFilter": "ae39112799250c33a544",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Office Name"
+          }
+        }
+      },
+      {
+        "name": "5ba0a9d790caa7d58b02",
+        "boundFilter": "dda5cad2099297e16c48",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Vacancy"
+              }
+            },
+            "Property": "Work Arrangement"
+          }
+        }
+      },
+      {
+        "name": "c6a26fa8d17abce49095",
+        "boundFilter": "49858f807beb54412e30",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Industry"
+              }
+            },
+            "Property": "Industry"
+          }
+        }
+      },
+      {
+        "name": "7fc02795e02bceaac5bb",
+        "boundFilter": "b142d75f80d3163bc09b",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Industry"
+              }
+            },
+            "Property": "Sub-sector"
+          }
+        }
+      },
+      {
+        "name": "a96fcd31da7504667077",
+        "boundFilter": "962206648ad7045d1823",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Consultant Office"
+          }
+        }
+      },
+      {
+        "name": "2de953e27dc4bcdeb427",
+        "boundFilter": "cdaa90e4c28603d038aa",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Team"
+          }
+        }
+      },
+      {
+        "name": "cb8801783b1d74a39b20",
+        "boundFilter": "86932bb90b7507125307",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Discipline"
+              }
+            },
+            "Property": "Discipline"
+          }
+        }
+      },
+      {
+        "name": "548931b2d8a94e023690",
+        "boundFilter": "8ed4a7a80b154210a13c",
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Selected Metric"
+          }
+        }
+      },
+      {
+        "name": "a219938e403320409788",
+        "boundFilter": "63ccaa921068016438e2",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Office"
+              }
+            },
+            "Property": "Region"
+          }
+        }
+      }
+    ]
+  }
+}

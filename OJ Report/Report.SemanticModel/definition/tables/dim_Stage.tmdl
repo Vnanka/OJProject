@@ -1,46 +1,46 @@
 table dim_Stage
 	lineageTag: 387be83c-75e5-471f-b303-0e02b10a5c47
 
-	column StageKey
+	column stagekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: b4134abf-c5ee-41a4-b6b0-5375187c0077
 		summarizeBy: none
-		sourceColumn: StageKey
+		sourceColumn: stagekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column StatusName
+	column 'Status Name'
 		dataType: string
 		lineageTag: 82a88e75-da5a-48f5-a697-887d5934d291
 		summarizeBy: none
-		sourceColumn: StatusName
+		sourceColumn: Status Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column FunnelStage
+	column 'Funnel Stage'
 		dataType: string
 		lineageTag: 00d437d2-5c41-41d0-b717-1c4f2af8476c
 		summarizeBy: none
-		sourceColumn: FunnelStage
+		sourceColumn: Funnel Stage
 
 		annotation SummarizationSetBy = Automatic
 
-	column FunnelStageOrder
+	column 'Funnel Stage Order'
 		dataType: int64
 		formatString: 0
 		lineageTag: f415d475-7b62-4e28-934a-df8e5fc1f698
 		summarizeBy: none
-		sourceColumn: FunnelStageOrder
+		sourceColumn: Funnel Stage Order
 
 		annotation SummarizationSetBy = Automatic
 
-	column StageType
+	column 'Stage Type'
 		dataType: string
 		lineageTag: 42b5ad87-9e77-461c-ac13-2d3c59eb5b16
 		summarizeBy: none
-		sourceColumn: StageType
+		sourceColumn: Stage Type
 
 		annotation SummarizationSetBy = Automatic
 

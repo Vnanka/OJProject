@@ -24,6 +24,37 @@
 --   * DaysToFill: vacancy opened -> first offer on this application.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    PlacementRef as "Placement Ref",
+    ApplicationId as applicationid,
+    CandidateId as candidateid,
+    VacancyKey as vacancykey,
+    ClientKey as clientkey,
+    IndustryKey as industrykey,
+    DisciplineKey as disciplinekey,
+    ConsultantKey as consultantkey,
+    OfficeKey as officekey,
+    PlacedDateKey as placeddatekey,
+    StartDateKey as startdatekey,
+    LeaveDateKey as leavedatekey,
+    CurrencyCode as "Placement Currency",
+    SalaryLocal as salarylocal,
+    FeePct as feepct,
+    BookedFeeLocal as bookedfeelocal,
+    SalaryGbp as salarygbp,
+    BookedFeeGbp as bookedfeegbp,
+    IsFallOff as isfalloff,
+    WeeksWorked as weeksworked,
+    DaysToFill as daystofill,
+    CanRelocate as "Can Relocate"
+
+from (
+
 with placements as (
 
     select * from {{ ref('stg_Placements') }}
@@ -51,8 +82,8 @@ fx          as (select MonthStartDate, CurrencyCode, RatePerGbp from {{ ref('dim
 companies   as (select CompanyId, SubSector       from {{ ref('stg_Company') }}),
 industries  as (select SubSectorId, SubSector     from {{ ref('stg_Industry') }}),
 disciplines as (select DisciplineId, Discipline   from {{ ref('stg_Discipline') }}),
-offices     as (select OfficeKey, OfficeName      from {{ ref('dim_Office') }}),
-consultants as (select ConsultantKey              from {{ ref('dim_Consultant') }}),
+offices     as (select officekey as OfficeKey, "Office Name" as OfficeName      from {{ ref('dim_Office') }}),
+consultants as (select consultantkey as ConsultantKey              from {{ ref('dim_Consultant') }}),
 candidates  as (select CandidateId, CanRelocate   from {{ ref('stg_Candidate') }})
 
 select
@@ -105,3 +136,5 @@ left join offers      as ofr  on ofr.CandidateId  = p.CandidateId
                              and ofr.JobOrderId   = p.JobOrderId
 left join fx                  on fx.CurrencyCode   = p.CurrencyCode
                              and fx.MonthStartDate = date_trunc('month', p.PlacedDate)::date
+
+) as renamed

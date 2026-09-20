@@ -1,37 +1,37 @@
 table dim_Consultant
 	lineageTag: 4cfb42e4-084a-4cc0-9523-10d5b8655c75
 
-	column ConsultantKey
+	column consultantkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 9d145089-a7aa-4e39-ad65-68ba6b7f19bc
 		summarizeBy: none
-		sourceColumn: ConsultantKey
+		sourceColumn: consultantkey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ConsultantName
+	column 'Consultant Name'
 		dataType: string
 		lineageTag: 27ef6fb6-b394-4395-b1e1-3319c46a368f
 		summarizeBy: none
-		sourceColumn: ConsultantName
+		sourceColumn: Consultant Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column FirstName
+	column 'First Name'
 		dataType: string
 		lineageTag: 191f21a4-cc62-46e8-9a5e-780b7060563b
 		summarizeBy: none
-		sourceColumn: FirstName
+		sourceColumn: First Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column LastName
+	column 'Last Name'
 		dataType: string
 		lineageTag: ec9b08a8-2f67-4828-8db1-55a962d00890
 		summarizeBy: none
-		sourceColumn: LastName
+		sourceColumn: Last Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -59,71 +59,86 @@ table dim_Consultant
 
 		annotation SummarizationSetBy = Automatic
 
-	column Office
+	column 'Consultant Office'
 		dataType: string
 		lineageTag: aeb5e3ae-35e3-40ad-b127-92e62827d709
 		summarizeBy: none
-		sourceColumn: Office
+		sourceColumn: Consultant Office
 
 		annotation SummarizationSetBy = Automatic
 
-	column ManagerKey
+	column managerkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 33775f78-b146-4e31-b0f3-767b6894ee66
 		summarizeBy: none
-		sourceColumn: ManagerKey
+		sourceColumn: managerkey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ManagerName
+	column 'Manager Name'
 		dataType: string
 		lineageTag: ef4661e3-84b6-4399-83e5-1313763d6619
 		summarizeBy: none
-		sourceColumn: ManagerName
+		sourceColumn: Manager Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column IsManager
+	column 'Is Manager'
 		dataType: boolean
 		formatString: """TRUE"";""FALSE"";""TRUE"""
 		lineageTag: 17bab926-ef2d-41d8-b5e2-62a5711043b0
 		summarizeBy: none
-		sourceColumn: IsManager
+		sourceColumn: Is Manager
 
 		annotation SummarizationSetBy = Automatic
 
-	column StartDate
+	column 'Start Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 03135965-a82f-4456-9566-82f09885e849
 		summarizeBy: none
-		sourceColumn: StartDate
+		sourceColumn: Start Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column LeaveDate
+	column 'Leave Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 57e3e22f-cdb7-4715-8517-430b118fe5a0
 		summarizeBy: none
-		sourceColumn: LeaveDate
+		sourceColumn: Leave Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column IsActive
+	column 'Is Active'
 		dataType: boolean
 		formatString: """TRUE"";""FALSE"";""TRUE"""
 		lineageTag: cfe4538c-4a37-4f4a-83ec-1b06767deeb5
 		summarizeBy: none
-		sourceColumn: IsActive
+		sourceColumn: Is Active
 
 		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Team Hierarchy'
+		lineageTag: ccd09184-0e14-4988-9074-7e0129325e2b
+
+		level 'Consultant Office'
+			lineageTag: be6e767f-533d-4a87-9840-69d8e24e9a59
+			column: 'Consultant Office'
+
+		level Team
+			lineageTag: edcd0570-4230-46f3-bd89-8ebe4ca51323
+			column: Team
+
+		level Consultant
+			lineageTag: 80fdacc8-4247-4f33-8e65-b5415c982c8b
+			column: 'Consultant Name'
 
 	partition dim_Consultant = m
 		mode: import

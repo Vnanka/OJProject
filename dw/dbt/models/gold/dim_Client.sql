@@ -7,6 +7,22 @@
 -- (e.g. a client detail table); they are not a relationship.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    ClientKey as clientkey,
+    ClientName as "Client Name",
+    City as "Client City",
+    CountryCode as "Client Country",
+    Industry as "Client Industry",
+    SubSector as "Client Sub-sector",
+    ClientSinceDate as "Client Since Date"
+
+from (
+
 with companies as (
 
     select * from {{ ref('stg_Company') }}
@@ -27,3 +43,5 @@ from companies
 union all
 
 select -1, 'Unknown', 'Unknown', null, 'Unknown', 'Unknown', null
+
+) as renamed

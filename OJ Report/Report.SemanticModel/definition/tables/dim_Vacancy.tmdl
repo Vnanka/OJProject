@@ -1,69 +1,69 @@
 table dim_Vacancy
 	lineageTag: 43f98b15-afb1-43dc-9f2d-e42ba4166f0a
 
-	column VacancyKey
+	column vacancykey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 0b56e4e7-6121-435d-be7b-335a02bcc248
 		summarizeBy: none
-		sourceColumn: VacancyKey
+		sourceColumn: vacancykey
 
 		annotation SummarizationSetBy = Automatic
 
-	column JobTitle
+	column 'Job Title'
 		dataType: string
 		lineageTag: f63bdb61-1a30-4d21-8e9c-ad7ee6bdb4bc
 		summarizeBy: none
-		sourceColumn: JobTitle
+		sourceColumn: Job Title
 
 		annotation SummarizationSetBy = Automatic
 
-	column JobStatus
+	column 'Job Status'
 		dataType: string
 		lineageTag: 756962d9-aadb-4222-996d-17c4781242a8
 		summarizeBy: none
-		sourceColumn: JobStatus
+		sourceColumn: Job Status
 
 		annotation SummarizationSetBy = Automatic
 
-	column Discipline
+	column 'Vacancy Discipline'
 		dataType: string
 		lineageTag: 13593102-da92-43c3-9276-a144c54bc7ab
 		summarizeBy: none
-		sourceColumn: Discipline
+		sourceColumn: Vacancy Discipline
 
 		annotation SummarizationSetBy = Automatic
 
-	column WorkArrangement
+	column 'Work Arrangement'
 		dataType: string
 		lineageTag: beee2267-a073-488d-9bff-15803ecc42c9
 		summarizeBy: none
-		sourceColumn: WorkArrangement
+		sourceColumn: Work Arrangement
 
 		annotation SummarizationSetBy = Automatic
 
-	column OwningOffice
+	column 'Vacancy Owning Office'
 		dataType: string
 		lineageTag: 40a0874b-00af-48be-936e-9b220a323076
 		summarizeBy: none
-		sourceColumn: OwningOffice
+		sourceColumn: Vacancy Owning Office
 
 		annotation SummarizationSetBy = Automatic
 
-	column City
+	column 'Vacancy City'
 		dataType: string
 		lineageTag: 0d11ccb5-ff59-4045-9027-fc9d8217a860
 		summarizeBy: none
-		sourceColumn: City
+		sourceColumn: Vacancy City
 
 		annotation SummarizationSetBy = Automatic
 
-	column CountryCode
+	column 'Vacancy Country'
 		dataType: string
 		lineageTag: 8b592ff6-1777-4a3d-a650-dc64e48787a9
 		summarizeBy: none
-		sourceColumn: CountryCode
+		sourceColumn: Vacancy Country
 
 		annotation SummarizationSetBy = Automatic
 
@@ -76,57 +76,57 @@ table dim_Vacancy
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryText
+	column 'Salary Text'
 		dataType: string
 		lineageTag: 73bb9480-0a91-4f9c-b273-659bc43a4601
 		summarizeBy: none
-		sourceColumn: SalaryText
+		sourceColumn: Salary Text
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryMin
+	column 'Salary Min'
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 0cb23c33-cc62-4672-98df-0308c620e680
 		summarizeBy: sum
-		sourceColumn: SalaryMin
+		sourceColumn: Salary Min
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryMax
+	column 'Salary Max'
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 0c34eb9d-be7f-4887-90ff-3ca79aef0606
 		summarizeBy: sum
-		sourceColumn: SalaryMax
+		sourceColumn: Salary Max
 
 		annotation SummarizationSetBy = Automatic
 
-	column SalaryCurrency
+	column 'Salary Currency'
 		dataType: string
 		lineageTag: 78a82368-3770-4706-b717-c775ffb33ca5
 		summarizeBy: none
-		sourceColumn: SalaryCurrency
+		sourceColumn: Salary Currency
 
 		annotation SummarizationSetBy = Automatic
 
-	column CreatedDate
+	column 'Created Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 3de3fd78-cb93-4fdc-ba1f-8fffaac0921f
 		summarizeBy: none
-		sourceColumn: CreatedDate
+		sourceColumn: Created Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column ExpectedStartDate
+	column 'Expected Start Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: e17e627b-e99c-4128-be86-60cdf066ed1c
 		summarizeBy: none
-		sourceColumn: ExpectedStartDate
+		sourceColumn: Expected Start Date
 
 		annotation SummarizationSetBy = Automatic
 
@@ -139,7 +139,7 @@ table dim_Vacancy
 				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\dim_Vacancy.parquet"),
 				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
 				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
-				        {{"SalaryMin", Currency.Type}, {"SalaryMax", Currency.Type}})
+				        {{"Salary Min", Currency.Type}, {"Salary Max", Currency.Type}})
 				in
 				    #"Money as fixed decimal"
 

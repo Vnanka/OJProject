@@ -11,7 +11,7 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_QueryOrder = ["dim_Date","dim_Office","dim_Industry","dim_Discipline","dim_Consultant","dim_Client","dim_Vacancy","dim_Stage","fact_Application","fact_ApplicationLine","fact_Placement","fact_FeeTransaction","fact_Target","sec_UserTeam"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
 ref table dim_Date
 ref table dim_Office
@@ -27,6 +27,11 @@ ref table fact_ApplicationLine
 ref table fact_Placement
 ref table fact_FeeTransaction
 ref table sec_UserTeam
+ref table _Measures
+ref table Grouping
+ref table Metric
+
+ref role 'Team Access'
 
 ref cultureInfo en-GB
 

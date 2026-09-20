@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d538da9640f046df850a",
+  "position": {
+    "x": 1580,
+    "y": 20,
+    "z": 14,
+    "height": 110,
+    "width": 300,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days to Fill"
+                }
+              },
+              "queryRef": "_Measures.Avg Days to Fill",
+              "nativeQueryRef": "Avg Days to Fill"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

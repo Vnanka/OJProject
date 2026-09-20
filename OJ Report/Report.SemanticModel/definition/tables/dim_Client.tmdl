@@ -1,66 +1,81 @@
 table dim_Client
 	lineageTag: 73e6c8bf-b949-4f18-ac6b-eccde81fc5d9
 
-	column ClientKey
+	column clientkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: f048e546-6e96-43a0-b060-3e8f5920e400
 		summarizeBy: none
-		sourceColumn: ClientKey
+		sourceColumn: clientkey
 
 		annotation SummarizationSetBy = Automatic
 
-	column ClientName
+	column 'Client Name'
 		dataType: string
 		lineageTag: 53e59fd1-c043-4531-9a0c-3b3d657623c4
 		summarizeBy: none
-		sourceColumn: ClientName
+		sourceColumn: Client Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column City
+	column 'Client City'
 		dataType: string
 		lineageTag: 7cbe5bb3-fc11-475d-812b-3d306afa4306
 		summarizeBy: none
-		sourceColumn: City
+		sourceColumn: Client City
 
 		annotation SummarizationSetBy = Automatic
 
-	column CountryCode
+	column 'Client Country'
 		dataType: string
 		lineageTag: f245fd9e-a100-4bfb-a463-a4f457a183d8
 		summarizeBy: none
-		sourceColumn: CountryCode
+		sourceColumn: Client Country
 
 		annotation SummarizationSetBy = Automatic
 
-	column Industry
+	column 'Client Industry'
 		dataType: string
 		lineageTag: 2ba0c97f-c01f-4628-93ec-a6bfa6af27f4
 		summarizeBy: none
-		sourceColumn: Industry
+		sourceColumn: Client Industry
 
 		annotation SummarizationSetBy = Automatic
 
-	column SubSector
+	column 'Client Sub-sector'
 		dataType: string
 		lineageTag: 48bf5e40-4e92-40c4-929f-88538d9dde31
 		summarizeBy: none
-		sourceColumn: SubSector
+		sourceColumn: Client Sub-sector
 
 		annotation SummarizationSetBy = Automatic
 
-	column ClientSinceDate
+	column 'Client Since Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 72eebcad-3dd9-44d4-98fa-1a0aacd87bf6
 		summarizeBy: none
-		sourceColumn: ClientSinceDate
+		sourceColumn: Client Since Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+	hierarchy 'Client Hierarchy'
+		lineageTag: 3b805b1c-c966-43f7-b1a4-b23fcc5a1b5a
+
+		level Industry
+			lineageTag: 901ad66b-8d86-413d-bb60-8833a90ed5ce
+			column: 'Client Industry'
+
+		level Sub-sector
+			lineageTag: 35ec365f-8e0e-49aa-a982-20e10caa33a9
+			column: 'Client Sub-sector'
+
+		level Client
+			lineageTag: b508985f-4c0c-4848-a227-9666fa0dbaa2
+			column: 'Client Name'
 
 	partition dim_Client = m
 		mode: import

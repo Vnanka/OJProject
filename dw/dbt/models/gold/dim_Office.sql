@@ -11,6 +11,23 @@
 -- a permanent key instead.
 -- -----------------------------------------------------------------------------
 
+-- Columns are renamed to the gold naming standard in one place at the end:
+--   keys and numeric fact columns -> all lowercase (consultantkey, netamountgbp)
+--   attributes people see         -> readable English ("Client Industry")
+-- The logic above is untouched.
+
+select
+    OfficeKey as officekey,
+    OfficeName as "Office Name",
+    City as "Office City",
+    CountryCode as "Office Country",
+    CountryName as "Country Name",
+    Region as "Region",
+    RegionSortOrder as "Region Sort Order",
+    CurrencyCode as "Office Currency"
+
+from (
+
 with offices as (
 
     select * from {{ ref('stg_Office') }}
@@ -32,3 +49,5 @@ from offices
 union all
 
 select -1, 'Unknown', 'Unknown', null, 'Unknown', 'Unknown', 99, null
+
+) as renamed

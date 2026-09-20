@@ -1,0 +1,52 @@
+table Metric
+	lineageTag: f2051300-ba80-460f-8e04-4a44d7471994
+
+	column Metric
+		lineageTag: 7e79834b-358f-4950-bdc4-0c2ec43da7bc
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Metric Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Metric Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Metric Fields'
+		isHidden
+		lineageTag: b7e13e3c-5969-43b1-b73c-2400cf301322
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Metric Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Metric Order'
+		isHidden
+		formatString: 0
+		lineageTag: 5b64f769-4385-4da0-8234-0baf1dc2b24a
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Metric = calculated
+		mode: import
+		source =
+				{
+				    ("Applications", NAMEOF([Applications]), 0),
+				    ("Reached Interview", NAMEOF([Reached Interview]), 1),
+				    ("Reached Offer", NAMEOF([Reached Offer]), 2),
+				    ("Placed", NAMEOF([Placed]), 3),
+				    ("Exited", NAMEOF([Exited]), 4),
+				    ("Open", NAMEOF([Open]), 5)
+				}
+
+	annotation PBI_Id = 09b51155eff84ba0a14d4760a681e559
+

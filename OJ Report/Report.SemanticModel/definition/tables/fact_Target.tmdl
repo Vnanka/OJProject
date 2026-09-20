@@ -1,42 +1,42 @@
 table fact_Target
 	lineageTag: 3e180516-390c-4cd7-8f27-614b51679aa2
 
-	column ConsultantKey
+	column consultantkey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: b5b00994-2e33-4011-b2cb-8a3813f413bd
 		summarizeBy: none
-		sourceColumn: ConsultantKey
+		sourceColumn: consultantkey
 
 		annotation SummarizationSetBy = User
 
-	column OfficeKey
+	column officekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: a221f65c-13b8-452e-9b34-f70f63fac4b4
 		summarizeBy: none
-		sourceColumn: OfficeKey
+		sourceColumn: officekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column DateKey
+	column datekey
 		dataType: int64
 		isHidden
 		formatString: 0
 		lineageTag: 36e4343b-e9b4-4bf5-b531-c704763e7699
 		summarizeBy: none
-		sourceColumn: DateKey
+		sourceColumn: datekey
 
 		annotation SummarizationSetBy = Automatic
 
-	column TargetNfiGbp
+	column targetnfigbp
 		dataType: decimal
 		formatString: #,0.00
 		lineageTag: 3b6a5cde-6b45-4fa0-835d-f98b8be088aa
 		summarizeBy: sum
-		sourceColumn: TargetNfiGbp
+		sourceColumn: targetnfigbp
 
 		annotation SummarizationSetBy = Automatic
 
@@ -47,7 +47,7 @@ table fact_Target
 				    Source = Parquet.Document(File.Contents("C:\Users\vladi\dev\OJ Project\dw\export\parquet\fact_Target.parquet"),
 				    [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
 				    #"Money as fixed decimal" = Table.TransformColumnTypes(Source,
-				        {{"TargetNfiGbp", Currency.Type}})
+				        {{"targetnfigbp", Currency.Type}})
 				in
 				    #"Money as fixed decimal"
 

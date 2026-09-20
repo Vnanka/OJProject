@@ -1,0 +1,193 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3aba653d1b4018948b83",
+  "position": {
+    "x": 300,
+    "y": 480,
+    "z": 3000,
+    "height": 290,
+    "width": 380,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Consultant"
+                        }
+                      },
+                      "Hierarchy": "Team Hierarchy"
+                    }
+                  },
+                  "Level": "Consultant Office"
+                }
+              },
+              "queryRef": "dim_Consultant.Team Hierarchy.Consultant Office",
+              "nativeQueryRef": "Team Hierarchy Consultant Office",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Consultant"
+                        }
+                      },
+                      "Hierarchy": "Team Hierarchy"
+                    }
+                  },
+                  "Level": "Team"
+                }
+              },
+              "queryRef": "dim_Consultant.Team Hierarchy.Team",
+              "nativeQueryRef": "Team Hierarchy Team",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Consultant"
+                        }
+                      },
+                      "Hierarchy": "Team Hierarchy"
+                    }
+                  },
+                  "Level": "Consultant"
+                }
+              },
+              "queryRef": "dim_Consultant.Team Hierarchy.Consultant",
+              "nativeQueryRef": "Team Hierarchy Consultant",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Open"
+                }
+              },
+              "queryRef": "_Measures.Open",
+              "nativeQueryRef": "Open",
+              "displayName": "Open"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metric"
+                    }
+                  },
+                  "Property": "Metric"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Consultant"
+                      }
+                    },
+                    "Hierarchy": "Team Hierarchy"
+                  }
+                },
+                "Level": "Consultant Office"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Consultant"
+                      }
+                    },
+                    "Hierarchy": "Team Hierarchy"
+                  }
+                },
+                "Level": "Team"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Consultant"
+                      }
+                    },
+                    "Hierarchy": "Team Hierarchy"
+                  }
+                },
+                "Level": "Consultant"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
