@@ -13,7 +13,8 @@ dw/warehouse/
 *.duckdb.wal
 
 # ---- Gold Parquet for Power BI (rebuilt by export_parquet.py) ---------------
-dw/export/
+# Committed on purpose (21 Sep): 4 MB, and it lets anyone see the gold output
+# without running the pipeline. Rebuildable, but small enough to keep.
 
 # ---- dbt artefacts (regenerated on every run) -------------------------------
 dw/dbt/target/

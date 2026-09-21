@@ -313,8 +313,32 @@ after a regeneration).
 - **warn vs error.** Known source problems warn and continue; broken assumptions stop the build.
 - **Don't patch data to make numbers match.** The 3 bad fee % rows could be back-filled from
   their invoices; Vlad chose to leave them and investigate first.
-- **Bronze all text.** One place decides types; guessing is silent and can change between
-  files (day/month swap).
+- **Bronze all text — Vlad's argument, in his words (21 Sep, rehearsed):** *"In bronze I load
+  everything as VARCHAR to avoid any interpretation by the system — including variations in
+  date format. In silver I assign data types explicitly, to get consistency and to enforce
+  data quality. The regex in `stg_JobOrder` strips the variations people type into the salary
+  box — 'k' for thousands, a min–max range, thousands separators. And arguably, if something
+  like this happens, I would go to the source system and improve the input itself: on the job
+  advert form, two fields for salary min and max, with input rules so only numbers can be
+  typed."*
+  **Vlad's own caveat, and the stronger version of the answer (21 Sep):** he does not accept
+  all-text landing as a universal rule — *"personally I would rely on a system and not load
+  everything as varchar; maybe it is useful in the scope of this project."* Claude proposed
+  the pattern; Vlad is right that it is source-dependent. The defensible line is the
+  conditional one, not the dogmatic one:
+  > *"The sources here are CSV exports, which carry no types — so something has to infer
+  > them, and I'd rather that decision be explicit and in one place than implicit in a
+  > loader. If the source were a database or a Delta table with a schema, I'd take the
+  > source's types; re-deriving them would be pointless work."*
+  Worth it for schemaless files (CSV, third-party exports you don't control); unnecessary
+  ceremony for a database, Parquet/Delta, or an API with a real schema.
+  **This is a supporting detail, not a headline.** Only raise it if asked "why is bronze all
+  text?" The headline is the rebate/NFI logic and the star schema.
+  Concrete example if needed: `03/04/2026` is 3 April in the UK and 4 March in the US; a
+  guessing loader can guess differently on two files and nobody notices. Our finance dates
+  are parsed with an explicit `strptime('%d/%m/%Y')`. Cost of the pattern: an extra cast
+  layer and more code. Screenshot evidence: `raw.crm_joborder` (17 columns, all VARCHAR) next
+  to `dw/dbt/models/silver/stg_JobOrder.sql`.
 - **Candidate duplicates** (checked in OpenCATS source, `lib/Candidates.php`): the CRM fills
   `candidate_duplicates` automatically on save (same first + last name AND one of middle name
   / phone / email / city+address). A user then clicks Merge or "Remove duplicity warning". So
@@ -498,8 +522,29 @@ it in Desktop; Claude wrote the TMDL). State, validated end to end:
    `fact_Application.PlacedDateKey → dim_Date` — plausible and wrong (it must be
    `SubmittedDateKey`). Worth turning off "Autodetect new relationships after data is loaded".
 
-**Still to do:** sort-by columns, measures, the RLS role, then the visuals (Vlad), then the
-presentation. All sequenced in `dashboard-plan.md`.
+**Still to do: ONLY the presentation and rehearsal.** No more building — the interview is at
+1:00 PM on Mon 21 Sep.
+
+**The story the dashboard tells** (real, from the data — use it as the spine of the talk):
+
+| | FY23/24 | FY24/25 | FY25/26 |
+|---|---|---|---|
+| Income | £16.0m | £18.0m | £20.6m |
+| vs Target | 98.0% | 98.3% | **95.8%** |
+| CVs sent | 13,978 | 14,811 | 16,639 |
+| CV→Interview | 33.8% | 35.3% | 35.9% |
+| Days to fill | 37.5 | 38.0 | 37.9 |
+
+> *"Income grows 13% a year, but by putting more CVs in the top of the funnel, not by
+> converting better. Conversion is flat, time-to-fill is flat, and the gap to target is
+> widening. Growth is coming from volume, not efficiency."*
+
+Then the operational follow-up, which only the line fact can answer: **an application waits
+14.2 days at interview stage against 7.9 at CV review.** That is where the time goes.
+
+Other numbers ready to quote: 91% of applications do not place (normal — 1 in 12 CVs becomes
+a placement); 2 applications are both placed and exited (merged duplicate candidates — good
+answer if someone adds Placed + Did Not Progress + Open and gets 2 too many).
 
 **Waiting for Vlad's "go": a document of HIS input** — what he decided and contributed, for
 the presentation. Ask first: Markdown in the repo, or Word? Source material: §4's rules
@@ -518,11 +563,13 @@ from the project and his CV — never embellish.
 3. The dashboard must be excellent — the panel sees it first; the warehouse is the Q&A
    strength.
 
-**Time left:** Sat 19 Sep evening, Sun 20 Sep ~8h, Mon morning ~3h (**rehearsal only, no new
-building**). Cut list if tight, in order: (1) field parameters → fixed visuals,
-(2) drillthrough page → a detail table, (3) manager page → mention verbally but keep
-`fact_Target` in the model, (4) stories 5 and 6 → leave them in the data only.
-**Never cut:** RLS, the NFI/rebate logic, the star schema, the Fabric production slide.
+**Time left: Mon 21 Sep morning only. Interview 1:00 PM.** Nothing on the old cut list was
+cut — field parameters, the drillthrough page, the manager page and RLS all got built.
+**Do not build anything else.** If Claude proposes a model or report change this morning,
+push back: the remaining hours belong to rehearsal.
+
+**Uncommitted at 02:00 Mon:** 19 files (the model polish, the page rename, deleted
+`Grouping.tmdl`, `my-contribution.md`). Vlad commits and pushes himself.
 
 ---
 
