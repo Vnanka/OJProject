@@ -29,6 +29,7 @@ table dim_Industry
 
 	column 'Industry Sort Order'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c760b1fb-4af4-4630-868e-9d26fa4ff18d
 		summarizeBy: none

@@ -63,26 +63,6 @@ table _Measures
 		formatString: #,0
 		lineageTag: 7c43d0b9-b34e-40ca-b104-46026c3ea815
 
-	/// The date the application reached the stage chosen in the Metric slicer. Blank when the stage was never reached, and for Open. Converts the yyyymmdd date key with arithmetic rather than LOOKUPVALUE against dim_Date - the lookup version made a drillthrough table time out.
-	measure 'Metric Date' =
-			VAR o = SELECTEDVALUE ( 'Metric'[Metric Order], 0 )
-			VAR k =
-			    SWITCH (
-			        o,
-			        0, SELECTEDVALUE ( fact_Application[submitteddatekey] ),
-			        1, SELECTEDVALUE ( fact_Application[interviewdatekey] ),
-			        2, SELECTEDVALUE ( fact_Application[offerdatekey] ),
-			        3, SELECTEDVALUE ( fact_Application[placeddatekey] ),
-			        4, SELECTEDVALUE ( fact_Application[exitdatekey] )
-			    )
-			RETURN
-			    IF (
-			        k > 0,
-			        DATE ( INT ( k / 10000 ), MOD ( INT ( k / 100 ), 100 ), MOD ( k, 100 ) )
-			    )
-		formatString: dd/mm/yyyy
-		lineageTag: 3b1cd891-7e3b-4649-bf43-f7bedd921dfd
-
 	/// Placements from the finance system, counted on the date placed.
 	measure Placements = COUNTROWS ( fact_Placement )
 		formatString: #,0
@@ -143,6 +123,7 @@ table _Measures
 		lineageTag: eeaf9997-7355-41e3-920c-fa9c808dcdbe
 
 	column Value
+		isHidden
 		formatString: 0
 		lineageTag: b4ce6f30-e35d-4f25-81d1-ebd74b37cbb3
 		summarizeBy: sum

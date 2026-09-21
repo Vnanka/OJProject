@@ -390,9 +390,75 @@ after a regeneration).
 
 ---
 
-## 7. Next steps
+## 7. Current state — the build is FINISHED (early Mon 21 Sep, ~02:00)
 
-**→ The work plan for Sunday is `dashboard-plan.md`. Start there.**
+**Everything is built and verified. What remains is the presentation and rehearsal.**
+
+**The report: `OJ Report/` (PBIP), three pages.**
+
+| Page | Question it answers | Visuals |
+|---|---|---|
+| **Performance** | Are we growing, and are we on plan? | 5 KPI cards (Income · Income vs Target % · Placements · CV to Interview % · Avg Days to Fill), Income vs target combo by fiscal period, metric trend over time, 4 pipeline charts (office/team/consultant, industry, discipline, work arrangement), 4 slicers |
+| **Team & Consultant** | Who is performing, who needs help? | consultant table vs target, avg days in stage (bottleneck), days to fill by team, income vs target by period, 3 cards. **Demo RLS here.** |
+| **Detail** | Show me the actual applications | drillthrough, 20-column table: the job → candidate → responsible consultant → measures |
+
+**20 measures, all used** (audited). Naming is business language, set in the warehouse:
+`CVs Sent`, `Reached Interview`, `Reached Offer`, `Placed`, `Did Not Progress`, `Open`,
+`Income`, `Target Income`, `Income vs Target %`, `Placements`, `CV to Interview %`,
+`% of CVs Sent`, `Avg Days to Fill`, `Avg Days in Stage`, `Fall-off Rate`,
+`Avg Days to Interview/Offer/Placed`, `Selected Metric`, `Matches Metric`.
+
+**`Metric` field parameter** drives every pipeline chart from one slicer (6 measures).
+`Selected Metric` / `Matches Metric` read it with `SELECTEDVALUE('Metric'[Metric Order])`.
+**Gotcha:** a field parameter's label column is a COMPOSITE KEY (grouped by its Fields
+column) — `SELECTEDVALUE` on the label raises a composite-key error. Switch on the Order
+column instead; it also survives renaming the labels.
+
+**RLS BUILT AND VERIFIED.** Role `Team Access` on `dim_Consultant`:
+`[Team] IN CALCULATETABLE(VALUES(sec_UserTeam[Team]), sec_UserTeam[Email] = USERPRINCIPALNAME())`.
+Proven by evaluating the same filter per user: CEO 25 teams £69,971,251 · UK & Ireland
+director 10 teams £25,799,378 · Manchester director 4 teams £8,455,367 · manager
+`lucas.taylor@example.com` 1 team £2,581,276. Each level a clean subset of the one above.
+Desktop's own impersonation (`EffectiveUserName`) does NOT work here — the emails are
+synthetic and Windows rejects them; demo with **Modeling → View as → Other user**.
+
+**Model polished for defensibility (Vlad's call):** every fact's numeric columns and keys are
+hidden, so **the only way to get a number is through a named measure** (strong governance
+line). Deleted the unused `Grouping` field parameter and the orphaned `Metric Date` measure;
+hid `sec_UserTeam` entirely and the `_Measures[Value]` dummy column. Unused *dimension*
+attributes are fine and defensible — a dimension exists so people can answer tomorrow's
+question without a model change.
+
+**Theme:** `OJ Report/theme/OliverJames.json` — OJ website colours, fonts 16/10/8
+(titles/values/legends), drop shadow. **Lesson:** theme property names must match exactly
+what Desktop writes. Format one visual by hand, read its JSON, copy it into the theme.
+(`dropShadow` needs `shadowDistance`, which is easy to miss.)
+
+**`my-contribution.md`** — the record of Vlad's decisions, the work he did, the technical
+debt accepted knowingly, and the "how long would this take normally" estimate (5–8 weeks of
+effort vs ~25–30 hours). Written 21 Sep.
+
+**Working with the Power BI MCP plugin (`powerbi-authoring`)** — used heavily on 20–21 Sep:
+- `ConnectFolder` opens the PBIP semantic model offline; `ExportToTmdlFolder` saves. A
+  successful parse is itself a test that Desktop will open the file.
+- With Desktop OPEN, `ListLocalInstances` + `Connect` gives a live connection and **DAX
+  queries** — that is how every measure was verified against the warehouse before Vlad saw it.
+- **DAX does not run on an offline folder connection.**
+- **ONE WRITER AT A TIME.** Desktop rewrites every file on save. Measures created in the live
+  model are lost if Desktop closes without saving. Edit files only with Desktop closed.
+- **Rename does NOT cascade.** Renaming a measure leaves `[OldName]` inside dependent measures
+  AND breaks every visual that referenced it. After any rename, grep the model *and* the
+  report. (Caught this twice: NFI → Income, Applications → CVs Sent.)
+- A VS Code window with a `.tmdl` open can lock the folder and fail an export.
+- Validation scripts live in Claude's scratchpad: `check_model.py` (structure, table-vs-Parquet
+  columns, relationship integrity against real data, hygiene) and `usage.py` (what the report
+  actually uses). Both currently clean.
+
+**Preserving Vlad's work:** he edits positions, sizes and slicer formatting in Desktop.
+Any file edit must touch **names only** — never the `position` block or `visualContainerObjects`
+he has set. Snapshot positions before and diff after; it has been verified each time.
+
+**→ The Sunday work plan was `dashboard-plan.md` (now largely done).**
 
 **Power BI model BUILT (late 19 / early 20 Sep).** PBIP project at `OJ Report/` (Vlad created
 it in Desktop; Claude wrote the TMDL). State, validated end to end:

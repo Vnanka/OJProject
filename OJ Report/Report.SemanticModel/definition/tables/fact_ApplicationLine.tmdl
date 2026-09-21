@@ -3,6 +3,7 @@ table fact_ApplicationLine
 
 	column applicationlineid
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 4f494afa-a9cb-4263-bc1d-f189fca40ca2
 		summarizeBy: none
@@ -12,6 +13,7 @@ table fact_ApplicationLine
 
 	column applicationid
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a9d85bd9-4487-4152-9101-92ac07ad00a8
 		summarizeBy: none
@@ -130,6 +132,7 @@ table fact_ApplicationLine
 
 	column daysinpreviousstage
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c740114d-76c8-4f24-ac86-3fc937bfbf77
 		summarizeBy: none

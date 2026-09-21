@@ -3,6 +3,7 @@ table fact_Application
 
 	column applicationid
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 96ea1834-ca91-4be4-861c-d2ea76db0fe7
 		summarizeBy: none

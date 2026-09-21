@@ -29,6 +29,7 @@ table dim_Stage
 
 	column 'Funnel Stage Order'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f415d475-7b62-4e28-934a-df8e5fc1f698
 		summarizeBy: none

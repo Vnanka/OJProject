@@ -24,6 +24,7 @@ table dim_Date
 
 	column 'Day Of Week Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 87d0827c-dab3-49d8-9130-b71f6360934a
 		summarizeBy: none
@@ -93,6 +94,7 @@ table dim_Date
 
 	column 'Calendar Quarter Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 00eb15bd-1461-4e85-ba79-98571143d880
 		summarizeBy: none
@@ -110,6 +112,7 @@ table dim_Date
 
 	column 'Month Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a40ab157-7b16-48c9-bdb7-6a9e496baca6
 		summarizeBy: none
@@ -209,6 +212,7 @@ table dim_Date
 
 	column 'Fiscal Year Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 1d23dad5-80cf-4321-99a8-5198f872fab4
 		summarizeBy: none
@@ -226,6 +230,7 @@ table dim_Date
 
 	column 'Fiscal Quarter Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 8bf92034-e039-496b-a871-62169a7c0054
 		summarizeBy: none
@@ -243,6 +248,7 @@ table dim_Date
 
 	column 'Fiscal Period Number'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 50a505d9-d4d7-4479-a609-33c8b62cb474
 		summarizeBy: none

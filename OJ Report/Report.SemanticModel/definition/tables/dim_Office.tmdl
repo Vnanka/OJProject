@@ -53,6 +53,7 @@ table dim_Office
 
 	column 'Region Sort Order'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c85d89bb-b517-4dc3-a601-a0841ec7d044
 		summarizeBy: none

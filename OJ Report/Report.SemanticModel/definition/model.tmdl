@@ -28,7 +28,6 @@ ref table fact_Placement
 ref table fact_FeeTransaction
 ref table sec_UserTeam
 ref table _Measures
-ref table Grouping
 ref table Metric
 
 ref role 'Team Access'

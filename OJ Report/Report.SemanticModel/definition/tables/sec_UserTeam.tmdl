@@ -1,4 +1,5 @@
 table sec_UserTeam
+	isHidden
 	lineageTag: 9ef24c93-e09a-4436-a669-d06f76d379c9
 
 	column Email

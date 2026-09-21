@@ -11,6 +11,7 @@ table fact_Placement
 
 	column applicationid
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 6456b434-991c-4dc7-bde6-de9ac58b0a6b
 		summarizeBy: none
@@ -128,6 +129,7 @@ table fact_Placement
 
 	column salarylocal
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 2ebac98f-ea8a-4960-a381-2f08f95cbf97
 		summarizeBy: sum
@@ -137,6 +139,7 @@ table fact_Placement
 
 	column feepct
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 6b7e9413-a5c9-4ebe-aa80-0b41dc4bb9e2
 		summarizeBy: none
@@ -146,6 +149,7 @@ table fact_Placement
 
 	column bookedfeelocal
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 7a76be15-4202-4ad5-a35a-bf8591812c64
 		summarizeBy: sum
@@ -155,6 +159,7 @@ table fact_Placement
 
 	column salarygbp
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: e6e24cdc-6e8e-47b2-ac74-531e3ea30998
 		summarizeBy: sum
@@ -164,6 +169,7 @@ table fact_Placement
 
 	column bookedfeegbp
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 969ac81e-c1b6-401f-a7ab-b07e987be071
 		summarizeBy: sum
@@ -173,6 +179,7 @@ table fact_Placement
 
 	column isfalloff
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: e8628457-0068-49df-952e-b085fa403b7b
 		summarizeBy: sum
@@ -182,6 +189,7 @@ table fact_Placement
 
 	column weeksworked
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 86c77f2e-6032-41e0-88e0-c05bf44087b9
 		summarizeBy: none
@@ -191,6 +199,7 @@ table fact_Placement
 
 	column daystofill
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 224ae80f-9130-410a-8d3f-adda46c91287
 		summarizeBy: none

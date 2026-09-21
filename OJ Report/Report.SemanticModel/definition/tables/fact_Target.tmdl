@@ -33,6 +33,7 @@ table fact_Target
 
 	column targetnfigbp
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 3b6a5cde-6b45-4fa0-835d-f98b8be088aa
 		summarizeBy: sum

@@ -27,6 +27,7 @@ table fact_FeeTransaction
 
 	column applicationid
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a7b2d821-dfb9-43e6-af61-cd5a2c90854f
 		summarizeBy: none
@@ -124,6 +125,7 @@ table fact_FeeTransaction
 
 	column netamountlocal
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: d06e9036-95a3-4422-8429-76349116ee21
 		summarizeBy: sum
@@ -133,6 +135,7 @@ table fact_FeeTransaction
 
 	column netamountgbp
 		dataType: decimal
+		isHidden
 		formatString: #,0.00
 		lineageTag: 5e247db0-12ce-4601-9eeb-4713cf79d3cd
 		summarizeBy: sum
