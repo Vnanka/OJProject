@@ -144,10 +144,28 @@ cultureInfo en-GB
 			          "ConceptualProperty": "Open"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "table_measures.reached_interview": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Reached Interview"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "table_measures.cvs_sent": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "CVs Sent"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Open": {
+			          "CVs Sent": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -158,11 +176,11 @@ cultureInfo en-GB
 			        }
 			      ]
 			    },
-			    "table_measures.reached_interview": {
+			    "table_measures.did_not_progress": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Reached Interview"
+			          "ConceptualProperty": "Did Not Progress"
 			        }
 			      },
 			      "State": "Generated"

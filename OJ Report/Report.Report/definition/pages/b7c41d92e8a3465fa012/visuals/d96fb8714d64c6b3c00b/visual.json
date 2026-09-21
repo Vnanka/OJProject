@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d96fb8714d64c6b3c00b",
+  "position": {
+    "x": 1282.9447852760736,
+    "y": 19.631901840490798,
+    "z": 9000,
+    "height": 109.93865030674846,
+    "width": 332.760736196319,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Consultant"
+                        }
+                      },
+                      "Hierarchy": "Team Hierarchy"
+                    }
+                  },
+                  "Level": "Consultant Office"
+                }
+              },
+              "queryRef": "dim_Consultant.Team Hierarchy.Consultant Office",
+              "nativeQueryRef": "Team Hierarchy Consultant Office",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "132b079ffea74be2a463",
+  "position": {
+    "x": 950.18404907975457,
+    "y": 150.1840490797546,
+    "z": 5000,
+    "height": 352.39263803680979,
+    "width": 470.18404907975457,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Stage"
+                    }
+                  },
+                  "Property": "Funnel Stage"
+                }
+              },
+              "queryRef": "dim_Stage.Funnel Stage",
+              "nativeQueryRef": "Funnel Stage",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days in Stage"
+                }
+              },
+              "queryRef": "_Measures.Avg Days in Stage",
+              "nativeQueryRef": "Avg Days in Stage"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "798fdaad809da9bdc0d6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Stage"
+              }
+            },
+            "Property": "Funnel Stage"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3d00ddaa068c1d8b2b04",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Days in Stage"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

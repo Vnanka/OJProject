@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "50c598510d049b2839d5",
   "position": {
-    "x": 20,
-    "y": 20,
+    "x": 17.65968318855391,
+    "y": 332.59070005109862,
     "z": 0,
-    "height": 200,
-    "width": 260,
+    "height": 725.02810424118547,
+    "width": 259.98978027593256,
     "tabOrder": 0
   },
   "visual": {
@@ -87,7 +87,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''_Measures''[Open]'"
+                                "Value": "'''_Measures''[CVs Sent]'"
                               }
                             }
                           ]
@@ -115,7 +115,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''_Measures''[Open]'"
+                                      "Value": "'''_Measures''[CVs Sent]'"
                                     }
                                   }
                                 ]
@@ -139,7 +139,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Open"
+                            "0": "CVs Sent"
                           }
                         ]
                       }
@@ -219,5 +219,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d88973aa89775954b699",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Metric"
+              }
+            },
+            "Property": "Metric"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

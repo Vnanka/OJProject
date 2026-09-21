@@ -40,11 +40,11 @@ table Metric
 		mode: import
 		source =
 				{
-				    ("Applications", NAMEOF([Applications]), 0),
+				    ("CVs Sent", NAMEOF([CVs Sent]), 0),
 				    ("Reached Interview", NAMEOF([Reached Interview]), 1),
 				    ("Reached Offer", NAMEOF([Reached Offer]), 2),
 				    ("Placed", NAMEOF([Placed]), 3),
-				    ("Exited", NAMEOF([Exited]), 4),
+				    ("Did Not Progress", NAMEOF([Did Not Progress]), 4),
 				    ("Open", NAMEOF([Open]), 5)
 				}
 

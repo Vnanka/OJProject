@@ -1,0 +1,224 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5f297606a5ed4cb1b884",
+  "position": {
+    "x": 19.631901840490798,
+    "y": 150.1840490797546,
+    "z": 4000,
+    "height": 897.17791411042936,
+    "width": 880.49079754601223,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
+                    }
+                  },
+                  "Property": "Consultant Name"
+                }
+              },
+              "queryRef": "dim_Consultant.Consultant Name",
+              "nativeQueryRef": "Consultant Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "dim_Consultant.Team",
+              "nativeQueryRef": "Team"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Income"
+                }
+              },
+              "queryRef": "_Measures.Income",
+              "nativeQueryRef": "Income"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Target Income"
+                }
+              },
+              "queryRef": "_Measures.Target Income",
+              "nativeQueryRef": "Target Income"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Income vs Target %"
+                }
+              },
+              "queryRef": "_Measures.Income vs Target %",
+              "nativeQueryRef": "Income vs Target %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Placements"
+                }
+              },
+              "queryRef": "_Measures.Placements",
+              "nativeQueryRef": "Placements"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Fall-off Rate"
+                }
+              },
+              "queryRef": "_Measures.Fall-off Rate",
+              "nativeQueryRef": "Fall-off Rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0caf69f477b4c75cbc62",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Consultant Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a9a8d936e91ecabb9084",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c079b84d1d00e73dc0a9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Income"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "816bd0b45308e2d9d09e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Target Income"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57829b6761bee8680ec7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Income vs Target %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4d63681dc22210be994a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Placements"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d943634093422ca7b23",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Fall-off Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

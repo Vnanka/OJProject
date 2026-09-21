@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "3aba653d1b4018948b83",
   "position": {
-    "x": 300,
-    "y": 480,
-    "z": 3000,
-    "height": 290,
-    "width": 380,
-    "tabOrder": 3000
+    "x": 300.21461420541647,
+    "y": 601.41032192130808,
+    "z": 9000,
+    "height": 456.20848237097596,
+    "width": 379.683188553909,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -77,6 +77,24 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% of CVs Sent"
+                }
+              },
+              "queryRef": "_Measures.% of CVs Sent",
+              "nativeQueryRef": "% of CVs Sent"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -87,12 +105,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Open"
+                  "Property": "CVs Sent"
                 }
               },
-              "queryRef": "_Measures.Open",
-              "nativeQueryRef": "Open",
-              "displayName": "Open"
+              "queryRef": "_Measures.CVs Sent",
+              "nativeQueryRef": "CVs Sent",
+              "displayName": "CVs Sent"
             }
           ],
           "fieldParameters": [
@@ -188,6 +206,103 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By office, team and consultant'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b149c1ee96ce8654ed13",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Consultant"
+                  }
+                },
+                "Hierarchy": "Team Hierarchy"
+              }
+            },
+            "Level": "Consultant Office"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "660a6fa4d9aaa9b6d57a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Consultant"
+                  }
+                },
+                "Hierarchy": "Team Hierarchy"
+              }
+            },
+            "Level": "Team"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "56f57332b05471c4660c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Consultant"
+                  }
+                },
+                "Hierarchy": "Team Hierarchy"
+              }
+            },
+            "Level": "Consultant"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b39659b9eea6aa08e466",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "% of CVs Sent"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

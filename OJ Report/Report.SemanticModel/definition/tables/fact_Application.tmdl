@@ -142,6 +142,7 @@ table fact_Application
 
 	column reachedinterview
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 7dbae0bd-b6ac-4719-b51f-291c7aa1c4f4
 		summarizeBy: sum
@@ -151,6 +152,7 @@ table fact_Application
 
 	column reachedoffer
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a5c9e143-e45f-4154-a0d0-20d6f0e764cc
 		summarizeBy: sum
@@ -160,6 +162,7 @@ table fact_Application
 
 	column isplaced
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: bfe6e708-2320-4155-82c2-735d14c3e84d
 		summarizeBy: sum
@@ -169,6 +172,7 @@ table fact_Application
 
 	column isexited
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 310b6d2e-8051-4a3c-947f-ef1d8b6c54d1
 		summarizeBy: sum
@@ -178,6 +182,7 @@ table fact_Application
 
 	column isopen
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: ef8bfb3b-2b09-4b43-99db-e0a954867169
 		summarizeBy: sum
@@ -187,6 +192,7 @@ table fact_Application
 
 	column daystointerview
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f8d893ec-4feb-4faf-9d7a-bb7b560a024b
 		summarizeBy: none
@@ -196,6 +202,7 @@ table fact_Application
 
 	column daystooffer
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: daa6a6d7-3ac0-4f05-b795-f13c9ce21aa9
 		summarizeBy: none
@@ -205,6 +212,7 @@ table fact_Application
 
 	column daystoplaced
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 85f3591b-3c0b-487f-a966-efe62e09126d
 		summarizeBy: none

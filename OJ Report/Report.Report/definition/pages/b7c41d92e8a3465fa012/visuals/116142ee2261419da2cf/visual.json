@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "862156108b1340efacac",
+  "name": "116142ee2261419da2cf",
   "position": {
-    "x": 300,
+    "x": 620,
     "y": 20,
-    "z": 1000,
+    "z": 2000,
     "height": 110,
-    "width": 300,
-    "tabOrder": 1000
+    "width": 280,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Income"
+                  "Property": "Fall-off Rate"
                 }
               },
-              "queryRef": "_Measures.Income",
-              "nativeQueryRef": "Income"
+              "queryRef": "_Measures.Fall-off Rate",
+              "nativeQueryRef": "Fall-off Rate"
             }
           ]
         }

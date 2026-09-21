@@ -2,7 +2,7 @@ table _Measures
 	lineageTag: b9373ec8-7d0d-4c90-8b30-b93cf1f693a5
 
 	/// Number of applications (candidate x vacancy). Counted by the date the CV was sent.
-	measure Applications = COUNTROWS ( fact_Application )
+	measure 'CVs Sent' = COUNTROWS ( fact_Application )
 		formatString: #,0
 		lineageTag: 2b9261eb-ea79-4564-8494-40d9d4283607
 
@@ -22,7 +22,7 @@ table _Measures
 		lineageTag: 918e726f-c17c-4fa6-8a96-16045fde9523
 
 	/// Applications that left the process: rejected, declined or withdrawn.
-	measure Exited = SUM ( fact_Application[isexited] )
+	measure 'Did Not Progress' = SUM ( fact_Application[isexited] )
 		formatString: #,0
 		lineageTag: 77582e83-9ec8-4016-b922-f8e39e4b61c9
 
@@ -32,7 +32,7 @@ table _Measures
 		lineageTag: 5c0f1a2d-8e47-42b9-9a31-7d6b0e4c8f52
 
 	/// Cohort rate: of the applications submitted in the period, the share that reached interview.
-	measure 'CV to Interview %' = DIVIDE ( [Reached Interview], [Applications] )
+	measure 'CV to Interview %' = DIVIDE ( [Reached Interview], [CVs Sent] )
 		formatString: 0.0%
 		lineageTag: 8d25733b-2212-42f6-886c-b590b95dea3b
 
@@ -40,11 +40,11 @@ table _Measures
 	measure 'Selected Metric' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Metric'[Metric Order], 0 ),
-			    0, "Applications",
+			    0, "CVs Sent",
 			    1, "Reached Interview",
 			    2, "Reached Offer",
 			    3, "Placed",
-			    4, "Exited",
+			    4, "Did Not Progress",
 			    5, "Open"
 			)
 		lineageTag: c7cc77df-05a7-4942-bbda-599dcbeda051
@@ -53,11 +53,11 @@ table _Measures
 	measure 'Matches Metric' =
 			SWITCH (
 			    SELECTEDVALUE ( 'Metric'[Metric Order], 0 ),
-			    0, [Applications],
+			    0, [CVs Sent],
 			    1, [Reached Interview],
 			    2, [Reached Offer],
 			    3, [Placed],
-			    4, [Exited],
+			    4, [Did Not Progress],
 			    5, [Open]
 			)
 		formatString: #,0
@@ -109,7 +109,7 @@ table _Measures
 		lineageTag: eed082e7-4582-4748-b2b9-9c0efd965156
 
 	/// The metric chosen in the Metric slicer as a share of all applications submitted in the same period. Cohort-based: fact_Application is counted on its submitted date, so this is 'of the CVs sent in this period, what share reached that stage'. Applications selected gives 100% by definition.
-	measure 'Metric Rate' = DIVIDE ( [Matches Metric], [Applications] )
+	measure '% of CVs Sent' = DIVIDE ( [Matches Metric], [CVs Sent] )
 		formatString: 0.0%
 		lineageTag: 17f21c18-fb3c-4880-8399-aca30d5797b7
 
@@ -126,6 +126,21 @@ table _Measures
 	measure 'Fall-off Rate' = DIVIDE ( SUM ( fact_Placement[isfalloff] ), [Placements] )
 		formatString: 0.0%
 		lineageTag: dc81a4ca-2b02-4226-8612-509b12791efe
+
+	/// Average days from CV sent to reaching interview. At application grain this is the application own value.
+	measure 'Avg Days to Interview' = AVERAGE ( fact_Application[daystointerview] )
+		formatString: #,0.0
+		lineageTag: e7f3204c-ae84-48ec-981b-13fc779de5c2
+
+	/// Average days from CV sent to reaching offer.
+	measure 'Avg Days to Offer' = AVERAGE ( fact_Application[daystooffer] )
+		formatString: #,0.0
+		lineageTag: cec983c6-571f-4029-a840-124c5a41eea3
+
+	/// Average days from CV sent to placement.
+	measure 'Avg Days to Placed' = AVERAGE ( fact_Application[daystoplaced] )
+		formatString: #,0.0
+		lineageTag: eeaf9997-7355-41e3-920c-fa9c808dcdbe
 
 	column Value
 		formatString: 0

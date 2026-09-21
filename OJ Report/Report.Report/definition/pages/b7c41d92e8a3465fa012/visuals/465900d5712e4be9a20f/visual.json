@@ -1,0 +1,269 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "465900d5712e4be9a20f",
+  "position": {
+    "x": 950.18404907975457,
+    "y": 19.631901840490798,
+    "z": 3000,
+    "height": 109.93865030674846,
+    "width": 310.18404907975457,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Fiscal"
+                    }
+                  },
+                  "Level": "Fiscal Year"
+                }
+              },
+              "queryRef": "dim_Date.Fiscal.Fiscal Year",
+              "nativeQueryRef": "Fiscal Fiscal Year",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Fiscal"
+                    }
+                  },
+                  "Level": "Fiscal Quarter"
+                }
+              },
+              "queryRef": "dim_Date.Fiscal.Fiscal Quarter",
+              "nativeQueryRef": "Fiscal Fiscal Quarter",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_Date"
+                        }
+                      },
+                      "Hierarchy": "Fiscal"
+                    }
+                  },
+                  "Level": "Fiscal Period"
+                }
+              },
+              "queryRef": "dim_Date.Fiscal.Fiscal Period",
+              "nativeQueryRef": "Fiscal Fiscal Period",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "dim_Date.Fiscal.Fiscal Year"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Date"
+                    }
+                  },
+                  "Property": "Fiscal Year"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_Date.Fiscal.Fiscal Quarter"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "dim_Date.Fiscal.Fiscal Period"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "33ea3dba701d34e4c461",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "CVs Sent"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "_",
+              "Entity": "_Measures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "_"
+                        }
+                      },
+                      "Property": "CVs Sent"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "7d2eb533eb7120c052a2",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Date"
+                  }
+                },
+                "Hierarchy": "Fiscal"
+              }
+            },
+            "Level": "Fiscal Year"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f547426974006934ee20",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Date"
+                  }
+                },
+                "Hierarchy": "Fiscal"
+              }
+            },
+            "Level": "Fiscal Quarter"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "357e6848e56cda000c6a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Date"
+                  }
+                },
+                "Hierarchy": "Fiscal"
+              }
+            },
+            "Level": "Fiscal Period"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

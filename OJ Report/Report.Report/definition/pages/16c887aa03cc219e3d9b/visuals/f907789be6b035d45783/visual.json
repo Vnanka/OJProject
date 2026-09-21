@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f907789be6b035d45783",
   "position": {
-    "x": 1500,
-    "y": 480,
-    "z": 2000,
-    "height": 290,
-    "width": 380,
-    "tabOrder": 2000
+    "x": 1519.7138477261115,
+    "y": 601.41032192130808,
+    "z": 8000,
+    "height": 456.20848237097596,
+    "width": 379.683188553909,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -33,6 +33,24 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% of CVs Sent"
+                }
+              },
+              "queryRef": "_Measures.% of CVs Sent",
+              "nativeQueryRef": "% of CVs Sent"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -43,12 +61,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Open"
+                  "Property": "CVs Sent"
                 }
               },
-              "queryRef": "_Measures.Open",
-              "nativeQueryRef": "Open",
-              "displayName": "Open"
+              "queryRef": "_Measures.CVs Sent",
+              "nativeQueryRef": "CVs Sent",
+              "displayName": "CVs Sent"
             }
           ],
           "fieldParameters": [
@@ -79,7 +97,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Open"
+                "Property": "CVs Sent"
               }
             },
             "direction": "Descending"
@@ -103,6 +121,60 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By discipline'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bff3dd02710bc2233382",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Discipline"
+              }
+            },
+            "Property": "Discipline"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7b526ec1e3105107b766",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "% of CVs Sent"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

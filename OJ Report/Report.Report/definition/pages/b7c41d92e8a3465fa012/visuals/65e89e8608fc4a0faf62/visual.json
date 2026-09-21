@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "125ee1510d5542c181f5",
+  "name": "65e89e8608fc4a0faf62",
   "position": {
-    "x": 300.21461420541647,
-    "y": 150.10730710270823,
-    "z": 6000,
-    "height": 433.64333163004596,
-    "width": 786.83699540112411,
-    "tabOrder": 6000
+    "x": 950.18404907975457,
+    "y": 525.15337423312883,
+    "z": 7000,
+    "height": 522.20858895705521,
+    "width": 950.18404907975457,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -70,28 +70,52 @@
         }
       }
     },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ea285ffbcce9b01346e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Date"
               }
             },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Income vs target by fiscal period'"
-                }
-              }
-            }
+            "Property": "Fiscal Period"
           }
-        }
-      ]
-    }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "22019460a89d430a04d0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Income"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a4ef748e038aba004703",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Target Income"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "e802efc16b09a56124ad",
+  "name": "416bb26061b20890c007",
   "position": {
     "x": 17.65968318855391,
-    "y": 19.621870209504344,
-    "z": 12000,
+    "y": 104.97700562084823,
+    "z": 14001,
     "height": 90,
     "width": 260,
-    "tabOrder": 12000
+    "tabOrder": 14001
   },
   "visual": {
     "visualType": "slicer",
@@ -28,11 +28,11 @@
                       "Hierarchy": "Fiscal"
                     }
                   },
-                  "Level": "Fiscal Year"
+                  "Level": "Fiscal Period"
                 }
               },
-              "queryRef": "dim_Date.Fiscal.Fiscal Year",
-              "nativeQueryRef": "Fiscal Fiscal Year",
+              "queryRef": "dim_Date.Fiscal.Fiscal Period",
+              "nativeQueryRef": "Fiscal Fiscal Period",
               "active": true
             }
           ]
@@ -55,104 +55,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "dim_Date",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Fiscal Year"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'FY26/27'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "dim_Date"
-                                    }
-                                  },
-                                  "Hierarchy": "Fiscal"
-                                }
-                              },
-                              "Level": "Fiscal Year"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'FY26/27'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "dim_Date"
-                                    }
-                                  },
-                                  "Property": "Fiscal Year"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "FY26/27"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "dropdown": [
@@ -309,7 +212,7 @@
         "howCreated": "User"
       },
       {
-        "name": "d4c73ca59cd009db4a2a",
+        "name": "3d87ef80b74307e33ad6",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -322,7 +225,7 @@
                 "Hierarchy": "Fiscal"
               }
             },
-            "Level": "Fiscal Year"
+            "Level": "Fiscal Period"
           }
         },
         "type": "Categorical"

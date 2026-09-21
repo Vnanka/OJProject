@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "8856b8f0072082a65d46",
   "position": {
-    "x": 1100,
-    "y": 150,
-    "z": 9000,
-    "height": 300,
-    "width": 800,
-    "tabOrder": 9000
+    "x": 1112.5600408788962,
+    "y": 150.10730710270823,
+    "z": 14000,
+    "height": 433.64333163004596,
+    "width": 787.81808891159938,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "lineChart",
@@ -87,12 +87,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Open"
+                  "Property": "CVs Sent"
                 }
               },
-              "queryRef": "_Measures.Open",
-              "nativeQueryRef": "Open",
-              "displayName": "Open"
+              "queryRef": "_Measures.CVs Sent",
+              "nativeQueryRef": "CVs Sent",
+              "displayName": "CVs Sent"
             }
           ],
           "fieldParameters": [
@@ -109,6 +109,24 @@
               },
               "index": 0,
               "length": 1
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% of CVs Sent"
+                }
+              },
+              "queryRef": "_Measures.% of CVs Sent",
+              "nativeQueryRef": "% of CVs Sent"
             }
           ]
         }
@@ -129,6 +147,42 @@
                   }
                 },
                 "Level": "Fiscal Year"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Date"
+                      }
+                    },
+                    "Hierarchy": "Fiscal"
+                  }
+                },
+                "Level": "Fiscal Quarter"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_Date"
+                      }
+                    },
+                    "Hierarchy": "Fiscal"
+                  }
+                },
+                "Level": "Fiscal Period"
               }
             },
             "direction": "Ascending"
@@ -165,12 +219,34 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Over time'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "2c0653db18d64480601d",
+        "name": "49c360de8b68d0273610",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -186,10 +262,10 @@
             "Level": "Fiscal Year"
           }
         },
-        "type": "Advanced"
+        "type": "Categorical"
       },
       {
-        "name": "3a6e7d8470bc4d9a9eaa",
+        "name": "bcf0b0ab47075b318320",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -208,7 +284,7 @@
         "type": "Categorical"
       },
       {
-        "name": "41a8688d01401b3553ab",
+        "name": "f1740b5806757600c3a1",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -227,26 +303,7 @@
         "type": "Categorical"
       },
       {
-        "name": "6b0a9fce9a7333b0e50a",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_Date"
-                  }
-                },
-                "Hierarchy": "Fiscal"
-              }
-            },
-            "Level": "Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "032f3a20637614ab731e",
+        "name": "0dbe13fd996095e89c09",
         "field": {
           "Measure": {
             "Expression": {
@@ -254,7 +311,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "Open"
+            "Property": "% of CVs Sent"
           }
         },
         "type": "Advanced"

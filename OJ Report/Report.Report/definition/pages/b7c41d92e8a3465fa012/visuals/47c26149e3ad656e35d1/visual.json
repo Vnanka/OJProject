@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "0a78ddd902e0752ea5d5",
+  "name": "47c26149e3ad656e35d1",
   "position": {
-    "x": 20,
-    "y": 350,
-    "z": 7000,
-    "height": 90,
+    "x": 1640.2453987730062,
+    "y": 19.631901840490798,
+    "z": 8000,
+    "height": 110,
     "width": 260,
-    "tabOrder": 7000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_Date"
-                        }
-                      },
-                      "Hierarchy": "Fiscal"
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
                     }
                   },
-                  "Level": "Fiscal Period"
+                  "Property": "Team"
                 }
               },
-              "queryRef": "dim_Date.Fiscal.Fiscal Period",
-              "nativeQueryRef": "Fiscal Period",
+              "queryRef": "dim_Consultant.Team",
+              "nativeQueryRef": "Team",
               "active": true
             }
           ]
@@ -55,7 +50,22 @@
       ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -64,7 +74,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a6ac176100eee0510879",
+        "name": "54e238b0016820db4311",
         "field": {
           "Measure": {
             "Expression": {
@@ -72,7 +82,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "Applications"
+            "Property": "CVs Sent"
           }
         },
         "type": "Advanced",
@@ -97,7 +107,7 @@
                           "Source": "_"
                         }
                       },
-                      "Property": "Applications"
+                      "Property": "CVs Sent"
                     }
                   },
                   "Right": {

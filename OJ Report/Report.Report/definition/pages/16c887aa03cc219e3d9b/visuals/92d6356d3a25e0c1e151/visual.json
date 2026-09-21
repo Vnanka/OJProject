@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "92d6356d3a25e0c1e151",
   "position": {
-    "x": 700,
-    "y": 480,
-    "z": 4000,
-    "height": 290,
-    "width": 380,
-    "tabOrder": 4000
+    "x": 706.060296371998,
+    "y": 601.41032192130808,
+    "z": 10000,
+    "height": 456.20848237097596,
+    "width": 380.66428206438428,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -57,6 +57,24 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% of CVs Sent"
+                }
+              },
+              "queryRef": "_Measures.% of CVs Sent",
+              "nativeQueryRef": "% of CVs Sent"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -67,12 +85,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Open"
+                  "Property": "CVs Sent"
                 }
               },
-              "queryRef": "_Measures.Open",
-              "nativeQueryRef": "Open",
-              "displayName": "Open"
+              "queryRef": "_Measures.CVs Sent",
+              "nativeQueryRef": "CVs Sent",
+              "displayName": "CVs Sent"
             }
           ],
           "fieldParameters": [
@@ -150,6 +168,84 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'By industry'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f916a6ea280533208550",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Industry"
+                  }
+                },
+                "Hierarchy": "Industry Hierarchy"
+              }
+            },
+            "Level": "Industry"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d27f5712306ea59c8398",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_Industry"
+                  }
+                },
+                "Hierarchy": "Industry Hierarchy"
+              }
+            },
+            "Level": "Sub-sector"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "442389bf2c80370993eb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "% of CVs Sent"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

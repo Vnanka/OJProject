@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "070c128182db4f56b9da",
+  "position": {
+    "x": 1440,
+    "y": 150.1840490797546,
+    "z": 6000,
+    "height": 352.39263803680979,
+    "width": 460.3680981595092,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "dim_Consultant.Team",
+              "nativeQueryRef": "Team",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days to Fill"
+                }
+              },
+              "queryRef": "_Measures.Avg Days to Fill",
+              "nativeQueryRef": "Avg Days to Fill"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "354c8685c2e39b099c32",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_Consultant"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dabe13b5dd615b6368ce",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avg Days to Fill"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

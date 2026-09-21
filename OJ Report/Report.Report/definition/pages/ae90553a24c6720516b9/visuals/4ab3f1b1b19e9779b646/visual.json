@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "4ab3f1b1b19e9779b646",
   "position": {
-    "x": 33.864243719935864,
-    "y": 183.68786745056119,
+    "x": 33.374233128834355,
+    "y": 117.79141104294477,
     "z": 1000,
-    "height": 837.37039016568679,
-    "width": 1821.4858364510956,
+    "height": 903.0674846625767,
+    "width": 1846.3803680981594,
     "tabOrder": 1000
   },
   "visual": {
@@ -45,196 +45,31 @@
             },
             {
               "field": {
-                "Aggregation": {
+                "Column": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_Application"
-                        }
-                      },
-                      "Property": "reachedinterview"
+                    "SourceRef": {
+                      "Entity": "dim_Vacancy"
                     }
                   },
-                  "Function": 0
+                  "Property": "Work Arrangement"
                 }
               },
-              "queryRef": "Sum(fact_Application.reachedinterview)",
-              "nativeQueryRef": "Sum of reachedinterview"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_Application"
-                        }
-                      },
-                      "Property": "isplaced"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(fact_Application.isplaced)",
-              "nativeQueryRef": "Sum of isplaced"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_Application"
-                        }
-                      },
-                      "Property": "isopen"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(fact_Application.isopen)",
-              "nativeQueryRef": "Sum of isopen"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_Application"
-                        }
-                      },
-                      "Property": "reachedoffer"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(fact_Application.reachedoffer)",
-              "nativeQueryRef": "Sum of reachedoffer"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_Application"
-                        }
-                      },
-                      "Property": "isexited"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(fact_Application.isexited)",
-              "nativeQueryRef": "Sum of isexited"
+              "queryRef": "dim_Vacancy.Work Arrangement",
+              "nativeQueryRef": "Work Arrangement"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_Application"
+                      "Entity": "dim_Vacancy"
                     }
                   },
-                  "Property": "Can Relocate"
+                  "Property": "Expected Start Date"
                 }
               },
-              "queryRef": "fact_Application.Can Relocate",
-              "nativeQueryRef": "Can Relocate"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_Application"
-                    }
-                  },
-                  "Property": "daystointerview"
-                }
-              },
-              "queryRef": "fact_Application.daystointerview",
-              "nativeQueryRef": "daystointerview"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_Application"
-                    }
-                  },
-                  "Property": "daystooffer"
-                }
-              },
-              "queryRef": "fact_Application.daystooffer",
-              "nativeQueryRef": "daystooffer"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_Application"
-                    }
-                  },
-                  "Property": "daystoplaced"
-                }
-              },
-              "queryRef": "fact_Application.daystoplaced",
-              "nativeQueryRef": "daystoplaced"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_Consultant"
-                    }
-                  },
-                  "Property": "Consultant Name"
-                }
-              },
-              "queryRef": "dim_Consultant.Consultant Name",
-              "nativeQueryRef": "Consultant Name"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_Consultant"
-                    }
-                  },
-                  "Property": "Consultant Office"
-                }
-              },
-              "queryRef": "dim_Consultant.Consultant Office",
-              "nativeQueryRef": "Consultant Office"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_Client"
-                    }
-                  },
-                  "Property": "Client Name"
-                }
-              },
-              "queryRef": "dim_Client.Client Name",
-              "nativeQueryRef": "Client Name"
+              "queryRef": "dim_Vacancy.Expected Start Date",
+              "nativeQueryRef": "Expected Start Date"
             },
             {
               "field": {
@@ -249,6 +84,20 @@
               },
               "queryRef": "dim_Discipline.Discipline",
               "nativeQueryRef": "Discipline"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Client"
+                    }
+                  },
+                  "Property": "Client Name"
+                }
+              },
+              "queryRef": "dim_Client.Client Name",
+              "nativeQueryRef": "Client Name"
             },
             {
               "field": {
@@ -283,28 +132,168 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_Vacancy"
+                      "Entity": "fact_Application"
                     }
                   },
-                  "Property": "Expected Start Date"
+                  "Property": "Can Relocate"
                 }
               },
-              "queryRef": "dim_Vacancy.Expected Start Date",
-              "nativeQueryRef": "Expected Start Date"
+              "queryRef": "fact_Application.Can Relocate",
+              "nativeQueryRef": "Can Relocate"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_Vacancy"
+                      "Entity": "dim_Consultant"
                     }
                   },
-                  "Property": "Work Arrangement"
+                  "Property": "Consultant Name"
                 }
               },
-              "queryRef": "dim_Vacancy.Work Arrangement",
-              "nativeQueryRef": "Work Arrangement"
+              "queryRef": "dim_Consultant.Consultant Name",
+              "nativeQueryRef": "Consultant Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "dim_Consultant.Team",
+              "nativeQueryRef": "Team"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_Consultant"
+                    }
+                  },
+                  "Property": "Consultant Office"
+                }
+              },
+              "queryRef": "dim_Consultant.Consultant Office",
+              "nativeQueryRef": "Consultant Office"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Reached Interview"
+                }
+              },
+              "queryRef": "_Measures.Reached Interview",
+              "nativeQueryRef": "Reached Interview"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Reached Offer"
+                }
+              },
+              "queryRef": "_Measures.Reached Offer",
+              "nativeQueryRef": "Reached Offer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Placed"
+                }
+              },
+              "queryRef": "_Measures.Placed",
+              "nativeQueryRef": "Placed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Did Not Progress"
+                }
+              },
+              "queryRef": "_Measures.Did Not Progress",
+              "nativeQueryRef": "Did Not Progress"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Open"
+                }
+              },
+              "queryRef": "_Measures.Open",
+              "nativeQueryRef": "Open"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days to Interview"
+                }
+              },
+              "queryRef": "_Measures.Avg Days to Interview",
+              "nativeQueryRef": "Avg Days to Interview"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days to Offer"
+                }
+              },
+              "queryRef": "_Measures.Avg Days to Offer",
+              "nativeQueryRef": "Avg Days to Offer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Days to Placed"
+                }
+              },
+              "queryRef": "_Measures.Avg Days to Placed",
+              "nativeQueryRef": "Avg Days to Placed"
             }
           ]
         }
@@ -324,6 +313,151 @@
               }
             },
             "Property": "Selected Metric"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "d19104969ca7404851b1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_Application"
+                  }
+                },
+                "Property": "reachedinterview"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "1f59bab04091dae11dbb",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_Application"
+                  }
+                },
+                "Property": "isplaced"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "c0106457a8375a6b5a37",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_Application"
+                  }
+                },
+                "Property": "isopen"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "43cbf14aa811be04271e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_Application"
+                  }
+                },
+                "Property": "reachedoffer"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "35a38127ce54759992b3",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_Application"
+                  }
+                },
+                "Property": "isexited"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "e6bd7a2edcec74e9e1bc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_Application"
+              }
+            },
+            "Property": "daystointerview"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "a2aa5ca10406b4409431",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_Application"
+              }
+            },
+            "Property": "daystooffer"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "1b306d02308b9a612698",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_Application"
+              }
+            },
+            "Property": "daystoplaced"
           }
         },
         "type": "Advanced",
